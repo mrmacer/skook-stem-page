@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Events — STEM @ Skook29</title>
+  <meta name="description" content="Upcoming STEM events at Skook29 — competitions, professional development, student events, and community programs." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .events-filter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--gray-200);
+      background: white;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-body);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--purple-600);
+      color: var(--purple-600);
+      background: var(--purple-100);
+    }
+
+    .event-full-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(0,0,0,0.04);
+      display: flex;
+      transition: all 0.3s ease;
+    }
+    .event-full-card:hover {
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-4px);
+    }
+    .event-full-card-side {
+      width: 100px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 28px 20px;
+      background: var(--gradient-main);
+      color: white;
+      gap: 4px;
+    }
+    .event-full-card-month {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+    .event-full-card-day {
+      font-family: var(--font-display);
+      font-size: 2.25rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .event-full-card-year {
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+    .event-full-card-body {
+      padding: 28px 32px;
+      flex: 1;
+    }
+    .event-full-card-footer {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .month-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 40px 0 24px;
+    }
+    .month-divider h3 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      white-space: nowrap;
+    }
+    .month-divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+    .event-type-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+    }
+    .dot-competition { background: #7e22ce; }
+    .dot-pd { background: #0284c7; }
+    .dot-student { background: #059669; }
+    .dot-community { background: #ea580c; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+        </a>
+        <div class="site-title">
+          <span class="title-top">STEM@</span>
+          <span class="title-bottom">Skook29</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="students.html">Students</a>
+        <a href="teachers.html">Teachers</a>
+        <a href="districts.html">Districts</a>
+        <a href="community.html">Community</a>
+        <a href="programs.html">Programs</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="districts.html">Districts</a>
+    <a href="community.html">Community</a>
+    <a href="programs.html">Programs</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <span>Events</span>
+        </div>
+        <div class="page-hero-label">Calendar</div>
+        <h1 class="page-hero-title">Upcoming Events</h1>
+        <p class="page-hero-subtitle">
+          Competitions, professional development, student showcases, and community programs —
+          something is always happening at STEM @ Skook29.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS MAIN -->
+  <section style="padding: var(--section-pad) 0; background: var(--gray-50);">
+    <div class="container">
+
+      <!-- Legend -->
+      <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; background: white; border-radius: var(--radius-lg); padding: 16px 24px; box-shadow: var(--shadow-sm);">
+        <span style="font-size: 0.8125rem; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.08em;">Filter by:</span>
+        <span style="font-size: 0.875rem; color: var(--gray-700);"><span class="event-type-dot dot-competition"></span> Competition</span>
+        <span style="font-size: 0.875rem; color: var(--gray-700);"><span class="event-type-dot dot-pd"></span> Professional Development</span>
+        <span style="font-size: 0.875rem; color: var(--gray-700);"><span class="event-type-dot dot-student"></span> Student Event</span>
+        <span style="font-size: 0.875rem; color: var(--gray-700);"><span class="event-type-dot dot-community"></span> Community Event</span>
+      </div>
+
+      <!-- APRIL -->
+      <div class="month-divider">
+        <h3>April 2026</h3>
+        <div class="month-divider-line"></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <div class="event-full-card fade-in">
+          <div class="event-full-card-side">
+            <div class="event-full-card-month">Apr</div>
+            <div class="event-full-card-day">18</div>
+            <div class="event-full-card-year">2026</div>
+          </div>
+          <div class="event-full-card-body">
+            <div style="margin-bottom: 8px;">
+              <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #7e22ce; background: #f3e8ff; padding: 4px 10px; border-radius: 999px;">
+                <span class="event-type-dot dot-competition" style="margin-right: 4px;"></span>Competition
+              </span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">Regional Robotics Invitational</h3>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 20px;">Teams from across Schuylkill County compete in our annual robotics invitational. Open to all FIRST Robotics and LEGO League teams. Family friendly — spectators welcome.</p>
+            <div class="event-full-card-footer">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">📍 IU29 Conference Center, Marlin, PA</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">⏰ 8:00 AM – 4:00 PM</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">👥 All Ages</span>
+              <a href="contact.html" class="btn btn-secondary btn-sm">Register →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-full-card fade-in">
+          <div class="event-full-card-side" style="background: linear-gradient(135deg, #164e63, #0284c7);">
+            <div class="event-full-card-month">Apr</div>
+            <div class="event-full-card-day">24</div>
+            <div class="event-full-card-year">2026</div>
+          </div>
+          <div class="event-full-card-body">
+            <div style="margin-bottom: 8px;">
+              <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #0284c7; background: #e0f2fe; padding: 4px 10px; border-radius: 999px;">
+                <span class="event-type-dot dot-pd" style="margin-right: 4px;"></span>Professional Development
+              </span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">STEELS Standards Implementation Workshop</h3>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 20px;">A half-day workshop for K-12 educators on implementing Pennsylvania's STEELS standards. Practical strategies, curriculum alignment tools, and time to collaborate with colleagues. Act 48 credit available.</p>
+            <div class="event-full-card-footer">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">📍 Virtual / Hybrid</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">⏰ 9:00 AM – 12:00 PM</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">🎓 K-12 Educators</span>
+              <a href="contact.html" class="btn btn-secondary btn-sm">Register →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MAY -->
+      <div class="month-divider">
+        <h3>May 2026</h3>
+        <div class="month-divider-line"></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <div class="event-full-card fade-in">
+          <div class="event-full-card-side" style="background: linear-gradient(135deg, #064e3b, #059669);">
+            <div class="event-full-card-month">May</div>
+            <div class="event-full-card-day">7</div>
+            <div class="event-full-card-year">2026</div>
+          </div>
+          <div class="event-full-card-body">
+            <div style="margin-bottom: 8px;">
+              <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #059669; background: #d1fae5; padding: 4px 10px; border-radius: 999px;">
+                <span class="event-type-dot dot-student" style="margin-right: 4px;"></span>Student Event
+              </span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">Regional STEM Showcase & Expo</h3>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 20px;">Students from across the region present projects, compete in challenges, and connect with industry partners. Open to the public — a celebration of STEM learning in Schuylkill County.</p>
+            <div class="event-full-card-footer">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">📍 Schuylkill County</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">⏰ 10:00 AM – 3:00 PM</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">👥 All Welcome</span>
+              <a href="contact.html" class="btn btn-secondary btn-sm">Learn More →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-full-card fade-in">
+          <div class="event-full-card-side" style="background: linear-gradient(135deg, #431407, #ea580c);">
+            <div class="event-full-card-month">May</div>
+            <div class="event-full-card-day">15</div>
+            <div class="event-full-card-year">2026</div>
+          </div>
+          <div class="event-full-card-body">
+            <div style="margin-bottom: 8px;">
+              <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #ea580c; background: #fff7ed; padding: 4px 10px; border-radius: 999px;">
+                <span class="event-type-dot dot-community" style="margin-right: 4px;"></span>Community Event
+              </span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">Industry Partner Roundtable</h3>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 20px;">A facilitated conversation between regional business leaders and school administrators about workforce needs, education alignment, and partnership opportunities. Dinner provided.</p>
+            <div class="event-full-card-footer">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">📍 IU29 Main Campus</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">⏰ 6:00 PM – 8:00 PM</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">🏭 Business Leaders & Admins</span>
+              <a href="contact.html" class="btn btn-secondary btn-sm">RSVP →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-full-card fade-in">
+          <div class="event-full-card-side" style="background: linear-gradient(135deg, #164e63, #0284c7);">
+            <div class="event-full-card-month">May</div>
+            <div class="event-full-card-day">22</div>
+            <div class="event-full-card-year">2026</div>
+          </div>
+          <div class="event-full-card-body">
+            <div style="margin-bottom: 8px;">
+              <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #0284c7; background: #e0f2fe; padding: 4px 10px; border-radius: 999px;">
+                <span class="event-type-dot dot-pd" style="margin-right: 4px;"></span>Professional Development
+              </span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">AI in the Classroom: Practical Tools for Teachers</h3>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 20px;">A focused, practical session on using AI tools to save time, differentiate instruction, and engage students. No prior AI experience needed. Hands-on format — bring your laptop.</p>
+            <div class="event-full-card-footer">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">📍 Virtual</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">⏰ 3:30 PM – 5:00 PM</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">🎓 All Teachers</span>
+              <a href="contact.html" class="btn btn-secondary btn-sm">Register →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- JUNE -->
+      <div class="month-divider">
+        <h3>June 2026</h3>
+        <div class="month-divider-line"></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+
+        <div class="event-full-card fade-in">
+          <div class="event-full-card-side" style="background: linear-gradient(135deg, #064e3b, #059669);">
+            <div class="event-full-card-month">Jun</div>
+            <div class="event-full-card-day">4</div>
+            <div class="event-full-card-year">2026</div>
+          </div>
+          <div class="event-full-card-body">
+            <div style="margin-bottom: 8px;">
+              <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #059669; background: #d1fae5; padding: 4px 10px; border-radius: 999px;">
+                <span class="event-type-dot dot-student" style="margin-right: 4px;"></span>Student Event
+              </span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">Make @ Skook29 — End of Year Celebration</h3>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 20px;">Students showcase their makerspace projects from the year. Presentations, demonstrations, and a celebration of everything that was built, designed, and created. Families invited.</p>
+            <div class="event-full-card-footer">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">📍 Makerspace, IU29</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">⏰ 1:00 PM – 5:00 PM</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">👨‍👩‍👧 Families Welcome</span>
+              <a href="contact.html" class="btn btn-secondary btn-sm">Learn More →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-full-card fade-in">
+          <div class="event-full-card-side" style="background: linear-gradient(135deg, #164e63, #0284c7);">
+            <div class="event-full-card-month">Jun</div>
+            <div class="event-full-card-day">16</div>
+            <div class="event-full-card-year">2026</div>
+          </div>
+          <div class="event-full-card-body">
+            <div style="margin-bottom: 8px;">
+              <span style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #0284c7; background: #e0f2fe; padding: 4px 10px; border-radius: 999px;">
+                <span class="event-type-dot dot-pd" style="margin-right: 4px;"></span>Professional Development
+              </span>
+            </div>
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">Summer STEM Institute — Day 1</h3>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 20px;">Multi-day summer professional learning experience for teachers. Hands-on STEM activities, STEELS deep-dives, EdTech exploration, and collaborative curriculum planning. Act 48 credit available.</p>
+            <div class="event-full-card-footer">
+              <span style="font-size: 0.875rem; color: var(--gray-500);">📍 IU29 Conference Center</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">⏰ 8:30 AM – 3:30 PM</span>
+              <span style="font-size: 0.875rem; color: var(--gray-500);">🎓 All Educators</span>
+              <a href="contact.html" class="btn btn-secondary btn-sm">Register →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ADD TO CALENDAR CTA -->
+      <div style="margin-top: 56px; background: white; border-radius: var(--radius-xl); padding: 40px; text-align: center; box-shadow: var(--shadow-md);">
+        <h3 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--gray-900); margin-bottom: 12px;">Stay in the Loop</h3>
+        <p style="font-size: 1rem; color: var(--gray-500); margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto;">
+          Want to be notified about new events? Sign up for our newsletter or contact us to get on the STEM @ Skook29 mailing list.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html" class="btn btn-primary">Join the Mailing List</a>
+          <a href="contact.html" class="btn btn-secondary">Submit an Event</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-title">
+            <span class="footer-title-top">STEM@</span>
+            <span class="footer-title-bottom">Skook29</span>
+          </div>
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <p>Building the future of STEM learning in Schuylkill County.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html#competitions">Competitions</a></li>
+            <li><a href="programs.html#make">Make @ Skook29</a></li>
+            <li><a href="programs.html#cso">CSO @ Skook29</a></li>
+            <li><a href="programs.html#steels">STEELS @ Skook29</a></li>
+            <li><a href="programs.html#edtech">EdTech & AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM @ Skook29 · Schuylkill Intermediate Unit 29</p>
+        <div class="social-links">
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

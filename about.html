@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — STEM @ Skook29</title>
+  <meta name="description" content="About STEM @ Skook29 and Greg Macer, Supervisor of STEM and District Support at Schuylkill IU 29." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .team-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .team-card-top {
+      background: var(--gradient-main);
+      padding: 48px 40px 32px;
+      position: relative;
+    }
+    .team-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 3px solid rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 6px;
+    }
+    .team-title {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
+    .team-card-body {
+      padding: 40px;
+    }
+    .team-card-body p {
+      font-size: 1.0625rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .vision-card {
+      background: var(--gradient-hero);
+      border-radius: var(--radius-xl);
+      padding: 56px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .vision-card::before {
+      content: '"';
+      position: absolute;
+      top: -20px;
+      left: 40px;
+      font-size: 20rem;
+      font-family: var(--font-display);
+      font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .vision-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.375rem, 3vw, 2rem);
+      font-weight: 700;
+      line-height: 1.5;
+      position: relative;
+      z-index: 2;
+    }
+
+    .value-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .value-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+    }
+    .value-card:nth-child(1) { border-top-color: var(--purple-500); }
+    .value-card:nth-child(2) { border-top-color: var(--orange-500); }
+    .value-card:nth-child(3) { border-top-color: #0284c7; }
+    .value-card:nth-child(4) { border-top-color: #059669; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+        </a>
+        <div class="site-title">
+          <span class="title-top">STEM@</span>
+          <span class="title-bottom">Skook29</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="students.html">Students</a>
+        <a href="teachers.html">Teachers</a>
+        <a href="districts.html">Districts</a>
+        <a href="community.html">Community</a>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="districts.html">Districts</a>
+    <a href="community.html">Community</a>
+    <a href="programs.html">Programs</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <span>About</span>
+        </div>
+        <div class="page-hero-label">Our Story</div>
+        <h1 class="page-hero-title">About STEM @ Skook29</h1>
+        <p class="page-hero-subtitle">
+          A mission-driven STEM ecosystem built for Schuylkill County —
+          connecting students, educators, and community to create a better future for our region.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section style="padding: var(--section-pad) 0; background: white;">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="section-label">Our Mission</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Why STEM @ Skook29 Exists</h2>
+          <p style="font-size: 1.125rem; color: var(--gray-600); line-height: 1.8; margin-bottom: 20px;">
+            STEM @ Skook29 was built on a simple belief: <strong>every student in Schuylkill County deserves access to high-quality STEM education</strong> — regardless of their zip code, school size, or district budget.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            As the regional educational hub, IU29 is uniquely positioned to build the infrastructure, partnerships, and programs that no single district could sustain alone. We exist to serve the whole region — not just individual schools.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
+            Our work spans competitions, makerspaces, professional learning, standards implementation, EdTech integration, and workforce alignment — all connected by a shared commitment to the students and educators of Schuylkill County.
+          </p>
+          <a href="contact.html" class="btn btn-primary">Get Connected →</a>
+        </div>
+        <div class="vision-card">
+          <div class="section-label" style="color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15);">Our Vision</div>
+          <p class="vision-text" style="margin-top: 20px;">
+            "A Schuylkill County where every student graduates prepared for a STEM-driven world — and every school has the support to make that happen."
+          </p>
+          <div style="margin-top: 32px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <div style="font-size: 0.875rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em;">Built on Three Pillars</div>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">🎓</div>
+                <div>
+                  <div style="font-weight: 700; color: white; font-size: 0.9375rem;">Student Success</div>
+                  <div style="font-size: 0.8125rem; color: rgba(255,255,255,0.6);">Every program starts with students first</div>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">📚</div>
+                <div>
+                  <div style="font-weight: 700; color: white; font-size: 0.9375rem;">Teacher Empowerment</div>
+                  <div style="font-size: 0.8125rem; color: rgba(255,255,255,0.6);">Great teaching requires great support</div>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">🌐</div>
+                <div>
+                  <div style="font-weight: 700; color: white; font-size: 0.9375rem;">Community Connection</div>
+                  <div style="font-size: 0.8125rem; color: rgba(255,255,255,0.6);">Schools succeed when communities invest</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section style="background: var(--gray-50); padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Leadership</span>
+        <h2 class="section-title">Meet the Team</h2>
+        <p class="section-subtitle">The people driving STEM education forward across Schuylkill County.</p>
+      </div>
+      <div style="max-width: 640px; margin: 0 auto;">
+        <div class="team-card fade-in">
+          <div class="team-card-top">
+            <div class="team-avatar">👤</div>
+            <div class="team-name">Greg Macer</div>
+            <div class="team-title">Supervisor of STEM and District Support · Schuylkill IU 29</div>
+          </div>
+          <div class="team-card-body">
+            <p>
+              Greg Macer leads STEM education and district support at Schuylkill Intermediate Unit 29, serving as the regional connector between students, teachers, administrators, and industry partners.
+            </p>
+            <p>
+              With a focus on building sustainable STEM ecosystems — not just programs — Greg works across all 12+ member districts to align curriculum with state standards, connect schools to workforce opportunities, and bring innovative experiences to students who might not otherwise have access.
+            </p>
+            <p>
+              His work spans STEELS standards implementation, EdTech and AI integration, competition programs, makerspace development, and strategic district support. He is committed to the belief that strong STEM education is both an equity issue and an economic one.
+            </p>
+            <div style="border-top: 1px solid var(--gray-100); padding-top: 24px; margin-top: 8px; display: flex; gap: 16px; flex-wrap: wrap;">
+              <a href="mailto:maceg@iu29.org" class="btn btn-primary btn-sm">✉ Email Greg</a>
+              <a href="contact.html" class="btn btn-secondary btn-sm">Schedule a Meeting</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section style="padding: var(--section-pad) 0; background: white;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What We Stand For</span>
+        <h2 class="section-title">Our Core Values</h2>
+        <p class="section-subtitle">Everything we do is guided by these principles.</p>
+      </div>
+      <div class="grid-4">
+        <div class="value-card fade-in">
+          <div style="font-size: 2rem; margin-bottom: 16px;">🎯</div>
+          <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Equity First</h4>
+          <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">Every student deserves STEM opportunity — regardless of their school's size, location, or resources. We design programs with equity at the center.</p>
+        </div>
+        <div class="value-card fade-in">
+          <div style="font-size: 2rem; margin-bottom: 16px;">🔗</div>
+          <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Connected Ecosystem</h4>
+          <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">STEM thrives when schools, industry, higher education, and communities are connected. We build bridges, not silos.</p>
+        </div>
+        <div class="value-card fade-in">
+          <div style="font-size: 2rem; margin-bottom: 16px;">💡</div>
+          <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Practical Innovation</h4>
+          <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">We embrace new ideas and emerging tools — but always with a practical eye toward what actually works in real classrooms with real students.</p>
+        </div>
+        <div class="value-card fade-in">
+          <div style="font-size: 2rem; margin-bottom: 16px;">🤝</div>
+          <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Genuine Partnership</h4>
+          <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">We show up as partners — not vendors, not outside experts. We work alongside teachers, administrators, and students to build something together.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT IU29 -->
+  <section style="background: var(--gray-50); padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="two-col">
+        <div style="background: white; border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-md);">
+          <div style="font-size: 3rem; margin-bottom: 20px;">🏫</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; color: var(--gray-900); margin-bottom: 16px;">Schuylkill Intermediate Unit 29</h3>
+          <p style="font-size: 1rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            The Schuylkill Intermediate Unit 29 (IU29) is a regional educational service agency serving 12+ school districts across Schuylkill County, Pennsylvania.
+          </p>
+          <p style="font-size: 1rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 24px;">
+            IU29 provides specialized services, professional development, student programs, and regional coordination that individual districts cannot efficiently provide on their own — from special education to technology to STEM.
+          </p>
+          <a href="#" class="btn btn-secondary btn-sm">Visit IU29 Website →</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="stat-card">
+            <div class="value" data-counter="12" data-suffix="+">12+</div>
+            <div class="label">Member School Districts</div>
+          </div>
+          <div class="stat-card">
+            <div class="value" data-counter="5000" data-suffix="+">5,000+</div>
+            <div class="label">Students Served Annually</div>
+          </div>
+          <div class="stat-card">
+            <div class="value" data-counter="200" data-suffix="+">200+</div>
+            <div class="label">Educators Supported</div>
+          </div>
+          <div class="stat-card">
+            <div class="value" data-counter="50" data-suffix="+">50+</div>
+            <div class="label">Community & Industry Partners</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-content">
+        <h2>Become Part of This Mission</h2>
+        <p>Whether you're a teacher, student, administrator, or community partner — there's a place for you in the STEM @ Skook29 ecosystem.</p>
+        <div class="cta-banner-actions">
+          <a href="contact.html" class="btn btn-white btn-lg">Connect With Us</a>
+          <a href="programs.html" class="btn btn-outline-white btn-lg">Explore Programs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-title">
+            <span class="footer-title-top">STEM@</span>
+            <span class="footer-title-bottom">Skook29</span>
+          </div>
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <p>Building the future of STEM learning in Schuylkill County.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html#competitions">Competitions</a></li>
+            <li><a href="programs.html#make">Make @ Skook29</a></li>
+            <li><a href="programs.html#cso">CSO @ Skook29</a></li>
+            <li><a href="programs.html#steels">STEELS @ Skook29</a></li>
+            <li><a href="programs.html#edtech">EdTech & AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM @ Skook29 · Schuylkill Intermediate Unit 29</p>
+        <div class="social-links">
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

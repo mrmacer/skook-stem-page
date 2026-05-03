@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — STEM @ Skook29</title>
+  <meta name="description" content="Get in touch with STEM @ Skook29 — contact Greg Macer, Supervisor of STEM and District Support at Schuylkill IU 29." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray-700);
+    }
+    .form-label .required {
+      color: var(--orange-500);
+      margin-left: 3px;
+    }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--gray-900);
+      background: white;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--purple-500);
+      box-shadow: 0 0 0 3px rgba(126,34,206,0.1);
+    }
+    .form-textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
+      background: var(--gray-50);
+      border-radius: var(--radius-lg);
+    }
+    .contact-info-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gradient-main);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.125rem;
+      flex-shrink: 0;
+    }
+    .contact-info-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-400);
+      margin-bottom: 4px;
+    }
+    .contact-info-value {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+    .contact-info-value a {
+      color: var(--purple-600);
+      transition: color 0.2s ease;
+    }
+    .contact-info-value a:hover { color: var(--purple-800); }
+
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+        </a>
+        <div class="site-title">
+          <span class="title-top">STEM@</span>
+          <span class="title-bottom">Skook29</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="students.html">Students</a>
+        <a href="teachers.html">Teachers</a>
+        <a href="districts.html">Districts</a>
+        <a href="community.html">Community</a>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta active" style="background: var(--gradient-orange) !important;">Contact Us</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="districts.html">Districts</a>
+    <a href="community.html">Community</a>
+    <a href="programs.html">Programs</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" style="padding-bottom: 120px;">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <span>Contact</span>
+        </div>
+        <div class="page-hero-label">Get in Touch</div>
+        <h1 class="page-hero-title">Let's Connect</h1>
+        <p class="page-hero-subtitle">
+          Whether you're a teacher looking for support, a school exploring partnership,
+          or a business ready to invest in the next generation — we'd love to hear from you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT MAIN -->
+  <section style="padding: 0 0 var(--section-pad); background: var(--gray-50); margin-top: -80px;">
+    <div class="container">
+      <div class="two-col" style="gap: 40px; align-items: flex-start;">
+
+        <!-- FORM -->
+        <div style="background: white; border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-lg);">
+          <h2 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--gray-900); margin-bottom: 8px;">Send a Message</h2>
+          <p style="font-size: 0.9375rem; color: var(--gray-500); margin-bottom: 32px; line-height: 1.6;">Fill out the form below and Greg will get back to you as soon as possible — typically within one business day.</p>
+
+          <form class="contact-form" action="#" method="post">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="first-name">First Name <span class="required">*</span></label>
+                <input class="form-input" type="text" id="first-name" name="first_name" placeholder="Jane" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="last-name">Last Name <span class="required">*</span></label>
+                <input class="form-input" type="text" id="last-name" name="last_name" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="organization">School / Organization</label>
+                <input class="form-input" type="text" id="organization" name="organization" placeholder="School District or Business" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="role">I am a... <span class="required">*</span></label>
+                <select class="form-select" id="role" name="role" required>
+                  <option value="" disabled selected>Select your role</option>
+                  <option value="student">Student</option>
+                  <option value="teacher">Teacher / Educator</option>
+                  <option value="administrator">Administrator</option>
+                  <option value="community">Community Partner</option>
+                  <option value="business">Business / Industry</option>
+                  <option value="parent">Parent / Family</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="interest">I'm interested in...</label>
+              <select class="form-select" id="interest" name="interest">
+                <option value="" disabled selected>Select a topic (optional)</option>
+                <option value="competitions">Competitions</option>
+                <option value="make">Make @ Skook29 / Makerspace</option>
+                <option value="cso">CSO Programs</option>
+                <option value="steels">STEELS Support</option>
+                <option value="edtech">EdTech & AI</option>
+                <option value="pd">Professional Development</option>
+                <option value="partnership">Partnership / Sponsorship</option>
+                <option value="events">Events</option>
+                <option value="general">General Information</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Message <span class="required">*</span></label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Tell us what's on your mind — how can we help?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="align-self: flex-start; width: 100%;">Send Message →</button>
+          </form>
+        </div>
+
+        <!-- CONTACT INFO SIDEBAR -->
+        <div style="display: flex; flex-direction: column; gap: 20px; position: sticky; top: 100px;">
+          <div style="background: white; border-radius: var(--radius-xl); padding: 36px; box-shadow: var(--shadow-md);">
+            <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--gray-900); margin-bottom: 24px;">Contact Information</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div class="contact-info-item">
+                <div class="contact-info-icon">👤</div>
+                <div>
+                  <div class="contact-info-label">Contact</div>
+                  <div class="contact-info-value">Greg Macer</div>
+                  <div style="font-size: 0.8125rem; color: var(--gray-500); margin-top: 2px;">Supervisor of STEM & District Support</div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon">✉</div>
+                <div>
+                  <div class="contact-info-label">Email</div>
+                  <div class="contact-info-value"><a href="mailto:maceg@iu29.org">maceg@iu29.org</a></div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon">📍</div>
+                <div>
+                  <div class="contact-info-label">Location</div>
+                  <div class="contact-info-value">Schuylkill Intermediate Unit 29</div>
+                  <div style="font-size: 0.8125rem; color: var(--gray-500); margin-top: 2px;">Marlin, Pennsylvania</div>
+                </div>
+              </div>
+              <div class="contact-info-item">
+                <div class="contact-info-icon">🌐</div>
+                <div>
+                  <div class="contact-info-label">Organization</div>
+                  <div class="contact-info-value"><a href="#">iu29.org</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: var(--gradient-main); border-radius: var(--radius-xl); padding: 32px; color: white;">
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px;">Response Time</h4>
+            <p style="font-size: 0.9375rem; opacity: 0.85; line-height: 1.65; margin-bottom: 16px;">Greg typically responds within one business day. For urgent matters, email directly at maceg@iu29.org.</p>
+            <div style="font-size: 0.8125rem; opacity: 0.65;">Mon – Fri, 8:00 AM – 4:00 PM</div>
+          </div>
+
+          <div style="background: white; border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-md);">
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 16px;">Follow STEM @ Skook29</h4>
+            <div class="social-links" style="gap: 10px;">
+              <a href="#" class="social-link" style="background: var(--gray-100); color: var(--gray-600);" aria-label="Twitter">𝕏</a>
+              <a href="#" class="social-link" style="background: var(--gray-100); color: var(--gray-600);" aria-label="Facebook">f</a>
+              <a href="#" class="social-link" style="background: var(--gray-100); color: var(--gray-600);" aria-label="Instagram">📷</a>
+              <a href="#" class="social-link" style="background: var(--gray-100); color: var(--gray-600);" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-link" style="background: var(--gray-100); color: var(--gray-600);" aria-label="YouTube">▶</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PATH QUICK LINKS -->
+  <section style="padding: var(--section-pad-sm) 0; background: white;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 40px;">
+        <h3 style="font-size: 1.375rem; font-weight: 700; color: var(--gray-900);">Looking for something specific?</h3>
+      </div>
+      <div class="path-grid">
+        <a href="students.html" class="path-card">
+          <span class="path-icon">🎓</span>
+          <div class="path-title">Student Resources</div>
+          <p class="path-desc">Competitions, makerspace, and student programs</p>
+        </a>
+        <a href="teachers.html" class="path-card">
+          <span class="path-icon">📖</span>
+          <div class="path-title">Teacher Support</div>
+          <p class="path-desc">STEELS, EdTech, and professional learning</p>
+        </a>
+        <a href="districts.html" class="path-card">
+          <span class="path-icon">🏫</span>
+          <div class="path-title">District Services</div>
+          <p class="path-desc">Strategic STEM support for administrators</p>
+        </a>
+        <a href="community.html" class="path-card">
+          <span class="path-icon">🤝</span>
+          <div class="path-title">Partner With Us</div>
+          <p class="path-desc">Sponsorships, workforce, and community programs</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-title">
+            <span class="footer-title-top">STEM@</span>
+            <span class="footer-title-bottom">Skook29</span>
+          </div>
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <p>Building the future of STEM learning in Schuylkill County.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html#competitions">Competitions</a></li>
+            <li><a href="programs.html#make">Make @ Skook29</a></li>
+            <li><a href="programs.html#cso">CSO @ Skook29</a></li>
+            <li><a href="programs.html#steels">STEELS @ Skook29</a></li>
+            <li><a href="programs.html#edtech">EdTech & AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM @ Skook29 · Schuylkill Intermediate Unit 29</p>
+        <div class="social-links">
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

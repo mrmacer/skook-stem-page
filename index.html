@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STEM @ Skook29 — Schuylkill Intermediate Unit 29</title>
+  <meta name="description" content="STEM @ Skook29 is the regional STEM innovation hub for Schuylkill County — connecting students, teachers, and community partners to build the future of learning." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Page-specific additions */
+    .hero-visual {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .hero-visual-inner {
+      position: relative;
+      width: 420px;
+      height: 420px;
+    }
+    .hero-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.08);
+      animation: rotate 20s linear infinite;
+    }
+    .hero-ring-1 { inset: 0; animation-duration: 25s; }
+    .hero-ring-2 { inset: 40px; animation-duration: 18s; animation-direction: reverse; }
+    .hero-ring-3 { inset: 80px; animation-duration: 30s; }
+    @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .hero-ring-dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--orange-400);
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .hero-center-badge {
+      position: absolute;
+      inset: 120px;
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(20px);
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .hero-center-emoji { font-size: 2.5rem; margin-bottom: 8px; }
+    .hero-center-text {
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: white;
+      line-height: 1.3;
+    }
+    .hero-orbit-icon {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.375rem;
+    }
+
+    @media (max-width: 900px) { .hero-visual { display: none; } }
+
+    /* Mission bar */
+    .mission-bar {
+      background: var(--dark-800);
+      padding: 20px 0;
+    }
+    .mission-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .mission-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .mission-pill-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--gradient-main);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+    .mission-pill strong { color: white; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+        </a>
+        <div class="site-title">
+          <span class="title-top">STEM@</span>
+          <span class="title-bottom">Skook29</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="students.html">Students</a>
+        <a href="teachers.html">Teachers</a>
+        <a href="districts.html">Districts</a>
+        <a href="community.html">Community</a>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="districts.html">Districts</a>
+    <a href="community.html">Community</a>
+    <a href="programs.html">Programs</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-orbs">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+    </div>
+    <div class="hero-grid-pattern"></div>
+
+    <div class="hero-visual">
+      <div class="hero-visual-inner">
+        <div class="hero-ring hero-ring-1"><div class="hero-ring-dot"></div></div>
+        <div class="hero-ring hero-ring-2"><div class="hero-ring-dot" style="background:#c4364e"></div></div>
+        <div class="hero-ring hero-ring-3"><div class="hero-ring-dot" style="background:#fb923c"></div></div>
+        <div class="hero-center-badge">
+          <div class="hero-center-emoji">🚀</div>
+          <div class="hero-center-text">STEM<br>Ecosystem</div>
+        </div>
+        <div class="hero-orbit-icon" style="top: 30px; right: 30px;">🔬</div>
+        <div class="hero-orbit-icon" style="bottom: 60px; left: 10px;">💡</div>
+        <div class="hero-orbit-icon" style="top: 160px; right: -10px;">🤖</div>
+        <div class="hero-orbit-icon" style="bottom: 20px; right: 60px;">🏆</div>
+        <img src="assets/branding/iu29-logo.png" alt="Schuylkill Intermediate Unit 29" class="hero-iu29-logo" loading="lazy" />
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <a href="https://www.iu29.org/" class="hero-eyebrow" target="_blank" rel="noopener noreferrer" aria-label="Visit Schuylkill Intermediate Unit 29 website">
+          <div class="hero-eyebrow-dot"></div>
+          Schuylkill Intermediate Unit 29
+        </a>
+        <h1 class="hero-title">
+          STEM @<br>
+          <span class="hero-title-accent">Skook29</span>
+        </h1>
+        <p class="hero-subtitle">Building the Future of Learning in Schuylkill County</p>
+        <p class="hero-mission">
+          A regional STEM innovation hub connecting students, teachers, and community partners
+          to ignite curiosity, build skills, and create opportunity across our region.
+        </p>
+        <div class="hero-actions">
+          <a href="programs.html" class="btn btn-primary btn-lg">Explore Programs</a>
+          <a href="about.html" class="btn btn-outline-white btn-lg">Our Mission</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-value" data-counter="12" data-suffix="+">12+</div>
+            <div class="hero-stat-label">Member Districts</div>
+          </div>
+          <div>
+            <div class="hero-stat-value" data-counter="5000" data-suffix="+">5,000+</div>
+            <div class="hero-stat-label">Students Engaged</div>
+          </div>
+          <div>
+            <div class="hero-stat-value" data-counter="200" data-suffix="+">200+</div>
+            <div class="hero-stat-label">Teachers Supported</div>
+          </div>
+          <div>
+            <div class="hero-stat-value" data-counter="50" data-suffix="+">50+</div>
+            <div class="hero-stat-label">Community Partners</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION BAR -->
+  <div class="mission-bar">
+    <div class="container">
+      <div class="mission-bar-inner">
+        <div class="mission-pill">
+          <div class="mission-pill-icon">🎓</div>
+          <span><strong>Student</strong> Opportunity</span>
+        </div>
+        <div class="mission-pill">
+          <div class="mission-pill-icon">📚</div>
+          <span><strong>Teacher</strong> Support</span>
+        </div>
+        <div class="mission-pill">
+          <div class="mission-pill-icon">🤝</div>
+          <span><strong>Community</strong> Partnership</span>
+        </div>
+        <div class="mission-pill">
+          <div class="mission-pill-icon">🏭</div>
+          <span><strong>Workforce</strong> Alignment</span>
+        </div>
+        <div class="mission-pill">
+          <div class="mission-pill-icon">💡</div>
+          <span><strong>Innovation</strong> Hub</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHOOSE YOUR PATH -->
+  <section class="path-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Get Started</span>
+        <h2 class="section-title">Choose Your Path</h2>
+        <p class="section-subtitle">STEM @ Skook29 serves everyone in our region — find the resources and opportunities made for you.</p>
+      </div>
+      <div class="path-grid">
+        <a href="students.html" class="path-card fade-in">
+          <span class="path-icon">🎓</span>
+          <div class="path-title">I'm a Student</div>
+          <p class="path-desc">Discover competitions, makerspaces, leadership programs, and real-world STEM experiences.</p>
+        </a>
+        <a href="teachers.html" class="path-card fade-in">
+          <span class="path-icon">📖</span>
+          <div class="path-title">I'm a Teacher</div>
+          <p class="path-desc">Access STEELS support, EdTech resources, professional learning, and classroom tools.</p>
+        </a>
+        <a href="districts.html" class="path-card fade-in">
+          <span class="path-icon">🏫</span>
+          <div class="path-title">I'm an Administrator</div>
+          <p class="path-desc">Strategic STEM ecosystem support, workforce alignment, and district-level initiatives.</p>
+        </a>
+        <a href="community.html" class="path-card fade-in">
+          <span class="path-icon">🤝</span>
+          <div class="path-title">I'm a Community Partner</div>
+          <p class="path-desc">Explore partnership opportunities, sponsorships, and workforce collaboration programs.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROGRAMS -->
+  <section class="programs-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What We Offer</span>
+        <h2 class="section-title">Featured Programs</h2>
+        <p class="section-subtitle">From competitive robotics to AI-powered classrooms, our programs put students and teachers at the center of innovation.</p>
+      </div>
+      <div class="grid-3 fade-in">
+
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #1e0a3c, #7e22ce);">
+            <span style="font-size: 3.5rem;">🏆</span>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Competitions</span>
+            <h3 class="card-title">STEM Competitions</h3>
+            <p class="card-text">Robotics, coding, science olympiad, and regional competitions that challenge students to apply real skills in high-stakes environments.</p>
+            <a href="programs.html#competitions" class="btn btn-secondary btn-sm">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #164e63, #0284c7);">
+            <span style="font-size: 3.5rem;">🛠️</span>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Makerspace</span>
+            <h3 class="card-title">Make @ Skook29</h3>
+            <p class="card-text">Hands-on making, design thinking, and fabrication. Students turn ideas into reality through 3D printing, laser cutting, and more.</p>
+            <a href="programs.html#make" class="btn btn-secondary btn-sm">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #064e3b, #059669);">
+            <span style="font-size: 3.5rem;">💼</span>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Career</span>
+            <h3 class="card-title">CSO @ Skook29</h3>
+            <p class="card-text">Career and Student Organization programming that bridges school and industry — building leadership, teamwork, and career-readiness.</p>
+            <a href="programs.html#cso" class="btn btn-secondary btn-sm">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #431407, #ea580c);">
+            <span style="font-size: 3.5rem;">🔬</span>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Standards</span>
+            <h3 class="card-title">STEELS @ Skook29</h3>
+            <p class="card-text">Supporting educators in implementing Pennsylvania's STEELS standards with curriculum resources, coaching, and professional learning.</p>
+            <a href="programs.html#steels" class="btn btn-secondary btn-sm">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-image" style="background: linear-gradient(135deg, #312e81, #6d28d9);">
+            <span style="font-size: 3.5rem;">🤖</span>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Innovation</span>
+            <h3 class="card-title">EdTech & AI</h3>
+            <p class="card-text">Practical AI literacy, classroom technology integration, and future-ready digital tools for teachers and students across the region.</p>
+            <a href="programs.html#edtech" class="btn btn-secondary btn-sm">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="card" style="background: var(--gradient-main); border: none;">
+          <div class="card-body" style="padding: 36px; display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
+            <div>
+              <span class="card-tag" style="background: rgba(255,255,255,0.2); color: white;">All Programs</span>
+              <h3 class="card-title" style="color: white; font-size: 1.5rem; margin-top: 12px;">See Everything We Do</h3>
+              <p class="card-text" style="color: rgba(255,255,255,0.8);">Explore the full range of STEM programs, partnerships, and opportunities available through IU29.</p>
+            </div>
+            <a href="programs.html" class="btn btn-white" style="margin-top: 24px; align-self: flex-start;">View All Programs →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS PREVIEW -->
+  <section class="events-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label orange">Calendar</span>
+        <h2 class="section-title">Upcoming Events</h2>
+        <p class="section-subtitle">Competitions, professional development, student showcases, and community gatherings — there's always something happening.</p>
+      </div>
+      <div class="events-grid fade-in" style="margin-bottom: 40px;">
+
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-date-month">Apr</div>
+            <div class="event-date-day">18</div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Competition</div>
+            <div class="event-title">Regional Robotics Invitational</div>
+            <div class="event-meta">
+              <span>📍 IU29 Conference Center</span>
+              <span>⏰ 8:00 AM – 4:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-date-month">Apr</div>
+            <div class="event-date-day">24</div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Professional Development</div>
+            <div class="event-title">STEELS Standards Implementation Workshop</div>
+            <div class="event-meta">
+              <span>📍 Virtual / Hybrid</span>
+              <span>⏰ 9:00 AM – 12:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-date-month">May</div>
+            <div class="event-date-day">7</div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Student Event</div>
+            <div class="event-title">Regional STEM Showcase & Expo</div>
+            <div class="event-meta">
+              <span>📍 Schuylkill County</span>
+              <span>⏰ 10:00 AM – 3:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-date-month">May</div>
+            <div class="event-date-day">15</div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Community Event</div>
+            <div class="event-title">Industry Partner Roundtable</div>
+            <div class="event-meta">
+              <span>📍 IU29 Main Campus</span>
+              <span>⏰ 6:00 PM – 8:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-date-month">May</div>
+            <div class="event-date-day">22</div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Professional Development</div>
+            <div class="event-title">AI in the Classroom: Practical Tools for Teachers</div>
+            <div class="event-meta">
+              <span>📍 Virtual</span>
+              <span>⏰ 3:30 PM – 5:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-date-month">Jun</div>
+            <div class="event-date-day">4</div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Student Event</div>
+            <div class="event-title">Make @ Skook29 — End of Year Celebration</div>
+            <div class="event-meta">
+              <span>📍 Makerspace, IU29</span>
+              <span>⏰ 1:00 PM – 5:00 PM</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div style="text-align: center;">
+        <a href="events.html" class="btn btn-primary">View Full Calendar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS ROW -->
+  <section style="padding: var(--section-pad-sm) 0; background: white;">
+    <div class="container">
+      <div class="grid-4 fade-in">
+        <div class="stat-card">
+          <div class="value" data-counter="12" data-suffix="+">12+</div>
+          <div class="label">Member School Districts</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-counter="5000" data-suffix="+">5,000+</div>
+          <div class="label">Students Reached Annually</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-counter="200" data-suffix="+">200+</div>
+          <div class="label">Teachers Supported</div>
+        </div>
+        <div class="stat-card">
+          <div class="value" data-counter="50" data-suffix="+">50+</div>
+          <div class="label">Community Partners</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-content">
+        <h2>Ready to Be Part of the STEM Movement?</h2>
+        <p>Whether you're a student looking for your next challenge, a teacher seeking support, or a business ready to make an impact — we'd love to connect.</p>
+        <div class="cta-banner-actions">
+          <a href="contact.html" class="btn btn-white btn-lg">Get In Touch</a>
+          <a href="about.html" class="btn btn-outline-white btn-lg">Learn About Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-title">
+            <span class="footer-title-top">STEM@</span>
+            <span class="footer-title-bottom">Skook29</span>
+          </div>
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html#competitions">Competitions</a></li>
+            <li><a href="programs.html#make">Make @ Skook29</a></li>
+            <li><a href="programs.html#cso">CSO @ Skook29</a></li>
+            <li><a href="programs.html#steels">STEELS @ Skook29</a></li>
+            <li><a href="programs.html#edtech">EdTech & AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">IU29 Website</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM @ Skook29 · Schuylkill Intermediate Unit 29. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+          <a href="#" class="social-link" aria-label="Facebook">f</a>
+          <a href="#" class="social-link" aria-label="Instagram">📷</a>
+          <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-link" aria-label="YouTube">▶</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

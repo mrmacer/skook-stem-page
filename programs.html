@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programs — STEM @ Skook29</title>
+  <meta name="description" content="Explore all STEM programs at Skook29 — competitions, Make @ Skook29, CSO, STEELS, and EdTech & AI." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .program-nav {
+      position: sticky;
+      top: var(--nav-height);
+      z-index: 100;
+      background: white;
+      border-bottom: 1px solid var(--gray-100);
+      padding: 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .program-nav-inner {
+      display: flex;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .program-nav-inner::-webkit-scrollbar { display: none; }
+    .program-nav a {
+      padding: 16px 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .program-nav a:hover,
+    .program-nav a.active {
+      color: var(--purple-600);
+      border-bottom-color: var(--purple-600);
+    }
+
+    .program-block {
+      padding: var(--section-pad) 0;
+    }
+    .program-block:nth-child(even) {
+      background: var(--gray-50);
+    }
+    .program-block:nth-child(odd) {
+      background: white;
+    }
+
+    /* ---- Competition Cards ---- */
+    .comp-card .card-image {
+      height: 210px;
+      padding: 0;
+      background: var(--gray-100);
+    }
+    .comp-hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .comp-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .comp-logo {
+      height: 38px;
+      width: auto;
+      max-width: 110px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .comp-logo-pair {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .comp-date {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gray-500);
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+    .badge-new {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--orange-500);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+    .comp-grade-bands {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .comp-grade-band {
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: var(--purple-100);
+      color: var(--purple-600);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .comp-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+      margin-top: 16px;
+    }
+    .comp-gallery img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+    .comp-gallery-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* ---- Makerspace Equipment Logos ---- */
+    .makerspace-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+      margin-bottom: 28px;
+      align-items: center;
+    }
+
+    .equipment-logo-card {
+      min-height: 86px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .equipment-logo-card img {
+      max-height: 52px;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .makerspace-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .equipment-logo-card {
+        min-height: 74px;
+        padding: 14px;
+      }
+      .equipment-logo-card img {
+        max-height: 44px;
+      }
+    }
+
+    /* ---- EdTech Logo Grid ---- */
+    .edtech-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+      margin-bottom: 28px;
+      align-items: center;
+    }
+
+    .edtech-logo-card {
+      min-height: 82px;
+      padding: 16px;
+      border-radius: 18px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .edtech-logo-card img {
+      max-height: 52px;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .edtech-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .edtech-logo-card {
+        min-height: 72px;
+        padding: 14px;
+      }
+      .edtech-logo-card img {
+        max-height: 44px;
+      }
+    }
+
+    /* ---- Makerspace Gallery ---- */
+    .makerspace-gallery {
+      overflow: hidden;
+      border-radius: 16px;
+      align-self: center;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 16px;
+      animation: scrollGallery 28s linear infinite;
+    }
+
+    .gallery-track img {
+      height: 250px;
+      width: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes scrollGallery {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 768px) {
+      .makerspace-gallery {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 12px;
+      }
+      .gallery-track {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+        </a>
+        <div class="site-title">
+          <span class="title-top">STEM@</span>
+          <span class="title-bottom">Skook29</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="students.html">Students</a>
+        <a href="teachers.html">Teachers</a>
+        <a href="districts.html">Districts</a>
+        <a href="community.html">Community</a>
+        <a href="programs.html" class="active">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="districts.html">Districts</a>
+    <a href="community.html">Community</a>
+    <a href="programs.html">Programs</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <span>Programs</span>
+        </div>
+        <div class="page-hero-label">What We Do</div>
+        <h1 class="page-hero-title">STEM Programs</h1>
+        <p class="page-hero-subtitle">
+          From regional competitions to AI-powered classrooms — every program at STEM @ Skook29
+          is designed to create real impact for students, teachers, and communities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM QUICK NAV -->
+  <nav class="program-nav">
+    <div class="program-nav-inner">
+      <a href="#competitions">Competitions</a>
+      <a href="#make">Make @ Skook29</a>
+      <a href="#cso">CSO @ Skook29</a>
+      <a href="#steels">STEELS @ Skook29</a>
+      <a href="#edtech">EdTech & AI</a>
+    </div>
+  </nav>
+
+  <!-- COMPETITIONS -->
+  <div class="program-block" id="competitions">
+    <div class="container">
+
+      <!-- Section Intro -->
+      <div style="max-width: 740px; margin-bottom: 48px;">
+        <span class="section-label">Program 01</span>
+        <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Competitions</h2>
+        <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 24px;">
+          STEM competitions give students a high-energy space to apply creativity, collaboration, problem-solving, and technical skills in real-world challenges. IU29 supports regional events that connect students to design thinking, digital media, invention, engineering, manufacturing, robotics, and career exploration.
+        </p>
+        <div class="tags-row" style="margin-bottom: 28px;">
+          <span class="tag">🎨 Digital Media</span>
+          <span class="tag">🤖 Robotics</span>
+          <span class="tag">⚙️ Engineering</span>
+          <span class="tag">💡 Invention</span>
+          <span class="tag">🎬 Video Production</span>
+          <span class="tag">🏗️ Design Thinking</span>
+        </div>
+        <a href="contact.html" class="btn btn-primary">Get Your Team Involved →</a>
+      </div>
+
+      <!-- Competition Cards -->
+      <div class="grid-3">
+
+        <!-- Media & Design Competition -->
+        <div class="card comp-card">
+          <div class="card-image">
+            <img src="assets/competitions/madcom/madcom-presentation.png" alt="Media and Design Competition" class="comp-hero-img">
+          </div>
+          <div class="card-body">
+            <div class="comp-card-header">
+              <div class="comp-logo-pair">
+                <img src="assets/competitions/madcom/madcom-MS-25logo.png" alt="MADCom Middle School Logo" class="comp-logo">
+                <img src="assets/competitions/madcom/madcom-HS-25logo.png" alt="MADCom High School Logo" class="comp-logo">
+              </div>
+              <span class="comp-date">Feb 2027</span>
+            </div>
+            <span class="card-tag">Digital Media</span>
+            <h3 class="card-title">Media and Design Competition</h3>
+            <p class="card-text">Annual event highlighting students' skills in graphic design, video production, animation, web design, and programming. Regional winners advance to the state competition.</p>
+            <div class="tags-row">
+              <span class="tag">Design</span>
+              <span class="tag">Video</span>
+              <span class="tag">Animation</span>
+              <span class="tag">Programming</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEM Design Challenge -->
+        <div class="card comp-card">
+          <div class="card-image">
+            <img src="assets/competitions/stem-design/stem-design1.JPG" alt="STEM Design Challenge" class="comp-hero-img">
+          </div>
+          <div class="card-body">
+            <div class="comp-card-header">
+              <img src="assets/branding/stem-design-logo.jpg" alt="STEM Design Challenge Logo" class="comp-logo">
+              <span class="comp-date">March 2027</span>
+            </div>
+            <span class="card-tag">Engineering</span>
+            <h3 class="card-title">STEM Design Challenge</h3>
+            <p class="card-text">Elementary and middle schoolers design a sustainable factory section using K'Nex and/or Engino, building a working prototype that demonstrates environmentally responsible production.</p>
+            <div class="tags-row">
+              <span class="tag">Sustainability</span>
+              <span class="tag">K'Nex</span>
+              <span class="tag">Prototyping</span>
+            </div>
+            <div class="comp-gallery">
+              <img src="assets/competitions/stem-design/stem-design2.JPG" alt="STEM Design Challenge photo">
+              <img src="assets/competitions/stem-design/stem-design3.JPG" alt="STEM Design Challenge photo">
+              <img src="assets/competitions/stem-design/stem-design4.JPG" alt="STEM Design Challenge photo">
+            </div>
+          </div>
+        </div>
+
+        <!-- Sea Air Land Challenge -->
+        <div class="card comp-card">
+          <div class="card-image">
+            <img src="assets/competitions/Sea-Air-Land/sea-air-land1.JPG" alt="Sea Air Land Challenge" class="comp-hero-img">
+          </div>
+          <div class="card-body">
+            <div class="comp-card-header">
+              <img src="assets/branding/sea-air-land-logo.webp" alt="Sea Air Land Logo" class="comp-logo">
+              <span class="comp-date">April 2027</span>
+            </div>
+            <span class="card-tag">Robotics</span>
+            <h3 class="card-title">Sea Air Land Challenge</h3>
+            <p class="card-text">Teams design and build a robotic system to compete in challenges that mimic missions encountered by the military, national security agencies, and first responders.</p>
+            <div class="tags-row">
+              <span class="tag">Engineering</span>
+              <span class="tag">Mission Design</span>
+              <span class="tag">Team Challenge</span>
+            </div>
+            <div class="comp-gallery">
+              <img src="assets/competitions/Sea-Air-Land/sea-air-land2.JPG" alt="Sea Air Land Challenge photo">
+              <img src="assets/competitions/Sea-Air-Land/sea-air-land3.JPG" alt="Sea Air Land Challenge photo">
+              <img src="assets/competitions/Sea-Air-Land/sea-air-land4.jpg" alt="Sea Air Land Challenge photo">
+            </div>
+          </div>
+        </div>
+
+        <!-- Keystone Competition -->
+        <div class="card comp-card">
+          <div class="card-image">
+            <img src="assets/competitions/keystone/keystone-comp3.JPG" alt="Keystone Competition" class="comp-hero-img">
+          </div>
+          <div class="card-body">
+            <div class="comp-card-header">
+              <img src="assets/branding/keystone-competition-logo.png" alt="Keystone Competition Logo" class="comp-logo">
+              <span class="comp-date">Oct 2026</span>
+            </div>
+            <span class="card-tag">Design Thinking</span>
+            <div class="comp-grade-bands">
+              <span class="comp-grade-band">Grades 5–6</span>
+              <span class="comp-grade-band">Grades 7–8</span>
+              <span class="comp-grade-band">Grades 9–12</span>
+            </div>
+            <h3 class="card-title">Keystone Competition</h3>
+            <p class="card-text">A one-day statewide STEM challenge for grades 5–12 — no prep required. Teams of up to 5 tackle a real-world challenge and design innovative solutions together.</p>
+            <div class="tags-row">
+              <span class="tag">Innovation</span>
+              <span class="tag">Team Challenge</span>
+            </div>
+            <div class="comp-gallery comp-gallery-2">
+              <img src="assets/competitions/keystone/keystone-comp1.JPG" alt="Keystone Competition photo">
+              <img src="assets/competitions/keystone/keystone-comp2.JPG" alt="Keystone Competition photo">
+            </div>
+          </div>
+        </div>
+
+        <!-- Invention Convention -->
+        <div class="card comp-card">
+          <div class="card-image">
+            <img src="assets/competitions/invention/invention-convention1.png" alt="Invention Convention" class="comp-hero-img">
+          </div>
+          <div class="card-body">
+            <div class="comp-card-header">
+              <img src="assets/branding/invention-convention-logo.webp" alt="Invention Convention Logo" class="comp-logo">
+              <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
+                <span class="badge-new">New Event</span>
+                <span class="comp-date">Nov 2026</span>
+              </div>
+            </div>
+            <h3 class="card-title">Invention Convention</h3>
+            <p class="card-text">Students develop problem-identification, problem-solving, entrepreneurship, and creativity skills — building confidence in invention, innovation, and entrepreneurship.</p>
+            <div class="tags-row">
+              <span class="tag">Invention</span>
+              <span class="tag">Entrepreneurship</span>
+              <span class="tag">Creativity</span>
+            </div>
+            <div class="comp-gallery comp-gallery-2">
+              <img src="assets/competitions/invention/invention-convention2.png" alt="Invention Convention photo">
+            </div>
+          </div>
+        </div>
+
+        <!-- What's So Cool About Manufacturing -->
+        <div class="card comp-card">
+          <div class="card-image">
+            <img src="assets/competitions/what-so-cool/what-so-cool1.jpeg" alt="What's So Cool About Manufacturing" class="comp-hero-img">
+          </div>
+          <div class="card-body">
+            <div class="comp-card-header">
+              <img src="assets/branding/WSCAM-logo.png" alt="What's So Cool About Manufacturing Logo" class="comp-logo">
+              <span class="comp-date">March 2027</span>
+            </div>
+            <span class="card-tag">Manufacturing</span>
+            <h3 class="card-title">What's So Cool About Manufacturing?</h3>
+            <p class="card-text">Students explore cool manufacturing careers and produce video profiles of local companies — showcasing the people and innovation behind modern manufacturing.</p>
+            <div class="tags-row">
+              <span class="tag">Career Exploration</span>
+              <span class="tag">Video Production</span>
+              <span class="tag">Industry</span>
+            </div>
+            <div class="comp-gallery comp-gallery-2">
+              <img src="assets/competitions/what-so-cool/what-so-cool2.jpg" alt="What's So Cool About Manufacturing photo">
+            </div>
+          </div>
+        </div>
+
+      </div><!-- .grid-3 -->
+    </div>
+  </div>
+
+  <!-- MAKE @ SKOOK29 -->
+  <div class="program-block" id="make">
+    <div class="container">
+      <div class="two-col reverse">
+        <div class="makerspace-gallery">
+          <div class="gallery-track">
+            <img src="assets/programs/makerspace/makerspace1.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace2.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace3.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace4.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace5.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace6.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace7.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace8.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace9.JPG" alt="Makerspace activity">
+            <!-- Duplicate set for seamless loop -->
+            <img src="assets/programs/makerspace/makerspace1.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace2.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace3.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace4.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace5.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace6.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace7.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace8.JPG" alt="Makerspace activity">
+            <img src="assets/programs/makerspace/makerspace9.JPG" alt="Makerspace activity">
+          </div>
+        </div>
+        <div>
+          <span class="section-label">Program 02</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Make @ Skook29</h2>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            The Make @ Skook29 makerspace is a hands-on innovation lab where students from across the region come to design, prototype, and build. It's learning by doing — and it changes how students think about what's possible.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
+            Whether a student is building their first 3D model or engineering a functional prototype, the makerspace provides the tools, the guidance, and the space to take creative risks.
+          </p>
+          <div class="makerspace-logo-grid" aria-label="Makerspace equipment and platform logos">
+            <div class="equipment-logo-card">
+              <img src="assets/branding/makerspace-inventory/beebot-logo.png" alt="Bee-Bot">
+            </div>
+            <div class="equipment-logo-card">
+              <img src="assets/branding/makerspace-inventory/birdbrain-technologies-logo.png" alt="BirdBrain Technologies">
+            </div>
+            <div class="equipment-logo-card">
+              <img src="assets/branding/makerspace-inventory/lego-prime-logo.png" alt="LEGO Education SPIKE Prime">
+            </div>
+            <div class="equipment-logo-card">
+              <img src="assets/branding/makerspace-inventory/ozobot-logo.png" alt="Ozobot">
+            </div>
+            <div class="equipment-logo-card">
+              <img src="assets/branding/makerspace-inventory/raspberry-pi-logo-png.png" alt="Raspberry Pi">
+            </div>
+            <div class="equipment-logo-card">
+              <img src="assets/branding/makerspace-inventory/SnapCircuits-logo.png" alt="Snap Circuits">
+            </div>
+            <div class="equipment-logo-card">
+              <img src="assets/branding/makerspace-inventory/Sphero-logo-blue.webp" alt="Sphero">
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary">Book a Makerspace Visit →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CSO @ SKOOK29 -->
+  <div class="program-block" id="cso">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="section-label">Program 03</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">CSO @ Skook29</h2>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            Career and Student Organizations are powerful, research-backed vehicles for career readiness and student development. STEM @ Skook29 supports CSO programs across the region, connecting them to competition opportunities, resources, and industry partners.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
+            Students who participate in CSO programs develop leadership, communication, teamwork, and industry-specific skills that employers and colleges are looking for.
+          </p>
+          <div class="tags-row" style="margin-bottom: 28px;">
+            <span class="tag">🎤 Leadership</span>
+            <span class="tag">🤝 Teamwork</span>
+            <span class="tag">💼 Career Ready</span>
+            <span class="tag">🏆 Competitions</span>
+          </div>
+          <a href="contact.html" class="btn btn-primary">Connect Your CSO →</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="background: var(--gradient-main); border-radius: var(--radius-xl); padding: 28px; color: white;">
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px;">Competition Support</h4>
+            <p style="font-size: 0.9375rem; opacity: 0.85; line-height: 1.65;">Registration, coaching, and logistics for regional and state CSO competitions.</p>
+          </div>
+          <div style="background: white; border-radius: var(--radius-xl); padding: 28px; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-100);">
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900);">Industry Connections</h4>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65;">We broker connections between CSO chapters and regional industry partners for mentorship and site visits.</p>
+          </div>
+          <div style="background: white; border-radius: var(--radius-xl); padding: 28px; box-shadow: var(--shadow-sm); border: 1px solid var(--gray-100);">
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900);">Advisor Resources</h4>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65;">Curriculum resources, professional development, and a regional advisor network for CSO chapter leaders.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEELS @ SKOOK29 -->
+  <div class="program-block" id="steels">
+    <div class="container">
+      <div class="two-col reverse">
+        <div style="background: linear-gradient(135deg, #431407, #ea580c); border-radius: var(--radius-xl); padding: 48px; color: white; display: flex; flex-direction: column; justify-content: center; min-height: 360px;">
+          <div style="font-size: 4rem; margin-bottom: 20px;">🔬</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; margin-bottom: 12px;">STEELS @ Skook29</h3>
+          <p style="opacity: 0.85; font-size: 1rem; line-height: 1.65; margin-bottom: 20px;">Supporting every teacher in every district as Pennsylvania's new science and STEM standards roll out.</p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; opacity: 0.85;">
+              <span>✓</span><span>Standards Alignment</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; opacity: 0.85;">
+              <span>✓</span><span>Curriculum Support</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 0.9rem; opacity: 0.85;">
+              <span>✓</span><span>Instructional Coaching</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <span class="section-label">Program 04</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">STEELS @ Skook29</h2>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            Pennsylvania's STEELS standards represent a major shift in how science, technology, engineering, environment, ecology, and sustainability are taught. That shift requires support — and that's what STEM @ Skook29 delivers.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
+            We provide teachers and administrators with the resources, training, and coaching they need to implement the STEELS framework with confidence — at every grade level and in every subject area.
+          </p>
+          <div class="feature-grid" style="margin-bottom: 28px;">
+            <div class="feature-item">
+              <div class="feature-icon-wrap">📖</div>
+              <div class="feature-content">
+                <h4>Standards Unpacking</h4>
+                <p>Deep dives into what STEELS requires at each grade band</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-wrap">🗺️</div>
+              <div class="feature-content">
+                <h4>Curriculum Mapping</h4>
+                <p>Aligning existing curriculum to STEELS expectations</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-wrap">👥</div>
+              <div class="feature-content">
+                <h4>Coaching Cycles</h4>
+                <p>Ongoing instructional coaching and classroom support</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-wrap">📁</div>
+              <div class="feature-content">
+                <h4>Resource Library</h4>
+                <p>Ready-to-use lessons, labs, and assessments</p>
+              </div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary">Request STEELS Support →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDTECH & AI -->
+  <div class="program-block" id="edtech">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="section-label">Program 05</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">EdTech & AI</h2>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            Artificial intelligence is reshaping every field — and education is no exception. STEM @ Skook29 helps teachers and students understand, use, and think critically about AI and emerging technologies.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
+            From practical classroom AI tools to digital citizenship frameworks, we make EdTech and AI education accessible, relevant, and grounded in what actually works in real schools.
+          </p>
+          <div class="edtech-logo-grid" aria-label="EdTech and AI training platform logos">
+            <div class="edtech-logo-card">
+              <img src="assets/branding/edtech/ChatGPT-Logo.wine.png" alt="ChatGPT">
+            </div>
+            <div class="edtech-logo-card">
+              <img src="assets/branding/edtech/claude-logo.svg" alt="Claude">
+            </div>
+            <div class="edtech-logo-card">
+              <img src="assets/branding/edtech/CodeOrg-logo.png" alt="Code.org">
+            </div>
+            <div class="edtech-logo-card">
+              <img src="assets/branding/edtech/discovery-ed-logo.webp" alt="Discovery Education">
+            </div>
+            <div class="edtech-logo-card">
+              <img src="assets/branding/edtech/Google-Education-Logo.png" alt="Google for Education">
+            </div>
+            <div class="edtech-logo-card">
+              <img src="assets/branding/edtech/Scratch-logo.png" alt="Scratch">
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary">Explore EdTech Programs →</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="background: linear-gradient(135deg, #1e0a3c, #7e22ce); border-radius: var(--radius-xl); padding: 32px; color: white;">
+            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 12px;">For Teachers</h4>
+            <ul style="display: flex; flex-direction: column; gap: 10px; font-size: 0.9375rem; opacity: 0.85;">
+              <li>✦ AI Tools for Educators Workshop</li>
+              <li>✦ EdTech Integration Coaching</li>
+              <li>✦ Digital Learning Strategy</li>
+              <li>✦ Tool Evaluation & Reviews</li>
+            </ul>
+          </div>
+          <div style="background: linear-gradient(135deg, #312e81, #6d28d9); border-radius: var(--radius-xl); padding: 32px; color: white;">
+            <h4 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 12px;">For Students</h4>
+            <ul style="display: flex; flex-direction: column; gap: 10px; font-size: 0.9375rem; opacity: 0.85;">
+              <li>✦ AI Literacy Programs</li>
+              <li>✦ Coding & App Development</li>
+              <li>✦ Data Science Foundations</li>
+              <li>✦ Digital Citizenship & Ethics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-content">
+        <h2>Want to Learn More About a Program?</h2>
+        <p>Reach out and we'll connect you to the right resources, events, and support for your students and school.</p>
+        <div class="cta-banner-actions">
+          <a href="contact.html" class="btn btn-white btn-lg">Contact Us</a>
+          <a href="events.html" class="btn btn-outline-white btn-lg">Upcoming Events</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-title">
+            <span class="footer-title-top">STEM@</span>
+            <span class="footer-title-bottom">Skook29</span>
+          </div>
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <p>Building the future of STEM learning in Schuylkill County.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="#competitions">Competitions</a></li>
+            <li><a href="#make">Make @ Skook29</a></li>
+            <li><a href="#cso">CSO @ Skook29</a></li>
+            <li><a href="#steels">STEELS @ Skook29</a></li>
+            <li><a href="#edtech">EdTech & AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM @ Skook29 · Schuylkill Intermediate Unit 29</p>
+        <div class="social-links">
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Highlight active program nav link on scroll
+    const sections = ['competitions', 'make', 'cso', 'steels', 'edtech'];
+    const navLinks = document.querySelectorAll('.program-nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section && window.scrollY >= section.offsetTop - 120) {
+          current = id;
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

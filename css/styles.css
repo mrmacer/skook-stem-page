@@ -295,6 +295,73 @@ section {
 
 .mobile-nav a:hover { background: var(--gray-50); color: var(--purple-600); }
 
+.mobile-subnav {
+  padding-left: 32px !important;
+  font-size: 0.9rem !important;
+  color: var(--purple-600) !important;
+  opacity: 0.9;
+}
+
+/* =========================================
+   DROPDOWN NAVIGATION
+   ========================================= */
+
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-dropdown > a::after {
+  content: '▾';
+  font-size: 0.6rem;
+  opacity: 0.55;
+  margin-left: 1px;
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  min-width: 190px;
+  padding: 6px;
+  z-index: 1001;
+  flex-direction: column;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  display: flex;
+}
+
+.nav-dropdown-menu a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+  padding: 9px 14px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  /* override the ::after caret — dropdown items have no children */
+  display: block;
+}
+
+.nav-dropdown-menu a::after { display: none; }
+
+.nav-dropdown-menu a:hover {
+  color: var(--purple-600);
+  background: var(--purple-100);
+}
+
 /* =========================================
    BUTTONS
    ========================================= */

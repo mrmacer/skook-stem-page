@@ -6,6 +6,79 @@
   <title>Community & Partners — STEM@Skook29</title>
   <meta name="description" content="Partner with STEM@Skook29 — sponsorships, workforce collaboration, community programs, and partnership opportunities in Schuylkill County." />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Partner Schools section — scoped to community.html */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .partner-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 24px 20px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      color: white;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .partner-card:hover,
+    .partner-card:focus-visible {
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(139,26,46,0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+      outline: none;
+    }
+    .partner-card:focus-visible {
+      outline: 2px solid var(--purple-400);
+      outline-offset: 3px;
+    }
+    .partner-card-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .partner-card-type {
+      display: inline-block;
+      font-size: 0.675rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+    .partner-card-type.public {
+      background: rgba(139,26,46,0.3);
+      color: #f9a8b4;
+    }
+    .partner-card-type.nonpublic {
+      background: rgba(234,88,12,0.25);
+      color: #fdba74;
+    }
+    .partner-card-arrow {
+      margin-top: auto;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: inline-block;
+    }
+    .partner-card:hover .partner-card-arrow,
+    .partner-card:focus-visible .partner-card-arrow {
+      color: rgba(255,255,255,0.75);
+      transform: translateX(3px);
+    }
+    @media (max-width: 900px) {
+      .partner-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .partner-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -21,7 +94,12 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="students.html">Students</a>
-        <a href="teachers.html">Teachers</a>
+        <div class="nav-dropdown">
+          <a href="teachers.html">Teachers</a>
+          <div class="nav-dropdown-menu">
+            <a href="steels-support.html">STEELS Support</a>
+          </div>
+        </div>
         <a href="districts.html">Districts</a>
         <a href="community.html" class="active">Community</a>
         <a href="programs.html">Programs</a>
@@ -38,6 +116,7 @@
     <a href="index.html">Home</a>
     <a href="students.html">Students</a>
     <a href="teachers.html">Teachers</a>
+    <a href="steels-support.html" class="mobile-subnav">↳ STEELS Support</a>
     <a href="districts.html">Districts</a>
     <a href="community.html">Community</a>
     <a href="programs.html">Programs</a>
@@ -223,6 +302,170 @@
             <a href="contact.html" class="btn btn-white" style="margin-top: 24px; align-self: flex-start;">Let's Talk →</a>
           </div>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED COMMUNITY EVENT: LISTENING SESSION -->
+  <section style="background: white; padding: var(--section-pad) 0; position: relative; z-index: 1;">
+    <div class="container">
+      <div style="max-width: 880px; margin: 0 auto;">
+
+        <!-- Gradient border wrapper gives the card a premium, invitation feel -->
+        <div style="background: var(--gradient-hero); border-radius: var(--radius-xl); padding: 2px; box-shadow: var(--shadow-xl);">
+          <div style="background: white; border-radius: calc(var(--radius-xl) - 2px); padding: 52px 52px 44px;">
+
+            <!-- Eyebrow + badges -->
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px;">
+              <span class="section-label orange" style="margin-bottom: 0;">Community Event</span>
+              <span style="font-size: 0.675rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gray-900); color: white; padding: 4px 10px; border-radius: var(--radius-full);">Free · Sep 23</span>
+              <span style="font-size: 0.675rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: var(--orange-500); color: white; padding: 4px 10px; border-radius: var(--radius-full);">Seats Limited</span>
+            </div>
+
+            <!-- Title -->
+            <h2 style="font-family: var(--font-display); font-size: clamp(1.5rem, 3.5vw, 2.25rem); font-weight: 800; color: var(--gray-900); line-height: 1.2; margin-bottom: 22px;">
+              Schuylkill STEM Community<br>Listening Session
+            </h2>
+
+            <!-- Meta row -->
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--gray-100); font-size: 0.9rem; color: var(--gray-500);">
+              <span>📅 Wednesday, September 23, 2026</span>
+              <span>⏰ 4:30–6:00 PM</span>
+              <span>📍 Location TBD</span>
+              <span>🍽️ Light refreshments provided</span>
+            </div>
+
+            <!-- Invitation body -->
+            <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.8; margin-bottom: 20px;">
+              Schuylkill Intermediate Unit 29 is building a STEM Ecosystem for Schuylkill County — a connected network of schools, employers, community organizations, and nonprofits working toward a shared goal: preparing every student for what comes next.
+            </p>
+            <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.8; margin-bottom: 28px;">
+              This 90-minute session will bring together a small, intentional group of community and industry leaders.
+              We're not here to pitch a program. <strong style="color: var(--gray-700);">We're here to listen.</strong>
+            </p>
+
+            <!-- Key question callout -->
+            <div style="background: var(--gradient-subtle); border-left: 4px solid var(--purple-500); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 20px 24px; margin-bottom: 28px;">
+              <p style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-600); margin-bottom: 8px;">The Question We're Exploring</p>
+              <p style="font-size: 1.125rem; font-weight: 600; color: var(--gray-900); line-height: 1.55; font-style: italic;">
+                "What's already happening in Schuylkill County that students and schools should be connected to?"
+              </p>
+            </div>
+
+            <!-- Closing note + CTA -->
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
+              Your perspective — as an employer, a community partner, or a local organization — is exactly what this work needs.
+              Seats are limited to keep the conversation focused. We'd love to have you in the room.
+            </p>
+            <!-- TODO: Replace href="#" with the registration/RSVP link when available -->
+            <a href="#" class="btn btn-primary btn-lg">Reserve Your Seat →</a>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER SCHOOLS / DISTRICTS -->
+  <section style="background: var(--dark-800); padding: var(--section-pad) 0; position: relative; z-index: 1;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" style="background: rgba(139,26,46,0.3); color: #f9a8b4; border: 1px solid rgba(139,26,46,0.35);">Our Partner Schools</span>
+        <h2 class="section-title" style="color: white;">14 Districts. One Ecosystem.</h2>
+        <p class="section-subtitle">Every public school district in Schuylkill County is part of the IU29 STEM network. No school — and no student — left behind.</p>
+      </div>
+
+      <!--
+        TODO: Replace the href="#" placeholders below with the official district/school website URLs.
+        Public school districts listed first (12), followed by non-public partners (2).
+      -->
+      <div class="partner-grid">
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Blue Mountain</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Mahanoy Area</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Minersville Area</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">North Schuylkill</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Pine Grove Area</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Pottsville Area</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Saint Clair Area</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Schuylkill Haven</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Shenandoah Valley</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Tamaqua Area</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Tri-Valley</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type public">Public SD</span>
+          <span class="partner-card-name">Williams Valley</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type nonpublic">Non-Public Partner</span>
+          <span class="partner-card-name">Nativity BVM</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
+
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <span class="partner-card-type nonpublic">Non-Public Partner</span>
+          <span class="partner-card-name">Good Shepherd</span>
+          <span class="partner-card-arrow">Visit site →</span>
+        </a>
 
       </div>
     </div>

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classroom Resources — STEM@Skook29</title>
+  <meta name="description" content="A growing library of STEELS-aligned lesson plans, lab activities, design challenges, assessment tools, and PBL units — free for all IU29 member district teachers." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Grade/standard tags — scoped to classroom-resources.html */
+    .grade-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .grade-tag {
+      font-size: 0.675rem;
+      font-weight: 600;
+      background: var(--gray-100);
+      color: var(--gray-700);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+    .resource-new-badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: white;
+      background: var(--orange-500);
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+        </a>
+        <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="site-logo">
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="students.html">Students</a>
+        <div class="nav-dropdown">
+          <a href="teachers.html" class="active">Teachers</a>
+          <div class="nav-dropdown-menu">
+            <a href="steels-support.html">STEELS Support</a>
+            <a href="edtech-ai.html">EdTech &amp; AI</a>
+            <a href="classroom-resources.html">Classroom Resources</a>
+          </div>
+        </div>
+        <a href="districts.html">Districts</a>
+        <a href="community.html">Community</a>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="steels-support.html" class="mobile-subnav">↳ STEELS Support</a>
+    <a href="edtech-ai.html" class="mobile-subnav">↳ EdTech &amp; AI</a>
+    <a href="classroom-resources.html" class="mobile-subnav">↳ Classroom Resources</a>
+    <a href="districts.html">Districts</a>
+    <a href="community.html">Community</a>
+    <a href="programs.html">Programs</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <a href="teachers.html">Teachers</a>
+          <span>›</span>
+          <span>Classroom Resources</span>
+        </div>
+        <div class="page-hero-label">For Educators</div>
+        <h1 class="page-hero-title">Classroom<br>Resources</h1>
+        <p class="page-hero-subtitle">
+          A growing library of ready-to-use lesson plans, lab activities, design challenges,
+          and project-based units — all STEELS-aligned, teacher-tested, and free for IU29 member district staff.
+        </p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+          <a href="contact.html" class="btn btn-white btn-lg">Request Library Access</a>
+          <a href="#featured-resources" class="btn btn-outline-white btn-lg">Browse Featured Resources</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO: WHAT'S IN THE LIBRARY -->
+  <section style="padding: var(--section-pad) 0; background: white;">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="section-label">Resource Library</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Grab-and-Go Materials<br>Built for Real Classrooms</h2>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            Every resource in the IU29 library was developed with Schuylkill County classrooms in mind — not repurposed from somewhere else, not a vendor product, not theory. These are materials that teachers have actually used, refined, and taught with.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
+            All materials are tagged to Pennsylvania STEELS standards, organized by subject area and grade band, and available at no cost to IU29 member district staff. The library grows every year — and you can contribute to it.
+          </p>
+          <div class="tags-row">
+            <span class="tag">STEELS Aligned</span>
+            <span class="tag">K–12</span>
+            <span class="tag">Free to Members</span>
+            <span class="tag">Regularly Updated</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="background: var(--gradient-main); border-radius: var(--radius-xl); padding: 32px; color: white;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">📄</div>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px;">Ready-to-Use Lesson Plans</h4>
+            <p style="font-size: 0.9375rem; opacity: 0.85; line-height: 1.65;">Standards-tagged, teacher-tested, and grab-and-go ready. Every lesson plan includes objectives, materials, procedure, and STEELS alignment documentation.</p>
+          </div>
+          <div style="background: var(--gray-50); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--gray-200);">
+            <div style="font-size: 2rem; margin-bottom: 12px;">🔬</div>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900);">Lab &amp; Design Challenges</h4>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65;">Hands-on investigations aligned to the 3-dimensional STEELS framework — including anchor phenomena, student data collection, and sense-making routines.</p>
+          </div>
+          <div style="background: var(--gray-50); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--gray-200);">
+            <div style="font-size: 2rem; margin-bottom: 12px;">🏗️</div>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900);">Project-Based Learning Units</h4>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65;">Multi-week units with driving questions, anchor phenomena, student investigations, and culminating design or performance tasks. Built for sustained, deep learning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S IN THE LIBRARY: RESOURCE TYPES -->
+  <section style="background: var(--gray-50); padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Library Contents</span>
+        <h2 class="section-title">What You'll Find</h2>
+        <p class="section-subtitle">Four types of classroom materials — each designed to save you planning time without sacrificing quality or alignment.</p>
+      </div>
+      <div class="grid-4" style="gap: 24px;">
+
+        <div class="feature-item fade-in" style="flex-direction: column; text-align: center; gap: 12px;">
+          <div class="feature-icon-wrap" style="margin: 0 auto;">📄</div>
+          <div class="feature-content">
+            <h4>Ready-to-Use Lesson Plans</h4>
+            <p>Complete lesson plans with objectives, materials lists, step-by-step procedures, and STEELS standards documentation — ready the day you download them.</p>
+          </div>
+        </div>
+
+        <div class="feature-item fade-in" style="flex-direction: column; text-align: center; gap: 12px;">
+          <div class="feature-icon-wrap" style="margin: 0 auto;">🔬</div>
+          <div class="feature-content">
+            <h4>Lab &amp; Design Challenges</h4>
+            <p>Hands-on science investigations and engineering design challenges aligned to 3D STEELS — with student data sheets, teacher guides, and sample work.</p>
+          </div>
+        </div>
+
+        <div class="feature-item fade-in" style="flex-direction: column; text-align: center; gap: 12px;">
+          <div class="feature-icon-wrap" style="margin: 0 auto;">📊</div>
+          <div class="feature-content">
+            <h4>Assessment Tools</h4>
+            <p>Formative and summative options — rubrics, checklists, claim-evidence-reasoning prompts, and computational thinking assessments designed for STEELS.</p>
+          </div>
+        </div>
+
+        <div class="feature-item fade-in" style="flex-direction: column; text-align: center; gap: 12px;">
+          <div class="feature-icon-wrap" style="margin: 0 auto;">🏗️</div>
+          <div class="feature-content">
+            <h4>Project-Based Learning Units</h4>
+            <p>Multi-week PBL units with driving questions, anchor phenomena, and culminating tasks. Built for sustained inquiry — not just surface engagement.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BROWSE BY SUBJECT -->
+  <section style="background: white; padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Browse by Subject</span>
+        <h2 class="section-title">Organized by STEELS Domain</h2>
+        <p class="section-subtitle">Every resource is tagged to one or more STEELS domains — making it easy to find what fits your curriculum sequence.</p>
+      </div>
+      <div class="grid-3">
+
+        <div class="feature-item fade-in">
+          <div class="feature-icon-wrap">🧬</div>
+          <div class="feature-content">
+            <h4>Life Science</h4>
+            <p>3.1 standards — K–12. Ecosystems, heredity, evolution, and biological systems. Includes cross-disciplinary lessons connecting life science to robotics and engineering.</p>
+          </div>
+        </div>
+
+        <div class="feature-item fade-in">
+          <div class="feature-icon-wrap">⚗️</div>
+          <div class="feature-content">
+            <h4>Physical Science</h4>
+            <p>3.2 standards — K–12. Matter, energy, forces, and waves. Hands-on investigations and design challenges connecting chemistry and physics to real-world phenomena.</p>
+          </div>
+        </div>
+
+        <div class="feature-item fade-in">
+          <div class="feature-icon-wrap">🌍</div>
+          <div class="feature-content">
+            <h4>Earth &amp; Space Science</h4>
+            <p>3.3 standards — K–12. Earth's systems, climate, and place in the universe — including local watershed investigations and human impact studies.</p>
+          </div>
+        </div>
+
+        <div class="feature-item fade-in">
+          <div class="feature-icon-wrap">🌱</div>
+          <div class="feature-content">
+            <h4>Environmental Literacy</h4>
+            <p>3.4 standards — K–12. Ecological thinking, environmental stewardship, and MWEE-aligned field experiences including the Shared Waters program.</p>
+          </div>
+        </div>
+
+        <div class="feature-item fade-in">
+          <div class="feature-icon-wrap">⚙️</div>
+          <div class="feature-content">
+            <h4>Technology &amp; Engineering</h4>
+            <p>3.5 + ETS standards — K–12. Engineering design challenges, robotics integration, K'Nex competitions, and Hummingbird-based T&amp;E lessons across grade levels.</p>
+          </div>
+        </div>
+
+        <div class="feature-item fade-in">
+          <div class="feature-icon-wrap">💻</div>
+          <div class="feature-content">
+            <h4>Computer Science &amp; Computational Thinking</h4>
+            <p>Coding, robotics, and algorithm design — from Scratch and Hummingbird for younger students to computational thinking assessment frameworks for middle school.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED RESOURCES -->
+  <section id="featured-resources" style="background: var(--gray-50); padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Featured Resources</span>
+        <h2 class="section-title">Highlighted from the Library</h2>
+        <p class="section-subtitle">A sample of what's available — contact IU29 to request access to the full collection.</p>
+      </div>
+
+      <div class="grid-2" style="gap: 20px;">
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start; transition: box-shadow 0.25s ease; box-shadow: var(--shadow-sm);">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">🤖</span>
+          <div style="flex: 1;">
+            <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-bottom: 8px;">
+              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-600); background: var(--purple-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full);">Lesson</div>
+              <span class="resource-new-badge">New</span>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">Hummingbird Robotics: First Hour of Robotics</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 8px;">Full lesson plan for day-one robotics — Scratch + Hummingbird, no prior experience needed. Perfect for introducing T&amp;E standards through hands-on engineering.</p>
+            <div class="grade-tags">
+              <span class="grade-tag">Gr. 3–8</span>
+              <span class="grade-tag">3.5 T&amp;E</span>
+              <span class="grade-tag">ETS</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start; transition: box-shadow 0.25s ease; box-shadow: var(--shadow-sm);">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">🚗</span>
+          <div style="flex: 1;">
+            <div style="margin-bottom: 8px;">
+              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-600); background: var(--orange-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full);">PBL Unit</div>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">Zoom Zoom Engineering Challenge</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 8px;">Self-contained engineering design challenge aligned to PA STEELS — complete teacher-led packet with student data collection, iteration logs, and presentation rubric.</p>
+            <div class="grade-tags">
+              <span class="grade-tag">Gr. K–5</span>
+              <span class="grade-tag">3.5 ETS</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start; transition: box-shadow 0.25s ease; box-shadow: var(--shadow-sm);">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">📊</span>
+          <div style="flex: 1;">
+            <div style="margin-bottom: 8px;">
+              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-600); background: var(--purple-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full);">Assessment</div>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">Computational Thinking Assessment Guide</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 8px;">Formative assessment tools for computational thinking skills — sequences, loops, conditionals, and debugging. Aligned to CS education progressions K–8.</p>
+            <div class="grade-tags">
+              <span class="grade-tag">Gr. 3–8</span>
+              <span class="grade-tag">CS / CT</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start; transition: box-shadow 0.25s ease; box-shadow: var(--shadow-sm);">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">💧</span>
+          <div style="flex: 1;">
+            <div style="margin-bottom: 8px;">
+              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-600); background: var(--orange-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full);">Lab</div>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">Shared Waters Watershed Investigation</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 8px;">MWEE-aligned field and classroom lab using local watershed data — student-led analysis, evidence-based claims, and environmental action planning.</p>
+            <div class="grade-tags">
+              <span class="grade-tag">Gr. 5–8</span>
+              <span class="grade-tag">3.3 Earth</span>
+              <span class="grade-tag">3.4 Env.</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start; transition: box-shadow 0.25s ease; box-shadow: var(--shadow-sm);">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">🏗️</span>
+          <div style="flex: 1;">
+            <div style="margin-bottom: 8px;">
+              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-600); background: var(--purple-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full);">Design Challenge</div>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">K'Nex Regional STEM Design Challenge Prep Kit</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 8px;">Pre-competition classroom practice kit — includes challenge rules, scoring rubric, build tips, and classroom warm-up activities for the regional competition.</p>
+            <div class="grade-tags">
+              <span class="grade-tag">Gr. 4–8</span>
+              <span class="grade-tag">3.5 ETS</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start; transition: box-shadow 0.25s ease; box-shadow: var(--shadow-sm);">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">🐝</span>
+          <div style="flex: 1;">
+            <div style="margin-bottom: 8px;">
+              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-600); background: var(--orange-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full);">Lesson</div>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">Bee Waggle Dance: Hummingbird + Life Science</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 8px;">Cross-curricular lesson connecting animal behavior to robotics programming — students model bee communication using Hummingbird kits and Scratch.</p>
+            <div class="grade-tags">
+              <span class="grade-tag">Gr. 3–6</span>
+              <span class="grade-tag">3.1 Life Science</span>
+              <span class="grade-tag">3.5 T&amp;E</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start; transition: box-shadow 0.25s ease; box-shadow: var(--shadow-sm);">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">📋</span>
+          <div style="flex: 1;">
+            <div style="margin-bottom: 8px;">
+              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-600); background: var(--purple-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full);">Template</div>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">3D Lesson Planning Template (STEELS)</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 8px;">IU29's working template integrating Science &amp; Engineering Practices, Disciplinary Core Ideas, and Crosscutting Concepts — the foundation for 3-dimensional lesson design.</p>
+            <div class="grade-tags">
+              <span class="grade-tag">All grades</span>
+              <span class="grade-tag">All domains</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start; transition: box-shadow 0.25s ease; box-shadow: var(--shadow-sm);">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">🗺️</span>
+          <div style="flex: 1;">
+            <div style="margin-bottom: 8px;">
+              <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-600); background: var(--orange-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full);">Planning Tool</div>
+            </div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">Hummingbird Curriculum Integration Planning Tool</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6; margin-bottom: 8px;">Teacher and coaching versions — maps Hummingbird robotics projects to any subject area and grade level, making cross-curricular integration practical and standards-connected.</p>
+            <div class="grade-tags">
+              <span class="grade-tag">Gr. K–12</span>
+              <span class="grade-tag">Cross-curricular</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <p style="font-size: 1.0625rem; color: var(--gray-500); margin-bottom: 24px;">This is a sample — the full library has significantly more. Contact IU29 to request access.</p>
+        <a href="contact.html" class="btn btn-primary btn-lg">Request Full Library Access →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBMIT A RESOURCE -->
+  <section style="background: white; padding: var(--section-pad) 0;">
+    <div class="container">
+      <div style="max-width: 880px; margin: 0 auto;">
+        <div style="background: var(--gradient-subtle); border-radius: var(--radius-xl); padding: 52px; border: 1px solid var(--gray-200);">
+          <div style="display: flex; align-items: flex-start; gap: 32px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 260px;">
+              <span class="section-label" style="margin-bottom: 16px;">Grow the Library</span>
+              <h2 style="font-family: var(--font-display); font-size: clamp(1.375rem, 2.5vw, 1.875rem); font-weight: 800; color: var(--gray-900); margin-bottom: 16px; line-height: 1.25;">Share What's Working<br>in Your Classroom</h2>
+              <p style="font-size: 1rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+                The IU29 resource library is built on teacher expertise. If you've developed a lesson, lab, or unit that's working well — and it's aligned to STEELS — we'd love to review it for inclusion.
+              </p>
+              <p style="font-size: 1rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 28px;">
+                All submissions are reviewed for STEELS alignment and classroom practicality before publishing. We handle the formatting — you just share what you know.
+              </p>
+              <div class="tags-row" style="margin-bottom: 28px;">
+                <span class="tag">Lesson Plans</span>
+                <span class="tag">Lab Activities</span>
+                <span class="tag">Assessment Tools</span>
+                <span class="tag">PBL Units</span>
+              </div>
+              <a href="contact.html" class="btn btn-primary">Submit a Resource →</a>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px; min-width: 220px;">
+              <div class="feature-item" style="background: white;">
+                <div class="feature-icon-wrap">✅</div>
+                <div class="feature-content">
+                  <h4>STEELS Alignment Review</h4>
+                  <p>IU29 staff check every submission against the standards before it goes live.</p>
+                </div>
+              </div>
+              <div class="feature-item" style="background: white;">
+                <div class="feature-icon-wrap">🤝</div>
+                <div class="feature-content">
+                  <h4>Credit to You</h4>
+                  <p>Your name, school, and district are credited on every resource you contribute.</p>
+                </div>
+              </div>
+              <div class="feature-item" style="background: white;">
+                <div class="feature-icon-wrap">🌍</div>
+                <div class="feature-content">
+                  <h4>Shared Across the County</h4>
+                  <p>Accepted resources go into the library shared by all 14 Schuylkill County districts.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section style="background: var(--gradient-subtle); padding: var(--section-pad) 0;">
+    <div class="container">
+      <div style="max-width: 760px; margin: 0 auto;">
+        <div class="quote-card">
+          <p class="quote-text">"The IU29 resource library has changed how I plan. Instead of starting from scratch every unit, I have a solid STEELS-aligned foundation I can build from — and my students are actually more engaged because the materials are designed for the kind of learning the standards are asking for."</p>
+          <div class="quote-author">Middle School Science Teacher, Schuylkill County</div>
+          <div class="quote-role">6th–8th Grade Earth &amp; Environmental Science</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-content">
+        <h2>Ready to Access the Full Library?</h2>
+        <p>All IU29 member district staff get free access to the complete classroom resource library. Contact us to request your login or ask about adding your district's curriculum materials.</p>
+        <div class="cta-banner-actions">
+          <a href="contact.html" class="btn btn-white btn-lg">Request Library Access</a>
+          <a href="steels-support.html" class="btn btn-outline-white btn-lg">STEELS Support</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/branding/StemAtSkook-logo-white.png" alt="STEM@Skook29 Logo" class="footer-logo">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html#competitions">Competitions</a></li>
+            <li><a href="programs.html#make">Make@Skook29</a></li>
+            <li><a href="programs.html#cso">CSO@Skook29</a></li>
+            <li><a href="steels-support.html">STEELS@Skook29</a></li>
+            <li><a href="edtech-ai.html">EdTech &amp; AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p>
+        <div class="social-links">
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

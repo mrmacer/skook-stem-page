@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EdTech & AI Support — STEM@Skook29</title>
+  <meta name="description" content="IU29's EdTech & AI professional learning hub — AI literacy for educators, classroom tech integration, digital citizenship, tool spotlights, and district PD support across Schuylkill County." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Tool spotlight cards — scoped to edtech-ai.html */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .tool-card {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .tool-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+    .tool-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+    .tool-use {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .tool-badge {
+      display: inline-block;
+      font-size: 0.675rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      margin-top: 4px;
+      align-self: flex-start;
+    }
+    .tool-badge.ready {
+      background: var(--orange-100);
+      color: var(--orange-600);
+    }
+    .tool-badge.caution {
+      background: var(--gray-100);
+      color: var(--gray-700);
+    }
+    @media (max-width: 900px) {
+      .tool-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .tool-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+        </a>
+        <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="site-logo">
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="students.html">Students</a>
+        <div class="nav-dropdown">
+          <a href="teachers.html" class="active">Teachers</a>
+          <div class="nav-dropdown-menu">
+            <a href="steels-support.html">STEELS Support</a>
+            <a href="edtech-ai.html">EdTech &amp; AI</a>
+            <a href="classroom-resources.html">Classroom Resources</a>
+          </div>
+        </div>
+        <a href="districts.html">Districts</a>
+        <a href="community.html">Community</a>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="steels-support.html" class="mobile-subnav">↳ STEELS Support</a>
+    <a href="edtech-ai.html" class="mobile-subnav">↳ EdTech &amp; AI</a>
+    <a href="classroom-resources.html" class="mobile-subnav">↳ Classroom Resources</a>
+    <a href="districts.html">Districts</a>
+    <a href="community.html">Community</a>
+    <a href="programs.html">Programs</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <a href="teachers.html">Teachers</a>
+          <span>›</span>
+          <span>EdTech &amp; AI</span>
+        </div>
+        <div class="page-hero-label">For Educators</div>
+        <h1 class="page-hero-title">EdTech &amp; AI<br>Support</h1>
+        <p class="page-hero-subtitle">
+          Hands-on professional learning with AI tools, classroom technology integration,
+          and digital strategies that actually work in real Schuylkill County classrooms — not just in theory.
+        </p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+          <a href="contact.html" class="btn btn-white btn-lg">Bring AI PD to Your District</a>
+          <a href="#edtech-services" class="btn btn-outline-white btn-lg">See What We Offer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO: WHY THIS MATTERS -->
+  <section style="padding: var(--section-pad) 0; background: white;">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="section-label">EdTech &amp; AI</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">The Classroom Is<br>Changing. So Are We.</h2>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            AI tools are already in your students' hands. The question isn't whether to engage — it's how to do it thoughtfully, ethically, and in ways that actually strengthen learning.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
+            IU29's EdTech &amp; AI support gives Schuylkill County teachers practical experience with the tools shaping education — and the professional grounding to use them well. No prior tech experience required.
+          </p>
+          <div class="tags-row">
+            <span class="tag">K–12</span>
+            <span class="tag">Job-Embedded PD</span>
+            <span class="tag">AI Literacy</span>
+            <span class="tag">PETE&amp;C / PAIMS</span>
+            <span class="tag">No Cost to Districts</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="background: var(--gradient-main); border-radius: var(--radius-xl); padding: 32px; color: white;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">🤖</div>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px;">AI Literacy First</h4>
+            <p style="font-size: 0.9375rem; opacity: 0.85; line-height: 1.65;">Teachers need to understand AI before they can guide students through it. Our workshops build confident, informed educators — not anxious ones.</p>
+          </div>
+          <div style="background: var(--gray-50); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--gray-200);">
+            <div style="font-size: 2rem; margin-bottom: 12px;">🛡️</div>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900);">Digital Citizenship as Foundation</h4>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65;">Privacy, misinformation, AI ethics — digital citizenship isn't a one-day unit. IU29 supports building it into your K–12 curriculum as a living framework.</p>
+          </div>
+          <div style="background: var(--gray-50); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--gray-200);">
+            <div style="font-size: 2rem; margin-bottom: 12px;">💻</div>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900);">Practical Over Theoretical</h4>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65;">Every PD session is designed around tools and strategies you can use Monday morning — not abstract frameworks or vendor demos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORT SERVICES -->
+  <section id="edtech-services" style="background: var(--gray-50); padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Support Services</span>
+        <h2 class="section-title">What We Offer</h2>
+        <p class="section-subtitle">Every service below is available to IU29 member districts. We meet your team where it is — and build practical capacity from there.</p>
+      </div>
+      <div class="grid-3">
+
+        <div class="card fade-in">
+          <div class="card-image" style="background: linear-gradient(135deg, #312e81, #6d28d9);">
+            <span style="font-size: 3rem;">🤖</span>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">AI Literacy</span>
+            <h3 class="card-title">AI Literacy for Educators</h3>
+            <p class="card-text">Professional learning that helps teachers understand what generative AI is, what it isn't, and how to use it — and teach about it — with confidence and ethical grounding.</p>
+            <ul style="font-size: 0.875rem; color: var(--gray-500); margin-bottom: 20px; display: flex; flex-direction: column; gap: 6px;">
+              <li>✦ Hands-on tool exploration</li>
+              <li>✦ Prompt design for educators</li>
+              <li>✦ Ethical use frameworks</li>
+              <li>✦ Grade-banded AI literacy scope</li>
+            </ul>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Schedule a Workshop →</a>
+          </div>
+        </div>
+
+        <div class="card fade-in">
+          <div class="card-image" style="background: linear-gradient(135deg, #164e63, #0284c7);">
+            <span style="font-size: 3rem;">💻</span>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Integration</span>
+            <h3 class="card-title">Practical EdTech Integration</h3>
+            <p class="card-text">Job-embedded coaching to help teachers incorporate tech tools into their existing lessons — not as add-ons, but as genuinely useful enhancements to classroom practice.</p>
+            <ul style="font-size: 0.875rem; color: var(--gray-500); margin-bottom: 20px; display: flex; flex-direction: column; gap: 6px;">
+              <li>✦ Lesson co-design with your tech</li>
+              <li>✦ Tool selection support</li>
+              <li>✦ Workflow simplification</li>
+              <li>✦ Before/after classroom coaching</li>
+            </ul>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Request Coaching →</a>
+          </div>
+        </div>
+
+        <div class="card fade-in">
+          <div class="card-image" style="background: linear-gradient(135deg, #064e3b, #059669);">
+            <span style="font-size: 3rem;">🛡️</span>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Citizenship</span>
+            <h3 class="card-title">Digital Citizenship Resources</h3>
+            <p class="card-text">K–12 frameworks, lesson banks, and teacher support for building students' capacity to navigate digital spaces responsibly — including the age of AI.</p>
+            <ul style="font-size: 0.875rem; color: var(--gray-500); margin-bottom: 20px; display: flex; flex-direction: column; gap: 6px;">
+              <li>✦ Grade-banded lesson bank</li>
+              <li>✦ Privacy &amp; misinformation units</li>
+              <li>✦ AI ethics for students</li>
+              <li>✦ AUP template for districts</li>
+            </ul>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Get Resources →</a>
+          </div>
+        </div>
+
+        <div class="card fade-in">
+          <div class="card-image" style="background: linear-gradient(135deg, #431407, #ea580c);">
+            <span style="font-size: 3rem;">🔦</span>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Tools</span>
+            <h3 class="card-title">Tool Spotlights &amp; Reviews</h3>
+            <p class="card-text">Honest, classroom-tested reviews of EdTech tools that are worth your time — and clear guidance on the ones that aren't quite ready for K–12 use yet.</p>
+            <ul style="font-size: 0.875rem; color: var(--gray-500); margin-bottom: 20px; display: flex; flex-direction: column; gap: 6px;">
+              <li>✦ AI tool readiness ratings</li>
+              <li>✦ EdTech evaluation rubric</li>
+              <li>✦ Teacher-tested recommendations</li>
+              <li>✦ Regular spotlights &amp; updates</li>
+            </ul>
+            <a href="#tool-spotlights" class="btn btn-secondary btn-sm">See Tool Spotlights →</a>
+          </div>
+        </div>
+
+        <div class="card fade-in">
+          <div class="card-image" style="background: linear-gradient(135deg, #1e0a3c, #7e22ce);">
+            <span style="font-size: 3rem;">👥</span>
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Network</span>
+            <h3 class="card-title">AI in Education PLC</h3>
+            <p class="card-text">A multi-session collaborative learning cohort where teachers from across Schuylkill County design AI-integrated projects alongside peers — building together, not in isolation.</p>
+            <ul style="font-size: 0.875rem; color: var(--gray-500); margin-bottom: 20px; display: flex; flex-direction: column; gap: 6px;">
+              <li>✦ Cross-district peer cohort</li>
+              <li>✦ Project-based design sprints</li>
+              <li>✦ Shared resource development</li>
+              <li>✦ Act 48 credit eligible</li>
+            </ul>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Join the PLC →</a>
+          </div>
+        </div>
+
+        <div class="card fade-in" style="background: var(--gradient-main); border: none;">
+          <div class="card-body" style="padding: 36px; display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
+            <div>
+              <span class="card-tag" style="background: rgba(255,255,255,0.2); color: white;">Bring It to You</span>
+              <h3 class="card-title" style="color: white; font-size: 1.5rem; margin-top: 12px;">District PD Days &amp; Building Sessions</h3>
+              <p class="card-text" style="color: rgba(255,255,255,0.8);">IU29 can facilitate AI Literacy or EdTech Integration sessions for your full staff — from a single building PD day to a multi-session cohort. No prior tech experience required.</p>
+            </div>
+            <a href="contact.html" class="btn btn-white" style="margin-top: 24px; align-self: flex-start;">Schedule for Your District →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AI TOOL SPOTLIGHTS -->
+  <section id="tool-spotlights" style="background: white; padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Tool Spotlights</span>
+        <h2 class="section-title">AI Tools Worth Knowing</h2>
+        <p class="section-subtitle">Classroom-tested ratings from IU29 — so you spend less time evaluating and more time teaching.</p>
+      </div>
+      <div class="tool-grid">
+
+        <div class="tool-card fade-in">
+          <div style="font-size: 1.75rem;">🧠</div>
+          <p class="tool-name">ChatGPT / Claude</p>
+          <p class="tool-use">Lesson planning, differentiated feedback drafts, discussion question generation, and modeling AI interactions for students.</p>
+          <span class="tool-badge ready">Classroom Ready</span>
+        </div>
+
+        <div class="tool-card fade-in">
+          <div style="font-size: 1.75rem;">✨</div>
+          <p class="tool-name">MagicSchool AI</p>
+          <p class="tool-use">Teacher-facing tools built for education: rubric generation, IEP support, sub plans, family communication, and more — all in one place.</p>
+          <span class="tool-badge ready">Classroom Ready</span>
+        </div>
+
+        <div class="tool-card fade-in">
+          <div style="font-size: 1.75rem;">🎨</div>
+          <p class="tool-name">Canva AI</p>
+          <p class="tool-use">Student presentations and visual design with AI assistance — a natural fit for media literacy and creative project work across subject areas.</p>
+          <span class="tool-badge ready">Classroom Ready</span>
+        </div>
+
+        <div class="tool-card fade-in">
+          <div style="font-size: 1.75rem;">⚡</div>
+          <p class="tool-name">Brisk Teaching</p>
+          <p class="tool-use">Chrome extension that delivers instant AI-generated feedback on student work directly in Google Docs — cuts feedback time dramatically.</p>
+          <span class="tool-badge ready">Classroom Ready</span>
+        </div>
+
+        <div class="tool-card fade-in">
+          <div style="font-size: 1.75rem;">🖼️</div>
+          <p class="tool-name">AI Image Generators</p>
+          <p class="tool-use">Creative project support — but requires a digital citizenship lens around bias, copyright, and the difference between AI-generated and original work.</p>
+          <span class="tool-badge caution">Use with Guidance</span>
+        </div>
+
+        <div class="tool-card fade-in">
+          <div style="font-size: 1.75rem;">📝</div>
+          <p class="tool-name">Class Companion</p>
+          <p class="tool-use">AI writing coach that gives students Socratic-style feedback — asking questions rather than giving answers, promoting genuine revision and thinking.</p>
+          <span class="tool-badge ready">Classroom Ready</span>
+        </div>
+
+      </div>
+      <p style="text-align: center; font-size: 0.9375rem; color: var(--gray-500); margin-top: 32px;">
+        Ratings reflect IU29's classroom-tested experience. Contact us for a full evaluation rubric or to request a tool spotlight session for your staff.
+      </p>
+    </div>
+  </section>
+
+  <!-- RESOURCE LIBRARY -->
+  <section style="background: var(--gray-50); padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Available Resources</span>
+        <h2 class="section-title">EdTech &amp; AI Resource Library</h2>
+        <p class="section-subtitle">Ready-to-use materials for teachers, curriculum leads, and administrators navigating AI and educational technology.</p>
+      </div>
+
+      <div class="grid-2" style="gap: 20px;">
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start;">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">🗂️</span>
+          <div>
+            <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-600); background: var(--purple-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full); margin-bottom: 8px;">Guide</div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">AI Literacy Framework for K–12 Educators</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6;">What teachers need to know, do, and teach about AI — organized by grade band (K–5, 6–8, 9–12) to make implementation practical.</p>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start;">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">🛠️</span>
+          <div>
+            <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-600); background: var(--orange-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full); margin-bottom: 8px;">Toolkit</div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">Generative AI in the Classroom Starter Kit</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6;">Prompt templates, ethical use norms, and sample lesson hooks — everything you need to get started with generative AI in instruction, responsibly.</p>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start;">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">📜</span>
+          <div>
+            <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-600); background: var(--purple-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full); margin-bottom: 8px;">Policy</div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">AI Acceptable Use Policy Template</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6;">A customizable district-level template aligned to PDE guidance — a starting point for districts building or updating their technology acceptable use policies.</p>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start;">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">📊</span>
+          <div>
+            <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-600); background: var(--orange-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full); margin-bottom: 8px;">Workshop</div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">"Generative AI Empowering Teachers" Workshop Slides</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6;">IU29-hosted session materials — ready to adapt for your building PD day. Covers what AI is, what teachers can do with it, and how to start with confidence.</p>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start;">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">🌐</span>
+          <div>
+            <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-600); background: var(--purple-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full); margin-bottom: 8px;">Lesson Bank</div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">Digital Citizenship Lesson Bank</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6;">Grade-banded lessons on privacy, misinformation, and AI ethics — ready to use in advisory, homeroom, tech class, or as integrated ELA/social studies units.</p>
+          </div>
+        </div>
+
+        <div style="background: white; border-radius: var(--radius-lg); padding: 28px; border: 1px solid var(--gray-200); display: flex; gap: 16px; align-items: flex-start;">
+          <span style="font-size: 1.5rem; flex-shrink: 0;">✅</span>
+          <div>
+            <div style="font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange-600); background: var(--orange-100); display: inline-block; padding: 3px 10px; border-radius: var(--radius-full); margin-bottom: 8px;">Checklist</div>
+            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 4px;">EdTech Tool Evaluation Rubric</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.6;">An 8-point checklist for evaluating any new tech tool before adding it to your classroom workflow — covering privacy, pedagogy, accessibility, and student data.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;">
+        <p style="font-size: 1.0625rem; color: var(--gray-500); margin-bottom: 24px;">Need access to any of these resources? Contact IU29 — we'll get them to you.</p>
+        <a href="contact.html" class="btn btn-primary btn-lg">Request Resource Access →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL LEARNING -->
+  <section style="background: white; padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="section-label">Professional Learning</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">From "What Is AI?"<br>to "Here's What I Do Monday."</h2>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            The best EdTech PD doesn't just inform — it changes how teachers work. IU29's sessions are designed around practical outcomes, not awareness. Every teacher leaves with something they can use.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
+            We offer formats that fit your schedule and your goals — from a single 90-minute intro session to a full PLC cohort across the school year. IU29 also brings statewide innovations home from PETE&amp;C and PAIMS.
+          </p>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="events.html" class="btn btn-primary">View PD Events →</a>
+            <a href="contact.html" class="btn btn-secondary">Bring It to Your District</a>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+
+          <div class="feature-item">
+            <div class="feature-icon-wrap">🤖</div>
+            <div class="feature-content">
+              <h4>AI Literacy for Educators (Half-Day)</h4>
+              <p>From "what is this thing?" to "here's how I use it Monday morning." A practical, confidence-building session for any grade level or subject area. Act 48 eligible.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon-wrap">🔄</div>
+            <div class="feature-content">
+              <h4>AI in Education Collaborative (PLC Series)</h4>
+              <p>Multi-session cohort where teachers design AI-integrated projects with peers — building in community rather than in isolation. Open to all Schuylkill County districts.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon-wrap">💻</div>
+            <div class="feature-content">
+              <h4>EdTech Integration Coaching</h4>
+              <p>Side-by-side support co-designing lessons around your existing tech — no new tools required. Job-embedded and tailored to your classroom context.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon-wrap">🎪</div>
+            <div class="feature-content">
+              <h4>PETE&amp;C / PAIMS Connections</h4>
+              <p>IU29 attends Pennsylvania's leading ed-tech conferences and brings the best ideas, tools, and frameworks back to Schuylkill County districts — distilled and applied.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon-wrap">⚡</div>
+            <div class="feature-content">
+              <h4>AI Hackathon (Coming Soon)</h4>
+              <p>A hands-on design sprint for teachers — build an AI-assisted lesson from scratch in a single day, alongside educators from across the county. Watch for the 2026–27 date.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section style="background: var(--gradient-subtle); padding: var(--section-pad) 0;">
+    <div class="container">
+      <div style="max-width: 760px; margin: 0 auto;">
+        <div class="quote-card">
+          <p class="quote-text">"The AI tools workshop changed how I think about preparing students for the future. I left feeling excited, not overwhelmed — and I actually used what I learned the following week."</p>
+          <div class="quote-author">High School Teacher, Schuylkill County</div>
+          <div class="quote-role">Computer Science</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-content">
+        <h2>Ready to Bring AI PD to Your District?</h2>
+        <p>IU29 can facilitate AI Literacy sessions for your staff — from a single building PD to a multi-session cohort. No prior tech experience required.</p>
+        <div class="cta-banner-actions">
+          <a href="contact.html" class="btn btn-white btn-lg">Contact Greg at IU29</a>
+          <a href="events.html" class="btn btn-outline-white btn-lg">View Upcoming PD</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/branding/StemAtSkook-logo-white.png" alt="STEM@Skook29 Logo" class="footer-logo">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html#competitions">Competitions</a></li>
+            <li><a href="programs.html#make">Make@Skook29</a></li>
+            <li><a href="programs.html#cso">CSO@Skook29</a></li>
+            <li><a href="steels-support.html">STEELS@Skook29</a></li>
+            <li><a href="edtech-ai.html">EdTech &amp; AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p>
+        <div class="social-links">
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

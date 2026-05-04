@@ -793,6 +793,7 @@ section {
   padding: 96px 0 80px;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   text-align: center;
 }
 

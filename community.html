@@ -44,7 +44,10 @@
       line-height: 1.3;
     }
     .partner-card-type {
-      display: inline-block;
+      display: inline-flex;
+      width: fit-content;
+      align-self: flex-start;
+      align-items: center;
       font-size: 0.675rem;
       font-weight: 700;
       letter-spacing: 0.1em;
@@ -72,11 +75,36 @@
       color: rgba(255,255,255,0.75);
       transform: translateX(3px);
     }
+    .partner-card-logo-wrap {
+      background: rgba(255,255,255,0.92);
+      border-radius: var(--radius-sm);
+      padding: 6px 10px;
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+    }
+    .partner-card-logo-wrap img {
+      max-height: 48px;
+      max-width: 120px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+    }
     @media (max-width: 900px) {
       .partner-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 480px) {
       .partner-grid { grid-template-columns: 1fr; }
+    }
+    .wscam-feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 700px) {
+      .wscam-feature-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -103,7 +131,12 @@
           </div>
         </div>
         <a href="districts.html">Districts</a>
-        <a href="community.html" class="active">Community</a>
+        <div class="nav-dropdown">
+          <a href="community.html" class="active">Community</a>
+          <div class="nav-dropdown-menu">
+            <a href="wscam.html">WSCAM Archive</a>
+          </div>
+        </div>
         <a href="programs.html">Programs</a>
         <a href="events.html">Events</a>
         <a href="about.html">About</a>
@@ -122,7 +155,8 @@
     <a href="edtech-ai.html" class="mobile-subnav">↳ EdTech &amp; AI</a>
     <a href="classroom-resources.html" class="mobile-subnav">↳ Classroom Resources</a>
     <a href="districts.html">Districts</a>
-    <a href="community.html">Community</a>
+    <a href="community.html" class="active">Community</a>
+    <a href="wscam.html" class="mobile-subnav">↳ WSCAM Archive</a>
     <a href="programs.html">Programs</a>
     <a href="events.html">Events</a>
     <a href="about.html">About</a>
@@ -311,6 +345,49 @@
     </div>
   </section>
 
+  <!-- WSCAM FEATURE -->
+  <section style="background: var(--gray-50); padding: var(--section-pad) 0; position: relative; z-index: 1;">
+    <div class="container">
+      <div style="max-width: 880px; margin: 0 auto;">
+        <div class="wscam-feature-grid" style="background: white; border-radius: var(--radius-xl); border: 1px solid var(--gray-200); overflow: hidden; gap: 0;">
+          <div style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); padding: 48px 40px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="display: inline-block; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 12px; border-radius: var(--radius-full); margin-bottom: 20px;">Student Competition</span>
+              <h2 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; color: white; line-height: 1.2; margin-bottom: 16px;">What's So Cool<br>About Manufacturing?</h2>
+              <p style="font-size: 0.9375rem; color: rgba(255,255,255,0.75); line-height: 1.7; margin-bottom: 0;">Schuylkill County students have been telling the stories of local manufacturers through the What's So Cool About Manufacturing? student video contest. Explore the archive of school teams, industry partners, sponsors, and student-created videos.</p>
+            </div>
+            <div style="margin-top: 32px;">
+              <a href="wscam.html" class="btn btn-white">Explore WSCAM Archive →</a>
+            </div>
+          </div>
+          <div style="padding: 48px 40px; display: flex; flex-direction: column; gap: 24px; justify-content: center;">
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">🎬</div>
+              <div>
+                <p style="font-size: 0.9375rem; font-weight: 600; color: var(--gray-900); margin-bottom: 3px;">7 Years of Student Videos</p>
+                <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.5;">Student-produced documentary videos from 2017 through 2023, archived and searchable.</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">🏭</div>
+              <div>
+                <p style="font-size: 0.9375rem; font-weight: 600; color: var(--gray-900); margin-bottom: 3px;">Local Industry Partners</p>
+                <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.5;">19+ Schuylkill County manufacturers who opened their doors to student film crews.</p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 16px;">
+              <div style="width: 40px; height: 40px; border-radius: var(--radius-md); background: var(--gray-100); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;">🏆</div>
+              <div>
+                <p style="font-size: 0.9375rem; font-weight: 600; color: var(--gray-900); margin-bottom: 3px;">Regional & State Awards</p>
+                <p style="font-size: 0.875rem; color: var(--gray-500); line-height: 1.5;">Multiple Schuylkill County teams recognized as Best of PA nominees in statewide competition.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FEATURED COMMUNITY EVENT: LISTENING SESSION -->
   <section style="background: white; padding: var(--section-pad) 0; position: relative; z-index: 1;">
     <div class="container">
@@ -381,91 +458,99 @@
         <p class="section-subtitle">Every public school district in Schuylkill County is part of the IU29 STEM network. No school — and no student — left behind.</p>
       </div>
 
-      <!--
-        TODO: Replace the href="#" placeholders below with the official district/school website URLs.
-        Public school districts listed first (12), followed by non-public partners (2).
-      -->
       <div class="partner-grid">
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.bmsd.org/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/bluemountain.png" alt="Blue Mountain logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Blue Mountain</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.mabears.net/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/mahanoy.png" alt="Mahanoy Area logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Mahanoy Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.battlinminers.com/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/minersville.png" alt="Minersville Area logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Minersville Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.northschuylkill.net/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/northschuylkill.png" alt="North Schuylkill logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">North Schuylkill</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.pgasd.com/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/pinegrove.png" alt="Pine Grove Area logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Pine Grove Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.pottsville.k12.pa.us/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/pottsville.png" alt="Pottsville Area logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Pottsville Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.saintclairsd.org/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/stclair.png" alt="Saint Clair Area logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Saint Clair Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.haven.k12.pa.us/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/schuylkillhaven.png" alt="Schuylkill Haven logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Schuylkill Haven</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.svbluedevils.org/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/shenandoah.png" alt="Shenandoah Valley logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Shenandoah Valley</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.tamaqua.k12.pa.us/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/tamaqua.png" alt="Tamaqua Area logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Tamaqua Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.tri-valley.org/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/trivalley.png" alt="Tri-Valley logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Tri-Valley</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.wvschools.net/" target="_blank" rel="noopener noreferrer" class="partner-card">
+          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/williamsvalley.png" alt="Williams Valley logo"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Williams Valley</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.nativitybvm.net/" target="_blank" rel="noopener noreferrer" class="partner-card">
           <span class="partner-card-type nonpublic">Non-Public Partner</span>
           <span class="partner-card-name">Nativity BVM</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-card">
+        <a href="https://www.gssdschool.com/" target="_blank" rel="noopener noreferrer" class="partner-card">
           <span class="partner-card-type nonpublic">Non-Public Partner</span>
           <span class="partner-card-name">Good Shepherd</span>
           <span class="partner-card-arrow">Visit site →</span>
@@ -500,6 +585,7 @@
           <div class="footer-contact">
             <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
             <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+            <a href="tel:+15705449131">📞 (570) 544-9131</a>
           </div>
         </div>
         <div class="footer-col">

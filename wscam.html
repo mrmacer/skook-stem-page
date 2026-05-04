@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What's So Cool About Manufacturing? — STEM@Skook29</title>
+  <meta name="description" content="Schuylkill County student video archive for What's So Cool About Manufacturing? — school teams, industry partners, awards, and career connections from 2017 to today." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* WSCAM page — scoped styles */
+
+    /* Filter bar */
+    .wscam-filter-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .wscam-search {
+      width: 100%;
+      max-width: 480px;
+      padding: 12px 20px;
+      border: 2px solid var(--gray-200);
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      color: var(--gray-900);
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .wscam-search:focus {
+      border-color: var(--purple-400);
+    }
+    .wscam-search::placeholder {
+      color: var(--gray-500);
+    }
+    .wscam-year-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .wscam-filter-label {
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gray-500);
+      margin-right: 4px;
+    }
+    .wscam-year-btn {
+      font-family: var(--font-body);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--gray-200);
+      background: transparent;
+      color: var(--gray-600);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .wscam-year-btn:hover {
+      border-color: var(--purple-400);
+      color: var(--purple-600);
+    }
+    .wscam-year-btn.active {
+      background: var(--gradient-main);
+      border-color: transparent;
+      color: white;
+    }
+    .wscam-count {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      margin-left: auto;
+    }
+
+    /* Result count bar */
+    .wscam-results-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .wscam-results-text {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+    }
+    .wscam-results-text strong {
+      color: var(--gray-900);
+    }
+
+    /* Archive card grid */
+    .wscam-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* Individual archive card */
+    .wscam-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--gray-200);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .wscam-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    .wscam-card.hidden {
+      display: none;
+    }
+    .wscam-card-header {
+      background: var(--gradient-main);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .wscam-year-label {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: white;
+    }
+    .wscam-best-pa {
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: white;
+      color: var(--purple-700);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+    .wscam-card-body {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .wscam-partner-name {
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      line-height: 1.3;
+    }
+    .wscam-school-name {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      line-height: 1.4;
+    }
+    .wscam-district {
+      font-size: 0.8rem;
+      color: var(--gray-400);
+    }
+    .wscam-awards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .wscam-award-pill {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      background: var(--orange-100);
+      color: var(--orange-600);
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+    }
+    .wscam-card-actions {
+      padding: 16px 20px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--gray-100);
+    }
+
+    /* Industry partner logo grid */
+    .partner-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+    .partner-logo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      min-height: 120px;
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .partner-logo-card:hover,
+    .partner-logo-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1);
+      border-color: rgba(128, 0, 32, 0.25);
+    }
+    .partner-logo-wrap {
+      width: 100%;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .partner-logo-wrap img {
+      max-width: 140px;
+      max-height: 56px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+    .partner-logo-wrap--dark {
+      background: #1e293b;
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+    }
+    .partner-logo-card span {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      line-height: 1.3;
+    }
+
+    /* No-results message */
+    .wscam-no-results {
+      display: none;
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 64px 0;
+    }
+    .wscam-no-results.visible {
+      display: block;
+    }
+
+    @media (max-width: 1024px) {
+      .wscam-grid { grid-template-columns: repeat(2, 1fr); }
+      .partner-logo-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .wscam-grid { grid-template-columns: 1fr; }
+      .partner-logo-grid { grid-template-columns: repeat(2, 1fr); }
+      .wscam-search { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <div class="nav-brand">
+        <a href="index.html" class="logo-link">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+        </a>
+        <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="site-logo">
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="students.html">Students</a>
+        <div class="nav-dropdown">
+          <a href="teachers.html">Teachers</a>
+          <div class="nav-dropdown-menu">
+            <a href="steels-support.html">STEELS Support</a>
+            <a href="edtech-ai.html">EdTech &amp; AI</a>
+            <a href="classroom-resources.html">Classroom Resources</a>
+          </div>
+        </div>
+        <a href="districts.html">Districts</a>
+        <div class="nav-dropdown">
+          <a href="community.html" class="active">Community</a>
+          <div class="nav-dropdown-menu">
+            <a href="wscam.html">WSCAM Archive</a>
+          </div>
+        </div>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="students.html">Students</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="steels-support.html" class="mobile-subnav">↳ STEELS Support</a>
+    <a href="edtech-ai.html" class="mobile-subnav">↳ EdTech &amp; AI</a>
+    <a href="classroom-resources.html" class="mobile-subnav">↳ Classroom Resources</a>
+    <a href="districts.html">Districts</a>
+    <a href="community.html">Community</a>
+    <a href="wscam.html" class="mobile-subnav">↳ WSCAM Archive</a>
+    <a href="programs.html">Programs</a>
+    <a href="events.html">Events</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-orb page-hero-orb-1"></div>
+    <div class="page-hero-orb page-hero-orb-2"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <a href="community.html">Community</a>
+          <span>›</span>
+          <span>WSCAM Archive</span>
+        </div>
+        <div class="page-hero-label">Student Video Contest</div>
+        <h1 class="page-hero-title">What's So Cool About<br>Manufacturing?</h1>
+        <p class="page-hero-subtitle">
+          Student stories. Local industry. Real career connections.<br>
+          Schuylkill County schools partnering with local manufacturers to show students — and their communities — what modern manufacturing actually looks like.
+        </p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+          <a href="#archive" class="btn btn-white btn-lg">Browse the Archive</a>
+          <a href="#industry-partners" class="btn btn-outline-white btn-lg">Industry Partners</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS WSCAM -->
+  <section style="padding: var(--section-pad) 0; background: white;">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <span class="section-label">About the Program</span>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Connecting Classrooms<br>to Local Careers</h2>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            What's So Cool About Manufacturing? (WSCAM) is a statewide student video competition that connects K–12 classrooms with local manufacturers. Student teams visit a partner company, learn about modern manufacturing processes, and produce a short video — telling the story of that workplace in their own words.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            In Schuylkill County, IU29 has coordinated local WSCAM participation since 2017. Over that time, student teams from more than a dozen schools have produced videos featuring local employers — showcasing the real career opportunities that exist right here in our region.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
+            STEM@Skook29 sees WSCAM as more than a competition — it's a model for the kind of school-employer connection that builds a stronger regional STEM ecosystem for the long term.
+          </p>
+          <div class="tags-row">
+            <span class="tag">2017–2023</span>
+            <span class="tag">60+ Student Videos</span>
+            <span class="tag">19 Industry Partners</span>
+            <span class="tag">12 School Districts</span>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="background: var(--gradient-main); border-radius: var(--radius-xl); padding: 32px; color: white;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">🎬</div>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px;">Student-Created Videos</h4>
+            <p style="font-size: 0.9375rem; opacity: 0.85; line-height: 1.65;">Students research, film, and edit short videos showcasing local manufacturers — building media skills, interviewing professionals, and learning about real careers in their backyard.</p>
+          </div>
+          <div style="background: var(--gray-50); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--gray-200);">
+            <div style="font-size: 2rem; margin-bottom: 12px;">🏭</div>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900);">Local Industry Partners</h4>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65;">From robotics and food manufacturing to energy and environmental services — each partner company opens its doors to student teams, demonstrating that manufacturing careers are modern, meaningful, and local.</p>
+          </div>
+          <div style="background: var(--gray-50); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--gray-200);">
+            <div style="font-size: 2rem; margin-bottom: 12px;">🌉</div>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900);">A Bridge to the Ecosystem</h4>
+            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65;">STEM@Skook29 hopes to deepen these school-employer relationships into lasting connections — bringing WSCAM partners into the broader regional STEM ecosystem over time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRY PARTNERS / SPONSORS -->
+  <section id="industry-partners" style="background: var(--gray-50); padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Industry Partners</span>
+        <h2 class="section-title">Local Employers Who Opened Their Doors</h2>
+        <p class="section-subtitle">These companies have partnered with Schuylkill County schools to host student video teams through the WSCAM program.</p>
+      </div>
+
+      <!-- Important disclaimer -->
+      <div style="background: white; border-radius: var(--radius-lg); padding: 24px 28px; border: 1px solid var(--gray-200); border-left: 4px solid var(--orange-500); margin-bottom: 40px; max-width: 860px; margin-left: auto; margin-right: auto;">
+        <p style="font-size: 0.9375rem; color: var(--gray-700); line-height: 1.75; margin-bottom: 8px;">
+          <strong>Please note:</strong> These sponsors and industry partners support the WSCAM project and are not necessarily formal STEM@Skook29 organizational partners.
+        </p>
+        <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.75;">
+          STEM@Skook29 hopes to continue connecting these employers, schools, and community partners into a broader regional STEM ecosystem — building on the relationships started through WSCAM toward deeper, long-term collaboration.
+        </p>
+      </div>
+
+      <div class="partner-logo-grid">
+        <a href="https://ash-tec.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/ashland-technology-logo.avif" alt="Ashland Technologies logo"></div>
+          <span>Ashland Technologies</span>
+        </a>
+        <a href="https://www.bartush.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/bartush-logo.png" alt="Bartush Signs logo"></div>
+          <span>Bartush Signs</span>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/bibbmfg-logo.png" alt="Bibb Manufacturing logo"></div>
+          <span>Bibb Manufacturing</span>
+        </a>
+        <a href="https://cardinalsystemsinc.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/cardinalsystemsinc-logo.png" alt="Cardinal Systems logo"></div>
+          <span>Cardinal Systems</span>
+        </a>
+        <a href="https://clearlyclean.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/clearly-clean-logo.svg" alt="Clearly Clean logo"></div>
+          <span>Clearly Clean</span>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/emd-electronics-logo.png" alt="EMD Electronics logo"></div>
+          <span>EMD Electronics</span>
+        </a>
+        <a href="https://fabconprecast.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/Fabcon-logo.png" alt="Fabcon Precast logo"></div>
+          <span>Fabcon Precast</span>
+        </a>
+        <a href="https://guersdairy.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/guers-dairy-logo.png" alt="Guers Tumbling Run Dairy logo"></div>
+          <span>Guers Tumbling Run Dairy</span>
+        </a>
+        <a href="https://www.hexcel.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/hexcel-logo.svg" alt="Hexcel Corporation logo"></div>
+          <span>Hexcel Corporation</span>
+        </a>
+        <a href="https://www.highwood-usa.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/Highwood-logo.webp" alt="Highwood USA logo"></div>
+          <span>Highwood USA</span>
+        </a>
+        <a href="https://www.hydro.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap partner-logo-wrap--dark"><img src="assets/branding/partners/whats-so-cool-logo/hydro-logo-white.svg" alt="Hydro logo"></div>
+          <span>Hydro</span>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/keystone-potato-products-logo.webp" alt="Keystone Potato Products logo"></div>
+          <span>Keystone Potato Products</span>
+        </a>
+        <a href="https://www.michaelfoods.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/micheal-foods-logo.png" alt="Michael Foods logo"></div>
+          <span>Michael Foods</span>
+        </a>
+        <a href="https://www.mrstspierogies.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/mrs-ts-logo.png" alt="Mrs. T&#39;s Pierogies logo"></div>
+          <span>Mrs. T&#39;s Pierogies</span>
+        </a>
+        <a href="https://nppbeams.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/northeast-prestressed-logo.png" alt="Northeast Prestressed Products logo"></div>
+          <span>Northeast Prestressed Products</span>
+        </a>
+        <a href="https://www.petsmart.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <span>PetSmart</span>
+        </a>
+        <a href="https://www.prysmiangroup.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/prysmian-logo.webp" alt="Prysmian Group logo"></div>
+          <span>Prysmian Group</span>
+        </a>
+        <a href="https://royaltruckandequipment.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/royal-truck-logo.webp" alt="Royal Truck &amp; Equipment logo"></div>
+          <span>Royal Truck &amp; Equipment</span>
+        </a>
+        <a href="https://solarinnovations.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/SolarInnov-logo.webp" alt="Solar Innovations logo"></div>
+          <span>Solar Innovations</span>
+        </a>
+        <a href="https://stermanmasser.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/masser-family-logo.png" alt="Sterman Masser logo"></div>
+          <span>Sterman Masser</span>
+        </a>
+        <a href="https://www.summittrailer.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/summit-trailer-logo.png" alt="Summit Trailer Sales logo"></div>
+          <span>Summit Trailer Sales</span>
+        </a>
+        <a href="https://tredegarfilms.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/tredegar-logo.png" alt="Tredegar Performance Films logo"></div>
+          <span>Tredegar Performance Films</span>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap partner-logo-wrap--dark"><img src="assets/branding/partners/whats-so-cool-logo/Zimmerman-Shoes-logo-white.webp" alt="Zimmerman Shoes logo"></div>
+          <span>Zimmerman Shoes</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO ARCHIVE -->
+  <section id="archive" style="background: white; padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label orange">Video Archive</span>
+        <h2 class="section-title">Student Video Archive</h2>
+        <p class="section-subtitle">Browse videos by year or search by school, company, or award. YouTube links open in a new tab.</p>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="wscam-filter-bar">
+        <div>
+          <input
+            type="search"
+            id="wscam-search"
+            class="wscam-search"
+            placeholder="Search by school, company, or award…"
+            aria-label="Search video archive"
+          />
+        </div>
+        <div class="wscam-year-filters">
+          <span class="wscam-filter-label">Year:</span>
+          <button class="wscam-year-btn active" data-year="all">All</button>
+          <button class="wscam-year-btn" data-year="2023">2023</button>
+          <button class="wscam-year-btn" data-year="2022">2022</button>
+          <button class="wscam-year-btn" data-year="2021">2021</button>
+          <button class="wscam-year-btn" data-year="2020">2020</button>
+          <button class="wscam-year-btn" data-year="2019">2019</button>
+          <button class="wscam-year-btn" data-year="2018">2018</button>
+          <button class="wscam-year-btn" data-year="2017">2017</button>
+        </div>
+      </div>
+
+      <!-- Results count -->
+      <div class="wscam-results-bar">
+        <p class="wscam-results-text">Showing <strong id="wscam-visible-count">60</strong> of 60 entries</p>
+      </div>
+
+      <!-- Archive grid — rendered by JS -->
+      <div class="wscam-grid" id="wscam-grid">
+        <div class="wscam-no-results" id="wscam-no-results">
+          <p style="font-size: 1.125rem; color: var(--gray-500); margin-bottom: 8px;">No matching entries found.</p>
+          <p style="font-size: 0.9rem; color: var(--gray-400);">Try a different year or search term.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN THE ECOSYSTEM CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <div class="cta-banner-content">
+        <h2>Is Your Company a WSCAM Alum?</h2>
+        <p>If your organization has participated in WSCAM — or is interested in partnering with IU29 for future competitions or ecosystem initiatives — we'd love to connect.</p>
+        <div class="cta-banner-actions">
+          <a href="contact.html" class="btn btn-white btn-lg">Get in Touch</a>
+          <a href="community.html" class="btn btn-outline-white btn-lg">Community Partners</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/branding/StemAtSkook-logo-white.png" alt="STEM@Skook29 Logo" class="footer-logo">
+          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+            <a href="tel:+15705449131">📞 (570) 544-9131</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html#competitions">Competitions</a></li>
+            <li><a href="programs.html#make">Make@Skook29</a></li>
+            <li><a href="programs.html#cso">CSO@Skook29</a></li>
+            <li><a href="steels-support.html">STEELS@Skook29</a></li>
+            <li><a href="edtech-ai.html">EdTech &amp; AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p>
+        <div class="social-links">
+          <a href="#" class="social-link">𝕏</a>
+          <a href="#" class="social-link">f</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Future enhancement: use lat/long fields to render an interactive industry partner map.
+
+    const wscamEntries = [
+      // 2023 — video links go to the WSCAM central library (no direct YouTube embed)
+      { year: "2023", school: "Blue Mountain Middle School", district: "Blue Mountain SD", partner: "Hexcel Corporation", partnerUrl: "https://www.hexcel.com", videoUrl: "https://whatssocool.org/video-library/", awards: ["Best of PA Nominee"], lat: "", lng: "" },
+      { year: "2023", school: "Minersville Junior/Senior High School", district: "Minersville Area SD", partner: "Prysmian Group", partnerUrl: "https://www.prysmiangroup.com", videoUrl: "https://whatssocool.org/video-library/", awards: [], lat: "", lng: "" },
+      { year: "2023", school: "North Schuylkill Junior/Senior High School", district: "North Schuylkill SD", partner: "Ashland Technologies", partnerUrl: "https://ash-tec.com", videoUrl: "https://whatssocool.org/video-library/", awards: [], lat: "", lng: "" },
+      { year: "2023", school: "Schuylkill Haven Area Middle School", district: "Schuylkill Haven Area SD", partner: "Highwood USA", partnerUrl: "https://www.highwood-usa.com", videoUrl: "https://whatssocool.org/video-library/", awards: [], lat: "", lng: "" },
+      { year: "2023", school: "Williams Valley Junior/Senior High School", district: "Williams Valley SD", partner: "Fabcon Precast", partnerUrl: "https://fabconprecast.com", videoUrl: "https://whatssocool.org/video-library/", awards: [], lat: "", lng: "" },
+      // 2022
+      { year: "2022", school: "Blue Mountain Middle School", district: "Blue Mountain SD", partner: "Highwood USA", partnerUrl: "https://www.highwood-usa.com", videoUrl: "https://youtube.com/watch?v=C1WxY7JUppI", awards: [], lat: "", lng: "" },
+      { year: "2022", school: "D.H.H. Lengel Middle School", district: "Pottsville Area SD", partner: "Ashland Technologies", partnerUrl: "https://ash-tec.com", videoUrl: "https://youtube.com/watch?v=-OqJwzISRfQ", awards: ["Outstanding Educational Value", "Best of PA Nominee"], lat: "", lng: "" },
+      { year: "2022", school: "Mahanoy Area Junior/Senior High School", district: "Mahanoy Area SD", partner: "Sterman Masser", partnerUrl: "https://stermanmasser.com", videoUrl: "https://youtube.com/watch?v=BesHFa2Je48", awards: [], lat: "", lng: "" },
+      { year: "2022", school: "Minersville Junior/Senior High School", district: "Minersville Area SD", partner: "Clearly Clean", partnerUrl: "https://clearlyclean.com", videoUrl: "https://youtube.com/watch?v=-4vIzP35lfk", awards: [], lat: "", lng: "" },
+      { year: "2022", school: "North Schuylkill Junior/Senior High School", district: "North Schuylkill SD", partner: "Michael Foods", partnerUrl: "https://www.michaelfoods.com", videoUrl: "https://youtube.com/watch?v=v15mQnkDibM", awards: [], lat: "", lng: "" },
+      { year: "2022", school: "Pine Grove Area Middle School", district: "Pine Grove Area SD", partner: "Royal Truck & Equipment", partnerUrl: "https://royaltruckandequipment.com", videoUrl: "https://youtube.com/watch?v=DSm1G-D9iGo", awards: [], lat: "", lng: "" },
+      { year: "2022", school: "Schuylkill Haven Area Middle School", district: "Schuylkill Haven Area SD", partner: "Cardinal Systems", partnerUrl: "https://cardinalsystemsinc.com", videoUrl: "https://youtube.com/watch?v=XGhmBEKWQKs", awards: [], lat: "", lng: "" },
+      { year: "2022", school: "Shenandoah Valley Junior/Senior High School", district: "Shenandoah Valley SD", partner: "Fabcon Precast", partnerUrl: "https://fabconprecast.com", videoUrl: "https://youtube.com/watch?v=nxOB8bztF9k", awards: ["Outstanding Creativity"], lat: "", lng: "" },
+      { year: "2022", school: "Tamaqua Area Middle School", district: "Tamaqua Area SD", partner: "Hydro", partnerUrl: "https://www.hydro.com", videoUrl: "https://youtube.com/watch?v=Tzf81dUsuhA", awards: [], lat: "", lng: "" },
+      { year: "2022", school: "Tri-Valley Junior/Senior High School", district: "Tri-Valley SD", partner: "Solar Innovations", partnerUrl: "https://solarinnovations.com", videoUrl: "https://youtube.com/watch?v=NLAkBDu-57g", awards: [], lat: "", lng: "" },
+      { year: "2022", school: "Williams Valley Junior/Senior High School", district: "Williams Valley SD", partner: "Tredegar Performance Films", partnerUrl: "https://tredegarfilms.com", videoUrl: "https://youtube.com/watch?v=d5ytk84pe34", awards: [], lat: "", lng: "" },
+      // 2021
+      { year: "2021", school: "Mahanoy Area Junior/Senior High School", district: "Mahanoy Area SD", partner: "Cardinal Systems", partnerUrl: "https://cardinalsystemsinc.com", videoUrl: "https://youtube.com/watch?v=ZQF6QVfsyLw", awards: [], lat: "", lng: "" },
+      { year: "2021", school: "Minersville Junior/Senior High School", district: "Minersville Area SD", partner: "Mrs. T's Pierogies", partnerUrl: "https://www.mrstspierogies.com", videoUrl: "https://youtube.com/watch?v=ufX691RU0ms", awards: ["Outstanding Team Spirit"], lat: "", lng: "" },
+      { year: "2021", school: "North Schuylkill Junior/Senior High School", district: "North Schuylkill SD", partner: "Hydro", partnerUrl: "https://www.hydro.com", videoUrl: "https://youtube.com/watch?v=NtQdSiS1CNE", awards: [], lat: "", lng: "" },
+      { year: "2021", school: "Pine Grove Area Middle School", district: "Pine Grove Area SD", partner: "Highwood USA", partnerUrl: "https://www.highwood-usa.com", videoUrl: "https://youtube.com/watch?v=EDiHN05FqoY", awards: ["Viewers Choice"], lat: "", lng: "" },
+      { year: "2021", school: "Shenandoah Valley Junior/Senior High School", district: "Shenandoah Valley SD", partner: "Solar Innovations", partnerUrl: "https://solarinnovations.com", videoUrl: "https://youtube.com/watch?v=lChQKNyIG6U", awards: [], lat: "", lng: "" },
+      { year: "2021", school: "Tamaqua Area Middle School", district: "Tamaqua Area SD", partner: "Ashland Technologies", partnerUrl: "https://ash-tec.com", videoUrl: "https://youtube.com/watch?v=PeATUMZFqWo", awards: ["Outstanding Outreach Plan"], lat: "", lng: "" },
+      { year: "2021", school: "Tri-Valley Junior/Senior High School", district: "Tri-Valley SD", partner: "Fabcon Precast", partnerUrl: "https://fabconprecast.com", videoUrl: "https://youtube.com/watch?v=q1A4278sFas", awards: ["Outstanding Cool"], lat: "", lng: "" },
+      { year: "2021", school: "Williams Valley Junior/Senior High School", district: "Williams Valley SD", partner: "Michael Foods", partnerUrl: "https://www.michaelfoods.com", videoUrl: "https://youtube.com/watch?v=2D33UBNh9YM", awards: [], lat: "", lng: "" },
+      // 2020
+      { year: "2020", school: "Blue Mountain Middle School", district: "Blue Mountain SD", partner: "Bartush Signs", partnerUrl: "https://www.bartush.com", videoUrl: "https://youtube.com/watch?v=ein6YmsWNoQ", awards: [], lat: "", lng: "" },
+      { year: "2020", school: "D.H.H. Lengel Middle School", district: "Pottsville Area SD", partner: "Cardinal Systems", partnerUrl: "https://cardinalsystemsinc.com", videoUrl: "https://youtube.com/watch?v=gt8VuvOWKgk", awards: ["Outstanding Career Pathway (tie)"], lat: "", lng: "" },
+      { year: "2020", school: "Mahanoy Area Junior/Senior High School", district: "Mahanoy Area SD", partner: "Mrs. T's Pierogies", partnerUrl: "https://www.mrstspierogies.com", videoUrl: "https://youtube.com/watch?v=qVub-6orZXA", awards: ["Viewers Choice", "Outstanding Outreach Plan"], lat: "", lng: "" },
+      { year: "2020", school: "Minersville Junior/Senior High School", district: "Minersville Area SD", partner: "Northeast Prestressed Products", partnerUrl: "https://nppbeams.com", videoUrl: "https://youtube.com/watch?v=COZBB2u9X0E", awards: [], lat: "", lng: "" },
+      { year: "2020", school: "North Schuylkill Junior/Senior High School", district: "North Schuylkill SD", partner: "Tredegar Performance Films", partnerUrl: "https://tredegarfilms.com", videoUrl: "https://youtube.com/watch?v=LF0qV4JxCKc", awards: [], lat: "", lng: "" },
+      { year: "2020", school: "Pine Grove Area Middle School", district: "Pine Grove Area SD", partner: "Sterman Masser", partnerUrl: "https://stermanmasser.com", videoUrl: "https://youtube.com/watch?v=8VpPwRcG82o", awards: [], lat: "", lng: "" },
+      { year: "2020", school: "Saint Clair Area Middle School", district: "Saint Clair Area SD", partner: "Hydro", partnerUrl: "https://www.hydro.com", videoUrl: "https://youtube.com/watch?v=3Tn0yddOjsk", awards: ["Outstanding Videography", "Best of PA Nominee"], lat: "", lng: "" },
+      { year: "2020", school: "Schuylkill Haven Area Middle School", district: "Schuylkill Haven Area SD", partner: "Summit Trailer Sales", partnerUrl: "https://www.summittrailer.com", videoUrl: "https://youtube.com/watch?v=qjzGH7Y76Ac", awards: [], lat: "", lng: "" },
+      { year: "2020", school: "Shenandoah Valley Junior/Senior High School", district: "Shenandoah Valley SD", partner: "Highwood USA", partnerUrl: "https://www.highwood-usa.com", videoUrl: "https://youtube.com/watch?v=Vb9hszFyg6g", awards: [], lat: "", lng: "" },
+      { year: "2020", school: "Tamaqua Area Middle School", district: "Tamaqua Area SD", partner: "Fabcon Precast", partnerUrl: "https://fabconprecast.com", videoUrl: "https://youtube.com/watch?v=juF92V4ia5o", awards: [], lat: "", lng: "" },
+      { year: "2020", school: "Tri-Valley Junior/Senior High School", district: "Tri-Valley SD", partner: "Ashland Technologies", partnerUrl: "https://ash-tec.com", videoUrl: "https://youtube.com/watch?v=L3fWOyoP7Vs", awards: ["Outstanding Creativity"], lat: "", lng: "" },
+      { year: "2020", school: "Williams Valley Junior/Senior High School", district: "Williams Valley SD", partner: "Solar Innovations", partnerUrl: "https://solarinnovations.com", videoUrl: "https://youtube.com/watch?v=4Bq9FosOm0M", awards: [], lat: "", lng: "" },
+      // 2019
+      { year: "2019", school: "Blue Mountain Middle School", district: "Blue Mountain SD", partner: "Cardinal Systems", partnerUrl: "https://cardinalsystemsinc.com", videoUrl: "https://youtube.com/watch?v=1flyuVEeQaU", awards: [], lat: "", lng: "" },
+      { year: "2019", school: "D.H.H. Lengel Middle School", district: "Pottsville Area SD", partner: "Hydro", partnerUrl: "https://www.hydro.com", videoUrl: "https://youtube.com/watch?v=0K5Dj_63fP0", awards: ["Outstanding Creativity", "Best of PA Nominee"], lat: "", lng: "" },
+      { year: "2019", school: "Mahanoy Area Junior/Senior High School", district: "Mahanoy Area SD", partner: "Fabcon Precast", partnerUrl: "https://fabconprecast.com", videoUrl: "https://youtube.com/watch?v=i5yswDSF_Ho", awards: ["Outstanding Outreach Plan"], lat: "", lng: "" },
+      { year: "2019", school: "Minersville Junior/Senior High School", district: "Minersville Area SD", partner: "Tredegar Performance Films", partnerUrl: "https://tredegarfilms.com", videoUrl: "https://youtube.com/watch?v=8NCrrCk-Kkc", awards: [], lat: "", lng: "" },
+      { year: "2019", school: "North Schuylkill Junior/Senior High School", district: "North Schuylkill SD", partner: "Sterman Masser", partnerUrl: "https://stermanmasser.com", videoUrl: "https://youtube.com/watch?v=HIkDR02fwJo", awards: ["Outstanding Cool"], lat: "", lng: "" },
+      { year: "2019", school: "Pine Grove Area Middle School", district: "Pine Grove Area SD", partner: "Solar Innovations", partnerUrl: "https://solarinnovations.com", videoUrl: "https://youtube.com/watch?v=fkG-FgBCzu0", awards: [], lat: "", lng: "" },
+      { year: "2019", school: "Saint Clair Area Middle School", district: "Saint Clair Area SD", partner: "Guers Tumbling Run Dairy", partnerUrl: "https://guersdairy.com", videoUrl: "https://youtube.com/watch?v=SyTgtfmTi_s", awards: [], lat: "", lng: "" },
+      { year: "2019", school: "Schuylkill Haven Area Middle School", district: "Schuylkill Haven Area SD", partner: "Northeast Prestressed Products", partnerUrl: "https://nppbeams.com", videoUrl: "https://youtube.com/watch?v=3PgwxlAvNaw", awards: [], lat: "", lng: "" },
+      { year: "2019", school: "Shenandoah Valley Junior/Senior High School", district: "Shenandoah Valley SD", partner: "Mrs. T's Pierogies", partnerUrl: "https://www.mrstspierogies.com", videoUrl: "https://youtube.com/watch?v=K9i-chs1qCY", awards: [], lat: "", lng: "" },
+      { year: "2019", school: "Tamaqua Area Middle School", district: "Tamaqua Area SD", partner: "Bartush Signs", partnerUrl: "https://www.bartush.com", videoUrl: "https://youtube.com/watch?v=DkWZdBAmSF4", awards: [], lat: "", lng: "" },
+      { year: "2019", school: "Tri-Valley Junior/Senior High School", district: "Tri-Valley SD", partner: "Michael Foods", partnerUrl: "https://www.michaelfoods.com", videoUrl: "https://youtube.com/watch?v=kfISssjZGZY", awards: ["Outstanding Educational Value"], lat: "", lng: "" },
+      { year: "2019", school: "Williams Valley Junior/Senior High School", district: "Williams Valley SD", partner: "Ashland Technologies", partnerUrl: "https://ash-tec.com", videoUrl: "https://youtube.com/watch?v=c2yDs1iCwzw", awards: [], lat: "", lng: "" },
+      // 2018
+      { year: "2018", school: "Blue Mountain Middle School", district: "Blue Mountain SD", partner: "Ashland Technologies", partnerUrl: "https://ash-tec.com", videoUrl: "https://youtube.com/watch?v=aa1xzuIsIqI", awards: [], lat: "", lng: "" },
+      { year: "2018", school: "D.H.H. Lengel Middle School", district: "Pottsville Area SD", partner: "Northeast Prestressed Products", partnerUrl: "https://nppbeams.com", videoUrl: "https://youtube.com/watch?v=zOUVp5pnzMQ", awards: ["Outstanding Career Pathway"], lat: "", lng: "" },
+      { year: "2018", school: "Mahanoy Area Junior/Senior High School", district: "Mahanoy Area SD", partner: "Highwood USA", partnerUrl: "https://www.highwood-usa.com", videoUrl: "https://youtube.com/watch?v=jz4lydsVeeo", awards: ["Viewers Choice", "Best of PA Nominee"], lat: "", lng: "" },
+      { year: "2018", school: "Minersville Junior/Senior High School", district: "Minersville Area SD", partner: "Hydro", partnerUrl: "https://www.hydro.com", videoUrl: "https://youtube.com/watch?v=H-s8qSYu2NA", awards: [], lat: "", lng: "" },
+      { year: "2018", school: "North Schuylkill Junior/Senior High School", district: "North Schuylkill SD", partner: "Solar Innovations", partnerUrl: "https://solarinnovations.com", videoUrl: "https://youtube.com/watch?v=gSY9yAdzylI", awards: [], lat: "", lng: "" },
+      { year: "2018", school: "Saint Clair Area Middle School", district: "Saint Clair Area SD", partner: "PetSmart", partnerUrl: "https://www.petsmart.com", videoUrl: "https://youtube.com/watch?v=h212iElUZ5k", awards: [], lat: "", lng: "" },
+      { year: "2018", school: "Schuylkill Haven Area Middle School", district: "Schuylkill Haven Area SD", partner: "Fabcon Precast", partnerUrl: "https://fabconprecast.com", videoUrl: "https://youtube.com/watch?v=foORbaBy9vw", awards: ["Outstanding Overall Program", "Best of PA Nominee"], lat: "", lng: "" },
+      { year: "2018", school: "Shenandoah Valley Junior/Senior High School", district: "Shenandoah Valley SD", partner: "Tredegar Performance Films", partnerUrl: "https://tredegarfilms.com", videoUrl: "https://youtube.com/watch?v=rX0ljvDv3B0", awards: [], lat: "", lng: "" },
+      { year: "2018", school: "Tamaqua Area Middle School", district: "Tamaqua Area SD", partner: "Cardinal Systems", partnerUrl: "https://cardinalsystemsinc.com", videoUrl: "https://youtube.com/watch?v=zWF2jxMsybI", awards: ["Outstanding Marketing Plan"], lat: "", lng: "" },
+      { year: "2018", school: "Tri-Valley Junior/Senior High School", district: "Tri-Valley SD", partner: "Sterman Masser", partnerUrl: "https://stermanmasser.com", videoUrl: "https://youtube.com/watch?v=k0Wubl83nF4", awards: [], lat: "", lng: "" },
+      // 2017 — limited video data
+      { year: "2017", school: "Tamaqua Area Middle School", district: "Tamaqua Area SD", partner: "Highwood USA", partnerUrl: "https://www.highwood-usa.com", videoUrl: "", awards: [], lat: "", lng: "" },
+      { year: "2017", school: "Schuylkill Haven Area Middle School", district: "Schuylkill Haven Area SD", partner: "Hydro", partnerUrl: "https://www.hydro.com", videoUrl: "", awards: [], lat: "", lng: "" }
+    ];
+
+    // ── Build and render cards ──────────────────────────────────────────────
+    function isBestOfPA(awards) {
+      return awards.some(a => a.toLowerCase().includes('best of pa'));
+    }
+
+    function isExternalYT(url) {
+      return url && url.includes('youtube.com');
+    }
+
+    function videoLabel(entry) {
+      if (!entry.videoUrl) return null;
+      if (entry.videoUrl.includes('whatssocool.org')) return 'View on WSCAM Site';
+      return 'Watch Video';
+    }
+
+    function buildCard(entry) {
+      const bestPA = isBestOfPA(entry.awards);
+      const vLabel = videoLabel(entry);
+
+      // Award pills — filter out "Best of PA Nominee" if it will show as header badge
+      const nonBestAwards = entry.awards.filter(a => !a.toLowerCase().includes('best of pa'));
+      const awardPills = nonBestAwards.map(a =>
+        `<span class="wscam-award-pill">${a}</span>`
+      ).join('');
+
+      const videoBtnHtml = vLabel
+        ? `<a href="${entry.videoUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">${vLabel} →</a>`
+        : `<span style="font-size:0.8125rem;color:var(--gray-400);align-self:center;">Video not available</span>`;
+
+      const partnerBtnHtml = entry.partnerUrl
+        ? `<a href="${entry.partnerUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">Visit Partner</a>`
+        : '';
+
+      return `
+        <div class="wscam-card fade-in"
+             data-year="${entry.year}"
+             data-school="${entry.school.toLowerCase()}"
+             data-partner="${entry.partner.toLowerCase()}"
+             data-awards="${entry.awards.join(' ').toLowerCase()}">
+          <div class="wscam-card-header">
+            <span class="wscam-year-label">${entry.year}</span>
+            ${bestPA ? '<span class="wscam-best-pa">Best of PA Nominee</span>' : ''}
+          </div>
+          <div class="wscam-card-body">
+            <p class="wscam-partner-name">${entry.partner}</p>
+            <p class="wscam-school-name">${entry.school}</p>
+            <p class="wscam-district">${entry.district}</p>
+            ${awardPills ? `<div class="wscam-awards">${awardPills}</div>` : ''}
+          </div>
+          <div class="wscam-card-actions">
+            ${videoBtnHtml}
+            ${partnerBtnHtml}
+          </div>
+        </div>`;
+    }
+
+    // Render all cards initially
+    const grid = document.getElementById('wscam-grid');
+    const noResults = document.getElementById('wscam-no-results');
+    // Insert no-results placeholder back after we fill the grid
+    grid.innerHTML = wscamEntries.map(buildCard).join('') + noResults.outerHTML;
+
+    // Kick off fade-in observer for newly rendered cards
+    if (window.IntersectionObserver) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+      document.querySelectorAll('.wscam-card').forEach(c => obs.observe(c));
+    }
+
+    // ── Filtering ──────────────────────────────────────────────────────────
+    let activeYear = 'all';
+    let searchTerm = '';
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.wscam-card');
+      let visible = 0;
+
+      cards.forEach(card => {
+        const yearMatch = activeYear === 'all' || card.dataset.year === activeYear;
+        const searchMatch = !searchTerm ||
+          card.dataset.school.includes(searchTerm) ||
+          card.dataset.partner.includes(searchTerm) ||
+          card.dataset.awards.includes(searchTerm);
+
+        if (yearMatch && searchMatch) {
+          card.classList.remove('hidden');
+          visible++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('wscam-visible-count').textContent = visible;
+      const nr = document.getElementById('wscam-no-results');
+      if (nr) nr.classList.toggle('visible', visible === 0);
+    }
+
+    // Year buttons
+    document.querySelectorAll('.wscam-year-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.wscam-year-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeYear = btn.dataset.year;
+        applyFilters();
+      });
+    });
+
+    // Search input
+    document.getElementById('wscam-search').addEventListener('input', (e) => {
+      searchTerm = e.target.value.toLowerCase().trim();
+      applyFilters();
+    });
+  </script>
+</body>
+</html>

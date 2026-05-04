@@ -1,5 +1,5 @@
 /* =========================================
-   STEM @ Skook29 — Main JS
+   STEM@Skook29 — Main JS
    ========================================= */
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>STEM @ Skook29 — Schuylkill Intermediate Unit 29</title>
-  <meta name="description" content="STEM @ Skook29 is the regional STEM innovation hub for Schuylkill County — connecting students, teachers, and community partners to build the future of learning." />
+  <title>STEM@Skook29 — Schuylkill Intermediate Unit 29</title>
+  <meta name="description" content="STEM@Skook29 is the regional STEM innovation hub for Schuylkill County — connecting students, teachers, and community partners to build the future of learning." />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    /* Page-specific additions */
-    .hero-visual {
+    /* ---- Hero photo slideshow ---- */
+    .hero-photo-slideshow {
       position: absolute;
       right: 0;
       top: 0;
@@ -19,68 +19,49 @@
       justify-content: center;
       pointer-events: none;
     }
-    .hero-visual-inner {
+    .hero-slideshow-frame {
       position: relative;
-      width: 420px;
+      width: min(520px, 90%);
       height: 420px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.18);
     }
-    .hero-ring {
+    .hero-slideshow-frame::after {
+      content: "";
       position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.08);
-      animation: rotate 20s linear infinite;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.28));
+      pointer-events: none;
+      z-index: 1;
     }
-    .hero-ring-1 { inset: 0; animation-duration: 25s; }
-    .hero-ring-2 { inset: 40px; animation-duration: 18s; animation-direction: reverse; }
-    .hero-ring-3 { inset: 80px; animation-duration: 30s; }
-    @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-    .hero-ring-dot {
+    .hero-slide {
       position: absolute;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--orange-400);
-      top: -5px;
-      left: 50%;
-      transform: translateX(-50%);
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: heroFade 36s infinite;
     }
-    .hero-center-badge {
-      position: absolute;
-      inset: 120px;
-      background: rgba(255,255,255,0.07);
-      backdrop-filter: blur(20px);
-      border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.12);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
-    .hero-center-emoji { font-size: 2.5rem; margin-bottom: 8px; }
-    .hero-center-text {
-      font-family: var(--font-display);
-      font-size: 0.875rem;
-      font-weight: 700;
-      color: white;
-      line-height: 1.3;
-    }
-    .hero-orbit-icon {
-      position: absolute;
-      width: 48px;
-      height: 48px;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255,255,255,0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.375rem;
+    .hero-slide:nth-child(1) { animation-delay:  0s; }
+    .hero-slide:nth-child(2) { animation-delay:  6s; }
+    .hero-slide:nth-child(3) { animation-delay: 12s; }
+    .hero-slide:nth-child(4) { animation-delay: 18s; }
+    .hero-slide:nth-child(5) { animation-delay: 24s; }
+    .hero-slide:nth-child(6) { animation-delay: 30s; }
+    @keyframes heroFade {
+      0%   { opacity: 0; }
+      8%   { opacity: 1; }
+      25%  { opacity: 1; }
+      33%  { opacity: 0; }
+      100% { opacity: 0; }
     }
 
-    @media (max-width: 900px) { .hero-visual { display: none; } }
+    @media (max-width: 900px) {
+      .hero-photo-slideshow { display: none; }
+    }
 
     /* Mission bar */
     .mission-bar {
@@ -124,10 +105,7 @@
         <a href="index.html" class="logo-link">
           <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
         </a>
-        <div class="site-title">
-          <span class="title-top">STEM@</span>
-          <span class="title-bottom">Skook29</span>
-        </div>
+        <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="site-logo">
       </div>
       <div class="nav-links">
         <a href="index.html" class="active">Home</a>
@@ -168,20 +146,14 @@
     </div>
     <div class="hero-grid-pattern"></div>
 
-    <div class="hero-visual">
-      <div class="hero-visual-inner">
-        <div class="hero-ring hero-ring-1"><div class="hero-ring-dot"></div></div>
-        <div class="hero-ring hero-ring-2"><div class="hero-ring-dot" style="background:#c4364e"></div></div>
-        <div class="hero-ring hero-ring-3"><div class="hero-ring-dot" style="background:#fb923c"></div></div>
-        <div class="hero-center-badge">
-          <div class="hero-center-emoji">🚀</div>
-          <div class="hero-center-text">STEM<br>Ecosystem</div>
-        </div>
-        <div class="hero-orbit-icon" style="top: 30px; right: 30px;">🔬</div>
-        <div class="hero-orbit-icon" style="bottom: 60px; left: 10px;">💡</div>
-        <div class="hero-orbit-icon" style="top: 160px; right: -10px;">🤖</div>
-        <div class="hero-orbit-icon" style="bottom: 20px; right: 60px;">🏆</div>
-        <img src="assets/branding/iu29-logo.png" alt="Schuylkill Intermediate Unit 29" class="hero-iu29-logo" loading="lazy" />
+    <div class="hero-photo-slideshow" aria-label="STEM@Skook29 learning moments">
+      <div class="hero-slideshow-frame">
+        <img class="hero-slide" src="assets/programs/makerspace/makerspace1.JPG" alt="Students working in the makerspace">
+        <img class="hero-slide" src="assets/competitions/keystone/keystone-comp1.JPG" alt="Students at the Keystone STEM competition">
+        <img class="hero-slide" src="assets/programs/makerspace/makerspace3.JPG" alt="Hands-on STEM learning activity">
+        <img class="hero-slide" src="assets/competitions/stem-design/stem-design1.JPG" alt="Students building a STEM design prototype">
+        <img class="hero-slide" src="assets/competitions/Sea-Air-Land/sea-air-land1.JPG" alt="Sea Air Land robotics engineering challenge">
+        <img class="hero-slide" src="assets/competitions/keystone/keystone-comp2.JPG" alt="Teams collaborating at a STEM competition">
       </div>
     </div>
 
@@ -260,7 +232,7 @@
       <div class="section-header">
         <span class="section-label">Get Started</span>
         <h2 class="section-title">Choose Your Path</h2>
-        <p class="section-subtitle">STEM @ Skook29 serves everyone in our region — find the resources and opportunities made for you.</p>
+        <p class="section-subtitle">STEM@Skook29 serves everyone in our region — find the resources and opportunities made for you.</p>
       </div>
       <div class="path-grid">
         <a href="students.html" class="path-card fade-in">
@@ -315,7 +287,7 @@
           </div>
           <div class="card-body">
             <span class="card-tag">Makerspace</span>
-            <h3 class="card-title">Make @ Skook29</h3>
+            <h3 class="card-title">Make@Skook29</h3>
             <p class="card-text">Hands-on making, design thinking, and fabrication. Students turn ideas into reality through 3D printing, laser cutting, and more.</p>
             <a href="programs.html#make" class="btn btn-secondary btn-sm">Learn More →</a>
           </div>
@@ -327,7 +299,7 @@
           </div>
           <div class="card-body">
             <span class="card-tag">Career</span>
-            <h3 class="card-title">CSO @ Skook29</h3>
+            <h3 class="card-title">CSO@Skook29</h3>
             <p class="card-text">Career and Student Organization programming that bridges school and industry — building leadership, teamwork, and career-readiness.</p>
             <a href="programs.html#cso" class="btn btn-secondary btn-sm">Learn More →</a>
           </div>
@@ -339,7 +311,7 @@
           </div>
           <div class="card-body">
             <span class="card-tag">Standards</span>
-            <h3 class="card-title">STEELS @ Skook29</h3>
+            <h3 class="card-title">STEELS@Skook29</h3>
             <p class="card-text">Supporting educators in implementing Pennsylvania's STEELS standards with curriculum resources, coaching, and professional learning.</p>
             <a href="programs.html#steels" class="btn btn-secondary btn-sm">Learn More →</a>
           </div>
@@ -526,10 +498,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-title">
-            <span class="footer-title-top">STEM@</span>
-            <span class="footer-title-bottom">Skook29</span>
-          </div>
+          <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="footer-logo">
           <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
           <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
           <div class="footer-contact">
@@ -550,9 +519,9 @@
           <h4>Programs</h4>
           <ul>
             <li><a href="programs.html#competitions">Competitions</a></li>
-            <li><a href="programs.html#make">Make @ Skook29</a></li>
-            <li><a href="programs.html#cso">CSO @ Skook29</a></li>
-            <li><a href="programs.html#steels">STEELS @ Skook29</a></li>
+            <li><a href="programs.html#make">Make@Skook29</a></li>
+            <li><a href="programs.html#cso">CSO@Skook29</a></li>
+            <li><a href="programs.html#steels">STEELS@Skook29</a></li>
             <li><a href="programs.html#edtech">EdTech & AI</a></li>
           </ul>
         </div>
@@ -567,7 +536,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 STEM @ Skook29 · Schuylkill Intermediate Unit 29. All rights reserved.</p>
+        <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29. All rights reserved.</p>
         <div class="social-links">
           <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
           <a href="#" class="social-link" aria-label="Facebook">f</a>

@@ -1,5 +1,5 @@
 /* =========================================
-   STEM @ Skook29 — Design System
+   STEM@Skook29 — Design System
    ========================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
@@ -203,23 +203,10 @@ section {
   object-fit: contain;
 }
 
-.site-title {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.title-top {
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: var(--gray-600);
-}
-
-.title-bottom {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--gray-900);
+.site-logo {
+  height: 48px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -984,24 +971,11 @@ section {
   margin-bottom: 56px;
 }
 
-.footer-title {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
+.footer-logo {
+  height: 42px;
+  width: auto;
   margin-bottom: 12px;
-}
-
-.footer-title-top {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: rgba(255,255,255,0.6);
-}
-
-.footer-title-bottom {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: white;
+  opacity: 0.95;
 }
 
 .footer-brand p {
@@ -1244,6 +1218,8 @@ section {
 
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
+  .site-logo { height: 40px; }
+  .footer-logo { height: 36px; }
 
   .hero { min-height: auto; padding: 80px 0 80px; }
   .hero-stats { gap: 28px; }

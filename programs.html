@@ -132,24 +132,47 @@
     }
 
     /* ---- Makerspace Equipment Logos ---- */
+    .makerspace-logo-heading {
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin: 32px 0 6px;
+    }
+
+    .makerspace-logo-subtext {
+      font-size: 0.9375rem;
+      color: var(--gray-500);
+      margin: 0 0 18px;
+    }
+
     .makerspace-logo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 16px;
-      margin-top: 32px;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 14px;
       margin-bottom: 28px;
-      align-items: center;
+      align-items: stretch;
     }
 
     .equipment-logo-card {
       min-height: 86px;
-      padding: 18px;
+      padding: 18px 14px;
       border-radius: 18px;
       background: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, outline-color 0.2s ease;
+      text-decoration: none;
+      position: relative;
+      outline: 2px solid transparent;
+    }
+
+    .equipment-logo-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.13);
+      outline-color: var(--purple-600);
     }
 
     .equipment-logo-card img {
@@ -160,14 +183,45 @@
       display: block;
     }
 
-    @media (max-width: 768px) {
+    .equipment-logo-card[data-tooltip]::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.85);
+      color: #fff;
+      font-size: 0.6875rem;
+      font-family: var(--font-body, sans-serif);
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+      z-index: 10;
+    }
+
+    .equipment-logo-card[data-tooltip]:hover::after {
+      opacity: 1;
+    }
+
+    @media (max-width: 900px) {
       .makerspace-logo-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 12px;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .makerspace-logo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
       .equipment-logo-card {
         min-height: 74px;
-        padding: 14px;
+        padding: 14px 10px;
       }
       .equipment-logo-card img {
         max-height: 44px;
@@ -567,29 +621,9 @@
           <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
             Whether a student is building their first 3D model or engineering a functional prototype, the makerspace provides the tools, the guidance, and the space to take creative risks.
           </p>
-          <div class="makerspace-logo-grid" aria-label="Makerspace equipment and platform logos">
-            <div class="equipment-logo-card">
-              <img src="assets/branding/makerspace-inventory/beebot-logo.png" alt="Bee-Bot">
-            </div>
-            <div class="equipment-logo-card">
-              <img src="assets/branding/makerspace-inventory/birdbrain-technologies-logo.png" alt="BirdBrain Technologies">
-            </div>
-            <div class="equipment-logo-card">
-              <img src="assets/branding/makerspace-inventory/lego-prime-logo.png" alt="LEGO Education SPIKE Prime">
-            </div>
-            <div class="equipment-logo-card">
-              <img src="assets/branding/makerspace-inventory/ozobot-logo.png" alt="Ozobot">
-            </div>
-            <div class="equipment-logo-card">
-              <img src="assets/branding/makerspace-inventory/raspberry-pi-logo-png.png" alt="Raspberry Pi">
-            </div>
-            <div class="equipment-logo-card">
-              <img src="assets/branding/makerspace-inventory/SnapCircuits-logo.png" alt="Snap Circuits">
-            </div>
-            <div class="equipment-logo-card">
-              <img src="assets/branding/makerspace-inventory/Sphero-logo-blue.webp" alt="Sphero">
-            </div>
-          </div>
+          <h3 class="makerspace-logo-heading">Makerspace Tools &amp; Platforms</h3>
+          <p class="makerspace-logo-subtext">Hands-on tools powering creativity, design, and innovation</p>
+          <div class="makerspace-logo-grid" id="makerspace-logo-grid" aria-label="Makerspace equipment and platform logos"></div>
           <a href="contact.html" class="btn btn-primary">Book a Makerspace Visit →</a>
         </div>
       </div>
@@ -828,6 +862,55 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // ---- Makerspace Logo Grid ----
+    // To add a logo: drop the file in assets/branding/makerspace-inventory/
+    // then add an entry here. url is optional (leave '' for no link).
+    const makerspaceLogos = [
+      { file: 'beebot-logo.png',                name: 'Bee-Bot',               url: '' },
+      { file: 'birdbrain-technologies-logo.png', name: 'BirdBrain Technologies', url: '' },
+      { file: 'LEGO-MINDSTORMS-Logo.webp',       name: 'LEGO MINDSTORMS',        url: '' },
+      { file: 'lego-prime-logo.png',             name: 'LEGO SPIKE Prime',       url: '' },
+      { file: 'littlebits-logo.png',             name: 'littleBits',             url: '' },
+      { file: 'makey-makey-logo.avif',           name: 'Makey Makey',            url: '' },
+      { file: 'minestorm-logo.png',              name: 'Minestorm',              url: '' },
+      { file: 'osmo-logo.png',                   name: 'Osmo',                   url: '' },
+      { file: 'ozobot-logo.png',                 name: 'Ozobot',                 url: '' },
+      { file: 'raspberry-pi-logo-png.png',       name: 'Raspberry Pi',           url: '' },
+      { file: 'SnapCircuits-logo.png',           name: 'Snap Circuits',          url: '' },
+      { file: 'Sphero-logo-blue.webp',           name: 'Sphero',                 url: '' },
+      { file: 'Squishy-Circuits-logo.avif',      name: 'Squishy Circuits',       url: '' },
+      { file: 'strawbees-logo.svg',              name: 'Strawbees',              url: '' },
+      { file: 'zspace-logo.png',                 name: 'zSpace',                 url: '' },
+    ];
+
+    (function renderMakerspaceLogos() {
+      const grid = document.getElementById('makerspace-logo-grid');
+      if (!grid) return;
+      const base = 'assets/branding/makerspace-inventory/';
+      makerspaceLogos.forEach(({ file, name, url }) => {
+        const card = document.createElement('a');
+        card.className = 'equipment-logo-card';
+        card.setAttribute('data-tooltip', name);
+        card.setAttribute('aria-label', name);
+        card.href = url || '#';
+        if (!url) {
+          card.setAttribute('tabindex', '0');
+          card.style.cursor = 'default';
+          card.addEventListener('click', e => e.preventDefault());
+        } else {
+          card.target = '_blank';
+          card.rel = 'noopener noreferrer';
+        }
+        const img = document.createElement('img');
+        img.src = base + file;
+        img.alt = name;
+        img.loading = 'lazy';
+        card.appendChild(img);
+        grid.appendChild(card);
+      });
+    })();
+  </script>
   <script>
     // Highlight active program nav link on scroll
     const sections = ['competitions', 'make', 'cso', 'steels', 'edtech'];

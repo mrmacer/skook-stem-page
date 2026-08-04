@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://skook-stem-page.vercel.app/sitemap.xml

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Leadership & Chief Science Officers — STEM@Skook29</title>
+  <meta name="description" content="Explore Chief Science Officers student leadership through peer election, Action Plans, Leadership Training Institute, Cabinet Meetings, and regional support." />
+  <link rel="canonical" href="https://skook-stem-page.vercel.app/student-leadership" />
+  <meta property="og:title" content="Student Leadership & Chief Science Officers — STEM@Skook29" />
+  <meta property="og:description" content="Students in grades 6–12 lead as elected STEM ambassadors through Action Plans, leadership training, and regional Cabinet Meetings." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://skook-stem-page.vercel.app/student-leadership" />
+  <meta property="og:image" content="https://skook-stem-page.vercel.app/assets/branding/stem-skook29-social.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="STEM@Skook29" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Student Leadership & Chief Science Officers — STEM@Skook29" />
+  <meta name="twitter:description" content="Students in grades 6–12 lead as elected STEM ambassadors through Action Plans, leadership training, and regional Cabinet Meetings." />
+  <meta name="twitter:image" content="https://skook-stem-page.vercel.app/assets/branding/stem-skook29-social.png" />
+  <meta name="twitter:image:alt" content="STEM@Skook29" />
+  <link rel="icon" type="image/webp" href="assets/optimized/branding/StemAtSkook-logo.webp" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .leadership-intro-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .leadership-copy p {
+      color: var(--gray-600);
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      margin-bottom: 18px;
+    }
+    .leadership-roles {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .leadership-roles .feature-item {
+      align-items: flex-start;
+    }
+    .leadership-roles .feature-item h3 {
+      margin-bottom: 5px;
+      color: var(--gray-900);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .funding-note {
+      margin-top: 20px;
+      padding: 18px 20px;
+      background: var(--purple-50);
+      border-left: 4px solid var(--purple-600);
+      border-radius: var(--radius-md);
+      color: var(--gray-700);
+      line-height: 1.65;
+    }
+    .cycle-list {
+      list-style: none;
+      counter-reset: leadership-cycle;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+    }
+    .cycle-list li {
+      counter-increment: leadership-cycle;
+      position: relative;
+      min-height: 190px;
+      padding: 58px 22px 24px;
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      color: var(--gray-600);
+      line-height: 1.55;
+    }
+    .cycle-list li::before {
+      content: counter(leadership-cycle);
+      position: absolute;
+      top: 18px;
+      left: 22px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gradient-main);
+      color: white;
+      font-family: var(--font-display);
+      font-weight: 800;
+    }
+    .cycle-list strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--dark-800);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+    .illustrative-wrap {
+      background: var(--gradient-hero);
+      border-radius: var(--radius-xl);
+      padding: clamp(28px, 5vw, 56px);
+      color: white;
+    }
+    .illustrative-wrap .section-title,
+    .illustrative-wrap .section-subtitle {
+      color: white;
+    }
+    .illustrative-disclosure {
+      margin: 0 0 28px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.88);
+      line-height: 1.6;
+    }
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .scenario-step {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: white;
+      color: var(--gray-600);
+    }
+    .scenario-step .scenario-time {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--purple-600);
+      font-family: var(--font-display);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.8rem;
+    }
+    .scenario-step h3 {
+      margin-bottom: 8px;
+      color: var(--dark-800);
+      font-size: 1.05rem;
+    }
+    .preview-card-link {
+      margin-top: auto;
+      align-self: flex-start;
+    }
+    .coming-soon-note {
+      margin-top: 28px;
+      padding: 22px;
+      text-align: center;
+      background: var(--gray-50);
+      border: 1px dashed var(--gray-400);
+      border-radius: var(--radius-lg);
+      color: var(--gray-600);
+    }
+    @media (max-width: 960px) {
+      .cycle-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .scenario-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 768px) {
+      .leadership-intro-grid,
+      .cycle-list,
+      .scenario-grid { grid-template-columns: 1fr; }
+      .leadership-intro-grid { gap: 32px; }
+      .cycle-list li { min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <div class="navbar-inner">
+        <div class="nav-brand">
+          <a href="index.html" class="logo-link">
+            <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="iu29-logo" width="512" height="321" decoding="async">
+          </a>
+          <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29 Logo" class="site-logo" width="600" height="300" decoding="async">
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <a href="students.html" class="active">Students</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-students-menu" aria-label="Toggle Students menu"><span aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" id="nav-students-menu">
+              <a href="programs.html#make">Make@Skook29</a>
+              <a href="events.html#competitions">Competitions</a>
+              <a href="student-leadership.html" class="active" aria-current="page">Student Leadership</a>
+              <a href="events.html#student-events">Camps &amp; Student Events</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="teachers.html">Teachers</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-teachers-menu" aria-label="Toggle Teachers menu"><span aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" id="nav-teachers-menu">
+              <a href="steels-support.html">STEELS Support</a>
+              <a href="steels-resource-library.html">STEELS Resource Library</a>
+              <a href="edtech-ai.html">EdTech &amp; AI</a>
+              <a href="ai-edtech-resource-library.html">AI &amp; EdTech Resource Library</a>
+              <a href="classroom-resources.html">Classroom Resources</a>
+              <a href="phenomenon-sessions.html">Phenomenon Sessions</a>
+              <a href="events.html#professional-learning">Professional Learning</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="districts.html">Districts</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-districts-menu" aria-label="Toggle Districts menu"><span aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" id="nav-districts-menu">
+              <a href="districts.html">STEM Ecosystem Planning</a>
+              <a href="contact.html">Request Support</a>
+              <a href="events.html#regional-calendar">Regional Calendar</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="community.html">Community</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-community-menu" aria-label="Toggle Community menu"><span aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" id="nav-community-menu">
+              <a href="community.html">The Commons</a>
+              <a href="community.html#partner-hub">Partner Hub</a>
+              <a href="community.html#porch-stories">Porch Stories</a>
+              <a href="events.html#community-events">Community Events</a>
+              <a href="wscam.html">WSCAM Archive</a>
+            </div>
+          </div>
+          <a href="events.html">Events</a>
+          <a href="contact.html" class="nav-cta">Contact Us</a>
+        </div>
+        <button class="nav-hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
+      <div class="mobile-nav-quick-links">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events / Calendar</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="mobile-nav-group" data-mobile-nav-group>
+        <div class="mobile-nav-heading">
+          <a href="students.html" class="mobile-nav-audience-link">Students</a>
+          <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-students-menu" aria-label="Toggle Students menu"><span aria-hidden="true"></span></button>
+        </div>
+        <div class="mobile-nav-panel" id="mobile-students-menu" hidden>
+          <a href="programs.html#make" class="mobile-subnav">Make@Skook29</a>
+          <a href="events.html#competitions" class="mobile-subnav">Competitions</a>
+          <a href="student-leadership.html" class="mobile-subnav active" aria-current="page">Student Leadership</a>
+          <a href="events.html#student-events" class="mobile-subnav">Camps &amp; Student Events</a>
+        </div>
+      </div>
+      <div class="mobile-nav-group" data-mobile-nav-group>
+        <div class="mobile-nav-heading">
+          <a href="teachers.html" class="mobile-nav-audience-link">Teachers</a>
+          <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-teachers-menu" aria-label="Toggle Teachers menu"><span aria-hidden="true"></span></button>
+        </div>
+        <div class="mobile-nav-panel" id="mobile-teachers-menu" hidden>
+          <a href="steels-support.html" class="mobile-subnav">STEELS Support</a>
+          <a href="steels-resource-library.html" class="mobile-subnav">STEELS Resource Library</a>
+          <a href="edtech-ai.html" class="mobile-subnav">EdTech &amp; AI</a>
+          <a href="ai-edtech-resource-library.html" class="mobile-subnav">AI &amp; EdTech Resource Library</a>
+          <a href="classroom-resources.html" class="mobile-subnav">Classroom Resources</a>
+          <a href="phenomenon-sessions.html" class="mobile-subnav">Phenomenon Sessions</a>
+          <a href="events.html#professional-learning" class="mobile-subnav">Professional Learning</a>
+        </div>
+      </div>
+      <div class="mobile-nav-group" data-mobile-nav-group>
+        <div class="mobile-nav-heading">
+          <a href="districts.html" class="mobile-nav-audience-link">Districts</a>
+          <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-districts-menu" aria-label="Toggle Districts menu"><span aria-hidden="true"></span></button>
+        </div>
+        <div class="mobile-nav-panel" id="mobile-districts-menu" hidden>
+          <a href="contact.html" class="mobile-subnav">Request Support</a>
+          <a href="events.html#regional-calendar" class="mobile-subnav">Regional Calendar</a>
+        </div>
+      </div>
+      <div class="mobile-nav-group" data-mobile-nav-group>
+        <div class="mobile-nav-heading">
+          <a href="community.html" class="mobile-nav-audience-link">Community</a>
+          <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-community-menu" aria-label="Toggle Community menu"><span aria-hidden="true"></span></button>
+        </div>
+        <div class="mobile-nav-panel" id="mobile-community-menu" hidden>
+          <a href="community.html#partner-hub" class="mobile-subnav">Partner Hub</a>
+          <a href="community.html#porch-stories" class="mobile-subnav">Porch Stories</a>
+          <a href="events.html#community-events" class="mobile-subnav">Community Events</a>
+          <a href="wscam.html" class="mobile-subnav">WSCAM Archive</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="page-hero-orb page-hero-orb-1"></div>
+      <div class="page-hero-orb page-hero-orb-2"></div>
+      <div class="container">
+        <div class="page-hero-content">
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span aria-hidden="true">›</span>
+            <a href="students.html">Students</a>
+            <span aria-hidden="true">›</span>
+            <span>Student Leadership</span>
+          </div>
+          <div class="page-hero-label">Chief Science Officers</div>
+          <h1 class="page-hero-title">STEM doesn't change schools. Students do.</h1>
+          <p class="page-hero-subtitle">Chief Science Officers are students in grades 6–12, elected by their peers to serve as STEM ambassadors for their school and community.</p>
+          <div style="margin-top: 28px;">
+            <a href="contact.html?interest=cso" class="btn btn-white btn-lg">Ask About Chief Science Officers</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: var(--section-pad) 0; background: white;">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Student Leadership</span>
+          <h2 class="section-title">What Is a Chief Science Officer?</h2>
+          <p class="section-subtitle">A student-elected STEM ambassador who turns leadership into a practical Action Plan for school and community.</p>
+        </div>
+        <div class="leadership-intro-grid">
+          <div class="leadership-copy">
+            <p>Chief Science Officers, or CSOs, are elected by their peers. Each CSO completes a year-long leadership cycle that begins with training and leads to an administrator-approved Action Plan, regional Cabinet Meetings, Quarterly Impact Reports, and reflection.</p>
+            <p>The program connects student voice with school support. Students lead the work, while advisors and regional program leaders provide structure, coaching, and connection to the wider Chief Science Officers network.</p>
+            <p>Recent regional activity has included a PA Capital trip, participation in the Youth Solutions Summit in Arizona, and a Statewide Leadership Council convening.</p>
+            <div class="funding-note"><strong>Active and funded:</strong> The program is funded for three more years. It is not a pilot.</div>
+          </div>
+          <div class="leadership-roles" aria-label="Chief Science Officers support roles">
+            <div class="feature-item">
+              <div class="feature-icon-wrap" aria-hidden="true">🏫</div>
+              <div class="feature-content"><h3>CSO Advisor</h3><p>Provides in-building support for student leaders.</p></div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-wrap" aria-hidden="true">🤝</div>
+              <div class="feature-content"><h3>CSO Cabinet Coordinator</h3><p>Provides regional coordination and support.</p></div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-wrap" aria-hidden="true">🧭</div>
+              <div class="feature-content"><h3>CSO Regional Lead</h3><p>Runs LTI and Cabinet Meetings, visits every school, and serves as the point of contact to CSO International.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: var(--section-pad) 0; background: var(--gray-50);" aria-labelledby="annual-cycle-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">The Annual Cycle</span>
+          <h2 class="section-title" id="annual-cycle-title">From Election to Reflection</h2>
+          <p class="section-subtitle">Each step moves a student leader from being chosen by peers to planning, reporting, reflecting, and celebrating meaningful work.</p>
+        </div>
+        <ol class="cycle-list">
+          <li><strong>Peer Election</strong>Students in grades 6–12 are elected by their peers as STEM ambassadors.</li>
+          <li><strong>Leadership Training Institute</strong>LTI builds the foundation for the year's leadership work.</li>
+          <li><strong>Initial Action Plan</strong>Students begin shaping a school- or community-focused plan.</li>
+          <li><strong>Administrator Approval</strong>The completed Action Plan is approved by an administrator and due November 1.</li>
+          <li><strong>Cabinet Meetings</strong>Students participate in Fall and Spring regional Cabinet Meetings.</li>
+          <li><strong>Quarterly Impact Reports</strong>CSOs document progress throughout the year.</li>
+          <li><strong>Year-End Reflection</strong>Students reflect on the work completed; the reflection is due April 1.</li>
+          <li><strong>End of Year Celebration</strong>The cycle closes by recognizing student leadership and learning.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section style="padding: var(--section-pad) 0; background: white;">
+      <div class="container">
+        <div class="illustrative-wrap">
+          <div class="section-header" style="text-align: left; max-width: none; margin-bottom: 24px;">
+            <span class="section-label" style="background: rgba(255,255,255,0.16); color: white;">An Illustrative Example</span>
+            <h2 class="section-title" style="text-align: left;">Imagine Your School</h2>
+            <p class="section-subtitle" style="text-align: left; margin: 0;">One possible year for a student-led STEM initiative.</p>
+          </div>
+          <p class="illustrative-disclosure"><strong>This is an illustrative scenario, not a real school case study.</strong> The months show how the verified program cycle could unfold; they do not describe a specific student, school, or Action Plan.</p>
+          <div class="scenario-grid">
+            <article class="scenario-step">
+              <span class="scenario-time">September</span>
+              <h3>Students Choose a Leader</h3>
+              <p>Peers elect a grade 6–12 student as their school's STEM ambassador, and the new CSO begins leadership training.</p>
+            </article>
+            <article class="scenario-step">
+              <span class="scenario-time">October</span>
+              <h3>An Idea Becomes a Plan</h3>
+              <p>The CSO develops an Initial Action Plan and works with the in-building Advisor and school administrator.</p>
+            </article>
+            <article class="scenario-step">
+              <span class="scenario-time">By November 1</span>
+              <h3>The Plan Is Approved</h3>
+              <p>The administrator-approved Action Plan is submitted, giving the student a clear path for the year.</p>
+            </article>
+            <article class="scenario-step">
+              <span class="scenario-time">Fall and Winter</span>
+              <h3>Leadership Connects</h3>
+              <p>The CSO joins the Fall Cabinet Meeting, advances the Action Plan, and documents progress through Quarterly Impact Reports.</p>
+            </article>
+            <article class="scenario-step">
+              <span class="scenario-time">Spring / By April 1</span>
+              <h3>Progress Becomes Reflection</h3>
+              <p>After the Spring Cabinet Meeting, the CSO completes the required year-end Reflection by April 1.</p>
+            </article>
+            <article class="scenario-step">
+              <span class="scenario-time">End of Year</span>
+              <h3>The Community Celebrates</h3>
+              <p>The cycle concludes with an End of Year Celebration recognizing the student's work and learning.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: var(--section-pad) 0; background: var(--gray-50);" aria-labelledby="explore-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Explore the Program</span>
+          <h2 class="section-title" id="explore-title">The Leadership Ecosystem Is Growing</h2>
+          <p class="section-subtitle">These focused guides are planned as separate patches. For now, each preview points to the shared status note below.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card fade-in">
+            <div class="card-body" style="display: flex; flex-direction: column; height: 100%;">
+              <span class="card-tag">Coming Soon</span>
+              <h3 class="card-title">How Action Plans Work</h3>
+              <p class="card-text">A closer look at the Initial Action Plan, administrator approval, impact reporting, and year-end Reflection.</p>
+              <a href="#coming-soon" class="btn btn-secondary btn-sm preview-card-link">View Preview Status ↓</a>
+            </div>
+          </article>
+          <article class="card fade-in">
+            <div class="card-body" style="display: flex; flex-direction: column; height: 100%;">
+              <span class="card-tag">Coming Soon</span>
+              <h3 class="card-title">Leadership Training Institute &amp; Cabinet</h3>
+              <p class="card-text">A guide to LTI and the Fall and Spring Cabinet Meetings that connect student leaders regionally.</p>
+              <a href="#coming-soon" class="btn btn-secondary btn-sm preview-card-link">View Preview Status ↓</a>
+            </div>
+          </article>
+          <article class="card fade-in">
+            <div class="card-body" style="display: flex; flex-direction: column; height: 100%;">
+              <span class="card-tag">Coming Soon</span>
+              <h3 class="card-title">Advisor &amp; Administrator Centers</h3>
+              <p class="card-text">Practical support for the in-building adults who advise, approve, and sustain student leadership.</p>
+              <a href="#coming-soon" class="btn btn-secondary btn-sm preview-card-link">View Preview Status ↓</a>
+            </div>
+          </article>
+        </div>
+        <div class="coming-soon-note" id="coming-soon" tabindex="-1">
+          <strong>Coming soon:</strong> These resources will be built in later patches using verified program documents. No empty or broken destination pages have been created.
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div class="container">
+        <div class="cta-banner-content">
+          <h2>Bring Student Leadership Into Focus</h2>
+          <p>Ask about Chief Science Officers, the annual cycle, or how IU29 supports participating schools.</p>
+          <div class="cta-banner-actions">
+            <a href="contact.html?interest=cso" class="btn btn-white btn-lg">Ask About CSO</a>
+            <a href="students.html" class="btn btn-outline-white btn-lg">Back to Student Opportunities</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/optimized/branding/StemAtSkook-logo-white.webp" alt="STEM@Skook29 Logo" class="footer-logo" width="600" height="300" decoding="async" loading="lazy">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" width="512" height="321" decoding="async">
+          <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=17+Maple+Ave%2C+Mar+Lin%2C+PA+17951" target="_blank" rel="noopener noreferrer">&#128205; 17 Maple Ave, Mar Lin, PA 17951</a>
+            <a href="tel:+15705449131">📞 (570) 544-9131</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html#competitions">Competitions</a></li>
+            <li><a href="programs.html#make">Make@Skook29</a></li>
+            <li><a href="student-leadership.html">Chief Science Officers</a></li>
+            <li><a href="programs.html#steels">STEELS@Skook29</a></li>
+            <li><a href="programs.html#edtech">EdTech &amp; AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="accessibility.html">Accessibility</a></li>
+            <li><a href="https://www.iu29.org/" target="_blank" rel="noopener noreferrer">IU29 Website</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

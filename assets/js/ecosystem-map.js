@@ -248,7 +248,7 @@
         'STEELS Standards Implementation Support',
         'EdTech & AI Professional Learning',
         'Teacher Coaching & Instructional PD',
-        'CSO@Skook29 Career & Student Organizations',
+        'Chief Science Officers student leadership program',
         'Make@Skook29 Makerspace Access'
       ],
       competitions: [
@@ -283,7 +283,7 @@
         'STEELS Standards Implementation Support',
         'EdTech & AI Professional Learning',
         'Teacher Coaching & Instructional PD',
-        'CSO@Skook29 Career & Student Organizations'
+        'Chief Science Officers student leadership program'
       ],
       competitions: [
         'Keystone STEM Competition',
@@ -301,7 +301,7 @@
         'Schuylkill River and watershed environmental connections',
         'Local business and workforce partner outreach'
       ],
-      next: 'Leverage CSO and career connections at Schuylkill Haven to build strong student-to-workforce pathway programming through STEM@Skook29.'
+      next: 'Support Chief Science Officers at Schuylkill Haven as they develop student-led STEM Action Plans for their school and community.'
     },
 
     {

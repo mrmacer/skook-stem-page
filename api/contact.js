@@ -11,7 +11,7 @@ const ROLE_LABELS = {
 const INTEREST_LABELS = {
   competitions: "Competitions",
   make: "Make@Skook29 / Makerspace",
-  cso: "CSO Programs",
+  cso: "Chief Science Officers",
   steels: "STEELS Support",
   edtech: "EdTech & AI",
   "ai-resource-suggestion": "Suggest an AI / EdTech Resource",

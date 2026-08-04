@@ -1,0 +1,555 @@
+.phenomenon-page {
+  --accent: var(--purple-600);
+  --accent-light: var(--purple-100);
+  --teal: var(--purple-700);
+  --teal-light: var(--purple-100);
+  --amber: #9a3412;
+  --amber-light: var(--orange-100);
+  --surface: var(--white);
+  --surface-2: var(--gray-50);
+  --surface-3: var(--gray-100);
+  --ink: var(--gray-900);
+  --ink-2: var(--gray-700);
+  --ink-3: var(--gray-500);
+  --border: var(--gray-200);
+  --border-strong: var(--gray-300);
+  background: var(--gray-50);
+  padding: 0 0 var(--section-pad);
+}
+
+.phenomenon-page .resource-toolbar {
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
+}
+
+.phenomenon-page .resource-toolbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.phenomenon-page .resource-name {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--purple-700);
+  white-space: nowrap;
+}
+
+.phenomenon-page .nav-tabs {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.phenomenon-page .nav-tab {
+  flex: 0 0 auto;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  padding: 18px 16px 15px;
+  color: var(--gray-500);
+  font: 700 0.82rem/1.2 var(--font-body);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.phenomenon-page .nav-tab:hover {
+  color: var(--purple-700);
+}
+
+.phenomenon-page .nav-tab:focus-visible {
+  outline: 3px solid rgba(139, 26, 46, 0.24);
+  outline-offset: -4px;
+}
+
+.phenomenon-page .nav-tab.active {
+  color: var(--purple-700);
+  border-bottom-color: var(--orange-600);
+}
+
+.phenomenon-page .nav-badge {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: var(--purple-100);
+  color: var(--purple-700);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.phenomenon-page .resource-back-row {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+
+.phenomenon-page .resource-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--purple-700);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.phenomenon-page .resource-back-link:hover {
+  color: var(--orange-600);
+}
+
+.phenomenon-page .panel {
+  display: none;
+  max-width: 1000px;
+  margin: 28px auto 0;
+  padding: clamp(32px, 6vw, 64px);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+}
+
+.phenomenon-page .panel.active {
+  display: block;
+}
+
+.phenomenon-page .eyebrow {
+  margin-bottom: 12px;
+  color: var(--purple-600);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.phenomenon-page .panel-title {
+  max-width: 760px;
+  margin-bottom: 16px;
+  color: var(--gray-900);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.phenomenon-page .panel-title em {
+  color: var(--orange-600);
+  font-style: normal;
+}
+
+.phenomenon-page .panel-section-title {
+  margin-bottom: 12px;
+  color: var(--gray-900);
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  line-height: 1.25;
+}
+
+.phenomenon-page h4 {
+  margin-bottom: 8px;
+  color: var(--gray-700);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.phenomenon-page p {
+  margin-bottom: 16px;
+  color: var(--gray-700);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.phenomenon-page .lead {
+  max-width: 820px;
+  margin-bottom: 24px;
+  color: var(--gray-700);
+  font-size: 1.14rem;
+  line-height: 1.7;
+}
+
+.phenomenon-page .hero-rule {
+  width: 56px;
+  height: 4px;
+  margin: 16px 0 24px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-main);
+}
+
+.phenomenon-page .rule {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid var(--gray-200);
+}
+
+.phenomenon-page .callout {
+  margin: 24px 0;
+  padding: 20px 24px;
+  border-left: 4px solid var(--purple-600);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--purple-100);
+}
+
+.phenomenon-page .callout p {
+  margin: 0;
+  color: var(--gray-700);
+  font-size: 0.95rem;
+}
+
+.phenomenon-page .callout-teal {
+  border-left-color: var(--purple-700);
+  background: var(--purple-100);
+}
+
+.phenomenon-page .callout-amber {
+  border-left-color: var(--orange-600);
+  background: var(--orange-100);
+}
+
+.phenomenon-page .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.phenomenon-page .card {
+  padding: 22px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  background: var(--gray-50);
+  box-shadow: none;
+}
+
+.phenomenon-page .card:hover {
+  transform: none;
+  border-color: var(--purple-100);
+  box-shadow: var(--shadow-sm);
+}
+
+.phenomenon-page .card-accent {
+  background: var(--white);
+  border-top: 3px solid var(--purple-600);
+}
+
+.phenomenon-page .card-num {
+  margin-bottom: 10px;
+  color: var(--orange-600);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.phenomenon-page .card p {
+  margin: 0;
+  color: var(--gray-500);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.phenomenon-page .two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+  margin: 24px 0;
+}
+
+.phenomenon-page .blockquote {
+  margin: 24px 0;
+  padding: 16px 24px;
+  border-left: 4px solid var(--orange-500);
+  color: var(--gray-700);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.phenomenon-page .simple-table {
+  width: 100%;
+  margin: 16px 0;
+  border-collapse: collapse;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+}
+
+.phenomenon-page .simple-table th {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--gray-300);
+  background: var(--purple-100);
+  color: var(--purple-800);
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.phenomenon-page .simple-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--gray-200);
+  color: var(--gray-700);
+  vertical-align: top;
+}
+
+.phenomenon-page .simple-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.phenomenon-page .checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.phenomenon-page .checklist li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--gray-700);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.phenomenon-page .checklist li::before {
+  content: "✓";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--purple-600);
+  font-weight: 900;
+}
+
+.phenomenon-page .steels-bar,
+.phenomenon-page .tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.phenomenon-page .steels-pill,
+.phenomenon-page .tag,
+.phenomenon-page .phase-time {
+  display: inline-flex;
+  padding: 5px 11px;
+  border-radius: var(--radius-full);
+  background: var(--purple-100);
+  color: var(--purple-700);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+}
+
+.phenomenon-page .tag.red {
+  background: var(--purple-100);
+  color: var(--purple-700);
+}
+
+.phenomenon-page .tag.amber {
+  background: var(--orange-100);
+  color: var(--amber);
+}
+
+.phenomenon-page .phase-list {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0;
+}
+
+.phenomenon-page .phase {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+}
+
+.phenomenon-page .phase:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 42px;
+  bottom: 0;
+  left: 31px;
+  width: 2px;
+  background: var(--gray-200);
+}
+
+.phenomenon-page .phase-marker {
+  display: flex;
+  justify-content: center;
+}
+
+.phenomenon-page .phase-dot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--purple-600);
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.phenomenon-page .phase-dot.teal {
+  background: var(--purple-700);
+}
+
+.phenomenon-page .phase-dot.amber {
+  background: var(--orange-600);
+}
+
+.phenomenon-page .phase-dot.gray {
+  background: var(--gray-700);
+}
+
+.phenomenon-page .phase-content {
+  padding: 0 0 36px 16px;
+}
+
+.phenomenon-page .phase-label {
+  margin-bottom: 4px;
+  color: var(--gray-500);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.phenomenon-page .phase-title {
+  margin-bottom: 8px;
+  color: var(--gray-900);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.phenomenon-page .phase-time {
+  margin-bottom: 12px;
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+
+.phenomenon-page .stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.phenomenon-page .stat-card {
+  padding: 20px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  background: var(--gray-50);
+  box-shadow: none;
+  text-align: left;
+}
+
+.phenomenon-page .stat-num {
+  color: var(--purple-600);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.phenomenon-page .stat-label {
+  margin-top: 6px;
+  color: var(--gray-500);
+  font-size: 0.8rem;
+}
+
+.phenomenon-page .icon-circle {
+  display: flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: var(--purple-100);
+  color: var(--purple-700);
+}
+
+.phenomenon-page .icon-circle svg {
+  width: 19px;
+  height: 19px;
+}
+
+.phenomenon-page .print-hint {
+  margin-top: 32px;
+  color: var(--gray-500);
+  font-size: 0.76rem;
+  font-style: italic;
+  text-align: right;
+}
+
+@media (max-width: 800px) {
+  .phenomenon-page .resource-toolbar-inner {
+    display: block;
+    padding: 0 16px;
+  }
+
+  .phenomenon-page .resource-name {
+    display: block;
+    padding-top: 12px;
+  }
+
+  .phenomenon-page .nav-tab {
+    padding: 14px 13px 12px;
+  }
+
+  .phenomenon-page .panel {
+    margin: 20px 16px 0;
+    padding: 32px 22px;
+  }
+
+  .phenomenon-page .two-col,
+  .phenomenon-page .stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  .phenomenon-page .simple-table {
+    display: block;
+    overflow-x: auto;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 520px) {
+  .phenomenon-page .resource-name {
+    display: none;
+  }
+
+  .phenomenon-page .resource-back-row {
+    padding-top: 20px;
+  }
+
+  .phenomenon-page .phase {
+    grid-template-columns: 48px 1fr;
+  }
+
+  .phenomenon-page .phase:not(:last-child)::after {
+    left: 23px;
+  }
+}

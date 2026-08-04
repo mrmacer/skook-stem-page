@@ -106,40 +106,204 @@
     @media (max-width: 700px) {
       .wscam-feature-grid { grid-template-columns: 1fr; }
     }
+
+    /* Partnership intro — benefit card color variants */
+    .benefit-card-blue,
+    .benefit-card-green {
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card-blue {
+      background: linear-gradient(135deg, #0c1445, #0284c7);
+      box-shadow: 0 8px 28px rgba(2, 132, 199, 0.28);
+    }
+    .benefit-card-green {
+      background: linear-gradient(135deg, #064e3b, #059669);
+      box-shadow: 0 8px 28px rgba(5, 150, 105, 0.28);
+    }
+    .benefit-card-blue::after,
+    .benefit-card-green::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border: 20px solid rgba(255, 255, 255, 0.07);
+      border-radius: 50%;
+      right: -22px;
+      bottom: -22px;
+      pointer-events: none;
+    }
+    .audience-grid,
+    .resource-hub-grid,
+    .needs-grid,
+    .map-action-grid {
+      display: grid;
+      gap: 18px;
+    }
+    .audience-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .audience-card,
+    .hub-card,
+    .need-card,
+    .map-action-card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .audience-card:hover,
+    .audience-card:focus-visible,
+    .hub-card:hover,
+    .hub-card:focus-visible,
+    .need-card:hover,
+    .need-card:focus-visible,
+    .map-action-card:hover,
+    .map-action-card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(139,26,46,0.25);
+      outline: none;
+    }
+    .audience-card {
+      padding: 22px 18px;
+      text-align: center;
+      color: var(--gray-900);
+    }
+    .audience-icon {
+      display: block;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+    .audience-title,
+    .hub-title,
+    .need-title,
+    .map-action-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      line-height: 1.25;
+    }
+    .audience-desc,
+    .hub-desc,
+    .need-desc,
+    .map-action-desc {
+      font-size: 0.875rem;
+      color: var(--gray-500);
+      line-height: 1.55;
+      margin-top: 8px;
+    }
+    .resource-hub-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .hub-card,
+    .need-card,
+    .map-action-card {
+      display: flex;
+      flex-direction: column;
+      padding: 26px;
+      color: inherit;
+    }
+    .hub-icon,
+    .need-icon,
+    .map-action-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: var(--gradient-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+    }
+    .hub-link,
+    .need-link,
+    .map-action-link {
+      margin-top: auto;
+      padding-top: 18px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--purple-600);
+    }
+    .needs-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .map-action-grid {
+      grid-template-columns: repeat(4, 1fr);
+      margin-bottom: 28px;
+    }
+    .map-action-card {
+      background: rgba(255,255,255,0.76);
+    }
+    @media (max-width: 1000px) {
+      .audience-grid { grid-template-columns: repeat(3, 1fr); }
+      .resource-hub-grid,
+      .needs-grid,
+      .map-action-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .audience-grid,
+      .resource-hub-grid,
+      .needs-grid,
+      .map-action-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
 
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="navbar-inner">
       <div class="nav-brand">
         <a href="index.html" class="logo-link">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="iu29-logo" width="512" height="321" decoding="async">
         </a>
-        <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="site-logo">
+        <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29 Logo" class="site-logo" width="600" height="300" decoding="async">
       </div>
-      <div class="nav-links">
+            <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="students.html">Students</a>
+        <div class="nav-dropdown">
+          <a href="students.html">Students</a>
+          <div class="nav-dropdown-menu">
+            <a href="programs.html#make">Make@Skook29</a>
+            <a href="programs.html#competitions">Competitions</a>
+            <a href="programs.html#cso">CSO</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="teachers.html">Teachers</a>
           <div class="nav-dropdown-menu">
             <a href="steels-support.html">STEELS Support</a>
+            <a href="steels-resource-library.html">STEELS Resource Library</a>
             <a href="edtech-ai.html">EdTech &amp; AI</a>
+            <a href="ai-edtech-resource-library.html">AI &amp; EdTech Resource Library</a>
             <a href="classroom-resources.html">Classroom Resources</a>
+            <a href="phenomenon-sessions.html">Phenomenon Sessions</a>
+            <a href="events.html">Professional Learning</a>
           </div>
         </div>
-        <a href="districts.html">Districts</a>
+        <div class="nav-dropdown">
+          <a href="districts.html">Districts</a>
+          <div class="nav-dropdown-menu">
+            <a href="districts.html">STEM Ecosystem Planning</a>
+            <a href="contact.html">Request Support</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="community.html" class="active">Community</a>
           <div class="nav-dropdown-menu">
+            <a href="community.html">The Commons</a>
+            <a href="community.html#partner-hub">Partner Hub</a>
+            <a href="community.html#porch-stories">Porch Stories</a>
             <a href="wscam.html">WSCAM Archive</a>
           </div>
         </div>
-        <a href="programs.html">Programs</a>
-        <a href="events.html">Events</a>
-        <a href="about.html">About</a>
         <a href="contact.html" class="nav-cta">Contact Us</a>
       </div>
       <button class="nav-hamburger" aria-label="Toggle navigation">
@@ -147,22 +311,34 @@
       </button>
     </div>
   </nav>
+  <!-- MOBILE NAV -->
   <div class="mobile-nav">
     <a href="index.html">Home</a>
     <a href="students.html">Students</a>
+    <a href="programs.html#make" class="mobile-subnav">&#8627; Make@Skook29</a>
+    <a href="programs.html#competitions" class="mobile-subnav">&#8627; Competitions</a>
+    <a href="programs.html#cso" class="mobile-subnav">&#8627; CSO</a>
     <a href="teachers.html">Teachers</a>
-    <a href="steels-support.html" class="mobile-subnav">↳ STEELS Support</a>
-    <a href="edtech-ai.html" class="mobile-subnav">↳ EdTech &amp; AI</a>
-    <a href="classroom-resources.html" class="mobile-subnav">↳ Classroom Resources</a>
+    <a href="steels-support.html" class="mobile-subnav">&#8627; STEELS Support</a>
+    <a href="steels-resource-library.html" class="mobile-subnav">&#8627; STEELS Resource Library</a>
+    <a href="edtech-ai.html" class="mobile-subnav">&#8627; EdTech &amp; AI</a>
+    <a href="ai-edtech-resource-library.html" class="mobile-subnav">&#8627; AI &amp; EdTech Resource Library</a>
+    <a href="classroom-resources.html" class="mobile-subnav">&#8627; Classroom Resources</a>
+    <a href="phenomenon-sessions.html" class="mobile-subnav">&#8627; Phenomenon Sessions</a>
+    <a href="events.html" class="mobile-subnav">&#8627; Professional Learning</a>
     <a href="districts.html">Districts</a>
-    <a href="community.html" class="active">Community</a>
-    <a href="wscam.html" class="mobile-subnav">↳ WSCAM Archive</a>
-    <a href="programs.html">Programs</a>
-    <a href="events.html">Events</a>
-    <a href="about.html">About</a>
+    <a href="districts.html" class="mobile-subnav">&#8627; STEM Ecosystem Planning</a>
+    <a href="contact.html" class="mobile-subnav">&#8627; Request Support</a>
+    <a href="community.html">Community</a>
+    <a href="community.html" class="mobile-subnav">&#8627; The Commons</a>
+    <a href="community.html#partner-hub" class="mobile-subnav">&#8627; Partner Hub</a>
+    <a href="community.html#porch-stories" class="mobile-subnav">&#8627; Porch Stories</a>
+    <a href="wscam.html" class="mobile-subnav">&#8627; WSCAM Archive</a>
     <a href="contact.html">Contact</a>
   </div>
+  </header>
 
+  <main id="main-content" tabindex="-1">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-bg"></div>
@@ -175,13 +351,107 @@
           <span>›</span>
           <span>Community & Partners</span>
         </div>
-        <div class="page-hero-label">For Partners</div>
-        <h1 class="page-hero-title">Invest in the<br>Next Generation</h1>
+        <div class="page-hero-label">Community Commons</div>
+        <h1 class="page-hero-title">Connect With<br>STEM Opportunity</h1>
         <p class="page-hero-subtitle">
-          Your business, organization, or community group can play a direct role in shaping STEM education in Schuylkill County.
-          Let's build something together.
+          Find regional STEM events, student pathways, classroom resources, workforce connections, and practical ways to support Schuylkill County learners.
         </p>
-        <a href="contact.html" class="btn btn-white btn-lg">Become a Partner</a>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
+          <a href="#community-hub" class="btn btn-white btn-lg">Find Resources</a>
+          <a href="#partner-hub" class="btn btn-outline-white btn-lg">Partner With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE PATHWAYS -->
+  <section style="padding: var(--section-pad-sm) 0; background: white; position: relative; z-index: 1;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 32px;">
+        <span class="section-label">Start Here</span>
+        <h2 class="section-title">What Are You Looking For?</h2>
+        <p class="section-subtitle">The community page is a shared front door. Choose the path that best matches why you came.</p>
+      </div>
+      <div class="audience-grid">
+        <a href="students.html" class="audience-card">
+          <span class="audience-icon">🎓</span>
+          <div class="audience-title">Students</div>
+          <p class="audience-desc">Competitions, camps, makerspace experiences, and career-connected programs.</p>
+        </a>
+        <a href="events.html" class="audience-card">
+          <span class="audience-icon">👪</span>
+          <div class="audience-title">Families</div>
+          <p class="audience-desc">Upcoming events, student opportunities, and ways to stay connected.</p>
+        </a>
+        <a href="classroom-resources.html" class="audience-card">
+          <span class="audience-icon">📚</span>
+          <div class="audience-title">Educators</div>
+          <p class="audience-desc">STEELS-aligned resources, PD, coaching, and classroom tools.</p>
+        </a>
+        <a href="#partner-hub" class="audience-card">
+          <span class="audience-icon">🏭</span>
+          <div class="audience-title">Employers</div>
+          <p class="audience-desc">Guest speaking, job shadows, sponsorships, tours, and workforce pathways.</p>
+        </a>
+        <a href="#community-needs" class="audience-card">
+          <span class="audience-icon">🤝</span>
+          <div class="audience-title">Organizations</div>
+          <p class="audience-desc">Community programs, shared events, mentorship, and local resource sharing.</p>
+        </a>
+        <a href="districts.html" class="audience-card">
+          <span class="audience-icon">🏫</span>
+          <div class="audience-title">Districts</div>
+          <p class="audience-desc">Ecosystem planning, program support, and cross-district collaboration.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY RESOURCE HUB -->
+  <section id="community-hub" style="background: var(--gray-50); padding: var(--section-pad) 0; position: relative; z-index: 1;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Resource Hub</span>
+        <h2 class="section-title">The STEM@Skook29 Commons</h2>
+        <p class="section-subtitle">A practical directory for anyone trying to connect students, schools, families, and community partners to meaningful STEM opportunities.</p>
+      </div>
+      <div class="resource-hub-grid">
+        <a href="events.html" class="hub-card">
+          <div class="hub-icon">📅</div>
+          <div class="hub-title">Events &amp; Opportunities</div>
+          <p class="hub-desc">Find competitions, listening sessions, workshops, showcases, and student experiences.</p>
+          <span class="hub-link">View calendar →</span>
+        </a>
+        <a href="classroom-resources.html" class="hub-card">
+          <div class="hub-icon">🧰</div>
+          <div class="hub-title">Classroom Resources</div>
+          <p class="hub-desc">Browse STEELS-aligned lessons, design challenges, planning tools, and resource samples.</p>
+          <span class="hub-link">Browse resources →</span>
+        </a>
+        <a href="wscam.html" class="hub-card">
+          <div class="hub-icon">🎬</div>
+          <div class="hub-title">Local Industry Stories</div>
+          <p class="hub-desc">Explore the WSCAM archive of student-created videos and manufacturing partners.</p>
+          <span class="hub-link">Explore archive →</span>
+        </a>
+        <a href="programs.html#competitions" class="hub-card">
+          <div class="hub-icon">🏆</div>
+          <div class="hub-title">Student Competitions</div>
+          <p class="hub-desc">Connect students to robotics, design, invention, media, and engineering challenges.</p>
+          <span class="hub-link">See competitions →</span>
+        </a>
+        <a href="#ecosystem-map" class="hub-card">
+          <div class="hub-icon">🗺️</div>
+          <div class="hub-title">Regional Ecosystem Map</div>
+          <p class="hub-desc">Click through districts and see programs, supports, and partnership connections.</p>
+          <span class="hub-link">Open map →</span>
+        </a>
+        <a href="contact.html" class="hub-card">
+          <div class="hub-icon">✉️</div>
+          <div class="hub-title">Request Support</div>
+          <p class="hub-desc">Share an idea, ask for help, submit an opportunity, or start a partnership conversation.</p>
+          <span class="hub-link">Contact IU29 →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -215,15 +485,15 @@
             <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px;">Direct Workforce Pipeline</h4>
             <p style="font-size: 0.9375rem; opacity: 0.85; line-height: 1.65;">Connect with students before they graduate. Build relationships early and hire from a pool that already knows your industry.</p>
           </div>
-          <div style="background: var(--gray-50); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--gray-200);">
+          <div class="benefit-card-blue" style="border-radius: var(--radius-xl); padding: 32px;">
             <div style="font-size: 2rem; margin-bottom: 12px;">📣</div>
-            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900);">Brand Visibility</h4>
-            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65;">Your brand in front of students, parents, teachers, and administrators across 12+ school districts.</p>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: white;">Brand Visibility</h4>
+            <p style="font-size: 0.9375rem; color: rgba(255,255,255,0.82); line-height: 1.65;">Your brand in front of students, parents, teachers, and administrators across 12 public school districts.</p>
           </div>
-          <div style="background: var(--gray-50); border-radius: var(--radius-xl); padding: 32px; border: 1px solid var(--gray-200);">
+          <div class="benefit-card-green" style="border-radius: var(--radius-xl); padding: 32px;">
             <div style="font-size: 2rem; margin-bottom: 12px;">💚</div>
-            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: var(--gray-900);">Community Impact</h4>
-            <p style="font-size: 0.9375rem; color: var(--gray-500); line-height: 1.65;">Genuine corporate citizenship — not a logo on a flyer, but a real, documented impact on education in your region.</p>
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; margin-bottom: 8px; color: white;">Community Impact</h4>
+            <p style="font-size: 0.9375rem; color: rgba(255,255,255,0.82); line-height: 1.65;">Genuine corporate citizenship — not a logo on a flyer, but a real, documented impact on education in your region.</p>
           </div>
         </div>
       </div>
@@ -231,7 +501,7 @@
   </section>
 
   <!-- PARTNERSHIP TYPES -->
-  <section style="background: var(--gray-50); padding: var(--section-pad) 0; position: relative; z-index: 1;">
+  <section id="partner-hub" style="background: var(--gray-50); padding: var(--section-pad) 0; position: relative; z-index: 1;">
     <div class="container">
       <div class="section-header">
         <span class="section-label">How to Partner</span>
@@ -241,8 +511,9 @@
       <div class="grid-3">
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #1e0a3c, #7e22ce);">
-            <span style="font-size: 3rem;">🤝</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/images/AI-Pics/AI-Pic5.webp" alt="Workforce Collaboration" class="card-img-zoom" width="767" height="509" decoding="async" loading="lazy">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">Collaborate</span>
@@ -254,13 +525,14 @@
               <li>✦ Job Shadowing Programs</li>
               <li>✦ Guest Speaker Opportunities</li>
             </ul>
-            <a href="contact.html" class="btn btn-secondary btn-sm">Get Involved →</a>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Offer a Student Experience →</a>
           </div>
         </div>
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #431407, #ea580c);">
-            <span style="font-size: 3rem;">⭐</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/images/AI-Pics/AI-Pic4.webp" alt="Sponsorships" class="card-img-zoom" width="749" height="502" decoding="async" loading="lazy">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">Sponsorship</span>
@@ -272,13 +544,14 @@
               <li>✦ Scholarship Sponsorships</li>
               <li>✦ Program Naming Opportunities</li>
             </ul>
-            <a href="contact.html" class="btn btn-secondary btn-sm">Sponsorship Info →</a>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Sponsor a Program →</a>
           </div>
         </div>
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #064e3b, #059669);">
-            <span style="font-size: 3rem;">🌱</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/images/AI-Pics/AI-Pic12.webp" alt="Community Programs" class="card-img-zoom" width="764" height="512" decoding="async" loading="lazy">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">Community</span>
@@ -290,13 +563,14 @@
               <li>✦ Family Engagement Activities</li>
               <li>✦ Library & Rec Center Partnerships</li>
             </ul>
-            <a href="contact.html" class="btn btn-secondary btn-sm">Learn More →</a>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Plan a Community Event →</a>
           </div>
         </div>
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #164e63, #0284c7);">
-            <span style="font-size: 3rem;">🎓</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/images/AI-Pics/AI-Pic2.webp" alt="Higher Ed Partnerships" class="card-img-zoom" width="766" height="459" decoding="async" loading="lazy">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">Higher Ed</span>
@@ -308,13 +582,14 @@
               <li>✦ Research Collaboration</li>
               <li>✦ Faculty Engagement</li>
             </ul>
-            <a href="contact.html" class="btn btn-secondary btn-sm">Connect →</a>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Build a Pathway →</a>
           </div>
         </div>
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #312e81, #6d28d9);">
-            <span style="font-size: 3rem;">🔧</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/images/AI-Pics/AI-Pic3.webp" alt="Equipment & Materials" class="card-img-zoom" width="766" height="509" decoding="async" loading="lazy">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">In-Kind</span>
@@ -326,7 +601,7 @@
               <li>✦ Technology Donations</li>
               <li>✦ Surplus Inventory</li>
             </ul>
-            <a href="contact.html" class="btn btn-secondary btn-sm">Donate →</a>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Offer Materials →</a>
           </div>
         </div>
 
@@ -341,6 +616,43 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY NEEDS BOARD -->
+  <section id="community-needs" style="background: white; padding: var(--section-pad) 0; position: relative; z-index: 1;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label orange">Ways to Help</span>
+        <h2 class="section-title">Current Community Needs</h2>
+        <p class="section-subtitle">Not every contribution has to be a major sponsorship. These are concrete ways local people and organizations can plug in.</p>
+      </div>
+      <div class="needs-grid">
+        <a href="contact.html" class="need-card">
+          <div class="need-icon">🎤</div>
+          <div class="need-title">Guest Speakers</div>
+          <p class="need-desc">Share your career story, demonstrate a tool, or help students see where STEM shows up locally.</p>
+          <span class="need-link">Volunteer to speak →</span>
+        </a>
+        <a href="contact.html" class="need-card">
+          <div class="need-icon">🚪</div>
+          <div class="need-title">Workplace Visits</div>
+          <p class="need-desc">Host a small student group, teacher team, or program visit at your business or organization.</p>
+          <span class="need-link">Host a visit →</span>
+        </a>
+        <a href="contact.html" class="need-card">
+          <div class="need-icon">🧪</div>
+          <div class="need-title">Materials &amp; Equipment</div>
+          <p class="need-desc">Contribute usable surplus materials, tools, tech, or supplies for makerspace and classroom projects.</p>
+          <span class="need-link">Offer a donation →</span>
+        </a>
+        <a href="contact.html" class="need-card">
+          <div class="need-icon">🧑‍⚖️</div>
+          <div class="need-title">Judges &amp; Mentors</div>
+          <p class="need-desc">Support competitions, design reviews, student presentations, and project feedback sessions.</p>
+          <span class="need-link">Join a volunteer list →</span>
+        </a>
       </div>
     </div>
   </section>
@@ -389,7 +701,7 @@
   </section>
 
   <!-- FEATURED COMMUNITY EVENT: LISTENING SESSION -->
-  <section style="background: white; padding: var(--section-pad) 0; position: relative; z-index: 1;">
+  <section id="porch-stories" style="background: white; padding: var(--section-pad) 0; position: relative; z-index: 1;">
     <div class="container">
       <div style="max-width: 880px; margin: 0 auto;">
 
@@ -401,7 +713,7 @@
             <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 22px;">
               <span class="section-label orange" style="margin-bottom: 0;">Community Event</span>
               <span style="font-size: 0.675rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gray-900); color: white; padding: 4px 10px; border-radius: var(--radius-full);">Free · Sep 23</span>
-              <span style="font-size: 0.675rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: var(--orange-500); color: white; padding: 4px 10px; border-radius: var(--radius-full);">Seats Limited</span>
+              <span style="font-size: 0.675rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; background: var(--orange-700); color: white; padding: 4px 10px; border-radius: var(--radius-full);">Seats Limited</span>
             </div>
 
             <!-- Title -->
@@ -439,8 +751,7 @@
               Your perspective — as an employer, a community partner, or a local organization — is exactly what this work needs.
               Seats are limited to keep the conversation focused. We'd love to have you in the room.
             </p>
-            <!-- TODO: Replace href="#" with the registration/RSVP link when available -->
-            <a href="#" class="btn btn-primary btn-lg">Reserve Your Seat →</a>
+            <a href="contact.html" class="btn btn-primary btn-lg">Ask About Attending →</a>
 
           </div>
         </div>
@@ -449,96 +760,194 @@
     </div>
   </section>
 
+  <!-- ECOSYSTEM MAP — INTERACTIVE DISTRICT SELECTOR -->
+  <section id="ecosystem-map" style="background: var(--gray-50); padding: var(--section-pad) 0; position: relative; z-index: 1;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Regional Impact Map</span>
+        <h2 class="section-title">Explore the STEM@Skook29 Ecosystem</h2>
+        <p class="section-subtitle">Click a district to see how STEM@Skook29 programs, competitions, partnerships, and professional learning connect across Schuylkill County.</p>
+      </div>
+
+      <div class="map-action-grid">
+        <a href="programs.html#competitions" class="map-action-card">
+          <div class="map-action-icon">🏆</div>
+          <div class="map-action-title">Find Competitions</div>
+          <p class="map-action-desc">Connect a district or student team to regional STEM challenges.</p>
+          <span class="map-action-link">View options →</span>
+        </a>
+        <a href="teachers.html" class="map-action-card">
+          <div class="map-action-icon">📚</div>
+          <div class="map-action-title">Find Teacher Support</div>
+          <p class="map-action-desc">See coaching, PD, STEELS, and EdTech supports available through IU29.</p>
+          <span class="map-action-link">Teacher hub →</span>
+        </a>
+        <a href="wscam.html" class="map-action-card">
+          <div class="map-action-icon">🏭</div>
+          <div class="map-action-title">Find Industry Stories</div>
+          <p class="map-action-desc">Browse student videos and local manufacturers by school and year.</p>
+          <span class="map-action-link">WSCAM archive →</span>
+        </a>
+        <a href="contact.html" class="map-action-card">
+          <div class="map-action-icon">🤝</div>
+          <div class="map-action-title">Add a Connection</div>
+          <p class="map-action-desc">Share a community program, partner, event, or opportunity for students.</p>
+          <span class="map-action-link">Submit an idea →</span>
+        </a>
+      </div>
+
+      <div class="eco-map-wrapper">
+
+        <!-- Left: selector panel -->
+        <div class="eco-map-selector-panel">
+          <div class="eco-selector-title">Schuylkill County Districts</div>
+          <div class="eco-node-grid" id="eco-node-grid" role="group" aria-label="Schuylkill County school districts — click to explore">
+            <!-- District nodes injected by ecosystem-map.js -->
+          </div>
+
+          <!-- Layer legend -->
+          <div class="eco-legend">
+            <div class="eco-legend-title">Ecosystem Layers</div>
+            <div class="eco-legend-items">
+              <div class="eco-legend-item">
+                <div class="eco-legend-dot" style="background: #a52035;"></div>
+                Schools &amp; Districts
+              </div>
+              <div class="eco-legend-item">
+                <div class="eco-legend-dot" style="background: #0284c7;"></div>
+                Industry Partners
+              </div>
+              <div class="eco-legend-item">
+                <div class="eco-legend-dot" style="background: #059669;"></div>
+                Nature &amp; Environmental Partners
+              </div>
+              <div class="eco-legend-item">
+                <div class="eco-legend-dot" style="background: #d97706;"></div>
+                Community Organizations
+              </div>
+              <div class="eco-legend-item">
+                <div class="eco-legend-dot" style="background: #7c3aed;"></div>
+                Higher Education
+              </div>
+              <div class="eco-legend-item">
+                <div class="eco-legend-dot" style="background: #ea580c;"></div>
+                STEM@Skook29 Programs
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Earth link -->
+          <div style="margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.07);">
+            <a href="contact.html" class="eco-earth-btn" aria-label="Request access to the full Google Earth ecosystem map">
+              <span aria-hidden="true">🌍</span> Request Full Google Earth Map
+            </a>
+            <p style="font-size: 0.75rem; color: rgba(255,255,255,0.28); margin-top: 10px; line-height: 1.6;">
+              The full Google Earth version will include schools, WSCAM industry partners, community organizations, and nature/environmental partners across the county.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: detail panel (content injected by JS on district click) -->
+        <div class="eco-detail-panel" id="eco-detail-panel" aria-live="polite" aria-label="District ecosystem detail">
+          <!-- Placeholder rendered by JS on load -->
+        </div>
+
+      </div>
+
+      <p class="eco-transparency">Data reflects STEM@Skook29 program availability and ecosystem connections across IU29's 12 public member districts. Current and future ecosystem connections may include all items shown. Contact IU29 for district-specific program status.</p>
+    </div>
+  </section>
+
   <!-- PARTNER SCHOOLS / DISTRICTS -->
   <section style="background: var(--dark-800); padding: var(--section-pad) 0; position: relative; z-index: 1;">
     <div class="container">
       <div class="section-header">
         <span class="section-label" style="background: rgba(139,26,46,0.3); color: #f9a8b4; border: 1px solid rgba(139,26,46,0.35);">Our Partner Schools</span>
-        <h2 class="section-title" style="color: white;">14 Districts. One Ecosystem.</h2>
-        <p class="section-subtitle">Every public school district in Schuylkill County is part of the IU29 STEM network. No school — and no student — left behind.</p>
+        <h2 class="section-title" style="color: white;">14 School Communities. One Ecosystem.</h2>
+        <p class="section-subtitle">The network represents 12 public school districts and two non-public partner schools across Schuylkill County.</p>
       </div>
 
       <div class="partner-grid">
 
         <a href="https://www.bmsd.org/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/bluemountain.png" alt="Blue Mountain logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/bluemountain.webp" alt="Blue Mountain logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Blue Mountain</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.mabears.net/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/mahanoy.png" alt="Mahanoy Area logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/mahanoy.webp" alt="Mahanoy Area logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Mahanoy Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.battlinminers.com/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/minersville.png" alt="Minersville Area logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/minersville.webp" alt="Minersville Area logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Minersville Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.northschuylkill.net/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/northschuylkill.png" alt="North Schuylkill logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/northschuylkill.webp" alt="North Schuylkill logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">North Schuylkill</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.pgasd.com/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/pinegrove.png" alt="Pine Grove Area logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/pinegrove.webp" alt="Pine Grove Area logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Pine Grove Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.pottsville.k12.pa.us/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/pottsville.png" alt="Pottsville Area logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/pottsville.webp" alt="Pottsville Area logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Pottsville Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.saintclairsd.org/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/stclair.png" alt="Saint Clair Area logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/stclair.webp" alt="Saint Clair Area logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Saint Clair Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.haven.k12.pa.us/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/schuylkillhaven.png" alt="Schuylkill Haven logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/schuylkillhaven.webp" alt="Schuylkill Haven logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Schuylkill Haven</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.svbluedevils.org/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/shenandoah.png" alt="Shenandoah Valley logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/shenandoah.webp" alt="Shenandoah Valley logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Shenandoah Valley</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.tamaqua.k12.pa.us/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/tamaqua.png" alt="Tamaqua Area logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/tamaqua.webp" alt="Tamaqua Area logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Tamaqua Area</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.tri-valley.org/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/trivalley.png" alt="Tri-Valley logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/trivalley.webp" alt="Tri-Valley logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Tri-Valley</span>
           <span class="partner-card-arrow">Visit site →</span>
         </a>
 
         <a href="https://www.wvschools.net/" target="_blank" rel="noopener noreferrer" class="partner-card">
-          <div class="partner-card-logo-wrap"><img src="assets/branding/school-logos/williamsvalley.png" alt="Williams Valley logo"></div>
+          <div class="partner-card-logo-wrap"><img src="assets/optimized/branding/school-logos/williamsvalley.webp" alt="Williams Valley logo" width="320" height="320" decoding="async" loading="lazy"></div>
           <span class="partner-card-type public">Public SD</span>
           <span class="partner-card-name">Williams Valley</span>
           <span class="partner-card-arrow">Visit site →</span>
@@ -573,18 +982,19 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/branding/StemAtSkook-logo-white.png" alt="STEM@Skook29 Logo" class="footer-logo">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <img src="assets/optimized/branding/StemAtSkook-logo-white.webp" alt="STEM@Skook29 Logo" class="footer-logo" width="600" height="300" decoding="async" loading="lazy">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" width="512" height="321" decoding="async" />
           <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
           <div class="footer-contact">
             <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
-            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=17+Maple+Ave%2C+Mar+Lin%2C+PA+17951" target="_blank" rel="noopener noreferrer">&#128205; 17 Maple Ave, Mar Lin, PA 17951</a>
             <a href="tel:+15705449131">📞 (570) 544-9131</a>
           </div>
         </div>
@@ -618,16 +1028,11 @@
       </div>
       <div class="footer-bottom">
         <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p>
-        <div class="social-links">
-          <a href="#" class="social-link">𝕏</a>
-          <a href="#" class="social-link">f</a>
-          <a href="#" class="social-link">📷</a>
-          <a href="#" class="social-link">in</a>
-        </div>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="assets/js/ecosystem-map.js"></script>
 </body>
 </html>

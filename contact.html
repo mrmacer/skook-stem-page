@@ -62,6 +62,49 @@
       background-position: right 16px center;
       padding-right: 40px;
     }
+    .form-honeypot {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+    .form-privacy-note {
+      margin-top: -6px;
+      font-size: 0.8125rem;
+      line-height: 1.55;
+      color: var(--gray-500);
+    }
+    .form-status {
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.5;
+      outline: none;
+    }
+    .form-status.success {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+    }
+    .form-status.error {
+      background: #fff1f2;
+      border: 1px solid #fecdd3;
+      color: #9f1239;
+    }
+    .form-status a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .contact-form button[disabled] {
+      cursor: wait;
+      opacity: 0.76;
+    }
 
     .contact-info-item {
       display: flex;
@@ -107,60 +150,91 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
 
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="navbar-inner">
       <div class="nav-brand">
         <a href="index.html" class="logo-link">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="iu29-logo" width="512" height="321" decoding="async">
         </a>
-        <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="site-logo">
+        <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29 Logo" class="site-logo" width="600" height="300" decoding="async">
       </div>
-      <div class="nav-links">
+            <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="students.html">Students</a>
+        <div class="nav-dropdown">
+          <a href="students.html">Students</a>
+          <div class="nav-dropdown-menu">
+            <a href="programs.html#make">Make@Skook29</a>
+            <a href="programs.html#competitions">Competitions</a>
+            <a href="programs.html#cso">CSO</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="teachers.html">Teachers</a>
           <div class="nav-dropdown-menu">
             <a href="steels-support.html">STEELS Support</a>
+            <a href="steels-resource-library.html">STEELS Resource Library</a>
             <a href="edtech-ai.html">EdTech &amp; AI</a>
+            <a href="ai-edtech-resource-library.html">AI &amp; EdTech Resource Library</a>
             <a href="classroom-resources.html">Classroom Resources</a>
+            <a href="phenomenon-sessions.html">Phenomenon Sessions</a>
+            <a href="events.html">Professional Learning</a>
           </div>
         </div>
-        <a href="districts.html">Districts</a>
+        <div class="nav-dropdown">
+          <a href="districts.html">Districts</a>
+          <div class="nav-dropdown-menu">
+            <a href="districts.html">STEM Ecosystem Planning</a>
+            <a href="contact.html">Request Support</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="community.html">Community</a>
           <div class="nav-dropdown-menu">
+            <a href="community.html">The Commons</a>
+            <a href="community.html#partner-hub">Partner Hub</a>
+            <a href="community.html#porch-stories">Porch Stories</a>
             <a href="wscam.html">WSCAM Archive</a>
           </div>
         </div>
-        <a href="programs.html">Programs</a>
-        <a href="events.html">Events</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="nav-cta active" style="background: var(--gradient-orange) !important;">Contact Us</a>
+        <a href="contact.html" class="nav-cta">Contact Us</a>
       </div>
       <button class="nav-hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
     </div>
   </nav>
+  <!-- MOBILE NAV -->
   <div class="mobile-nav">
     <a href="index.html">Home</a>
     <a href="students.html">Students</a>
+    <a href="programs.html#make" class="mobile-subnav">&#8627; Make@Skook29</a>
+    <a href="programs.html#competitions" class="mobile-subnav">&#8627; Competitions</a>
+    <a href="programs.html#cso" class="mobile-subnav">&#8627; CSO</a>
     <a href="teachers.html">Teachers</a>
-    <a href="steels-support.html" class="mobile-subnav">↳ STEELS Support</a>
-    <a href="edtech-ai.html" class="mobile-subnav">↳ EdTech &amp; AI</a>
-    <a href="classroom-resources.html" class="mobile-subnav">↳ Classroom Resources</a>
+    <a href="steels-support.html" class="mobile-subnav">&#8627; STEELS Support</a>
+    <a href="steels-resource-library.html" class="mobile-subnav">&#8627; STEELS Resource Library</a>
+    <a href="edtech-ai.html" class="mobile-subnav">&#8627; EdTech &amp; AI</a>
+    <a href="ai-edtech-resource-library.html" class="mobile-subnav">&#8627; AI &amp; EdTech Resource Library</a>
+    <a href="classroom-resources.html" class="mobile-subnav">&#8627; Classroom Resources</a>
+    <a href="phenomenon-sessions.html" class="mobile-subnav">&#8627; Phenomenon Sessions</a>
+    <a href="events.html" class="mobile-subnav">&#8627; Professional Learning</a>
     <a href="districts.html">Districts</a>
+    <a href="districts.html" class="mobile-subnav">&#8627; STEM Ecosystem Planning</a>
+    <a href="contact.html" class="mobile-subnav">&#8627; Request Support</a>
     <a href="community.html">Community</a>
-    <a href="wscam.html" class="mobile-subnav">↳ WSCAM Archive</a>
-    <a href="programs.html">Programs</a>
-    <a href="events.html">Events</a>
-    <a href="about.html">About</a>
+    <a href="community.html" class="mobile-subnav">&#8627; The Commons</a>
+    <a href="community.html#partner-hub" class="mobile-subnav">&#8627; Partner Hub</a>
+    <a href="community.html#porch-stories" class="mobile-subnav">&#8627; Porch Stories</a>
+    <a href="wscam.html" class="mobile-subnav">&#8627; WSCAM Archive</a>
     <a href="contact.html">Contact</a>
   </div>
+  </header>
 
+  <main id="main-content" tabindex="-1">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-bg"></div>
@@ -193,7 +267,7 @@
           <h2 style="font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--gray-900); margin-bottom: 8px;">Send a Message</h2>
           <p style="font-size: 0.9375rem; color: var(--gray-500); margin-bottom: 32px; line-height: 1.6;">Fill out the form below and Greg will get back to you as soon as possible — typically within one business day.</p>
 
-          <form class="contact-form" action="#" method="post">
+          <form class="contact-form" action="/api/contact" method="post">
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="first-name">First Name <span class="required">*</span></label>
@@ -236,8 +310,19 @@
                 <option value="cso">CSO Programs</option>
                 <option value="steels">STEELS Support</option>
                 <option value="edtech">EdTech & AI</option>
+                <option value="ai-resource-suggestion">Suggest an AI / EdTech Resource</option>
+                <option value="ai-resource-update">Report Outdated AI / EdTech Information</option>
+                <option value="ai-tool-review">Request District AI Tool Review Support</option>
+                <option value="ai-resource-request">Request an IU29 Original AI Resource</option>
+                <option value="site-support">Website Support</option>
+                <option value="resources">Classroom Resources</option>
                 <option value="pd">Professional Development</option>
                 <option value="partnership">Partnership / Sponsorship</option>
+                <option value="student-experience">Offer a Student Experience</option>
+                <option value="speaker">Guest Speaking / Mentoring</option>
+                <option value="materials">Materials or Equipment Donation</option>
+                <option value="community-opportunity">Submit a Community Opportunity</option>
+                <option value="listening-session">Community Listening Session</option>
                 <option value="events">Events</option>
                 <option value="general">General Information</option>
               </select>
@@ -246,6 +331,12 @@
               <label class="form-label" for="message">Message <span class="required">*</span></label>
               <textarea class="form-textarea" id="message" name="message" placeholder="Tell us what's on your mind — how can we help?" required></textarea>
             </div>
+            <div class="form-honeypot" aria-hidden="true">
+              <label for="website">Leave this field blank</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+            <p class="form-privacy-note">Information submitted here is used only to respond to your request.</p>
+            <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
             <button type="submit" class="btn btn-primary" style="align-self: flex-start; width: 100%;">Send Message →</button>
           </form>
         </div>
@@ -275,14 +366,14 @@
                 <div>
                   <div class="contact-info-label">Location</div>
                   <div class="contact-info-value">Schuylkill Intermediate Unit 29</div>
-                  <div style="font-size: 0.8125rem; color: var(--gray-500); margin-top: 2px;">Marlin, Pennsylvania</div>
+                  <div style="font-size: 0.8125rem; color: var(--gray-500); margin-top: 2px;">Mar Lin, Pennsylvania</div>
                 </div>
               </div>
               <div class="contact-info-item">
                 <div class="contact-info-icon">🌐</div>
                 <div>
                   <div class="contact-info-label">Organization</div>
-                  <div class="contact-info-value"><a href="#">iu29.org</a></div>
+                  <div class="contact-info-value"><a href="https://www.iu29.org/" target="_blank" rel="noopener noreferrer">iu29.org</a></div>
                 </div>
               </div>
             </div>
@@ -294,16 +385,6 @@
             <div style="font-size: 0.8125rem; opacity: 0.65;">Mon – Fri, 8:00 AM – 4:00 PM</div>
           </div>
 
-          <div style="background: white; border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-md);">
-            <h4 style="font-family: var(--font-display); font-size: 1rem; font-weight: 700; color: var(--gray-900); margin-bottom: 16px;">Follow STEM@Skook29</h4>
-            <div class="social-links" style="gap: 10px;">
-              <a href="#" class="social-link" style="background: var(--gray-100); color: var(--gray-600);" aria-label="Twitter">𝕏</a>
-              <a href="#" class="social-link" style="background: var(--gray-100); color: var(--gray-600);" aria-label="Facebook">f</a>
-              <a href="#" class="social-link" style="background: var(--gray-100); color: var(--gray-600);" aria-label="Instagram">📷</a>
-              <a href="#" class="social-link" style="background: var(--gray-100); color: var(--gray-600);" aria-label="LinkedIn">in</a>
-              <a href="#" class="social-link" style="background: var(--gray-100); color: var(--gray-600);" aria-label="YouTube">▶</a>
-            </div>
-          </div>
         </div>
 
       </div>
@@ -340,18 +421,19 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/branding/StemAtSkook-logo-white.png" alt="STEM@Skook29 Logo" class="footer-logo">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <img src="assets/optimized/branding/StemAtSkook-logo-white.webp" alt="STEM@Skook29 Logo" class="footer-logo" width="600" height="300" decoding="async" loading="lazy">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" width="512" height="321" decoding="async" />
           <p>Building the future of STEM learning in Schuylkill County.</p>
           <div class="footer-contact">
             <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
-            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=17+Maple+Ave%2C+Mar+Lin%2C+PA+17951" target="_blank" rel="noopener noreferrer">&#128205; 17 Maple Ave, Mar Lin, PA 17951</a>
             <a href="tel:+15705449131">📞 (570) 544-9131</a>
           </div>
         </div>
@@ -385,16 +467,11 @@
       </div>
       <div class="footer-bottom">
         <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p>
-        <div class="social-links">
-          <a href="#" class="social-link">𝕏</a>
-          <a href="#" class="social-link">f</a>
-          <a href="#" class="social-link">📷</a>
-          <a href="#" class="social-link">in</a>
-        </div>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="assets/js/contact-form.js"></script>
 </body>
 </html>

@@ -96,7 +96,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: white;
-      background: var(--orange-500);
+      background: var(--orange-700);
       padding: 4px 10px;
       border-radius: var(--radius-full);
     }
@@ -307,40 +307,317 @@
         animation: none;
       }
     }
+
+    /* ---- CSO Slideshow ---- */
+    .cso-slideshow {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      overflow: hidden;
+      /* Pull flush to the top edge of the program-block background */
+      margin-top: calc(-1 * var(--section-pad));
+      margin-bottom: 60px;
+    }
+    .cso-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: csoFade 35s infinite;
+    }
+    .cso-slide:nth-child(1) { animation-delay:  0s; }
+    .cso-slide:nth-child(2) { animation-delay:  5s; }
+    .cso-slide:nth-child(3) { animation-delay: 10s; }
+    .cso-slide:nth-child(4) { animation-delay: 15s; }
+    .cso-slide:nth-child(5) { animation-delay: 20s; }
+    .cso-slide:nth-child(6) { animation-delay: 25s; }
+    .cso-slide:nth-child(7) { animation-delay: 30s; }
+    @keyframes csoFade {
+      0%        { opacity: 0; }
+      4%        { opacity: 1; }
+      11%       { opacity: 1; }
+      14.286%   { opacity: 0; }
+      100%      { opacity: 0; }
+    }
+    .cso-slideshow-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.06) 0%,
+        rgba(0,0,0,0) 35%,
+        rgba(0,0,0,0.55) 100%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+    .cso-slideshow-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px 40px;
+      z-index: 2;
+      color: white;
+    }
+    .cso-slideshow-caption h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      font-weight: 800;
+      margin-bottom: 4px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .cso-slideshow-caption p {
+      font-size: 0.9375rem;
+      opacity: 0.88;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    }
+
+    /* ---- CSO In-Action Gallery ---- */
+    .cso-in-action {
+      margin-top: 64px;
+      padding-top: 60px;
+      border-top: 1px solid var(--gray-100);
+    }
+    .cso-in-action-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .cso-in-action-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.125rem);
+      font-weight: 800;
+      color: var(--gray-900);
+      margin: 10px 0 14px;
+      letter-spacing: -0.01em;
+    }
+    .cso-in-action-subtitle {
+      font-size: 1.0625rem;
+      color: var(--gray-500);
+      line-height: 1.75;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Gallery grid */
+    .cso-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .cso-gallery-item {
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: none;
+      background: var(--gray-100);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      aspect-ratio: 4 / 3;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .cso-gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: var(--shadow-lg);
+    }
+    .cso-gallery-item:focus-visible {
+      outline: 3px solid var(--purple-500);
+      outline-offset: 3px;
+    }
+    .cso-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* Impact card */
+    .cso-impact {
+      background: white;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      border: 1px solid var(--gray-100);
+      margin-bottom: 0;
+    }
+    .cso-impact-header {
+      background: var(--gradient-main);
+      padding: 28px 36px 24px;
+    }
+    .cso-impact-label {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.92);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: var(--radius-full);
+      padding: 4px 12px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .cso-impact-title {
+      font-family: var(--font-display);
+      font-size: 1.375rem;
+      font-weight: 800;
+      color: white;
+      line-height: 1.25;
+    }
+    .cso-impact-items {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+    .cso-impact-item {
+      padding: 28px 20px;
+      border-right: 1px solid var(--gray-100);
+      text-align: center;
+    }
+    .cso-impact-item:last-child { border-right: none; }
+    .cso-impact-icon {
+      font-size: 1.75rem;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+    .cso-impact-item-title {
+      font-family: var(--font-display);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .cso-impact-item-body {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      line-height: 1.55;
+    }
+
+    /* Lightbox */
+    .cso-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+    .cso-lightbox.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cso-lightbox-img {
+      max-width: min(90vw, 1100px);
+      max-height: 86vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+      display: block;
+    }
+    .cso-lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      font-size: 1.25rem;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease;
+      line-height: 1;
+    }
+    .cso-lightbox-close:hover { background: rgba(255,255,255,0.22); }
+    .cso-lightbox-close:focus-visible { outline: 2px solid white; outline-offset: 3px; }
+
+    /* CSO responsive overrides */
+    @media (max-width: 960px) {
+      .cso-gallery { grid-template-columns: repeat(2, 1fr); }
+      .cso-impact-items { grid-template-columns: repeat(3, 1fr); }
+      .cso-impact-item:nth-child(3) { border-right: none; }
+      .cso-impact-item:nth-child(4),
+      .cso-impact-item:nth-child(5) { border-top: 1px solid var(--gray-100); }
+      .cso-impact-item:nth-child(5) { border-right: none; }
+    }
+    @media (max-width: 560px) {
+      .cso-slideshow { height: 240px; }
+      .cso-slideshow-caption { padding: 16px 20px; }
+      .cso-gallery { grid-template-columns: 1fr; }
+      .cso-impact-items { grid-template-columns: 1fr 1fr; }
+      .cso-impact-item { border-right: none; border-top: 1px solid var(--gray-100); }
+      .cso-impact-item:first-child { border-top: none; }
+      .cso-impact-item:nth-child(odd) { border-right: 1px solid var(--gray-100); }
+      .cso-impact-header { padding: 22px 24px 20px; }
+    }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
 
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="navbar-inner">
       <div class="nav-brand">
         <a href="index.html" class="logo-link">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="iu29-logo" width="512" height="321" decoding="async">
         </a>
-        <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="site-logo">
+        <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29 Logo" class="site-logo" width="600" height="300" decoding="async">
       </div>
-      <div class="nav-links">
+            <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="students.html">Students</a>
+        <div class="nav-dropdown">
+          <a href="students.html">Students</a>
+          <div class="nav-dropdown-menu">
+            <a href="programs.html#make">Make@Skook29</a>
+            <a href="programs.html#competitions">Competitions</a>
+            <a href="programs.html#cso">CSO</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="teachers.html">Teachers</a>
           <div class="nav-dropdown-menu">
             <a href="steels-support.html">STEELS Support</a>
+            <a href="steels-resource-library.html">STEELS Resource Library</a>
             <a href="edtech-ai.html">EdTech &amp; AI</a>
+            <a href="ai-edtech-resource-library.html">AI &amp; EdTech Resource Library</a>
             <a href="classroom-resources.html">Classroom Resources</a>
+            <a href="phenomenon-sessions.html">Phenomenon Sessions</a>
+            <a href="events.html">Professional Learning</a>
           </div>
         </div>
-        <a href="districts.html">Districts</a>
+        <div class="nav-dropdown">
+          <a href="districts.html">Districts</a>
+          <div class="nav-dropdown-menu">
+            <a href="districts.html">STEM Ecosystem Planning</a>
+            <a href="contact.html">Request Support</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="community.html">Community</a>
           <div class="nav-dropdown-menu">
+            <a href="community.html">The Commons</a>
+            <a href="community.html#partner-hub">Partner Hub</a>
+            <a href="community.html#porch-stories">Porch Stories</a>
             <a href="wscam.html">WSCAM Archive</a>
           </div>
         </div>
-        <a href="programs.html" class="active">Programs</a>
-        <a href="events.html">Events</a>
-        <a href="about.html">About</a>
         <a href="contact.html" class="nav-cta">Contact Us</a>
       </div>
       <button class="nav-hamburger" aria-label="Toggle navigation">
@@ -348,22 +625,34 @@
       </button>
     </div>
   </nav>
+  <!-- MOBILE NAV -->
   <div class="mobile-nav">
     <a href="index.html">Home</a>
     <a href="students.html">Students</a>
+    <a href="programs.html#make" class="mobile-subnav">&#8627; Make@Skook29</a>
+    <a href="programs.html#competitions" class="mobile-subnav">&#8627; Competitions</a>
+    <a href="programs.html#cso" class="mobile-subnav">&#8627; CSO</a>
     <a href="teachers.html">Teachers</a>
-    <a href="steels-support.html" class="mobile-subnav">↳ STEELS Support</a>
-    <a href="edtech-ai.html" class="mobile-subnav">↳ EdTech &amp; AI</a>
-    <a href="classroom-resources.html" class="mobile-subnav">↳ Classroom Resources</a>
+    <a href="steels-support.html" class="mobile-subnav">&#8627; STEELS Support</a>
+    <a href="steels-resource-library.html" class="mobile-subnav">&#8627; STEELS Resource Library</a>
+    <a href="edtech-ai.html" class="mobile-subnav">&#8627; EdTech &amp; AI</a>
+    <a href="ai-edtech-resource-library.html" class="mobile-subnav">&#8627; AI &amp; EdTech Resource Library</a>
+    <a href="classroom-resources.html" class="mobile-subnav">&#8627; Classroom Resources</a>
+    <a href="phenomenon-sessions.html" class="mobile-subnav">&#8627; Phenomenon Sessions</a>
+    <a href="events.html" class="mobile-subnav">&#8627; Professional Learning</a>
     <a href="districts.html">Districts</a>
+    <a href="districts.html" class="mobile-subnav">&#8627; STEM Ecosystem Planning</a>
+    <a href="contact.html" class="mobile-subnav">&#8627; Request Support</a>
     <a href="community.html">Community</a>
-    <a href="wscam.html" class="mobile-subnav">↳ WSCAM Archive</a>
-    <a href="programs.html">Programs</a>
-    <a href="events.html">Events</a>
-    <a href="about.html">About</a>
+    <a href="community.html" class="mobile-subnav">&#8627; The Commons</a>
+    <a href="community.html#partner-hub" class="mobile-subnav">&#8627; Partner Hub</a>
+    <a href="community.html#porch-stories" class="mobile-subnav">&#8627; Porch Stories</a>
+    <a href="wscam.html" class="mobile-subnav">&#8627; WSCAM Archive</a>
     <a href="contact.html">Contact</a>
   </div>
+  </header>
 
+  <main id="main-content" tabindex="-1">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-bg"></div>
@@ -425,13 +714,13 @@
         <!-- Media & Design Competition -->
         <div class="card comp-card">
           <div class="card-image">
-            <img src="assets/competitions/madcom/madcom-presentation.png" alt="Media and Design Competition" class="comp-hero-img">
+            <img src="assets/optimized/competitions/madcom/madcom-presentation.webp" alt="Media and Design Competition" class="comp-hero-img" width="1920" height="1280" decoding="async" loading="lazy">
           </div>
           <div class="card-body">
             <div class="comp-card-header">
               <div class="comp-logo-pair">
-                <img src="assets/competitions/madcom/madcom-MS-25logo.png" alt="MADCom Middle School Logo" class="comp-logo">
-                <img src="assets/competitions/madcom/madcom-HS-25logo.png" alt="MADCom High School Logo" class="comp-logo">
+                <img src="assets/optimized/competitions/madcom/madcom-MS-25logo.webp" alt="MADCom Middle School Logo" class="comp-logo" width="1920" height="1686" decoding="async" loading="lazy">
+                <img src="assets/optimized/competitions/madcom/madcom-HS-25logo.webp" alt="MADCom High School Logo" class="comp-logo" width="662" height="586" decoding="async" loading="lazy">
               </div>
               <span class="comp-date">Feb 2027</span>
             </div>
@@ -450,11 +739,11 @@
         <!-- STEM Design Challenge -->
         <div class="card comp-card">
           <div class="card-image">
-            <img src="assets/competitions/stem-design/stem-design1.JPG" alt="STEM Design Challenge" class="comp-hero-img">
+            <img src="assets/optimized/competitions/stem-design/stem-design1.webp" alt="STEM Design Challenge" class="comp-hero-img" width="1920" height="1440" decoding="async" loading="lazy">
           </div>
           <div class="card-body">
             <div class="comp-card-header">
-              <img src="assets/branding/stem-design-logo.jpg" alt="STEM Design Challenge Logo" class="comp-logo">
+              <img src="assets/optimized/branding/stem-design-logo.webp" alt="STEM Design Challenge Logo" class="comp-logo" width="600" height="300" decoding="async" loading="lazy">
               <span class="comp-date">March 2027</span>
             </div>
             <span class="card-tag">Engineering</span>
@@ -466,9 +755,9 @@
               <span class="tag">Prototyping</span>
             </div>
             <div class="comp-gallery">
-              <img src="assets/competitions/stem-design/stem-design2.JPG" alt="STEM Design Challenge photo">
-              <img src="assets/competitions/stem-design/stem-design3.JPG" alt="STEM Design Challenge photo">
-              <img src="assets/competitions/stem-design/stem-design4.JPG" alt="STEM Design Challenge photo">
+              <img src="assets/optimized/competitions/stem-design/stem-design2.webp" alt="STEM Design Challenge photo" width="1920" height="1440" decoding="async" loading="lazy">
+              <img src="assets/optimized/competitions/stem-design/stem-design3.webp" alt="STEM Design Challenge photo" width="1920" height="1440" decoding="async" loading="lazy">
+              <img src="assets/optimized/competitions/stem-design/stem-design4.webp" alt="STEM Design Challenge photo" width="1200" height="900" decoding="async" loading="lazy">
             </div>
           </div>
         </div>
@@ -476,11 +765,11 @@
         <!-- Sea Air Land Challenge -->
         <div class="card comp-card">
           <div class="card-image">
-            <img src="assets/competitions/Sea-Air-Land/sea-air-land1.JPG" alt="Sea Air Land Challenge" class="comp-hero-img">
+            <img src="assets/optimized/competitions/Sea-Air-Land/sea-air-land1.webp" alt="Sea Air Land Challenge" class="comp-hero-img" width="1920" height="2560" decoding="async" loading="lazy">
           </div>
           <div class="card-body">
             <div class="comp-card-header">
-              <img src="assets/branding/sea-air-land-logo.webp" alt="Sea Air Land Logo" class="comp-logo">
+              <img src="assets/branding/sea-air-land-logo.webp" alt="Sea Air Land Logo" class="comp-logo" width="1024" height="506" decoding="async" loading="lazy">
               <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
                 <span class="badge-new">NEW</span>
                 <span class="comp-date">April 2027</span>
@@ -495,9 +784,9 @@
               <span class="tag">Team Challenge</span>
             </div>
             <div class="comp-gallery">
-              <img src="assets/competitions/Sea-Air-Land/sea-air-land2.JPG" alt="Sea Air Land Challenge photo">
-              <img src="assets/competitions/Sea-Air-Land/sea-air-land3.JPG" alt="Sea Air Land Challenge photo">
-              <img src="assets/competitions/Sea-Air-Land/sea-air-land4.jpg" alt="Sea Air Land Challenge photo">
+              <img src="assets/optimized/competitions/Sea-Air-Land/sea-air-land2.webp" alt="Sea Air Land Challenge photo" width="1920" height="1440" decoding="async" loading="lazy">
+              <img src="assets/optimized/competitions/Sea-Air-Land/sea-air-land3.webp" alt="Sea Air Land Challenge photo" width="1920" height="1440" decoding="async" loading="lazy">
+              <img src="assets/optimized/competitions/Sea-Air-Land/sea-air-land4.webp" alt="Sea Air Land Challenge photo" width="1920" height="1080" decoding="async" loading="lazy">
             </div>
           </div>
         </div>
@@ -505,11 +794,11 @@
         <!-- Keystone Competition -->
         <div class="card comp-card">
           <div class="card-image">
-            <img src="assets/competitions/keystone/keystone-comp3.JPG" alt="Keystone Competition" class="comp-hero-img">
+            <img src="assets/optimized/competitions/keystone/keystone-comp3.webp" alt="Keystone Competition" class="comp-hero-img" width="1920" height="1440" decoding="async" loading="lazy">
           </div>
           <div class="card-body">
             <div class="comp-card-header">
-              <img src="assets/branding/keystone-competition-logo.png" alt="Keystone Competition Logo" class="comp-logo">
+              <img src="assets/optimized/branding/keystone-competition-logo.webp" alt="Keystone Competition Logo" class="comp-logo" width="600" height="600" decoding="async" loading="lazy">
               <span class="comp-date">Oct 2026</span>
             </div>
             <span class="card-tag">Design Thinking</span>
@@ -525,8 +814,8 @@
               <span class="tag">Team Challenge</span>
             </div>
             <div class="comp-gallery comp-gallery-2">
-              <img src="assets/competitions/keystone/keystone-comp1.JPG" alt="Keystone Competition photo">
-              <img src="assets/competitions/keystone/keystone-comp2.JPG" alt="Keystone Competition photo">
+              <img src="assets/optimized/competitions/keystone/keystone-comp1.webp" alt="Keystone Competition photo" width="1920" height="1440" decoding="async" loading="lazy">
+              <img src="assets/optimized/competitions/keystone/keystone-comp2.webp" alt="Keystone Competition photo" width="1920" height="1440" decoding="async" loading="lazy">
             </div>
           </div>
         </div>
@@ -534,11 +823,11 @@
         <!-- Invention Convention -->
         <div class="card comp-card">
           <div class="card-image">
-            <img src="assets/competitions/invention/invention-convention1.png" alt="Invention Convention" class="comp-hero-img">
+            <img src="assets/optimized/competitions/invention/invention-convention1.webp" alt="Invention Convention" class="comp-hero-img" width="1000" height="667" decoding="async" loading="lazy">
           </div>
           <div class="card-body">
             <div class="comp-card-header">
-              <img src="assets/branding/invention-convention-logo.webp" alt="Invention Convention Logo" class="comp-logo">
+              <img src="assets/branding/invention-convention-logo.webp" alt="Invention Convention Logo" class="comp-logo" width="559" height="136" decoding="async" loading="lazy">
               <div style="display:flex; flex-direction:column; align-items:flex-end; gap:6px;">
                 <span class="badge-new">New Event</span>
                 <span class="comp-date">Nov 2026</span>
@@ -552,7 +841,7 @@
               <span class="tag">Creativity</span>
             </div>
             <div class="comp-gallery comp-gallery-2">
-              <img src="assets/competitions/invention/invention-convention2.png" alt="Invention Convention photo">
+              <img src="assets/optimized/competitions/invention/invention-convention2.webp" alt="Invention Convention photo" width="750" height="500" decoding="async" loading="lazy">
             </div>
           </div>
         </div>
@@ -560,11 +849,11 @@
         <!-- What's So Cool About Manufacturing -->
         <div class="card comp-card">
           <div class="card-image">
-            <img src="assets/competitions/what-so-cool/what-so-cool1.jpeg" alt="What's So Cool About Manufacturing" class="comp-hero-img">
+            <img src="assets/optimized/competitions/what-so-cool/what-so-cool1.webp" alt="What's So Cool About Manufacturing" class="comp-hero-img" width="590" height="415" decoding="async" loading="lazy">
           </div>
           <div class="card-body">
             <div class="comp-card-header">
-              <img src="assets/branding/WSCAM-logo.png" alt="What's So Cool About Manufacturing Logo" class="comp-logo">
+              <img src="assets/optimized/branding/WSCAM-logo.webp" alt="What's So Cool About Manufacturing Logo" class="comp-logo" width="230" height="160" decoding="async" loading="lazy">
               <span class="comp-date">March 2027</span>
             </div>
             <span class="card-tag">Manufacturing</span>
@@ -576,7 +865,7 @@
               <span class="tag">Industry</span>
             </div>
             <div class="comp-gallery comp-gallery-2">
-              <img src="assets/competitions/what-so-cool/what-so-cool2.jpg" alt="What's So Cool About Manufacturing photo">
+              <img src="assets/optimized/competitions/what-so-cool/what-so-cool2.webp" alt="What's So Cool About Manufacturing photo" width="1920" height="700" decoding="async" loading="lazy">
             </div>
           </div>
         </div>
@@ -591,25 +880,25 @@
       <div class="two-col reverse">
         <div class="makerspace-gallery">
           <div class="gallery-track">
-            <img src="assets/programs/makerspace/makerspace1.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace2.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace3.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace4.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace5.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace6.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace7.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace8.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace9.JPG" alt="Makerspace activity">
+            <img src="assets/optimized/programs/makerspace/makerspace1.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace2.webp" alt="Makerspace activity" width="1920" height="2560" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace3.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace4.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace5.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace6.webp" alt="Makerspace activity" width="1200" height="900" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace7.webp" alt="Makerspace activity" width="1200" height="900" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace8.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace9.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
             <!-- Duplicate set for seamless loop -->
-            <img src="assets/programs/makerspace/makerspace1.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace2.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace3.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace4.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace5.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace6.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace7.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace8.JPG" alt="Makerspace activity">
-            <img src="assets/programs/makerspace/makerspace9.JPG" alt="Makerspace activity">
+            <img src="assets/optimized/programs/makerspace/makerspace1.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace2.webp" alt="Makerspace activity" width="1920" height="2560" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace3.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace4.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace5.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace6.webp" alt="Makerspace activity" width="1200" height="900" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace7.webp" alt="Makerspace activity" width="1200" height="900" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace8.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
+            <img src="assets/optimized/programs/makerspace/makerspace9.webp" alt="Makerspace activity" width="1920" height="1440" decoding="async" loading="lazy">
           </div>
         </div>
         <div>
@@ -632,7 +921,26 @@
 
   <!-- CSO @ SKOOK29 -->
   <div class="program-block" id="cso">
+
+    <!-- Rotating photo banner — flush to top of section -->
+    <div class="cso-slideshow" role="img" aria-label="CSO@Skook29 student competition photos">
+      <img class="cso-slide" src="assets/optimized/images/CSO-Pics/CSO-Pic1.webp"  alt="CSO students at competition" loading="lazy" width="1920" height="909" decoding="async">
+      <img class="cso-slide" src="assets/optimized/images/CSO-Pics/CSO-Pic2.webp" alt="CSO team collaboration"      loading="lazy" width="1920" height="1440" decoding="async">
+      <img class="cso-slide" src="assets/optimized/images/CSO-Pics/CSO-Pic3.webp"  alt="CSO students presenting"    loading="lazy" width="1920" height="1440" decoding="async">
+      <img class="cso-slide" src="assets/optimized/images/CSO-Pics/CSO-Pic4.webp"  alt="CSO competition moment"     loading="lazy" width="1920" height="2560" decoding="async">
+      <img class="cso-slide" src="assets/optimized/images/CSO-Pics/CSO-Pic5.webp" alt="CSO student participants"   loading="lazy" width="1920" height="2560" decoding="async">
+      <img class="cso-slide" src="assets/optimized/images/CSO-Pics/CSO-Pic6.webp" alt="CSO teamwork in action"     loading="lazy" width="1920" height="1440" decoding="async">
+      <img class="cso-slide" src="assets/optimized/images/CSO-Pics/CSO-Pic7.webp"  alt="CSO regional competition"   loading="lazy" width="1200" height="900" decoding="async">
+      <div class="cso-slideshow-overlay" aria-hidden="true"></div>
+      <div class="cso-slideshow-caption" aria-hidden="true">
+        <h3>CSO@Skook29</h3>
+        <p>Career &amp; Student Organizations — building skills that matter</p>
+      </div>
+    </div>
+
     <div class="container">
+
+      <!-- Existing program overview — preserved exactly -->
       <div class="two-col">
         <div>
           <span class="section-label">Program 03</span>
@@ -666,6 +974,76 @@
           </div>
         </div>
       </div>
+
+      <!-- CSO@Skook29 in Action — gallery + impact -->
+      <div class="cso-in-action">
+        <div class="cso-in-action-header">
+          <span class="section-label">In Action</span>
+          <h3 class="cso-in-action-title">CSO@Skook29 in Action</h3>
+          <p class="cso-in-action-subtitle">Students from across Schuylkill County come together to tackle challenging science questions, collaborate with peers, and represent their schools in regional and statewide competition.</p>
+        </div>
+
+        <!-- Photo gallery — click any image to enlarge -->
+        <div class="cso-gallery" aria-label="CSO photo gallery">
+          <button class="cso-gallery-item" data-src="assets/optimized/images/CSO-Pics/CSO-Pic1.webp"  aria-label="Open photo: CSO students at competition">
+            <img src="assets/optimized/images/CSO-Pics/CSO-Pic1.webp"  alt="CSO students at competition" loading="lazy" width="1920" height="909" decoding="async">
+          </button>
+          <button class="cso-gallery-item" data-src="assets/optimized/images/CSO-Pics/CSO-Pic2.webp" aria-label="Open photo: CSO team collaboration">
+            <img src="assets/optimized/images/CSO-Pics/CSO-Pic2.webp" alt="CSO team collaboration" loading="lazy" width="1920" height="1440" decoding="async">
+          </button>
+          <button class="cso-gallery-item" data-src="assets/optimized/images/CSO-Pics/CSO-Pic3.webp"  aria-label="Open photo: CSO students presenting">
+            <img src="assets/optimized/images/CSO-Pics/CSO-Pic3.webp"  alt="CSO students presenting" loading="lazy" width="1920" height="1440" decoding="async">
+          </button>
+          <button class="cso-gallery-item" data-src="assets/optimized/images/CSO-Pics/CSO-Pic4.webp"  aria-label="Open photo: CSO competition moment">
+            <img src="assets/optimized/images/CSO-Pics/CSO-Pic4.webp"  alt="CSO competition moment" loading="lazy" width="1920" height="2560" decoding="async">
+          </button>
+          <button class="cso-gallery-item" data-src="assets/optimized/images/CSO-Pics/CSO-Pic5.webp" aria-label="Open photo: CSO student participants">
+            <img src="assets/optimized/images/CSO-Pics/CSO-Pic5.webp" alt="CSO student participants" loading="lazy" width="1920" height="2560" decoding="async">
+          </button>
+          <button class="cso-gallery-item" data-src="assets/optimized/images/CSO-Pics/CSO-Pic6.webp" aria-label="Open photo: CSO teamwork in action">
+            <img src="assets/optimized/images/CSO-Pics/CSO-Pic6.webp" alt="CSO teamwork in action" loading="lazy" width="1920" height="1440" decoding="async">
+          </button>
+          <button class="cso-gallery-item" data-src="assets/optimized/images/CSO-Pics/CSO-Pic7.webp"  aria-label="Open photo: CSO regional competition">
+            <img src="assets/optimized/images/CSO-Pics/CSO-Pic7.webp"  alt="CSO regional competition" loading="lazy" width="1200" height="900" decoding="async">
+          </button>
+        </div>
+
+        <!-- Impact highlights card -->
+        <div class="cso-impact">
+          <div class="cso-impact-header">
+            <div class="cso-impact-label">Why CSO Matters</div>
+            <h4 class="cso-impact-title">The Impact of Career &amp; Student Organizations</h4>
+          </div>
+          <div class="cso-impact-items">
+            <div class="cso-impact-item">
+              <div class="cso-impact-icon">🏆</div>
+              <div class="cso-impact-item-title">Regional Competition</div>
+              <div class="cso-impact-item-body">Students compete at regional and state levels, applying real skills in high-stakes environments.</div>
+            </div>
+            <div class="cso-impact-item">
+              <div class="cso-impact-icon">🧠</div>
+              <div class="cso-impact-item-title">Science Inquiry</div>
+              <div class="cso-impact-item-body">Rigorous questioning, data analysis, and scientific reasoning practiced through authentic challenges.</div>
+            </div>
+            <div class="cso-impact-item">
+              <div class="cso-impact-icon">🤝</div>
+              <div class="cso-impact-item-title">Cross-District Collaboration</div>
+              <div class="cso-impact-item-body">Students from different schools and districts work alongside each other across Schuylkill County.</div>
+            </div>
+            <div class="cso-impact-item">
+              <div class="cso-impact-icon">💼</div>
+              <div class="cso-impact-item-title">Career Readiness</div>
+              <div class="cso-impact-item-body">Leadership, communication, and professional skills that colleges and employers actively seek.</div>
+            </div>
+            <div class="cso-impact-item">
+              <div class="cso-impact-icon">🎓</div>
+              <div class="cso-impact-item-title">Team Problem Solving</div>
+              <div class="cso-impact-item-body">Collaborative, team-based problem solving mirrors real-world STEM and workforce demands.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -749,22 +1127,22 @@
           </p>
           <div class="edtech-logo-grid" aria-label="EdTech and AI training platform logos">
             <div class="edtech-logo-card">
-              <img src="assets/branding/edtech/ChatGPT-Logo.wine.png" alt="ChatGPT">
+              <img src="assets/optimized/branding/edtech/ChatGPT-Logo.wine.webp" alt="ChatGPT" width="480" height="320" decoding="async" loading="lazy">
             </div>
             <div class="edtech-logo-card">
               <img src="assets/branding/edtech/claude-logo.svg" alt="Claude">
             </div>
             <div class="edtech-logo-card">
-              <img src="assets/branding/edtech/CodeOrg-logo.png" alt="Code.org">
+              <img src="assets/optimized/branding/edtech/CodeOrg-logo.webp" alt="Code.org" width="480" height="477" decoding="async" loading="lazy">
             </div>
             <div class="edtech-logo-card">
-              <img src="assets/branding/edtech/discovery-ed-logo.webp" alt="Discovery Education">
+              <img src="assets/branding/edtech/discovery-ed-logo.webp" alt="Discovery Education" width="290" height="290" decoding="async" loading="lazy">
             </div>
             <div class="edtech-logo-card">
-              <img src="assets/branding/edtech/Google-Education-Logo.png" alt="Google for Education">
+              <img src="assets/optimized/branding/edtech/Google-Education-Logo.webp" alt="Google for Education" width="472" height="268" decoding="async" loading="lazy">
             </div>
             <div class="edtech-logo-card">
-              <img src="assets/branding/edtech/Scratch-logo.png" alt="Scratch">
+              <img src="assets/optimized/branding/edtech/Scratch-logo.webp" alt="Scratch" width="480" height="270" decoding="async" loading="lazy">
             </div>
           </div>
           <a href="contact.html" class="btn btn-primary">Explore EdTech Programs →</a>
@@ -806,18 +1184,19 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/branding/StemAtSkook-logo-white.png" alt="STEM@Skook29 Logo" class="footer-logo">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <img src="assets/optimized/branding/StemAtSkook-logo-white.webp" alt="STEM@Skook29 Logo" class="footer-logo" width="600" height="300" decoding="async" loading="lazy">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" width="512" height="321" decoding="async" />
           <p>Building the future of STEM learning in Schuylkill County.</p>
           <div class="footer-contact">
             <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
-            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=17+Maple+Ave%2C+Mar+Lin%2C+PA+17951" target="_blank" rel="noopener noreferrer">&#128205; 17 Maple Ave, Mar Lin, PA 17951</a>
             <a href="tel:+15705449131">📞 (570) 544-9131</a>
           </div>
         </div>
@@ -851,17 +1230,62 @@
       </div>
       <div class="footer-bottom">
         <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p>
-        <div class="social-links">
-          <a href="#" class="social-link">𝕏</a>
-          <a href="#" class="social-link">f</a>
-          <a href="#" class="social-link">📷</a>
-          <a href="#" class="social-link">in</a>
-        </div>
       </div>
     </div>
   </footer>
 
+  <!-- CSO Lightbox modal -->
+  <div class="cso-lightbox" id="csoLightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo" aria-hidden="true">
+    <button class="cso-lightbox-close" id="csoLightboxClose" aria-label="Close enlarged photo">✕</button>
+    <img class="cso-lightbox-img" id="csoLightboxImg" src="" alt="">
+  </div>
+
   <script src="js/main.js"></script>
+  <script>
+    // ---- CSO Gallery Lightbox ----
+    (function () {
+      'use strict';
+      var lb      = document.getElementById('csoLightbox');
+      var lbImg   = document.getElementById('csoLightboxImg');
+      var lbClose = document.getElementById('csoLightboxClose');
+      var lastTrigger = null;
+      if (!lb || !lbImg) return;
+
+      function open(src, alt, trigger) {
+        lastTrigger = trigger || null;
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lb.classList.add('open');
+        lb.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        if (lbClose) lbClose.focus();
+      }
+
+      function close() {
+        lb.classList.remove('open');
+        lb.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        if (lastTrigger) lastTrigger.focus();
+      }
+
+      document.querySelectorAll('.cso-gallery-item').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var img = btn.querySelector('img');
+          open(btn.getAttribute('data-src'), img ? img.alt : '', btn);
+        });
+      });
+
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb) close();
+      });
+
+      if (lbClose) lbClose.addEventListener('click', close);
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lb.classList.contains('open')) close();
+      });
+    }());
+  </script>
   <script>
     // ---- Makerspace Logo Grid ----
     // To add a logo: drop the file in assets/branding/makerspace-inventory/

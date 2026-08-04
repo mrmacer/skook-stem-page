@@ -84,14 +84,42 @@
     .value-card {
       background: white;
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 0;
       box-shadow: var(--shadow-sm);
       border-top: 4px solid transparent;
+      overflow: hidden;
       transition: all 0.3s ease;
     }
     .value-card:hover {
       box-shadow: var(--shadow-md);
       transform: translateY(-4px);
+    }
+    .core-value-image {
+      height: 160px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .core-value-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .core-value-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.08),
+        rgba(15, 23, 42, 0.28)
+      );
+      pointer-events: none;
+    }
+    .core-value-body {
+      padding: 24px 32px 32px;
     }
     .value-card:nth-child(1) { border-top-color: var(--purple-500); }
     .value-card:nth-child(2) { border-top-color: var(--orange-500); }
@@ -104,6 +132,7 @@
       height: 104px;
       border-radius: 50%;
       object-fit: cover;
+      object-position: center;
       border: 4px solid rgba(255,255,255,0.35);
       box-shadow: 0 12px 30px rgba(0,0,0,0.18);
       margin-bottom: 20px;
@@ -152,37 +181,56 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
 
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="navbar-inner">
       <div class="nav-brand">
         <a href="index.html" class="logo-link">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="iu29-logo" width="512" height="321" decoding="async">
         </a>
-        <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="site-logo">
+        <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29 Logo" class="site-logo" width="600" height="300" decoding="async">
       </div>
-      <div class="nav-links">
+            <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="students.html">Students</a>
+        <div class="nav-dropdown">
+          <a href="students.html">Students</a>
+          <div class="nav-dropdown-menu">
+            <a href="programs.html#make">Make@Skook29</a>
+            <a href="programs.html#competitions">Competitions</a>
+            <a href="programs.html#cso">CSO</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="teachers.html">Teachers</a>
           <div class="nav-dropdown-menu">
             <a href="steels-support.html">STEELS Support</a>
+            <a href="steels-resource-library.html">STEELS Resource Library</a>
             <a href="edtech-ai.html">EdTech &amp; AI</a>
+            <a href="ai-edtech-resource-library.html">AI &amp; EdTech Resource Library</a>
             <a href="classroom-resources.html">Classroom Resources</a>
+            <a href="phenomenon-sessions.html">Phenomenon Sessions</a>
+            <a href="events.html">Professional Learning</a>
           </div>
         </div>
-        <a href="districts.html">Districts</a>
+        <div class="nav-dropdown">
+          <a href="districts.html">Districts</a>
+          <div class="nav-dropdown-menu">
+            <a href="districts.html">STEM Ecosystem Planning</a>
+            <a href="contact.html">Request Support</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="community.html">Community</a>
           <div class="nav-dropdown-menu">
+            <a href="community.html">The Commons</a>
+            <a href="community.html#partner-hub">Partner Hub</a>
+            <a href="community.html#porch-stories">Porch Stories</a>
             <a href="wscam.html">WSCAM Archive</a>
           </div>
         </div>
-        <a href="programs.html">Programs</a>
-        <a href="events.html">Events</a>
-        <a href="about.html" class="active">About</a>
         <a href="contact.html" class="nav-cta">Contact Us</a>
       </div>
       <button class="nav-hamburger" aria-label="Toggle navigation">
@@ -190,22 +238,34 @@
       </button>
     </div>
   </nav>
+  <!-- MOBILE NAV -->
   <div class="mobile-nav">
     <a href="index.html">Home</a>
     <a href="students.html">Students</a>
+    <a href="programs.html#make" class="mobile-subnav">&#8627; Make@Skook29</a>
+    <a href="programs.html#competitions" class="mobile-subnav">&#8627; Competitions</a>
+    <a href="programs.html#cso" class="mobile-subnav">&#8627; CSO</a>
     <a href="teachers.html">Teachers</a>
-    <a href="steels-support.html" class="mobile-subnav">↳ STEELS Support</a>
-    <a href="edtech-ai.html" class="mobile-subnav">↳ EdTech &amp; AI</a>
-    <a href="classroom-resources.html" class="mobile-subnav">↳ Classroom Resources</a>
+    <a href="steels-support.html" class="mobile-subnav">&#8627; STEELS Support</a>
+    <a href="steels-resource-library.html" class="mobile-subnav">&#8627; STEELS Resource Library</a>
+    <a href="edtech-ai.html" class="mobile-subnav">&#8627; EdTech &amp; AI</a>
+    <a href="ai-edtech-resource-library.html" class="mobile-subnav">&#8627; AI &amp; EdTech Resource Library</a>
+    <a href="classroom-resources.html" class="mobile-subnav">&#8627; Classroom Resources</a>
+    <a href="phenomenon-sessions.html" class="mobile-subnav">&#8627; Phenomenon Sessions</a>
+    <a href="events.html" class="mobile-subnav">&#8627; Professional Learning</a>
     <a href="districts.html">Districts</a>
+    <a href="districts.html" class="mobile-subnav">&#8627; STEM Ecosystem Planning</a>
+    <a href="contact.html" class="mobile-subnav">&#8627; Request Support</a>
     <a href="community.html">Community</a>
-    <a href="wscam.html" class="mobile-subnav">↳ WSCAM Archive</a>
-    <a href="programs.html">Programs</a>
-    <a href="events.html">Events</a>
-    <a href="about.html">About</a>
+    <a href="community.html" class="mobile-subnav">&#8627; The Commons</a>
+    <a href="community.html#partner-hub" class="mobile-subnav">&#8627; Partner Hub</a>
+    <a href="community.html#porch-stories" class="mobile-subnav">&#8627; Porch Stories</a>
+    <a href="wscam.html" class="mobile-subnav">&#8627; WSCAM Archive</a>
     <a href="contact.html">Contact</a>
   </div>
+  </header>
 
+  <main id="main-content" tabindex="-1">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-bg"></div>
@@ -237,6 +297,9 @@
           <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Why STEM@Skook29 Exists</h2>
           <p style="font-size: 1.125rem; color: var(--gray-600); line-height: 1.8; margin-bottom: 20px;">
             STEM@Skook29 was built on a simple belief: <strong>every student in Schuylkill County deserves access to high-quality STEM education</strong> — regardless of their zip code, school size, or district budget.
+          </p>
+          <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+            The initiative is Schuylkill Intermediate Unit 29's regional STEM ecosystem, connecting its 12 public school districts with educators, students, industry, and community organizations. Together with two non-public partner schools, the network currently represents 14 school communities.
           </p>
           <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
             As the regional educational hub, IU29 is uniquely positioned to build the infrastructure, partnerships, and programs that no single district could sustain alone. We exist to serve the whole region — not just individual schools.
@@ -293,7 +356,7 @@
       <div style="max-width: 640px; margin: 0 auto;">
         <div class="team-card fade-in">
           <div class="team-card-top">
-            <img src="assets/images/about-me/about-me.JPG" alt="Greg Macer profile photo" class="about-profile-photo">
+            <img src="assets/optimized/images/about-me/about-me-circle.webp" alt="Greg Macer profile photo" class="about-profile-photo" width="800" height="917" decoding="async" loading="lazy">
             <div class="team-name">Greg Macer</div>
             <div class="team-title">Supervisor of STEM and District Support · Schuylkill IU 29</div>
           </div>
@@ -302,7 +365,7 @@
               Greg Macer leads STEM education and district support at Schuylkill Intermediate Unit 29, serving as the regional connector between students, teachers, administrators, and industry partners.
             </p>
             <p>
-              With a focus on building sustainable STEM ecosystems — not just programs — Greg works across all 12+ member districts to align curriculum with state standards, connect schools to workforce opportunities, and bring innovative experiences to students who might not otherwise have access.
+              With a focus on building sustainable STEM ecosystems — not just programs — Greg works across all 12 public school districts to align curriculum with state standards, connect schools to workforce opportunities, and bring innovative experiences to students who might not otherwise have access.
             </p>
             <p>
               His work spans STEELS standards implementation, EdTech and AI integration, competition programs, makerspace development, and strategic district support. He is committed to the belief that strong STEM education is both an equity issue and an economic one.
@@ -314,23 +377,23 @@
 
             <div class="about-photo-gallery" aria-label="Photos of Greg Macer in STEM education settings">
               <div class="about-gallery-track">
-                <img src="assets/images/about-me/about-me1.JPG" alt="Greg Macer working with educators and students">
-                <img src="assets/images/about-me/about-me2.JPG" alt="Greg Macer STEM education photo">
-                <img src="assets/images/about-me/about-me3.JPG" alt="Greg Macer presenting or facilitating STEM learning">
-                <img src="assets/images/about-me/about-me4.JPG" alt="Greg Macer supporting hands-on learning">
-                <img src="assets/images/about-me/about-me5.JPG" alt="Greg Macer STEM leadership photo">
-                <img src="assets/images/about-me/about-me6.JPG.jpeg" alt="Greg Macer education and community photo">
-                <img src="assets/images/about-me/about-me7.JPG" alt="Greg Macer working in a STEM learning environment">
-                <img src="assets/images/about-me/about-me8.JPG" alt="Greg Macer STEM ecosystem photo">
+                <img src="assets/optimized/images/about-me/about-me1.webp" alt="Greg Macer working with educators and students" width="960" height="1280" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me2.webp" alt="Greg Macer STEM education photo" width="1536" height="2048" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me3.webp" alt="Greg Macer presenting or facilitating STEM learning" width="1920" height="1440" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me4.webp" alt="Greg Macer supporting hands-on learning" width="1600" height="1200" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me5.webp" alt="Greg Macer STEM leadership photo" width="1200" height="900" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me6.JPG.webp" alt="Greg Macer education and community photo" width="1440" height="1800" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me7.webp" alt="Greg Macer working in a STEM learning environment" width="1920" height="1280" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me8.webp" alt="Greg Macer STEM ecosystem photo" width="1920" height="2560" decoding="async" loading="lazy">
                 <!-- duplicate set for seamless loop -->
-                <img src="assets/images/about-me/about-me1.JPG" alt="">
-                <img src="assets/images/about-me/about-me2.JPG" alt="">
-                <img src="assets/images/about-me/about-me3.JPG" alt="">
-                <img src="assets/images/about-me/about-me4.JPG" alt="">
-                <img src="assets/images/about-me/about-me5.JPG" alt="">
-                <img src="assets/images/about-me/about-me6.JPG.jpeg" alt="">
-                <img src="assets/images/about-me/about-me7.JPG" alt="">
-                <img src="assets/images/about-me/about-me8.JPG" alt="">
+                <img src="assets/optimized/images/about-me/about-me1.webp" alt="" width="960" height="1280" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me2.webp" alt="" width="1536" height="2048" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me3.webp" alt="" width="1920" height="1440" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me4.webp" alt="" width="1600" height="1200" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me5.webp" alt="" width="1200" height="900" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me6.JPG.webp" alt="" width="1440" height="1800" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me7.webp" alt="" width="1920" height="1280" decoding="async" loading="lazy">
+                <img src="assets/optimized/images/about-me/about-me8.webp" alt="" width="1920" height="2560" decoding="async" loading="lazy">
               </div>
             </div>
           </div>
@@ -349,24 +412,40 @@
       </div>
       <div class="grid-4">
         <div class="value-card fade-in">
-          <div style="font-size: 2rem; margin-bottom: 16px;">🎯</div>
-          <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Equity First</h4>
-          <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">Every student deserves STEM opportunity — regardless of their school's size, location, or resources. We design programs with equity at the center.</p>
+          <div class="core-value-image">
+            <img src="assets/optimized/competitions/makerspace/students-speros.webp" alt="Students participating in a STEM activity" loading="lazy" width="1920" height="1217" decoding="async">
+          </div>
+          <div class="core-value-body">
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Equity First</h4>
+            <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">Every student deserves STEM opportunity — regardless of their school's size, location, or resources. We design programs with equity at the center.</p>
+          </div>
         </div>
         <div class="value-card fade-in">
-          <div style="font-size: 2rem; margin-bottom: 16px;">🔗</div>
-          <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Connected Ecosystem</h4>
-          <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">STEM thrives when schools, industry, higher education, and communities are connected. We build bridges, not silos.</p>
+          <div class="core-value-image">
+            <img src="assets/optimized/images/CSO-Pics/CSO-Pic6.webp" alt="Students collaborating during CSO" loading="lazy" width="1920" height="1440" decoding="async">
+          </div>
+          <div class="core-value-body">
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Connected Ecosystem</h4>
+            <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">STEM thrives when schools, industry, higher education, and communities are connected. We build bridges, not silos.</p>
+          </div>
         </div>
         <div class="value-card fade-in">
-          <div style="font-size: 2rem; margin-bottom: 16px;">💡</div>
-          <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Practical Innovation</h4>
-          <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">We embrace new ideas and emerging tools — but always with a practical eye toward what actually works in real classrooms with real students.</p>
+          <div class="core-value-image">
+            <img src="assets/optimized/competitions/makerspace/drone-student1.webp" alt="Student working with a drone" loading="lazy" width="1920" height="1440" decoding="async">
+          </div>
+          <div class="core-value-body">
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Practical Innovation</h4>
+            <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">We embrace new ideas and emerging tools — but always with a practical eye toward what actually works in real classrooms with real students.</p>
+          </div>
         </div>
         <div class="value-card fade-in">
-          <div style="font-size: 2rem; margin-bottom: 16px;">🤝</div>
-          <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Genuine Partnership</h4>
-          <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">We show up as partners — not vendors, not outside experts. We work alongside teachers, administrators, and students to build something together.</p>
+          <div class="core-value-image">
+            <img src="assets/optimized/competitions/stem-design/stem-design5.webp" alt="Students working together during a STEM design challenge" loading="lazy" width="1920" height="1440" decoding="async">
+          </div>
+          <div class="core-value-body">
+            <h4 style="font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; color: var(--gray-900); margin-bottom: 10px;">Genuine Partnership</h4>
+            <p style="font-size: 0.9rem; color: var(--gray-500); line-height: 1.65;">We show up as partners — not vendors, not outside experts. We work alongside teachers, administrators, and students to build something together.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -376,21 +455,40 @@
   <section style="background: var(--gray-50); padding: var(--section-pad) 0;">
     <div class="container">
       <div class="two-col">
-        <div style="background: white; border-radius: var(--radius-xl); padding: 48px; box-shadow: var(--shadow-md);">
-          <div style="font-size: 3rem; margin-bottom: 20px;">🏫</div>
-          <h3 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; color: var(--gray-900); margin-bottom: 16px;">Schuylkill Intermediate Unit 29</h3>
-          <p style="font-size: 1rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
-            The Schuylkill Intermediate Unit 29 (IU29) is a regional educational service agency serving 12+ school districts across Schuylkill County, Pennsylvania.
-          </p>
-          <p style="font-size: 1rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 24px;">
-            IU29 provides specialized services, professional development, student programs, and regional coordination that individual districts cannot efficiently provide on their own — from special education to technology to STEM.
-          </p>
-          <a href="#" class="btn btn-secondary btn-sm">Visit IU29 Website →</a>
+        <div style="background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); overflow: hidden;">
+
+          <!-- Building banner image -->
+          <div style="position: relative; height: 200px;">
+            <img
+              src="assets/optimized/images/building/front-building2.webp"
+              alt="Schuylkill Intermediate Unit 29 building"
+              style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;" width="1920" height="1440" decoding="async" loading="lazy">
+            <!-- Subtle darkening overlay — keeps image clearly visible -->
+            <div style="position: absolute; inset: 0; background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.25)); pointer-events: none;"></div>
+            <!-- IU29 eyebrow badge -->
+            <div style="position: absolute; top: 14px; left: 16px; display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.32); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: var(--radius-full); padding: 5px 14px; font-size: 0.675rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: white; text-shadow: 0 1px 3px rgba(0,0,0,0.45);">
+              <span style="width: 6px; height: 6px; border-radius: 50%; background: white; opacity: 0.9; flex-shrink: 0;"></span>
+              SCHUYLKILL IU29
+            </div>
+          </div>
+
+          <!-- Card content — slightly more top breathing room after banner -->
+          <div style="padding: 36px 48px 48px;">
+            <h3 style="font-family: var(--font-display); font-size: 1.75rem; font-weight: 800; color: var(--gray-900); margin-bottom: 16px;">Schuylkill Intermediate Unit 29</h3>
+            <p style="font-size: 1rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
+              The Schuylkill Intermediate Unit 29 (IU29) is a regional educational service agency serving 12 public school districts across Schuylkill County, Pennsylvania.
+            </p>
+            <p style="font-size: 1rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 24px;">
+              IU29 provides specialized services, professional development, student programs, and regional coordination that individual districts cannot efficiently provide on their own — from special education to technology to STEM.
+            </p>
+            <a href="https://www.iu29.org/" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Visit IU29 Website →</a>
+          </div>
+
         </div>
         <div style="display: flex; flex-direction: column; gap: 20px;">
           <div class="stat-card">
-            <div class="value" data-counter="12" data-suffix="+">12+</div>
-            <div class="label">Member School Districts</div>
+            <div class="value" data-counter="12">12</div>
+            <div class="label">Public School Districts</div>
           </div>
           <div class="stat-card">
             <div class="value" data-counter="5000" data-suffix="+">5,000+</div>
@@ -422,18 +520,19 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/branding/StemAtSkook-logo-white.png" alt="STEM@Skook29 Logo" class="footer-logo">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <img src="assets/optimized/branding/StemAtSkook-logo-white.webp" alt="STEM@Skook29 Logo" class="footer-logo" width="600" height="300" decoding="async" loading="lazy">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" width="512" height="321" decoding="async" />
           <p>Building the future of STEM learning in Schuylkill County.</p>
           <div class="footer-contact">
             <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
-            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=17+Maple+Ave%2C+Mar+Lin%2C+PA+17951" target="_blank" rel="noopener noreferrer">&#128205; 17 Maple Ave, Mar Lin, PA 17951</a>
             <a href="tel:+15705449131">📞 (570) 544-9131</a>
           </div>
         </div>
@@ -467,12 +566,6 @@
       </div>
       <div class="footer-bottom">
         <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p>
-        <div class="social-links">
-          <a href="#" class="social-link">𝕏</a>
-          <a href="#" class="social-link">f</a>
-          <a href="#" class="social-link">📷</a>
-          <a href="#" class="social-link">in</a>
-        </div>
       </div>
     </div>
   </footer>

@@ -1,0 +1,260 @@
+[
+  {
+    "id": "col-new-to-ai",
+    "title": "New to AI? Start Here",
+    "description": "The shortest honest path from zero to informed: what AI is, what it is not, and one free course to build footing.",
+    "audience": [
+      "Classroom Teacher",
+      "Building Administrator",
+      "Family / Caregiver"
+    ],
+    "resourceIds": [
+      "fw-ai4k12",
+      "pd-google-genai-educators",
+      "cur-commonsense-ai",
+      "fw-used-2023-report",
+      "res-pew-teens-ai"
+    ]
+  },
+  {
+    "id": "col-start-here-teachers",
+    "title": "Start Here for Teachers",
+    "description": "The core five-resource stack for a teacher building an AI practice on solid ground.",
+    "audience": [
+      "Classroom Teacher",
+      "Instructional Coach"
+    ],
+    "resourceIds": [
+      "cur-commonsense-ai",
+      "tool-diffit",
+      "fw-teachai-toolkit",
+      "int-aias",
+      "pr-aifored-prompts"
+    ]
+  },
+  {
+    "id": "col-monday-morning",
+    "title": "Ready for Monday Morning",
+    "description": "Free things a teacher can genuinely use tomorrow — no procurement meeting required.",
+    "audience": [
+      "Classroom Teacher"
+    ],
+    "resourceIds": [
+      "tool-diffit",
+      "cur-commonsense-ai",
+      "ct-teachable-machine",
+      "dc-rumorguard",
+      "tool-notebooklm",
+      "cur-dayofai"
+    ]
+  },
+  {
+    "id": "col-no-student-accounts",
+    "title": "No Student Accounts Required",
+    "description": "Meaningful AI learning with zero student data surface: browser tools, join-by-code sessions, and unplugged-friendly lessons.",
+    "audience": [
+      "Classroom Teacher",
+      "Technology Director"
+    ],
+    "resourceIds": [
+      "ct-teachable-machine",
+      "cur-commonsense-ai",
+      "cur-experience-ai",
+      "tool-curipod",
+      "dc-rumorguard"
+    ]
+  },
+  {
+    "id": "col-teacher-only-tools",
+    "title": "Teacher-Only AI Tools",
+    "description": "Assistants and generators scoped to adult educator use — the lowest-risk way to build staff fluency.",
+    "audience": [
+      "Classroom Teacher",
+      "Instructional Coach",
+      "Building Administrator"
+    ],
+    "resourceIds": [
+      "tool-chatgpt-teachers",
+      "tool-claude-teachers",
+      "tool-diffit",
+      "tool-brisk",
+      "tool-eduaide"
+    ]
+  },
+  {
+    "id": "col-student-facing",
+    "title": "Student-Facing Tools (District Review Required)",
+    "description": "Where students touch AI directly. Every record here requires a deliberate district decision, not a teacher-by-teacher one.",
+    "audience": [
+      "District Administrator",
+      "Technology Director",
+      "Classroom Teacher"
+    ],
+    "resourceIds": [
+      "stu-khanmigo",
+      "tool-schoolai",
+      "tool-magicschool",
+      "tool-gemini-edu",
+      "tool-notebooklm",
+      "stu-assistments"
+    ]
+  },
+  {
+    "id": "col-policy-starter",
+    "title": "District AI Policy Starter Pack",
+    "description": "The document stack for going from no policy to board-ready policy, PA-flavored.",
+    "audience": [
+      "District Administrator",
+      "School Board",
+      "Technology Director"
+    ],
+    "resourceIds": [
+      "fw-pde-implementing-ai",
+      "fw-used-ai-toolkit",
+      "fw-teachai-toolkit",
+      "pol-aifored-tracker",
+      "pol-cosn-cgcs-checklist",
+      "pol-psba",
+      "iu-aup-template"
+    ]
+  },
+  {
+    "id": "col-privacy-data",
+    "title": "Privacy and Student Data",
+    "description": "The verification layer: independent privacy evaluations, DPA registries, and the actual federal rules.",
+    "audience": [
+      "Technology Director",
+      "Data Privacy Officer",
+      "District Administrator"
+    ],
+    "resourceIds": [
+      "priv-commonsense-privacy",
+      "priv-sdpc",
+      "priv-fpf-compass",
+      "priv-ptac",
+      "priv-ftc-coppa",
+      "eval-1edtech-trusted"
+    ]
+  },
+  {
+    "id": "col-media-literacy",
+    "title": "Media Literacy and Deepfakes",
+    "description": "Teaching students to interrogate what they see — the digital citizenship core of AI literacy.",
+    "audience": [
+      "Classroom Teacher",
+      "Middle School Teacher",
+      "High School Teacher"
+    ],
+    "resourceIds": [
+      "dc-checkology",
+      "dc-cor",
+      "dc-rumorguard",
+      "dc-mediawise",
+      "dc-cai",
+      "dc-commonsense-digcit"
+    ]
+  },
+  {
+    "id": "col-ai-literacy-lessons",
+    "title": "AI Literacy Lesson Collections",
+    "description": "Classroom-ready curricula for teaching how AI works and what it means, K-12.",
+    "audience": [
+      "Classroom Teacher",
+      "Curriculum Director"
+    ],
+    "resourceIds": [
+      "cur-commonsense-ai",
+      "cur-codeorg-ai",
+      "cur-dayofai",
+      "cur-mit-daily",
+      "cur-experience-ai",
+      "cur-aiedu"
+    ]
+  },
+  {
+    "id": "col-ct-creation",
+    "title": "Computational Thinking and Building AI",
+    "description": "Students as makers of AI, not just users — the makerspace-native collection.",
+    "audience": [
+      "Classroom Teacher",
+      "Student"
+    ],
+    "resourceIds": [
+      "ct-teachable-machine",
+      "ct-ml4kids",
+      "ct-scratch",
+      "ct-appinventor",
+      "cur-codeorg-ai"
+    ]
+  },
+  {
+    "id": "col-accessibility-sped",
+    "title": "Special Education and Accessibility",
+    "description": "UDL foundations, accessible materials, and AI-and-disability expertise — with PA's own PaTTAN at the center.",
+    "audience": [
+      "Special Education Teacher",
+      "Instructional Coach",
+      "Technology Director"
+    ],
+    "resourceIds": [
+      "acc-cast-udl",
+      "acc-aem",
+      "acc-immersive-reader",
+      "acc-pattan",
+      "acc-ciddl",
+      "tool-diffit"
+    ]
+  },
+  {
+    "id": "col-integrity-assessment",
+    "title": "Academic Integrity and Assessment Redesign",
+    "description": "Clarity over detection: declare allowed AI use, redesign tasks, and know why detector scores are not evidence.",
+    "audience": [
+      "High School Teacher",
+      "Building Administrator",
+      "Curriculum Director"
+    ],
+    "resourceIds": [
+      "int-aias",
+      "int-detector-research",
+      "int-mla-cccc",
+      "fw-teachai-toolkit"
+    ]
+  },
+  {
+    "id": "col-pa-connections",
+    "title": "Pennsylvania Connections",
+    "description": "The PA-specific layer: state guidance, standards, special education support, privacy alliance, and educator community.",
+    "audience": [
+      "District Administrator",
+      "Classroom Teacher",
+      "Technology Director"
+    ],
+    "resourceIds": [
+      "fw-pde-implementing-ai",
+      "pa-sas-steels",
+      "acc-pattan",
+      "priv-sdpc",
+      "pd-kti",
+      "pol-psba"
+    ]
+  },
+  {
+    "id": "col-admin-toolkit",
+    "title": "Administrator Toolkit",
+    "description": "Board-ready evidence, governance frameworks, and funding guidance for system leaders.",
+    "audience": [
+      "District Administrator",
+      "Building Administrator",
+      "School Board"
+    ],
+    "resourceIds": [
+      "fw-used-ai-toolkit",
+      "fw-used-dcl-2025",
+      "res-rand-ai",
+      "pol-aifored-tracker",
+      "pol-cosn-ai",
+      "res-hai-index"
+    ]
+  }
+]

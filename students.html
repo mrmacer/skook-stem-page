@@ -8,37 +8,56 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
 
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="navbar-inner">
       <div class="nav-brand">
         <a href="index.html" class="logo-link">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="iu29-logo" width="512" height="321" decoding="async">
         </a>
-        <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="site-logo">
+        <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29 Logo" class="site-logo" width="600" height="300" decoding="async">
       </div>
-      <div class="nav-links">
+            <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="students.html" class="active">Students</a>
+        <div class="nav-dropdown">
+          <a href="students.html" class="active">Students</a>
+          <div class="nav-dropdown-menu">
+            <a href="programs.html#make">Make@Skook29</a>
+            <a href="programs.html#competitions">Competitions</a>
+            <a href="programs.html#cso">CSO</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="teachers.html">Teachers</a>
           <div class="nav-dropdown-menu">
             <a href="steels-support.html">STEELS Support</a>
+            <a href="steels-resource-library.html">STEELS Resource Library</a>
             <a href="edtech-ai.html">EdTech &amp; AI</a>
+            <a href="ai-edtech-resource-library.html">AI &amp; EdTech Resource Library</a>
             <a href="classroom-resources.html">Classroom Resources</a>
+            <a href="phenomenon-sessions.html">Phenomenon Sessions</a>
+            <a href="events.html">Professional Learning</a>
           </div>
         </div>
-        <a href="districts.html">Districts</a>
+        <div class="nav-dropdown">
+          <a href="districts.html">Districts</a>
+          <div class="nav-dropdown-menu">
+            <a href="districts.html">STEM Ecosystem Planning</a>
+            <a href="contact.html">Request Support</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="community.html">Community</a>
           <div class="nav-dropdown-menu">
+            <a href="community.html">The Commons</a>
+            <a href="community.html#partner-hub">Partner Hub</a>
+            <a href="community.html#porch-stories">Porch Stories</a>
             <a href="wscam.html">WSCAM Archive</a>
           </div>
         </div>
-        <a href="programs.html">Programs</a>
-        <a href="events.html">Events</a>
-        <a href="about.html">About</a>
         <a href="contact.html" class="nav-cta">Contact Us</a>
       </div>
       <button class="nav-hamburger" aria-label="Toggle navigation">
@@ -46,22 +65,34 @@
       </button>
     </div>
   </nav>
+  <!-- MOBILE NAV -->
   <div class="mobile-nav">
     <a href="index.html">Home</a>
     <a href="students.html">Students</a>
+    <a href="programs.html#make" class="mobile-subnav">&#8627; Make@Skook29</a>
+    <a href="programs.html#competitions" class="mobile-subnav">&#8627; Competitions</a>
+    <a href="programs.html#cso" class="mobile-subnav">&#8627; CSO</a>
     <a href="teachers.html">Teachers</a>
-    <a href="steels-support.html" class="mobile-subnav">↳ STEELS Support</a>
-    <a href="edtech-ai.html" class="mobile-subnav">↳ EdTech &amp; AI</a>
-    <a href="classroom-resources.html" class="mobile-subnav">↳ Classroom Resources</a>
+    <a href="steels-support.html" class="mobile-subnav">&#8627; STEELS Support</a>
+    <a href="steels-resource-library.html" class="mobile-subnav">&#8627; STEELS Resource Library</a>
+    <a href="edtech-ai.html" class="mobile-subnav">&#8627; EdTech &amp; AI</a>
+    <a href="ai-edtech-resource-library.html" class="mobile-subnav">&#8627; AI &amp; EdTech Resource Library</a>
+    <a href="classroom-resources.html" class="mobile-subnav">&#8627; Classroom Resources</a>
+    <a href="phenomenon-sessions.html" class="mobile-subnav">&#8627; Phenomenon Sessions</a>
+    <a href="events.html" class="mobile-subnav">&#8627; Professional Learning</a>
     <a href="districts.html">Districts</a>
+    <a href="districts.html" class="mobile-subnav">&#8627; STEM Ecosystem Planning</a>
+    <a href="contact.html" class="mobile-subnav">&#8627; Request Support</a>
     <a href="community.html">Community</a>
-    <a href="wscam.html" class="mobile-subnav">↳ WSCAM Archive</a>
-    <a href="programs.html">Programs</a>
-    <a href="events.html">Events</a>
-    <a href="about.html">About</a>
+    <a href="community.html" class="mobile-subnav">&#8627; The Commons</a>
+    <a href="community.html#partner-hub" class="mobile-subnav">&#8627; Partner Hub</a>
+    <a href="community.html#porch-stories" class="mobile-subnav">&#8627; Porch Stories</a>
+    <a href="wscam.html" class="mobile-subnav">&#8627; WSCAM Archive</a>
     <a href="contact.html">Contact</a>
   </div>
+  </header>
 
+  <main id="main-content" tabindex="-1">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-bg"></div>
@@ -138,8 +169,9 @@
       <div class="grid-3">
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #1e0a3c, #7e22ce);">
-            <span style="font-size: 3rem;">🏆</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/competitions/stem-design/stem-design7.webp" alt="Students competing in a regional STEM design challenge" class="card-img-zoom" loading="lazy" width="1200" height="900" decoding="async">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">Competition</span>
@@ -156,8 +188,9 @@
         </div>
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #164e63, #0284c7);">
-            <span style="font-size: 3rem;">🛠️</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/programs/makerspace/makerspace6.webp" alt="Students working in the Make@Skook29 makerspace" class="card-img-zoom" loading="lazy" width="1200" height="900" decoding="async">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">Create</span>
@@ -174,8 +207,9 @@
         </div>
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #064e3b, #059669);">
-            <span style="font-size: 3rem;">🎤</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/images/CSO-Pics/CSO-Pic7.webp" alt="Students participating in a CSO leadership event" class="card-img-zoom" loading="lazy" width="1200" height="900" decoding="async">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">Leadership</span>
@@ -192,8 +226,9 @@
         </div>
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #431407, #ea580c);">
-            <span style="font-size: 3rem;">💼</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/programs/CSO/CSO-pic1.webp" alt="Students engaged in CSO career and student organization programming" class="card-img-zoom" loading="lazy" width="1200" height="1600" decoding="async">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">Career</span>
@@ -210,8 +245,9 @@
         </div>
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #312e81, #6d28d9);">
-            <span style="font-size: 3rem;">📅</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/programs/makerspace/makerspace7.webp" alt="Students at a STEM showcase and makerspace event" class="card-img-zoom" loading="lazy" width="1200" height="900" decoding="async">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">Events</span>
@@ -228,8 +264,9 @@
         </div>
 
         <div class="card fade-in">
-          <div class="card-image" style="background: linear-gradient(135deg, #1a1a2e, #4c1d95);">
-            <span style="font-size: 3rem;">🤖</span>
+          <div class="card-image card-img-photo">
+            <img src="assets/optimized/images/AI-Pics/AI-Pic13.webp" alt="Student exploring AI and future technology" class="card-img-zoom" loading="lazy" width="1200" height="628" decoding="async">
+            <div class="card-img-gradient"></div>
           </div>
           <div class="card-body">
             <span class="card-tag">Future Skills</span>
@@ -262,18 +299,19 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/branding/StemAtSkook-logo-white.png" alt="STEM@Skook29 Logo" class="footer-logo">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <img src="assets/optimized/branding/StemAtSkook-logo-white.webp" alt="STEM@Skook29 Logo" class="footer-logo" width="600" height="300" decoding="async" loading="lazy">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" width="512" height="321" decoding="async" />
           <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
           <div class="footer-contact">
             <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
-            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=17+Maple+Ave%2C+Mar+Lin%2C+PA+17951" target="_blank" rel="noopener noreferrer">&#128205; 17 Maple Ave, Mar Lin, PA 17951</a>
             <a href="tel:+15705449131">📞 (570) 544-9131</a>
           </div>
         </div>
@@ -307,12 +345,6 @@
       </div>
       <div class="footer-bottom">
         <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p>
-        <div class="social-links">
-          <a href="#" class="social-link">𝕏</a>
-          <a href="#" class="social-link">f</a>
-          <a href="#" class="social-link">📷</a>
-          <a href="#" class="social-link">in</a>
-        </div>
       </div>
     </div>
   </footer>

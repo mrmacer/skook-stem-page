@@ -3,6 +3,16 @@
    ========================================= */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // --- Skip navigation focus handoff ---
+  const skipLink = document.querySelector('.skip-link');
+  const mainContent = document.getElementById('main-content');
+  if (skipLink && mainContent) {
+    skipLink.addEventListener('click', () => {
+      window.setTimeout(() => mainContent.focus(), 0);
+    });
+  }
 
   // --- Sticky nav shadow ---
   const navbar = document.querySelector('.navbar');
@@ -21,10 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileNav = document.querySelector('.mobile-nav');
 
   if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
+    const setMobileNavState = (open) => {
+      mobileNav.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
       const spans = hamburger.querySelectorAll('span');
-      if (mobileNav.classList.contains('open')) {
+
+      if (open) {
         spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
         spans[1].style.opacity = '0';
         spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
@@ -34,17 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
           s.style.opacity = '';
         });
       }
+    };
+
+    hamburger.addEventListener('click', () => {
+      setMobileNavState(!mobileNav.classList.contains('open'));
     });
 
     // Close mobile nav on link click
     mobileNav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('open');
-        hamburger.querySelectorAll('span').forEach(s => {
-          s.style.transform = '';
-          s.style.opacity = '';
-        });
-      });
+      link.addEventListener('click', () => setMobileNavState(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && mobileNav.classList.contains('open')) {
+        setMobileNavState(false);
+        hamburger.focus();
+      }
     });
   }
 
@@ -58,16 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Intersection observer for fade-in animations ---
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  if (reducedMotion) {
+    document.querySelectorAll('.fade-in').forEach(el => el.classList.add('visible'));
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  }
 
   // --- Counter animation for stats ---
   const counterObserver = new IntersectionObserver((entries) => {
@@ -84,6 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function animateCounter(el) {
     const target = parseInt(el.getAttribute('data-counter'));
     const suffix = el.getAttribute('data-suffix') || '';
+
+    if (reducedMotion) {
+      el.textContent = target.toLocaleString() + suffix;
+      return;
+    }
+
     const duration = 1800;
     const start = performance.now();
 

@@ -217,6 +217,14 @@
       box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1);
       border-color: rgba(128, 0, 32, 0.25);
     }
+    .partner-logo-card[role="group"] {
+      cursor: default;
+    }
+    .partner-logo-card[role="group"]:hover {
+      transform: none;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      border-color: rgba(15, 23, 42, 0.08);
+    }
     .partner-logo-wrap {
       width: 100%;
       height: 56px;
@@ -266,37 +274,56 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
 
   <!-- NAVIGATION -->
   <nav class="navbar">
     <div class="navbar-inner">
       <div class="nav-brand">
         <a href="index.html" class="logo-link">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="iu29-logo">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="iu29-logo" width="512" height="321" decoding="async">
         </a>
-        <img src="assets/branding/StemAtSkook-logo.png" alt="STEM@Skook29 Logo" class="site-logo">
+        <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29 Logo" class="site-logo" width="600" height="300" decoding="async">
       </div>
-      <div class="nav-links">
+            <div class="nav-links">
         <a href="index.html">Home</a>
-        <a href="students.html">Students</a>
+        <div class="nav-dropdown">
+          <a href="students.html">Students</a>
+          <div class="nav-dropdown-menu">
+            <a href="programs.html#make">Make@Skook29</a>
+            <a href="programs.html#competitions">Competitions</a>
+            <a href="programs.html#cso">CSO</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="teachers.html">Teachers</a>
           <div class="nav-dropdown-menu">
             <a href="steels-support.html">STEELS Support</a>
+            <a href="steels-resource-library.html">STEELS Resource Library</a>
             <a href="edtech-ai.html">EdTech &amp; AI</a>
+            <a href="ai-edtech-resource-library.html">AI &amp; EdTech Resource Library</a>
             <a href="classroom-resources.html">Classroom Resources</a>
+            <a href="phenomenon-sessions.html">Phenomenon Sessions</a>
+            <a href="events.html">Professional Learning</a>
           </div>
         </div>
-        <a href="districts.html">Districts</a>
+        <div class="nav-dropdown">
+          <a href="districts.html">Districts</a>
+          <div class="nav-dropdown-menu">
+            <a href="districts.html">STEM Ecosystem Planning</a>
+            <a href="contact.html">Request Support</a>
+          </div>
+        </div>
         <div class="nav-dropdown">
           <a href="community.html" class="active">Community</a>
           <div class="nav-dropdown-menu">
+            <a href="community.html">The Commons</a>
+            <a href="community.html#partner-hub">Partner Hub</a>
+            <a href="community.html#porch-stories">Porch Stories</a>
             <a href="wscam.html">WSCAM Archive</a>
           </div>
         </div>
-        <a href="programs.html">Programs</a>
-        <a href="events.html">Events</a>
-        <a href="about.html">About</a>
         <a href="contact.html" class="nav-cta">Contact Us</a>
       </div>
       <button class="nav-hamburger" aria-label="Toggle navigation">
@@ -304,22 +331,34 @@
       </button>
     </div>
   </nav>
+  <!-- MOBILE NAV -->
   <div class="mobile-nav">
     <a href="index.html">Home</a>
     <a href="students.html">Students</a>
+    <a href="programs.html#make" class="mobile-subnav">&#8627; Make@Skook29</a>
+    <a href="programs.html#competitions" class="mobile-subnav">&#8627; Competitions</a>
+    <a href="programs.html#cso" class="mobile-subnav">&#8627; CSO</a>
     <a href="teachers.html">Teachers</a>
-    <a href="steels-support.html" class="mobile-subnav">↳ STEELS Support</a>
-    <a href="edtech-ai.html" class="mobile-subnav">↳ EdTech &amp; AI</a>
-    <a href="classroom-resources.html" class="mobile-subnav">↳ Classroom Resources</a>
+    <a href="steels-support.html" class="mobile-subnav">&#8627; STEELS Support</a>
+    <a href="steels-resource-library.html" class="mobile-subnav">&#8627; STEELS Resource Library</a>
+    <a href="edtech-ai.html" class="mobile-subnav">&#8627; EdTech &amp; AI</a>
+    <a href="ai-edtech-resource-library.html" class="mobile-subnav">&#8627; AI &amp; EdTech Resource Library</a>
+    <a href="classroom-resources.html" class="mobile-subnav">&#8627; Classroom Resources</a>
+    <a href="phenomenon-sessions.html" class="mobile-subnav">&#8627; Phenomenon Sessions</a>
+    <a href="events.html" class="mobile-subnav">&#8627; Professional Learning</a>
     <a href="districts.html">Districts</a>
+    <a href="districts.html" class="mobile-subnav">&#8627; STEM Ecosystem Planning</a>
+    <a href="contact.html" class="mobile-subnav">&#8627; Request Support</a>
     <a href="community.html">Community</a>
-    <a href="wscam.html" class="mobile-subnav">↳ WSCAM Archive</a>
-    <a href="programs.html">Programs</a>
-    <a href="events.html">Events</a>
-    <a href="about.html">About</a>
+    <a href="community.html" class="mobile-subnav">&#8627; The Commons</a>
+    <a href="community.html#partner-hub" class="mobile-subnav">&#8627; Partner Hub</a>
+    <a href="community.html#porch-stories" class="mobile-subnav">&#8627; Porch Stories</a>
+    <a href="wscam.html" class="mobile-subnav">&#8627; WSCAM Archive</a>
     <a href="contact.html">Contact</a>
   </div>
+  </header>
 
+  <main id="main-content" tabindex="-1">
   <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-bg"></div>
@@ -368,7 +407,7 @@
             <span class="tag">2017–2023</span>
             <span class="tag">60+ Student Videos</span>
             <span class="tag">19 Industry Partners</span>
-            <span class="tag">12 School Districts</span>
+            <span class="tag">12 Public Districts</span>
           </div>
         </div>
         <div style="display: flex; flex-direction: column; gap: 20px;">
@@ -413,35 +452,35 @@
 
       <div class="partner-logo-grid">
         <a href="https://ash-tec.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/ashland-technology-logo.avif" alt="Ashland Technologies logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/ashland-technology-logo.avif" alt="Ashland Technologies logo" width="822" height="264" decoding="async" loading="lazy"></div>
           <span>Ashland Technologies</span>
         </a>
         <a href="https://www.bartush.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/bartush-logo.png" alt="Bartush Signs logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/bartush-logo.webp" alt="Bartush Signs logo" width="277" height="115" decoding="async" loading="lazy"></div>
           <span>Bartush Signs</span>
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/bibbmfg-logo.png" alt="Bibb Manufacturing logo"></div>
-          <span>Bibb Manufacturing</span>
+        <a href="https://www.bigbmfg.com/" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/bibbmfg-logo.webp" alt="Big B Manufacturing logo" width="480" height="157" decoding="async" loading="lazy"></div>
+          <span>Big B Manufacturing</span>
         </a>
         <a href="https://cardinalsystemsinc.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/cardinalsystemsinc-logo.png" alt="Cardinal Systems logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/cardinalsystemsinc-logo.webp" alt="Cardinal Systems logo" width="480" height="180" decoding="async" loading="lazy"></div>
           <span>Cardinal Systems</span>
         </a>
         <a href="https://clearlyclean.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
           <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/clearly-clean-logo.svg" alt="Clearly Clean logo"></div>
           <span>Clearly Clean</span>
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/emd-electronics-logo.png" alt="EMD Electronics logo"></div>
+        <a href="https://www.emdgroup.com/en/expertise/electronics.html" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/emd-electronics-logo.webp" alt="EMD Electronics logo" width="480" height="180" decoding="async" loading="lazy"></div>
           <span>EMD Electronics</span>
         </a>
         <a href="https://fabconprecast.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/Fabcon-logo.png" alt="Fabcon Precast logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/Fabcon-logo.webp" alt="Fabcon Precast logo" width="480" height="125" decoding="async" loading="lazy"></div>
           <span>Fabcon Precast</span>
         </a>
         <a href="https://guersdairy.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/guers-dairy-logo.png" alt="Guers Tumbling Run Dairy logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/guers-dairy-logo.webp" alt="Guers Tumbling Run Dairy logo" width="480" height="229" decoding="async" loading="lazy"></div>
           <span>Guers Tumbling Run Dairy</span>
         </a>
         <a href="https://www.hexcel.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
@@ -449,58 +488,59 @@
           <span>Hexcel Corporation</span>
         </a>
         <a href="https://www.highwood-usa.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/Highwood-logo.webp" alt="Highwood USA logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/Highwood-logo.webp" alt="Highwood USA logo" width="209" height="63" decoding="async" loading="lazy"></div>
           <span>Highwood USA</span>
         </a>
         <a href="https://www.hydro.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
           <div class="partner-logo-wrap partner-logo-wrap--dark"><img src="assets/branding/partners/whats-so-cool-logo/hydro-logo-white.svg" alt="Hydro logo"></div>
           <span>Hydro</span>
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/keystone-potato-products-logo.webp" alt="Keystone Potato Products logo"></div>
+        <!-- TODO: Add a verified Keystone Potato Products website if one becomes available. -->
+        <div class="partner-logo-card" role="group">
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/keystone-potato-products-logo.webp" alt="Keystone Potato Products logo" width="615" height="131" decoding="async" loading="lazy"></div>
           <span>Keystone Potato Products</span>
-        </a>
+        </div>
         <a href="https://www.michaelfoods.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/micheal-foods-logo.png" alt="Michael Foods logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/micheal-foods-logo.webp" alt="Michael Foods logo" width="480" height="180" decoding="async" loading="lazy"></div>
           <span>Michael Foods</span>
         </a>
         <a href="https://www.mrstspierogies.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/mrs-ts-logo.png" alt="Mrs. T&#39;s Pierogies logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/mrs-ts-logo.webp" alt="Mrs. T&#39;s Pierogies logo" width="249" height="137" decoding="async" loading="lazy"></div>
           <span>Mrs. T&#39;s Pierogies</span>
         </a>
         <a href="https://nppbeams.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/northeast-prestressed-logo.png" alt="Northeast Prestressed Products logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/northeast-prestressed-logo.webp" alt="Northeast Prestressed Products logo" width="480" height="180" decoding="async" loading="lazy"></div>
           <span>Northeast Prestressed Products</span>
         </a>
         <a href="https://www.petsmart.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
           <span>PetSmart</span>
         </a>
         <a href="https://www.prysmiangroup.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/prysmian-logo.webp" alt="Prysmian Group logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/prysmian-logo.webp" alt="Prysmian Group logo" width="215" height="51" decoding="async" loading="lazy"></div>
           <span>Prysmian Group</span>
         </a>
         <a href="https://royaltruckandequipment.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/royal-truck-logo.webp" alt="Royal Truck &amp; Equipment logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/royal-truck-logo.webp" alt="Royal Truck &amp; Equipment logo" width="381" height="125" decoding="async" loading="lazy"></div>
           <span>Royal Truck &amp; Equipment</span>
         </a>
         <a href="https://solarinnovations.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/SolarInnov-logo.webp" alt="Solar Innovations logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/SolarInnov-logo.webp" alt="Solar Innovations logo" width="198" height="68" decoding="async" loading="lazy"></div>
           <span>Solar Innovations</span>
         </a>
         <a href="https://stermanmasser.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/masser-family-logo.png" alt="Sterman Masser logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/masser-family-logo.webp" alt="Sterman Masser logo" width="268" height="61" decoding="async" loading="lazy"></div>
           <span>Sterman Masser</span>
         </a>
         <a href="https://www.summittrailer.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/summit-trailer-logo.png" alt="Summit Trailer Sales logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/summit-trailer-logo.webp" alt="Summit Trailer Sales logo" width="480" height="600" decoding="async" loading="lazy"></div>
           <span>Summit Trailer Sales</span>
         </a>
         <a href="https://tredegarfilms.com" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap"><img src="assets/branding/partners/whats-so-cool-logo/tredegar-logo.png" alt="Tredegar Performance Films logo"></div>
+          <div class="partner-logo-wrap"><img src="assets/optimized/branding/partners/whats-so-cool-logo/tredegar-logo.webp" alt="Tredegar Performance Films logo" width="300" height="88" decoding="async" loading="lazy"></div>
           <span>Tredegar Performance Films</span>
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
-          <div class="partner-logo-wrap partner-logo-wrap--dark"><img src="assets/branding/partners/whats-so-cool-logo/Zimmerman-Shoes-logo-white.webp" alt="Zimmerman Shoes logo"></div>
+        <a href="https://zimmermanshoes.com/" target="_blank" rel="noopener noreferrer" class="partner-logo-card">
+          <div class="partner-logo-wrap partner-logo-wrap--dark"><img src="assets/branding/partners/whats-so-cool-logo/Zimmerman-Shoes-logo-white.webp" alt="Zimmerman Shoes logo" width="800" height="152" decoding="async" loading="lazy"></div>
           <span>Zimmerman Shoes</span>
         </a>
       </div>
@@ -530,6 +570,9 @@
         <div class="wscam-year-filters">
           <span class="wscam-filter-label">Year:</span>
           <button class="wscam-year-btn active" data-year="all">All</button>
+          <button class="wscam-year-btn" data-year="2026">2026</button>
+          <button class="wscam-year-btn" data-year="2025">2025</button>
+          <button class="wscam-year-btn" data-year="2024">2024</button>
           <button class="wscam-year-btn" data-year="2023">2023</button>
           <button class="wscam-year-btn" data-year="2022">2022</button>
           <button class="wscam-year-btn" data-year="2021">2021</button>
@@ -542,7 +585,7 @@
 
       <!-- Results count -->
       <div class="wscam-results-bar">
-        <p class="wscam-results-text">Showing <strong id="wscam-visible-count">60</strong> of 60 entries</p>
+        <p class="wscam-results-text">Showing <strong id="wscam-visible-count">90</strong> of 90 entries</p>
       </div>
 
       <!-- Archive grid — rendered by JS -->
@@ -568,18 +611,19 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/branding/StemAtSkook-logo-white.png" alt="STEM@Skook29 Logo" class="footer-logo">
-          <img src="assets/branding/iu29-logo.png" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" />
+          <img src="assets/optimized/branding/StemAtSkook-logo-white.webp" alt="STEM@Skook29 Logo" class="footer-logo" width="600" height="300" decoding="async" loading="lazy">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" width="512" height="321" decoding="async" />
           <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
           <div class="footer-contact">
             <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
-            <a href="#">📍 17 Maple Ave, Marlin, PA 17951</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=17+Maple+Ave%2C+Mar+Lin%2C+PA+17951" target="_blank" rel="noopener noreferrer">&#128205; 17 Maple Ave, Mar Lin, PA 17951</a>
             <a href="tel:+15705449131">📞 (570) 544-9131</a>
           </div>
         </div>
@@ -613,12 +657,6 @@
       </div>
       <div class="footer-bottom">
         <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p>
-        <div class="social-links">
-          <a href="#" class="social-link">𝕏</a>
-          <a href="#" class="social-link">f</a>
-          <a href="#" class="social-link">📷</a>
-          <a href="#" class="social-link">in</a>
-        </div>
       </div>
     </div>
   </footer>
@@ -628,6 +666,39 @@
     // Future enhancement: use lat/long fields to render an interactive industry partner map.
 
     const wscamEntries = [
+      // 2026
+      { year: "2026", school: "D.H.H. Lengel Middle School", district: "Pottsville Area SD", partner: "Mrs. T's Pierogies", partnerUrl: "https://www.mrstspierogies.com/", videoUrl: "https://www.youtube.com/watch?v=PiR-yAMkO90", awards: ["Outstanding Overall Program", "Best of PA Nominee"], lat: "", lng: "" },
+      { year: "2026", school: "Blue Mountain Middle School", district: "Blue Mountain SD", partner: "Hydro", partnerUrl: "https://www.hydro.com/en/global/about-hydro/hydro-worldwide/americas/united-states/northeast/hydro-cressona-pa/", videoUrl: "", awards: ["Viewers Choice"], lat: "", lng: "" },
+      { year: "2026", school: "North Schuylkill Junior/Senior High School", district: "North Schuylkill SD", partner: "EMD Electronics", partnerUrl: "https://www.emdgroup.com/en/expertise/electronics.html", videoUrl: "https://www.youtube.com/watch?v=pbIIDoF2SMQ", awards: ["Outstanding Educational Value"], lat: "", lng: "" },
+      { year: "2026", school: "Tri-Valley Junior/Senior High School", district: "Tri-Valley SD", partner: "MI Windows and Doors", partnerUrl: "https://miwindows.com/", videoUrl: "https://www.youtube.com/watch?v=xPjndav6OrI", awards: [], lat: "", lng: "" },
+      { year: "2026", school: "Mahanoy Area Junior/Senior High School", district: "Mahanoy Area SD", partner: "Ashland Technologies, Inc.", partnerUrl: "https://www.ash-tec.com/", videoUrl: "https://www.youtube.com/watch?v=fbfqmTJge18", awards: [], lat: "", lng: "" },
+      { year: "2026", school: "Shenandoah Valley Junior/Senior High School", district: "Shenandoah Valley SD", partner: "Hexcel Corporation", partnerUrl: "https://www.hexcel.com/", videoUrl: "https://www.youtube.com/watch?v=j6Ra61t8-L8", awards: [], lat: "", lng: "" },
+      { year: "2026", school: "Tamaqua Area Middle School", district: "Tamaqua Area SD", partner: "Northeast Prestressed Products, LLC", partnerUrl: "https://npp-llc.com/", videoUrl: "https://www.youtube.com/watch?v=BPWS-RfLt_E", awards: [], lat: "", lng: "" },
+      { year: "2026", school: "Minersville Junior/Senior High School", district: "Minersville Area SD", partner: "Masser Family of Companies", partnerUrl: "https://masserspuds.com/", videoUrl: "https://www.youtube.com/watch?v=cUgIfyldots", awards: [], lat: "", lng: "" },
+      { year: "2026", school: "Pine Grove Area Middle School", district: "Pine Grove Area SD", partner: "Blaschak Anthracite", partnerUrl: "https://www.blaschakanthracite.com/", videoUrl: "https://www.youtube.com/watch?v=HKGMGMQ2rr4", awards: ["Outstanding Cool"], lat: "", lng: "" },
+      { year: "2026", school: "Williams Valley Junior/Senior High School", district: "Williams Valley SD", partner: "Big B Manufacturing Inc.", partnerUrl: "https://www.bigbmfg.com/", videoUrl: "https://www.youtube.com/watch?v=hXIIXyRQDKE", awards: [], lat: "", lng: "" },
+      // 2025
+      { year: "2025", school: "D.H.H. Lengel Middle School", district: "Pottsville Area SD", partner: "Blaschak Anthracite", partnerUrl: "https://www.blaschakanthracite.com/", videoUrl: "https://www.youtube.com/watch?v=qJMHJ-OZEFE", awards: ["Outstanding Outreach Plan", "Best of PA Nominee"], lat: "", lng: "" },
+      { year: "2025", school: "Mahanoy Area Junior/Senior High School", district: "Mahanoy Area SD", partner: "Hydro", partnerUrl: "https://www.hydro.com/en-US/", videoUrl: "https://www.youtube.com/watch?v=Atyxd6y-lu8", awards: ["Viewers Choice"], lat: "", lng: "" },
+      { year: "2025", school: "Schuylkill Haven Area Middle School", district: "Schuylkill Haven Area SD", partner: "Zimmerman Shoes by Kepner Scott Shoe Co.", partnerUrl: "https://zimmermanshoes.com/", videoUrl: "https://www.youtube.com/watch?v=bgDZcucr9LM", awards: ["Outstanding Videography"], lat: "", lng: "" },
+      { year: "2025", school: "Tamaqua Area Middle School", district: "Tamaqua Area SD", partner: "Hexcel Corporation", partnerUrl: "https://www.hexcel.com/", videoUrl: "https://www.youtube.com/watch?v=BWvfLkgCVHU", awards: ["Outstanding Brand Placement"], lat: "", lng: "" },
+      { year: "2025", school: "Shenandoah Valley Junior/Senior High School", district: "Shenandoah Valley SD", partner: "EMD Electronics", partnerUrl: "https://www.emdgroup.com/en", videoUrl: "https://www.youtube.com/watch?v=zUcrh9DlK5U", awards: [], lat: "", lng: "" },
+      { year: "2025", school: "Minersville Junior/Senior High School", district: "Minersville Area SD", partner: "Solar Innovations, LLC", partnerUrl: "https://solarinnovations.com/", videoUrl: "https://www.youtube.com/watch?v=5oRgQrzmD2w", awards: [], lat: "", lng: "" },
+      { year: "2025", school: "Tri-Valley Junior/Senior High School", district: "Tri-Valley SD", partner: "Big B Manufacturing Inc.", partnerUrl: "https://www.bigbmfg.com/", videoUrl: "https://www.youtube.com/watch?v=WZhYKDsRH5w", awards: [], lat: "", lng: "" },
+      { year: "2025", school: "Pine Grove Area Middle School", district: "Pine Grove Area SD", partner: "Ashland Technologies, Inc.", partnerUrl: "https://www.ash-tec.com/", videoUrl: "https://www.youtube.com/watch?v=3I7e-qbVlz0", awards: [], lat: "", lng: "" },
+      { year: "2025", school: "North Schuylkill Junior/Senior High School", district: "North Schuylkill SD", partner: "Cardinal Systems, Inc.", partnerUrl: "https://cardinalsystemsinc.com/", videoUrl: "https://www.youtube.com/watch?v=ppJLtdlBxxU", awards: [], lat: "", lng: "" },
+      { year: "2025", school: "Blue Mountain Middle School", district: "Blue Mountain SD", partner: "Masser Family of Companies", partnerUrl: "https://stermanmasser.com/", videoUrl: "https://www.youtube.com/watch?v=MuKho8MIG9k", awards: [], lat: "", lng: "" },
+      // 2024
+      { year: "2024", school: "Mahanoy Area Junior/Senior High School", district: "Mahanoy Area SD", partner: "EMD Electronics", partnerUrl: "https://www.emdgroup.com/en", videoUrl: "https://www.youtube.com/watch?v=0LlbXPqwuzo", awards: ["Viewers Choice", "Best of PA Nominee"], lat: "", lng: "" },
+      { year: "2024", school: "D.H.H. Lengel Middle School", district: "Pottsville Area SD", partner: "Cardinal Systems, Inc.", partnerUrl: "https://cardinalsystemsinc.com/", videoUrl: "https://www.youtube.com/watch?v=NKSSqKuYuDY", awards: ["Outstanding Videography"], lat: "", lng: "" },
+      { year: "2024", school: "Tri-Valley Junior/Senior High School", district: "Tri-Valley SD", partner: "Blaschak Anthracite", partnerUrl: "https://www.blaschakanthracite.com/", videoUrl: "https://www.youtube.com/watch?v=hDrlCjmy2-s", awards: ["Outstanding Editing"], lat: "", lng: "" },
+      { year: "2024", school: "Blue Mountain Middle School", district: "Blue Mountain SD", partner: "Hexcel Corporation", partnerUrl: "https://www.hexcel.com/", videoUrl: "https://www.youtube.com/watch?v=exvaUGfBObg", awards: ["Outstanding Educational Value"], lat: "", lng: "" },
+      { year: "2024", school: "Minersville Junior/Senior High School", district: "Minersville Area SD", partner: "Ashland Technologies, Inc.", partnerUrl: "https://www.ash-tec.com/", videoUrl: "https://www.youtube.com/watch?v=kjVjGiJVtr8", awards: ["Outstanding CTE Story"], lat: "", lng: "" },
+      { year: "2024", school: "Tamaqua Area Middle School", district: "Tamaqua Area SD", partner: "Hydro", partnerUrl: "https://www.hydro.com/en-US/", videoUrl: "https://www.youtube.com/watch?v=9BXhQkvmE2Q", awards: ["Outstanding Outreach Plan"], lat: "", lng: "" },
+      { year: "2024", school: "Schuylkill Haven Area Middle School", district: "Schuylkill Haven Area SD", partner: "Prysmian Group – Schuylkill Haven", partnerUrl: "https://www.prysmiangroup.com/en", videoUrl: "https://www.youtube.com/watch?v=-hgfIsWj3ig", awards: ["Outstanding Brand Placement"], lat: "", lng: "" },
+      { year: "2024", school: "North Schuylkill Junior/Senior High School", district: "North Schuylkill SD", partner: "Masser Family of Companies", partnerUrl: "https://stermanmasser.com/", videoUrl: "https://www.youtube.com/watch?v=QXbdCRPXrAU", awards: [], lat: "", lng: "" },
+      { year: "2024", school: "Shenandoah Valley Junior/Senior High School", district: "Shenandoah Valley SD", partner: "Clearly Clean Products, LLC", partnerUrl: "https://clearlyclean.com/", videoUrl: "https://www.youtube.com/watch?v=H3jB9t_w1qU", awards: [], lat: "", lng: "" },
+      { year: "2024", school: "Pine Grove Area Middle School", district: "Pine Grove Area SD", partner: "Michael Foods, Inc.", partnerUrl: "https://michaelfoods.com/", videoUrl: "https://www.youtube.com/watch?v=yQcrvLjnkAA", awards: [], lat: "", lng: "" },
       // 2023 — video links go to the WSCAM central library (no direct YouTube embed)
       { year: "2023", school: "Blue Mountain Middle School", district: "Blue Mountain SD", partner: "Hexcel Corporation", partnerUrl: "https://www.hexcel.com", videoUrl: "https://whatssocool.org/video-library/", awards: ["Best of PA Nominee"], lat: "", lng: "" },
       { year: "2023", school: "Minersville Junior/Senior High School", district: "Minersville Area SD", partner: "Prysmian Group", partnerUrl: "https://www.prysmiangroup.com", videoUrl: "https://whatssocool.org/video-library/", awards: [], lat: "", lng: "" },

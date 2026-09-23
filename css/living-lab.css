@@ -1,0 +1,465 @@
+/* =========================================================================
+   Schuylkill Living Lab -- shared styles
+   Loaded alongside css/styles.css on every living-lab-*.html page (and the
+   Living Lab homepage promo section). Reuses the site's existing tokens
+   (--purple-*, --orange-*, --gray-*, --radius-*, --shadow-*, .container,
+   .btn, .card, .section-header, .grid-*, .stat-card, .tag) rather than
+   inventing a parallel design system -- Living Lab should read as STEM@
+   Skook29, not a separate eco-branded site. The additions here are: a
+   field-note/data texture for hero backgrounds, the four-part cycle
+   diagram, grade-band progression cards, lightweight bar charts, a map
+   shell, shared form styles (mirrors contact.html's .form-* pattern so
+   Submit an Observation / Submit an Investigation look identical to the
+   existing Contact form), and an honest empty-state block.
+   ========================================================================= */
+
+/* Subtle blueprint/field-note grid texture, used sparingly behind hero
+   and section-divider bands -- never as a full "eco site" wash. */
+.ll-texture {
+  position: relative;
+}
+
+/* A wider-left-column variant of the site's .two-col (form + sidebar
+   layouts). Defined as a class rather than an inline style so it still
+   collapses to a single column on mobile via the same breakpoint the
+   rest of the site uses -- an inline grid-template-columns would win
+   over that media query and break stacking on phones. */
+.ll-two-col-wide {
+  grid-template-columns: 1.4fr 1fr;
+  align-items: flex-start;
+}
+@media (max-width: 768px) {
+  .ll-two-col-wide { grid-template-columns: 1fr; }
+}
+.ll-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------------
+   Four-part cycle: Explore -> Document -> Investigate -> Act
+   ------------------------------------------------------------------- */
+.ll-cycle {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .ll-cycle { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .ll-cycle { grid-template-columns: 1fr; }
+}
+
+.ll-cycle-step {
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  padding: 28px 22px;
+  position: relative;
+  border-top: 4px solid var(--orange-500);
+}
+.ll-cycle-step:nth-child(2) { border-top-color: var(--purple-500); }
+.ll-cycle-step:nth-child(3) { border-top-color: var(--orange-600); }
+.ll-cycle-step:nth-child(4) { border-top-color: var(--purple-700); }
+
+.ll-cycle-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-main);
+  color: white;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.9375rem;
+  margin-bottom: 14px;
+}
+.ll-cycle-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.0625rem;
+  color: var(--gray-900);
+  margin-bottom: 8px;
+}
+.ll-cycle-text {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+.ll-cycle-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ll-cycle-examples span {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+  background: var(--gray-100);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* Connecting arrow between steps on wide screens. */
+.ll-cycle-step:not(:last-child)::after {
+  content: "\2192";
+  position: absolute;
+  top: 50%;
+  right: -18px;
+  transform: translateY(-50%);
+  color: var(--gray-300);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+@media (max-width: 900px) {
+  .ll-cycle-step::after { display: none; }
+}
+
+/* ---------------------------------------------------------------------
+   Grade-band progression
+   ------------------------------------------------------------------- */
+.ll-grade-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) {
+  .ll-grade-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .ll-grade-grid { grid-template-columns: 1fr; }
+}
+.ll-grade-card {
+  background: var(--gray-50);
+  border-radius: var(--radius-xl);
+  padding: 26px 22px;
+  border: 1px solid var(--gray-200);
+}
+.ll-grade-band {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.375rem;
+  color: white;
+  background: var(--gradient-main);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 14px;
+}
+.ll-grade-question {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--gray-900);
+  margin-bottom: 10px;
+}
+.ll-grade-focus {
+  font-size: 0.8125rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 18px;
+}
+.ll-grade-focus li { margin-bottom: 4px; }
+.ll-grade-note {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--orange-600);
+}
+
+/* ---------------------------------------------------------------------
+   Participation ladder (Teacher Toolkit)
+   ------------------------------------------------------------------- */
+.ll-ladder {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.ll-ladder-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 20px 22px;
+}
+.ll-ladder-level {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-main);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+}
+.ll-ladder-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+.ll-ladder-text {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------------
+   Status / grade-band pills (Investigations, Dashboard)
+   ------------------------------------------------------------------- */
+.ll-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  text-transform: capitalize;
+}
+.ll-status-question { background: var(--gray-100); color: var(--gray-600); }
+.ll-status-collecting_data { background: #fff7ed; color: var(--orange-600); }
+.ll-status-analyzing { background: #eef2ff; color: #4338ca; }
+.ll-status-taking_action { background: #fce8eb; color: var(--purple-700); }
+.ll-status-completed { background: #ecfdf5; color: #065f46; }
+
+/* ---------------------------------------------------------------------
+   Lightweight bar charts (no charting library)
+   ------------------------------------------------------------------- */
+.ll-bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ll-bar-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 160px) 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+.ll-bar-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ll-bar-track {
+  height: 12px;
+  background: var(--gray-100);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.ll-bar-fill {
+  height: 100%;
+  background: var(--gradient-main);
+  border-radius: var(--radius-full);
+}
+.ll-bar-value {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  min-width: 28px;
+  text-align: right;
+}
+
+/* ---------------------------------------------------------------------
+   Regional map shell (Leaflet mounts into #ll-map)
+   ------------------------------------------------------------------- */
+.ll-map-shell {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--gray-200);
+}
+#ll-map {
+  width: 100%;
+  height: clamp(360px, 60vh, 560px);
+  background: var(--gray-100);
+}
+.ll-map-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.ll-map-filters select {
+  padding: 10px 14px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-family: var(--font-body);
+  color: var(--gray-900);
+  background: white;
+}
+.leaflet-popup-content h4 {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  margin: 0 0 6px;
+  color: var(--gray-900);
+}
+.leaflet-popup-content p {
+  font-size: 0.8125rem;
+  color: var(--gray-600);
+  margin: 2px 0;
+}
+
+/* ---------------------------------------------------------------------
+   Empty states
+   ------------------------------------------------------------------- */
+.ll-empty {
+  text-align: center;
+  padding: 56px 24px;
+  background: var(--gray-50);
+  border: 2px dashed var(--gray-200);
+  border-radius: var(--radius-xl);
+}
+.ll-empty-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+.ll-empty-text {
+  max-width: 480px;
+  margin: 0 auto;
+  color: var(--gray-500);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+/* ---------------------------------------------------------------------
+   Shared form styles (Submit an Observation / Submit an Investigation)
+   -- identical class names & look to contact.html's inline form styles,
+   factored out here since multiple Living Lab pages need them.
+   ------------------------------------------------------------------- */
+.ll-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+.form-label .required { color: var(--orange-500); margin-left: 3px; }
+.form-label .optional { color: var(--gray-400); font-weight: 500; }
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--gray-900);
+  background: white;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--purple-500);
+  box-shadow: 0 0 0 3px rgba(126,34,206,0.1);
+}
+.form-textarea { min-height: 120px; resize: vertical; }
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+.form-honeypot {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+.form-privacy-note {
+  margin-top: -6px;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  color: var(--gray-500);
+}
+.form-status {
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.5;
+  outline: none;
+}
+.form-status.success { background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; }
+.form-status.error { background: #fff1f2; border: 1px solid #fecdd3; color: #9f1239; }
+.ll-form button[disabled] { cursor: wait; opacity: 0.76; }
+
+@media (max-width: 640px) {
+  .form-row { grid-template-columns: 1fr; }
+  .ll-bar-row { grid-template-columns: 96px 1fr auto; }
+}
+
+/* ---------------------------------------------------------------------
+   Homepage promo band
+   ------------------------------------------------------------------- */
+.ll-promo {
+  background: var(--gradient-hero);
+  color: white;
+  border-radius: var(--radius-xl);
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.ll-promo-stats {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 28px;
+  margin: 24px 0 28px;
+}
+@media (max-width: 640px) {
+  .ll-promo { padding: 36px 22px; }
+  .ll-promo-stats { grid-template-columns: repeat(2, 1fr); }
+}
+.ll-promo-stat-value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2rem;
+}
+.ll-promo-stat-label {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.75);
+}

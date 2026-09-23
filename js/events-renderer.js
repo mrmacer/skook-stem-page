@@ -162,7 +162,10 @@
   function addSchema() {
     const visible = getEvents({ upcomingOnly: true });
     if (!visible.length || document.querySelector('script[data-stem-event-schema]')) return;
-    const graph = visible.map(event => {
+    const graph = visible.filter(event => {
+      const startDate = typeof event.startDate === "string" ? event.startDate : "";
+      return /^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(startDate) && parseDate(startDate);
+    }).map(event => {
       const item = {
         "@type": event.categoryGroup === "professional-learning" ? "EducationEvent" : "Event",
         name: event.title,

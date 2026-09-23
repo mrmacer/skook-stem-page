@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".contact-form");
   if (!form) return;
 
-  const interestSelect = form.querySelector("#interest");
+  const interestSelect = form.querySelector("#interest-type");
   const status = form.querySelector("#form-status");
   const submitButton = form.querySelector('button[type="submit"]');
   const recognizedInterests = new Set(

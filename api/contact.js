@@ -64,6 +64,10 @@ export default {
       return json({ ok: false, message: "Invalid request." }, 400);
     }
 
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return json({ ok: false, message: "Invalid request." }, 400);
+    }
+
     // Honeypot submissions receive a neutral response without sending email.
     if (clean(body.website, 200)) {
       return json({ ok: true });

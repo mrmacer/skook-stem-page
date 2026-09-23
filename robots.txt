@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://skook-stem-page.vercel.app/sitemap.xml
+Sitemap: https://stem.mrmacer.com/sitemap.xml

@@ -15,6 +15,7 @@
   <meta name="twitter:description" content="Connect with Schuylkill County schools through STEM sponsorships, workforce collaboration, student experiences, and community partnership opportunities." />
   <meta name="twitter:image" content="https://skook-stem-page.vercel.app/assets/branding/stem-skook29-social.png" /><meta name="twitter:image:alt" content="STEM@Skook29" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/events-shared.css" />
   <style>
     /* Partner Schools section — scoped to community.html */
     .partner-grid {
@@ -260,6 +261,68 @@
       .needs-grid,
       .map-action-grid { grid-template-columns: 1fr; }
     }
+
+    .community-entry-paths,
+    .community-upcoming-events { background: white; }
+    main .btn {
+      max-width: 100%;
+      box-sizing: border-box;
+      white-space: normal;
+      text-align: center;
+    }
+    .community-entry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .community-entry-card {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 170px;
+      padding: 24px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      background: var(--gray-50);
+      color: var(--gray-900);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .community-entry-card:hover,
+    .community-entry-card:focus-visible {
+      border-color: rgba(139,26,46,0.3);
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+      outline: none;
+    }
+    .community-entry-number {
+      color: var(--orange-600);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+    .community-entry-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+    .community-entry-desc { color: var(--gray-500); line-height: 1.55; }
+    .community-events-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .resource-hub-grid .card-body .btn {
+      max-width: 100%;
+      box-sizing: border-box;
+      white-space: normal;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .community-entry-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -315,6 +378,7 @@
           <div class="nav-dropdown-menu" id="nav-community-menu">
             <a href="community.html">The Commons</a>
             <a href="community.html#partner-hub">Partner Hub</a>
+            <a href="connect.html">Join / Connect</a>
             <a href="community.html#porch-stories">Porch Stories</a>
             <a href="events.html#community-events">Community Events</a>
             <a href="wscam.html">WSCAM Archive</a>
@@ -391,6 +455,7 @@
       </div>
       <div class="mobile-nav-panel" id="mobile-community-menu" hidden>
         <a href="community.html#partner-hub" class="mobile-subnav">Partner Hub</a>
+        <a href="connect.html" class="mobile-subnav">Join / Connect</a>
         <a href="community.html#porch-stories" class="mobile-subnav">Porch Stories</a>
         <a href="events.html#community-events" class="mobile-subnav">Community Events</a>
         <a href="wscam.html" class="mobile-subnav">WSCAM Archive</a>
@@ -419,8 +484,51 @@
         </p>
         <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
           <a href="#community-hub" class="btn btn-white btn-lg">Find Resources</a>
-          <a href="#partner-hub" class="btn btn-outline-white btn-lg">Partner With Us</a>
+          <a href="connect.html" class="btn btn-outline-white btn-lg">Join / Connect</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY ENTRY PATHS -->
+  <section class="community-entry-paths" aria-labelledby="community-entry-title">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 28px;">
+        <span class="section-label">Choose a path</span>
+        <h2 class="section-title" id="community-entry-title">Start Where You Are</h2>
+      </div>
+      <div class="community-entry-grid">
+        <a class="community-entry-card" href="#community-upcoming-events">
+          <span class="community-entry-number">01</span>
+          <span class="community-entry-title">Upcoming Events</span>
+          <span class="community-entry-desc">See what is happening next across the ecosystem.</span>
+        </a>
+        <a class="community-entry-card" href="connect.html">
+          <span class="community-entry-number">02</span>
+          <span class="community-entry-title">Join / Connect</span>
+          <span class="community-entry-desc">Find a low-friction way to start a conversation.</span>
+        </a>
+        <a class="community-entry-card" href="#partner-hub">
+          <span class="community-entry-number">03</span>
+          <span class="community-entry-title">Explore Partners</span>
+          <span class="community-entry-desc">Explore the deeper partner and resource hub.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHARED UPCOMING EVENTS -->
+  <section id="community-upcoming-events" class="community-upcoming-events" aria-labelledby="community-upcoming-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label orange">What's happening</span>
+        <h2 class="section-title" id="community-upcoming-title">Upcoming Community Events</h2>
+        <p class="section-subtitle">Gatherings and opportunities where educators, employers, organizations, and community leaders can connect.</p>
+      </div>
+      <div class="event-list" data-event-list data-limit="3" data-ecosystem-only="true" data-featured-first="true"></div>
+      <div class="community-events-actions">
+        <a href="events.html" class="btn btn-primary">View All Events →</a>
+        <a href="connect.html" class="btn btn-secondary">Join / Connect</a>
       </div>
     </div>
   </section>
@@ -1096,6 +1204,8 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/events-data.js"></script>
+  <script src="js/events-renderer.js"></script>
   <script src="assets/js/ecosystem-map.js"></script>
 </body>
 </html>

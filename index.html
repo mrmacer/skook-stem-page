@@ -40,6 +40,7 @@
   }
   </script>
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/events-shared.css" />
   <style>
     /* ---- Hero two-column layout ---- */
     .hero-inner {
@@ -568,74 +569,7 @@
         <h2 class="section-title">Upcoming Events</h2>
         <p class="section-subtitle">Competitions, professional development, student showcases, and community gatherings — there's always something happening.</p>
       </div>
-      <div class="events-grid fade-in" style="margin-bottom: 40px;">
-
-        <div class="event-card">
-          <div class="event-date-box">
-            <div class="event-date-month">Sep</div>
-            <div class="event-date-day">23</div>
-          </div>
-          <div class="event-content">
-            <div class="event-category">Community · Ecosystem</div>
-            <div class="event-title">Schuylkill STEM Community Listening Session</div>
-            <div class="event-meta">
-              <span>📍 Location TBD</span>
-              <span>⏰ 4:30–6:00 PM</span>
-              <span>💚 Free</span>
-            </div>
-            <a href="community.html#porch-stories" class="btn btn-primary btn-sm" style="margin-top: 10px; display: inline-block;">Learn More</a>
-          </div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-date-box">
-            <div class="event-date-month">Oct</div>
-            <div class="event-date-day">'26</div>
-          </div>
-          <div class="event-content">
-            <div class="event-category">Competition</div>
-            <div class="event-title">Keystone Competition</div>
-            <div class="event-meta">
-              <span>📍 IU29 / Regional Event</span>
-              <span>🎓 Grades 5–12</span>
-            </div>
-            <a href="events.html" class="btn btn-primary btn-sm" style="margin-top: 10px; display: inline-block;">Event Details</a>
-          </div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-date-box">
-            <div class="event-date-month">Nov</div>
-            <div class="event-date-day">'26</div>
-          </div>
-          <div class="event-content">
-            <div class="event-category">Competition · New Event</div>
-            <div class="event-title">Invention Convention</div>
-            <div class="event-meta">
-              <span>📍 IU29 / Regional Event</span>
-              <span>🎓 K–12</span>
-            </div>
-            <a href="events.html" class="btn btn-primary btn-sm" style="margin-top: 10px; display: inline-block;">Event Details</a>
-          </div>
-        </div>
-
-        <div class="event-card">
-          <div class="event-date-box">
-            <div class="event-date-month">Feb</div>
-            <div class="event-date-day">'27</div>
-          </div>
-          <div class="event-content">
-            <div class="event-category">Competition</div>
-            <div class="event-title">Media and Design Competition</div>
-            <div class="event-meta">
-              <span>📍 IU29 / Regional Event</span>
-              <span>🎨 Digital media</span>
-            </div>
-            <a href="events.html" class="btn btn-primary btn-sm" style="margin-top: 10px; display: inline-block;">Event Details</a>
-          </div>
-        </div>
-
-      </div>
+      <div class="event-list" data-event-list data-limit="3" data-featured-first="true" style="margin-bottom: 40px;"></div>
       <div style="text-align: center;">
         <a href="events.html" class="btn btn-primary">View Full Calendar</a>
       </div>
@@ -764,5 +698,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/events-data.js"></script>
+  <script src="js/events-renderer.js"></script>
 </body>
 </html>

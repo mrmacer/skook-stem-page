@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSO Advisor Center — STEM@Skook29</title>
+  <meta name="description" content="A year-at-a-glance checklist and practical toolbox for teachers serving as in-building Chief Science Officers Advisors." />
+  <link rel="canonical" href="https://skook-stem-page.vercel.app/cso-advisor-center" />
+  <meta property="og:title" content="CSO Advisor Center — STEM@Skook29" />
+  <meta property="og:description" content="A practical year-at-a-glance guide for CSO Advisors supporting Action Plans, reporting, events, permissions, and student leadership." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://skook-stem-page.vercel.app/cso-advisor-center" />
+  <meta property="og:image" content="https://skook-stem-page.vercel.app/assets/branding/stem-skook29-social.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="STEM@Skook29" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CSO Advisor Center — STEM@Skook29" />
+  <meta name="twitter:description" content="A practical year-at-a-glance guide for CSO Advisors supporting Action Plans, reporting, events, permissions, and student leadership." />
+  <meta name="twitter:image" content="https://skook-stem-page.vercel.app/assets/branding/stem-skook29-social.png" />
+  <meta name="twitter:image:alt" content="STEM@Skook29" />
+  <link rel="icon" type="image/webp" href="assets/optimized/branding/StemAtSkook-logo.webp" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .advisor-cadence {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 34px;
+      align-items: center;
+      padding: clamp(28px, 5vw, 52px);
+      border-radius: var(--radius-xl);
+      background: var(--gradient-hero);
+      color: white;
+    }
+    .cadence-number {
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.1);
+      text-align: center;
+    }
+    .cadence-number strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 7vw, 4rem);
+      line-height: 1;
+    }
+    .cadence-copy h2 {
+      margin-bottom: 12px;
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+    }
+    .cadence-copy p {
+      color: rgba(255,255,255,0.82);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+    }
+    .responsibility-grid,
+    .toolbox-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .responsibility-card,
+    .toolbox-card {
+      padding: 24px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      background: white;
+      box-shadow: var(--shadow-sm);
+    }
+    .responsibility-card h3,
+    .toolbox-card h3,
+    .year-step h3 {
+      margin-bottom: 8px;
+      color: var(--gray-900);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+    }
+    .responsibility-card p,
+    .toolbox-card p,
+    .year-step p {
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+    .year-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .year-step {
+      position: relative;
+      padding: 24px 24px 24px 66px;
+      border-radius: var(--radius-lg);
+      background: white;
+      border: 1px solid var(--gray-200);
+    }
+    .year-step::before {
+      content: "✓";
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--gradient-main);
+      color: white;
+      font-weight: 800;
+    }
+    .skill-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .skill-level {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      background: var(--purple-50);
+      color: var(--purple-700);
+      text-align: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+    }
+    .toolbox-status {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 6px 10px;
+      border-radius: var(--radius-full);
+      background: var(--orange-100);
+      color: var(--orange-700);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .toolbox-note {
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-left: 4px solid var(--orange-500);
+      border-radius: var(--radius-md);
+      background: var(--orange-50);
+      color: var(--gray-700);
+      line-height: 1.65;
+    }
+    @media (max-width: 900px) {
+      .responsibility-grid,
+      .toolbox-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .skill-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 768px) {
+      .advisor-cadence,
+      .responsibility-grid,
+      .toolbox-grid,
+      .year-list,
+      .skill-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <div class="navbar-inner">
+        <div class="nav-brand">
+          <a href="index.html" class="logo-link">
+            <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="iu29-logo" width="512" height="321" decoding="async">
+          </a>
+          <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29 Logo" class="site-logo" width="600" height="300" decoding="async">
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <a href="students.html" class="active">Students</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-students-menu" aria-label="Toggle Students menu"><span aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" id="nav-students-menu">
+              <a href="programs.html#make">Make@Skook29</a>
+              <a href="events.html#competitions">Competitions</a>
+              <a href="student-leadership.html" class="active">Student Leadership</a>
+              <a href="events.html#student-events">Camps &amp; Student Events</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="teachers.html">Teachers</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-teachers-menu" aria-label="Toggle Teachers menu"><span aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" id="nav-teachers-menu">
+              <a href="steels-support.html">STEELS Support</a>
+              <a href="steels-resource-library.html">STEELS Resource Library</a>
+              <a href="edtech-ai.html">EdTech &amp; AI</a>
+              <a href="ai-edtech-resource-library.html">AI &amp; EdTech Resource Library</a>
+              <a href="classroom-resources.html">Classroom Resources</a>
+              <a href="phenomenon-sessions.html">Phenomenon Sessions</a>
+              <a href="events.html#professional-learning">Professional Learning</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="living-lab.html">Living Lab</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-living-lab-menu" aria-label="Toggle Living Lab menu"><span aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" id="nav-living-lab-menu">
+              <a href="living-lab.html">Living Lab Home</a>
+              <a href="living-lab-explore.html">Explore</a>
+              <a href="living-lab-submit.html">Submit an Observation</a>
+              <a href="living-lab-map.html">Regional Map</a>
+              <a href="living-lab-dashboard.html">Regional Dashboard</a>
+              <a href="living-lab-investigations.html">Investigations</a>
+              <a href="living-lab-teacher-toolkit.html">Teacher Toolkit</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="districts.html">Districts</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-districts-menu" aria-label="Toggle Districts menu"><span aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" id="nav-districts-menu">
+              <a href="districts.html">STEM Ecosystem Planning</a>
+              <a href="contact.html">Request Support</a>
+              <a href="events.html#regional-calendar">Regional Calendar</a>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a href="community.html">Community</a>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-community-menu" aria-label="Toggle Community menu"><span aria-hidden="true"></span></button>
+            <div class="nav-dropdown-menu" id="nav-community-menu">
+              <a href="community.html">The Commons</a>
+              <a href="community.html#partner-hub">Partner Hub</a>
+              <a href="community.html#porch-stories">Porch Stories</a>
+              <a href="events.html#community-events">Community Events</a>
+              <a href="wscam.html">WSCAM Archive</a>
+            </div>
+          </div>
+          <a href="events.html">Events</a>
+          <a href="contact.html" class="nav-cta">Contact Us</a>
+        </div>
+        <button class="nav-hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
+      <div class="mobile-nav-quick-links">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events / Calendar</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="mobile-nav-group" data-mobile-nav-group>
+        <div class="mobile-nav-heading">
+          <a href="students.html" class="mobile-nav-audience-link">Students</a>
+          <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-students-menu" aria-label="Toggle Students menu"><span aria-hidden="true"></span></button>
+        </div>
+        <div class="mobile-nav-panel" id="mobile-students-menu" hidden>
+          <a href="programs.html#make" class="mobile-subnav">Make@Skook29</a>
+          <a href="events.html#competitions" class="mobile-subnav">Competitions</a>
+          <a href="student-leadership.html" class="mobile-subnav active">Student Leadership</a>
+          <a href="events.html#student-events" class="mobile-subnav">Camps &amp; Student Events</a>
+        </div>
+      </div>
+      <div class="mobile-nav-group" data-mobile-nav-group>
+        <div class="mobile-nav-heading">
+          <a href="teachers.html" class="mobile-nav-audience-link">Teachers</a>
+          <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-teachers-menu" aria-label="Toggle Teachers menu"><span aria-hidden="true"></span></button>
+        </div>
+        <div class="mobile-nav-panel" id="mobile-teachers-menu" hidden>
+          <a href="steels-support.html" class="mobile-subnav">STEELS Support</a>
+          <a href="steels-resource-library.html" class="mobile-subnav">STEELS Resource Library</a>
+          <a href="edtech-ai.html" class="mobile-subnav">EdTech &amp; AI</a>
+          <a href="ai-edtech-resource-library.html" class="mobile-subnav">AI &amp; EdTech Resource Library</a>
+          <a href="classroom-resources.html" class="mobile-subnav">Classroom Resources</a>
+          <a href="phenomenon-sessions.html" class="mobile-subnav">Phenomenon Sessions</a>
+          <a href="events.html#professional-learning" class="mobile-subnav">Professional Learning</a>
+        </div>
+      </div>
+      <div class="mobile-nav-group" data-mobile-nav-group>
+        <div class="mobile-nav-heading">
+          <a href="living-lab.html" class="mobile-nav-audience-link">Living Lab</a>
+          <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-living-lab-menu" aria-label="Toggle Living Lab menu">
+            <span aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="mobile-nav-panel" id="mobile-living-lab-menu" hidden>
+          <a href="living-lab.html" class="mobile-subnav">Living Lab Home</a>
+          <a href="living-lab-explore.html" class="mobile-subnav">Explore</a>
+          <a href="living-lab-submit.html" class="mobile-subnav">Submit an Observation</a>
+          <a href="living-lab-map.html" class="mobile-subnav">Regional Map</a>
+          <a href="living-lab-dashboard.html" class="mobile-subnav">Regional Dashboard</a>
+          <a href="living-lab-investigations.html" class="mobile-subnav">Investigations</a>
+          <a href="living-lab-teacher-toolkit.html" class="mobile-subnav">Teacher Toolkit</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-group" data-mobile-nav-group>
+        <div class="mobile-nav-heading">
+          <a href="districts.html" class="mobile-nav-audience-link">Districts</a>
+          <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-districts-menu" aria-label="Toggle Districts menu"><span aria-hidden="true"></span></button>
+        </div>
+        <div class="mobile-nav-panel" id="mobile-districts-menu" hidden>
+          <a href="contact.html" class="mobile-subnav">Request Support</a>
+          <a href="events.html#regional-calendar" class="mobile-subnav">Regional Calendar</a>
+        </div>
+      </div>
+      <div class="mobile-nav-group" data-mobile-nav-group>
+        <div class="mobile-nav-heading">
+          <a href="community.html" class="mobile-nav-audience-link">Community</a>
+          <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-community-menu" aria-label="Toggle Community menu"><span aria-hidden="true"></span></button>
+        </div>
+        <div class="mobile-nav-panel" id="mobile-community-menu" hidden>
+          <a href="community.html#partner-hub" class="mobile-subnav">Partner Hub</a>
+          <a href="community.html#porch-stories" class="mobile-subnav">Porch Stories</a>
+          <a href="events.html#community-events" class="mobile-subnav">Community Events</a>
+          <a href="wscam.html" class="mobile-subnav">WSCAM Archive</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="page-hero">
+      <div class="page-hero-bg"></div>
+      <div class="page-hero-orb page-hero-orb-1"></div>
+      <div class="page-hero-orb page-hero-orb-2"></div>
+      <div class="container">
+        <div class="page-hero-content">
+          <div class="breadcrumb">
+            <a href="index.html">Home</a><span aria-hidden="true">›</span>
+            <a href="students.html">Students</a><span aria-hidden="true">›</span>
+            <a href="student-leadership.html">Student Leadership</a><span aria-hidden="true">›</span>
+            <span>CSO Advisor Center</span>
+          </div>
+          <div class="page-hero-label">For In-Building Advisors</div>
+          <h1 class="page-hero-title">CSO Advisor Center</h1>
+          <p class="page-hero-subtitle">A practical year-at-a-glance guide for the teacher who helps Chief Science Officers navigate plans, reporting, events, permissions, and school coordination.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: var(--section-pad) 0; background: white;">
+      <div class="container">
+        <div class="advisor-cadence">
+          <div class="cadence-number"><strong>2×</strong><span>at least each month</span></div>
+          <div class="cadence-copy">
+            <h2>Keep a Reliable Meeting Rhythm</h2>
+            <p>The CSO Advisor meets at least twice a month with their CSO or CSOs. These check-ins support the ongoing work described throughout this guide.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: var(--section-pad) 0; background: var(--gray-50);" aria-labelledby="responsibilities-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Advisor Responsibilities</span>
+          <h2 class="section-title" id="responsibilities-title">What the In-Building Advisor Supports</h2>
+          <p class="section-subtitle">The role connects student leadership work with the people, processes, and permissions inside the school or district.</p>
+        </div>
+        <div class="responsibility-grid">
+          <article class="responsibility-card"><h3>Action Plan Implementation</h3><p>Help CSOs implement their Action Plans and maintain review checkpoints through the year.</p></article>
+          <article class="responsibility-card"><h3>Online Activity</h3><p>Review LMS or Google Classroom activity connected to the program.</p></article>
+          <article class="responsibility-card"><h3>Mentor and School Connections</h3><p>Support interactions with mentors, the school, and the district.</p></article>
+          <article class="responsibility-card"><h3>Permissions and Attendance</h3><p>Handle permission slips, transportation requests, and excused absences.</p></article>
+          <article class="responsibility-card"><h3>Administrative Coordination</h3><p>Coordinate with school administration as CSOs carry out program responsibilities.</p></article>
+          <article class="responsibility-card"><h3>Cabinet Meetings</h3><p>Attend Cabinet Meetings alongside the school's CSO or CSOs.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: var(--section-pad) 0; background: white;" aria-labelledby="year-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Year at a Glance</span>
+          <h2 class="section-title" id="year-title">Advisor Checklist</h2>
+          <p class="section-subtitle">Use this sequence to keep recurring meetings, reports, events, permissions, and reflection visible throughout the program year.</p>
+        </div>
+        <ol class="year-list">
+          <li class="year-step"><h3>Ongoing: Meet Twice Monthly</h3><p>Meet with CSOs at least twice each month and review LMS or Google Classroom activity.</p></li>
+          <li class="year-step"><h3>LTI: Quarter 1 Report</h3><p>Support required LTI participation and keep the Quarter 1 reporting checkpoint visible.</p></li>
+          <li class="year-step"><h3>Fall Cabinet: Quarter 2 Report</h3><p>Attend alongside CSOs and support permissions, transportation requests, and excused absences.</p></li>
+          <li class="year-step"><h3>Spring Cabinet: Quarter 3 Report</h3><p>Attend alongside CSOs and continue Action Plan review and implementation support.</p></li>
+          <li class="year-step"><h3>April 1: Reflection Due</h3><p>Keep the year-end Reflection deadline visible as CSOs document their implementation.</p></li>
+          <li class="year-step"><h3>End of Year: Quarter 4 Report</h3><p>Support the final Quarterly Report checkpoint at the End of Year Celebration.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section style="padding: var(--section-pad) 0; background: var(--gray-50);" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Skill Progression</span>
+          <h2 class="section-title" id="skills-title">Support Growth Across Four Levels</h2>
+          <p class="section-subtitle">Advisors support CSOs through the documented progression from school to community to leadership to team member.</p>
+        </div>
+        <div class="skill-row" aria-label="Chief Science Officers four-level skill progression">
+          <div class="skill-level">Level 1 · School</div>
+          <div class="skill-level">Level 2 · Community</div>
+          <div class="skill-level">Level 3 · Leadership</div>
+          <div class="skill-level">Level 4 · Team Member</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: var(--section-pad) 0; background: white;" aria-labelledby="toolbox-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Practical Toolbox</span>
+          <h2 class="section-title" id="toolbox-title">Processes to Keep Ready</h2>
+          <p class="section-subtitle">The responsibilities are active now. Downloadable IU29 templates are not currently available in this repository.</p>
+        </div>
+        <div class="toolbox-grid">
+          <article class="toolbox-card"><span class="toolbox-status">Template Coming Soon</span><h3>Permission Slip and Excused Absence Process</h3><p>A downloadable process sheet will be added when a verified IU29 file is available.</p></article>
+          <article class="toolbox-card"><span class="toolbox-status">Template Coming Soon</span><h3>Action Plan Review Checkpoints</h3><p>A downloadable Advisor review checklist will be added when a verified file is available.</p></article>
+          <article class="toolbox-card"><span class="toolbox-status">Template Coming Soon</span><h3>Quarterly Report Deadline Tracker</h3><p>The checkpoints are Q1 at LTI, Q2 at Fall Cabinet, Q3 at Spring Cabinet, and Q4 at the End of Year Celebration.</p></article>
+          <article class="toolbox-card"><span class="toolbox-status">Template Coming Soon</span><h3>Reflection Reminder</h3><p>The Reflection is due April 1. A downloadable reminder or tracking form is not yet available.</p></article>
+          <article class="toolbox-card"><span class="toolbox-status">Template Coming Soon</span><h3>Parent/Guardian Media Consent Tracking</h3><p>Track parent or guardian media consent for any student photos used publicly. A verified downloadable form is not yet available.</p></article>
+          <article class="toolbox-card"><span class="toolbox-status">Process Support</span><h3>Transportation and Administration</h3><p>Coordinate transportation requests and administration alongside permission and attendance needs.</p></article>
+        </div>
+        <p class="toolbox-note"><strong>No placeholder downloads:</strong> Items without verified files are labeled “Template Coming Soon” and do not link to fake documents.</p>
+      </div>
+    </section>
+
+    <section class="cta-banner"><div class="container"><div class="cta-banner-content">
+      <h2>Support Your CSOs With Confidence</h2>
+      <p>Ask IU29 about Advisor responsibilities, reporting checkpoints, Cabinet participation, or program coordination.</p>
+      <div class="cta-banner-actions">
+        <a href="contact.html?interest=cso" class="btn btn-white btn-lg">Ask About CSO</a>
+        <a href="student-leadership.html" class="btn btn-outline-white btn-lg">Back to Student Leadership</a>
+      </div>
+    </div></div></section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/optimized/branding/StemAtSkook-logo-white.webp" alt="STEM@Skook29 Logo" class="footer-logo" width="600" height="300" decoding="async" loading="lazy">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" width="512" height="321" decoding="async">
+          <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=17+Maple+Ave%2C+Mar+Lin%2C+PA+17951" target="_blank" rel="noopener noreferrer">&#128205; 17 Maple Ave, Mar Lin, PA 17951</a>
+            <a href="tel:+15705449131">📞 (570) 544-9131</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html#competitions">Competitions</a></li>
+            <li><a href="programs.html#make">Make@Skook29</a></li>
+            <li><a href="student-leadership.html">Chief Science Officers</a></li>
+            <li><a href="programs.html#steels">STEELS@Skook29</a></li>
+            <li><a href="programs.html#edtech">EdTech &amp; AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="accessibility.html">Accessibility</a></li>
+            <li><a href="https://www.iu29.org/" target="_blank" rel="noopener noreferrer">IU29 Website</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

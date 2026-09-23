@@ -150,15 +150,6 @@
       margin-top: auto;
       align-self: flex-start;
     }
-    .coming-soon-note {
-      margin-top: 28px;
-      padding: 22px;
-      text-align: center;
-      background: var(--gray-50);
-      border: 1px dashed var(--gray-400);
-      border-radius: var(--radius-lg);
-      color: var(--gray-600);
-    }
     @media (max-width: 960px) {
       .cycle-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .scenario-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -452,7 +443,7 @@
         <div class="section-header">
           <span class="section-label">Explore the Program</span>
           <h2 class="section-title" id="explore-title">The Leadership Ecosystem Is Growing</h2>
-          <p class="section-subtitle">Explore the Action Plan and leadership-event guides now, with role-specific centers still in development.</p>
+          <p class="section-subtitle">Explore the process guides and role-specific centers that support the Chief Science Officers program.</p>
         </div>
         <div class="grid-3">
           <article class="card fade-in">
@@ -473,15 +464,15 @@
           </article>
           <article class="card fade-in">
             <div class="card-body" style="display: flex; flex-direction: column; height: 100%;">
-              <span class="card-tag">Coming Soon</span>
+              <span class="card-tag">Explore</span>
               <h3 class="card-title">Advisor &amp; Administrator Centers</h3>
               <p class="card-text">Practical support for the in-building adults who advise, approve, and sustain student leadership.</p>
-              <a href="#coming-soon" class="btn btn-secondary btn-sm preview-card-link">View Preview Status ↓</a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto;">
+                <a href="cso-advisor-center.html" class="btn btn-secondary btn-sm">Advisor Center →</a>
+                <a href="cso-administrator-center.html" class="btn btn-secondary btn-sm">Administrator Center →</a>
+              </div>
             </div>
           </article>
-        </div>
-        <div class="coming-soon-note" id="coming-soon" tabindex="-1">
-          <strong>Coming soon:</strong> The Advisor and Administrator Centers will be built in later patches using verified program documents. No empty or broken destination pages have been created.
         </div>
       </div>
     </section>

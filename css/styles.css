@@ -1485,6 +1485,13 @@ section {
   .two-col { gap: 40px; }
 }
 
+/* The expanded navigation includes the Living Lab links; collapse it before
+   the desktop row can exceed the viewport. */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
 @media (max-width: 768px) {
   :root {
     --section-pad: 64px;

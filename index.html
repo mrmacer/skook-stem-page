@@ -41,6 +41,7 @@
   </script>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/events-shared.css" />
+  <link rel="stylesheet" href="css/living-lab.css" />
   <style>
     /* ---- Hero two-column layout ---- */
     .hero-inner {
@@ -193,6 +194,19 @@
           </div>
         </div>
         <div class="nav-dropdown">
+          <a href="living-lab.html">Living Lab</a>
+          <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-living-lab-menu" aria-label="Toggle Living Lab menu"><span aria-hidden="true"></span></button>
+          <div class="nav-dropdown-menu" id="nav-living-lab-menu">
+            <a href="living-lab.html">Living Lab Home</a>
+            <a href="living-lab-explore.html">Explore</a>
+            <a href="living-lab-submit.html">Submit an Observation</a>
+            <a href="living-lab-map.html">Regional Map</a>
+            <a href="living-lab-dashboard.html">Regional Dashboard</a>
+            <a href="living-lab-investigations.html">Investigations</a>
+            <a href="living-lab-teacher-toolkit.html">Teacher Toolkit</a>
+          </div>
+        </div>
+        <div class="nav-dropdown">
           <a href="districts.html">Districts</a>
           <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="nav-districts-menu" aria-label="Toggle Districts menu"><span aria-hidden="true"></span></button>
           <div class="nav-dropdown-menu" id="nav-districts-menu">
@@ -259,6 +273,23 @@
         <a href="classroom-resources.html" class="mobile-subnav">Classroom Resources</a>
         <a href="phenomenon-sessions.html" class="mobile-subnav">Phenomenon Sessions</a>
         <a href="events.html#professional-learning" class="mobile-subnav">Professional Learning</a>
+      </div>
+    </div>
+
+    <div class="mobile-nav-group" data-mobile-nav-group>
+      <div class="mobile-nav-heading">
+        <a href="living-lab.html" class="mobile-nav-audience-link">Living Lab</a>
+        <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-living-lab-menu" aria-label="Toggle Living Lab menu">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="mobile-nav-panel" id="mobile-living-lab-menu" hidden>
+        <a href="living-lab-explore.html" class="mobile-subnav">Explore</a>
+        <a href="living-lab-submit.html" class="mobile-subnav">Submit an Observation</a>
+        <a href="living-lab-map.html" class="mobile-subnav">Regional Map</a>
+        <a href="living-lab-dashboard.html" class="mobile-subnav">Regional Dashboard</a>
+        <a href="living-lab-investigations.html" class="mobile-subnav">Investigations</a>
+        <a href="living-lab-teacher-toolkit.html" class="mobile-subnav">Teacher Toolkit</a>
       </div>
     </div>
 
@@ -631,6 +662,28 @@
     </div>
   </section>
 
+  <!-- SCHUYLKILL LIVING LAB PROMO -->
+  <section class="section-sm ll-texture" style="background: white;">
+    <div class="container">
+      <div class="ll-promo fade-in">
+        <span class="section-label" style="background: rgba(255,255,255,0.15); color: white;">New Regional Initiative</span>
+        <h2 style="font-family: var(--font-display); font-size: clamp(1.625rem, 3.5vw, 2.25rem); font-weight: 800; margin: 14px 0 12px;">Schuylkill Living Lab</h2>
+        <p style="font-size: 1.0625rem; color: rgba(255,255,255,0.82); line-height: 1.7; max-width: 640px;">
+          Schuylkill County is our science laboratory. Students across the region are observing
+          local ecosystems, asking questions, analyzing data, and using science to improve their
+          communities.
+        </p>
+        <div class="ll-promo-stats">
+          <div><div class="ll-promo-stat-value" id="ll-stat-schools">&mdash;</div><div class="ll-promo-stat-label">Schools</div></div>
+          <div><div class="ll-promo-stat-value" id="ll-stat-observations">&mdash;</div><div class="ll-promo-stat-label">Observations</div></div>
+          <div><div class="ll-promo-stat-value" id="ll-stat-species">&mdash;</div><div class="ll-promo-stat-label">Species</div></div>
+          <div><div class="ll-promo-stat-value" id="ll-stat-investigations">&mdash;</div><div class="ll-promo-stat-label">Investigations</div></div>
+        </div>
+        <a href="living-lab.html" class="btn btn-white btn-lg">Explore the Living Lab →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA BANNER -->
   <section class="cta-banner">
     <div class="container">
@@ -700,5 +753,7 @@
   <script src="js/main.js"></script>
   <script src="js/events-data.js"></script>
   <script src="js/events-renderer.js"></script>
+  <script src="assets/js/living-lab/supabase-client.js"></script>
+  <script src="assets/js/living-lab/home-stats.js"></script>
 </body>
 </html>

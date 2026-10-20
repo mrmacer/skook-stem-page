@@ -19,8 +19,8 @@
   max-width: 760px;
   margin: 20px auto 0;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid var(--gray-200);
+  color: var(--gray-700);
   font-size: 0.95rem;
 }
 
@@ -34,13 +34,13 @@
 
 .steels-library-page .library-stats div {
   padding: 16px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--white);
 }
 
 .steels-library-page .library-stats dt {
-  color: var(--white);
+  color: var(--purple-700);
   font-family: var(--font-display);
   font-size: clamp(1.35rem, 2.6vw, 2rem);
   font-weight: 800;
@@ -48,7 +48,7 @@
 }
 
 .steels-library-page .library-stats div:last-child dt { font-size: clamp(1rem, 1.8vw, 1.25rem); }
-.steels-library-page .library-stats dd { margin-top: 5px; color: rgba(255, 255, 255, 0.8); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+.steels-library-page .library-stats dd { margin-top: 5px; color: var(--gray-600); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
 .steels-library-page .library-error { margin-block: 64px; padding: 32px; border: 2px solid var(--purple-600); border-radius: var(--radius-lg); background: var(--purple-100); }
 .steels-library-page .library-error p { margin: 10px 0 20px; }
 .steels-library-page .library-collections { background: var(--white); }

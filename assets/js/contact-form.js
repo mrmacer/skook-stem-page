@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".contact-form");
   if (!form) return;
 
-  const interestSelect = form.querySelector("#interest-type");
+  const interestSelect = form.querySelector("#interest-type, #interest");
   const status = form.querySelector("#form-status");
   const submitButton = form.querySelector('button[type="submit"]');
   const recognizedInterests = new Set(
@@ -37,6 +37,33 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     if (submissionInProgress || !form.reportValidity()) return;
+
+    if (form.dataset.deliveryMode === "email") {
+      const data = Object.fromEntries(new FormData(form).entries());
+      const selectedInterest = interestSelect.options[interestSelect.selectedIndex];
+      const subjectTopic = selectedInterest?.value
+        ? selectedInterest.textContent.trim()
+        : "Website inquiry";
+      const body = [
+        `Name: ${data.first_name} ${data.last_name}`,
+        `Email: ${data.email}`,
+        `School / Organization: ${data.organization || "Not provided"}`,
+        `Role: ${form.querySelector("#role").selectedOptions[0].textContent}`,
+        `Interest: ${subjectTopic}`,
+        "",
+        "Message:",
+        data.message,
+      ].join("\n");
+
+      window.location.href =
+        `mailto:maceg@iu29.org?subject=${encodeURIComponent(`[STEM@Skook29] ${subjectTopic}`)}` +
+        `&body=${encodeURIComponent(body)}`;
+      showStatus(
+        "success",
+        "A draft should now be open in your email app. Review it and choose Send there.",
+      );
+      return;
+    }
 
     submissionInProgress = true;
     submitButton.disabled = true;

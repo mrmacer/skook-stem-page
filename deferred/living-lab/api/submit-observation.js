@@ -1,3 +1,4 @@
+// Deferred Living Lab source. Restore to api/submit-observation.js before release.
 // Schuylkill Living Lab -- observation submission.
 // Mirrors api/contact.js's style: Web-standard Edge fetch handler, no npm
 // dependencies. Writes go through the Supabase REST (PostgREST) API using

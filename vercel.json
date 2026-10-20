@@ -1,4 +1,6 @@
 {
+  "buildCommand": "python3 scripts/build_public_site.py && python3 scripts/check_site.py dist",
+  "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false
 }

@@ -1,0 +1,22 @@
+# Internal review and preservation material. These files belong in source control,
+# but they are not public website assets.
+docs/
+artifacts/
+dist/
+
+# Local Codex configuration and a development-only database seed.
+.claude/
+supabase/
+deferred/
+
+# Deferred Living Lab source. The public release is built from an explicit
+# allowlist as well, so these exclusions are defense in depth.
+living-lab.html
+living-lab-dashboard.html
+living-lab-explore.html
+living-lab-investigations.html
+living-lab-map.html
+living-lab-submit.html
+living-lab-teacher-toolkit.html
+css/living-lab.css
+assets/js/living-lab/

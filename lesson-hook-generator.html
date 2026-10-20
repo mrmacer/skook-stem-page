@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STEELS Lesson Hook Generator — STEM@Skook29</title>
+  <meta name="description" content="Use a lightweight local demonstration to generate a hands-on STEELS lesson hook by grade band, topic, and activity style." />
+  <link rel="icon" type="image/webp" href="assets/optimized/branding/StemAtSkook-logo.webp" />
+  <link rel="canonical" href="https://stem.mrmacer.com/lesson-hook-generator" />
+  <meta property="og:title" content="STEELS Lesson Hook Generator — STEM@Skook29" />
+  <meta property="og:description" content="Generate a ready-to-adapt STEELS lesson hook using a lightweight local demonstration." />
+  <meta property="og:type" content="website" /><meta property="og:url" content="https://stem.mrmacer.com/lesson-hook-generator" />
+  <meta property="og:image" content="https://stem.mrmacer.com/assets/branding/stem-skook29-social.png" />
+  <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="STEELS Lesson Hook Generator — STEM@Skook29" /><meta name="twitter:description" content="Generate a ready-to-adapt STEELS lesson hook using a lightweight local demonstration." /><meta name="twitter:image" content="https://stem.mrmacer.com/assets/branding/stem-skook29-social.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+  <nav class="navbar" aria-label="Primary navigation">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-brand logo-link" aria-label="STEM@Skook29 home">
+        <img src="assets/optimized/branding/iu29-logo.webp" alt="Schuylkill IU29" class="iu29-logo" width="512" height="321" decoding="async">
+        <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29" class="site-logo" width="600" height="300" decoding="async">
+      </a>
+      <div class="nav-links">
+        <a href="students.html" data-nav-section="students">Student Programs</a>
+        <a href="teachers.html" data-nav-section="educators">Educator Support</a>
+        <a href="classroom-resources.html" data-nav-section="resources">Resources</a>
+        <a href="events.html" data-nav-section="events">Events</a>
+        <a href="connect.html" class="nav-cta" data-nav-section="connect">Connect</a>
+      </div>
+      <button class="nav-hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
+    <a href="index.html" data-nav-section="home">Home</a>
+    <a href="students.html" data-nav-section="students">Student Programs</a>
+    <a href="teachers.html" data-nav-section="educators">Educator Support</a>
+    <a href="classroom-resources.html" data-nav-section="resources">Resources</a>
+    <a href="events.html" data-nav-section="events">Events</a>
+    <a href="connect.html" data-nav-section="connect">Connect</a>
+  </nav>
+</header>
+  <main id="main-content" tabindex="-1">
+    <section class="page-hero"><div class="container"><div class="page-hero-content"><div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="teachers.html">Educator Support</a><span>›</span><span>Lesson Hook Generator</span></div><div class="page-hero-label">Experimental Tool</div><h1 class="page-hero-title">STEELS Lesson Hook Generator</h1><p class="page-hero-subtitle">A lightweight demonstration using prewritten local logic. No login is required and no student data should be entered.</p></div></div></section>
+      <!-- LESSON HOOK GENERATOR (featured) -->
+  <section id="lesson-hook-generator" style="background: var(--gradient-subtle); padding: var(--section-pad) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Interactive Tool</span>
+        <h2 class="section-title">STEELS Lesson Hook Generator</h2>
+        <p class="section-subtitle">Try a lightweight AI-style planning tool built to spark STEELS-aligned lesson ideas. Select a grade band, topic, and activity style — then generate a ready-to-adapt hook.</p>
+      </div>
+
+      <div class="hook-generator hook-generator-featured">
+        <div class="hook-intro" role="note">
+          <span class="hook-intro-icon" aria-hidden="true">💡</span>
+          <p class="hook-intro-text">Choose your options below and hit <strong>Generate Lesson Hook</strong> to get an opening question, hands-on activity idea, STEELS connection, and more — instantly.</p>
+        </div>
+
+        <div class="hook-form">
+          <div class="hook-field-group">
+            <label class="hook-label" for="hook-grade-featured">Grade Band</label>
+            <select class="hook-select" id="hook-grade-featured" data-hook-grade>
+              <option value="k2">K–2</option>
+              <option value="g35">3–5</option>
+              <option value="g68" selected>6–8</option>
+              <option value="g912">9–12</option>
+            </select>
+          </div>
+          <div class="hook-field-group">
+            <label class="hook-label" for="hook-topic-featured">Topic</label>
+            <select class="hook-select" id="hook-topic-featured" data-hook-topic>
+              <option value="forces">Forces &amp; Motion</option>
+              <option value="eco">Ecosystems</option>
+              <option value="weather">Weather &amp; Climate</option>
+              <option value="earth">Earth Systems</option>
+              <option value="energy">Energy</option>
+              <option value="engineering">Engineering Design</option>
+              <option value="robotics">Robotics &amp; Coding</option>
+              <option value="enviro">Environmental Literacy</option>
+            </select>
+          </div>
+          <div class="hook-field-group">
+            <label class="hook-label" for="hook-style-featured">Activity Style</label>
+            <select class="hook-select" id="hook-style-featured" data-hook-style>
+              <option value="quick">Quick Hook</option>
+              <option value="hands">Hands-On Challenge</option>
+              <option value="invest">Student Investigation</option>
+              <option value="sprint">Design Sprint</option>
+              <option value="realworld">Real-World Problem</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="hook-generate-row">
+          <button class="btn btn-primary btn-lg" type="button" data-hook-generate>
+            Generate Lesson Hook
+          </button>
+        </div>
+
+        <div data-hook-output hidden aria-live="polite" aria-label="Generated lesson hook"></div>
+      </div>
+
+      <p style="text-align: center; margin-top: 28px; font-size: 0.9375rem; color: var(--gray-500);">
+        This demonstration uses prewritten local logic, not a live external AI service.
+        <a href="privacy.html" style="color: var(--purple-600); font-weight: 600;">Do not enter student information. Read the privacy statement →</a>
+      </p>
+    </div>
+  </section>
+    <section class="cta-banner"><div class="container"><div class="cta-banner-content"><h2>Need support beyond a generated idea?</h2><p>Explore the resource libraries or ask IU29 about standards and instructional support.</p><div class="cta-banner-actions"><a href="classroom-resources.html" class="btn btn-white">Browse Resources</a><a href="contact.html?interest=steels" class="btn btn-outline-white">Request STEELS Support</a></div></div></div></section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="assets/optimized/branding/StemAtSkook-logo-white.webp" alt="STEM@Skook29 Logo" class="footer-logo" width="600" height="300" decoding="async" loading="lazy">
+          <img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" width="512" height="321" decoding="async" />
+          <p>Building the future of STEM learning in Schuylkill County — connecting students, educators, and communities through innovation and opportunity.</p>
+          <div class="footer-contact">
+            <a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=17+Maple+Ave%2C+Mar+Lin%2C+PA+17951" target="_blank" rel="noopener noreferrer">&#128205; 17 Maple Ave, Mar Lin, PA 17951</a>
+            <a href="tel:+15705449131">📞 (570) 544-9131</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>For You</h4>
+          <ul>
+            <li><a href="students.html">Students</a></li>
+            <li><a href="teachers.html">Teachers</a></li>
+            <li><a href="districts.html">Administrators</a></li>
+            <li><a href="community.html">Community Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html#competitions">Competitions</a></li>
+            <li><a href="programs.html#make">Make@Skook29</a></li>
+            <li><a href="student-leadership.html">Chief Science Officers</a></li>
+            <li><a href="programs.html#steels">STEELS@Skook29</a></li>
+            <li><a href="programs.html#edtech">EdTech & AI</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="accessibility.html">Accessibility</a></li>
+
+            <li><a href="https://www.iu29.org/" target="_blank" rel="noopener noreferrer">IU29 Website</a></li></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="assets/js/lesson-hook-generator.js"></script>
+</body>
+</html>

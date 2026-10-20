@@ -3,15 +3,18 @@
   "use strict";
 
   const events = Array.isArray(window.STEM_EVENTS) ? window.STEM_EVENTS : [];
-  const monthFormatter = new Intl.DateTimeFormat("en-US", { month: "short" });
+  const SITE_TIME_ZONE = "America/New_York";
+  const monthFormatter = new Intl.DateTimeFormat("en-US", { month: "short", timeZone: SITE_TIME_ZONE });
   const longDateFormatter = new Intl.DateTimeFormat("en-US", {
     month: "long",
     day: "numeric",
-    year: "numeric"
+    year: "numeric",
+    timeZone: SITE_TIME_ZONE
   });
   const monthYearFormatter = new Intl.DateTimeFormat("en-US", {
     month: "long",
-    year: "numeric"
+    year: "numeric",
+    timeZone: SITE_TIME_ZONE
   });
   const categoryDescriptions = {
     "student-events": "Hands-on summer experiences where students build, create, design, code, and explore real STEM tools and technologies.",
@@ -22,23 +25,41 @@
 
   function parseDate(value) {
     if (!value) return null;
-    if (/^\d{4}-\d{2}$/.test(value)) return new Date(`${value}-01T00:00:00`);
-    if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return new Date(`${value}T00:00:00`);
+    if (/^\d{4}-\d{2}$/.test(value)) return new Date(`${value}-15T12:00:00Z`);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return new Date(`${value}T12:00:00Z`);
     const parsed = new Date(value);
     return Number.isNaN(parsed.getTime()) ? null : parsed;
   }
 
-  function monthKey(date) {
-    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}`;
+  function siteDateKey(date = new Date()) {
+    const parts = new Intl.DateTimeFormat("en-US", {
+      timeZone: SITE_TIME_ZONE,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(date);
+    const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+    return `${values.year}-${values.month}-${values.day}`;
   }
 
   function isUpcoming(event, now = new Date()) {
     if (event.status !== "scheduled") return false;
-    if ((event.dateStatus || (event.startDate ? "confirmed" : "tbd")) !== "confirmed") return false;
+    if (event.dateStatus !== "confirmed") return false;
     const start = parseDate(event.startDate);
     if (!start) return false;
-    if (event.datePrecision === "month") return monthKey(start) >= monthKey(now);
-    return start.getTime() >= now.getTime();
+    const today = siteDateKey(now);
+    if (event.datePrecision === "month") return event.startDate >= today.slice(0, 7);
+    if (/^\d{4}-\d{2}-\d{2}$/.test(event.startDate)) {
+      const finalDate = /^\d{4}-\d{2}-\d{2}$/.test(event.endDate || "") ? event.endDate : event.startDate;
+      return finalDate >= today;
+    }
+    const end = parseDate(event.endDate) || start;
+    return end.getTime() >= now.getTime();
+  }
+
+  function isPast(event, now = new Date()) {
+    const hasConfirmedDate = event.dateStatus === "confirmed";
+    return event.status === "scheduled" && hasConfirmedDate && Boolean(parseDate(event.startDate)) && !isUpcoming(event, now);
   }
 
   function sortEvents(list) {
@@ -89,14 +110,15 @@
     return event.location;
   }
 
-  function getEvents({ upcomingOnly = true, ecosystemOnly = false, limit = 0 } = {}) {
+  function getEvents({ upcomingOnly = true, pastOnly = false, ecosystemOnly = false, limit = 0 } = {}) {
     let list = events.filter(event => !ecosystemOnly || event.ecosystemRelevant);
-    if (upcomingOnly) list = list.filter(event => isUpcoming(event));
+    if (pastOnly) list = list.filter(event => isPast(event));
+    else if (upcomingOnly) list = list.filter(event => isUpcoming(event));
     list = sortEvents(list);
     return limit > 0 ? list.slice(0, limit) : list;
   }
 
-  function eventCard(event, featured = false) {
+  function eventCard(event, featured = false, allowRegistration = true) {
     const box = formatDateBox(event);
     const locationLabel = event.location ? `📍 ${event.locationShort || formatLocation(event)}` : event.locationStatus === "tbd" ? "📍 Location TBD" : "";
     const timeLabel = event.allDay || (event.startTime && !event.sessionBlocks)
@@ -112,8 +134,14 @@
     ].filter(Boolean);
     const sessionBlocks = (event.sessionBlocks || []).map(block => `<li><strong>${escapeHtml(block.label)}:</strong> ${escapeHtml(block.startTime)}–${escapeHtml(block.endTime)}</li>`).join("");
     const actions = [];
-    if (event.registrationUrl) actions.push(`<a class="btn btn-primary btn-sm" href="${escapeHtml(event.registrationUrl)}" target="_blank" rel="noopener noreferrer">Register</a>`);
+    const registrationIsConfirmedOpen = event.registrationStatus === "confirmed-open";
+    if (allowRegistration && event.registrationUrl && registrationIsConfirmedOpen) actions.push(`<a class="btn btn-primary btn-sm" href="${escapeHtml(event.registrationUrl)}" target="_blank" rel="noopener noreferrer">Register</a>`);
     if (event.detailsUrl) actions.push(`<a class="btn btn-secondary btn-sm" href="${escapeHtml(event.detailsUrl)}">Details</a>`);
+    const registrationNote = allowRegistration && event.registrationStatus === "unverified"
+      ? '<p class="event-registration-note">Registration status has not been confirmed.</p>'
+      : allowRegistration && event.registrationStatus === "closed"
+        ? '<p class="event-registration-note">Registration is closed.</p>'
+        : "";
     return `<article class="event-card${featured ? " event-card-featured" : ""}" data-event-id="${escapeHtml(event.id)}">
       <div class="event-date-box" aria-label="${escapeHtml(formatDate(event))}">
         <div class="event-date-month" aria-hidden="true">${escapeHtml(box.month)}</div>
@@ -125,6 +153,7 @@
         <p class="event-meta"><span class="sr-only">Date: </span>${escapeHtml(formatDate(event))}${meta.length ? ` <span aria-hidden="true">·</span> ${meta.map(escapeHtml).join(" <span aria-hidden=\"true\">·</span> ")}` : ""}</p>
         ${sessionBlocks ? `<ul class="event-session-blocks" aria-label="Session times">${sessionBlocks}</ul>` : ""}
         ${event.description ? `<p class="event-description">${escapeHtml(event.description)}</p>` : ""}
+        ${registrationNote}
         ${actions.length ? `<div class="event-card-actions">${actions.join("")}</div>` : ""}
       </div>
     </article>`;
@@ -143,8 +172,7 @@
   }
 
   function renderEventPage(container) {
-    const includePast = container.dataset.includePast === "true";
-    const list = getEvents({ upcomingOnly: !includePast });
+    const list = getEvents({ upcomingOnly: true });
     const groups = ["student-events", "professional-learning", "community-events", "competitions"];
     container.innerHTML = groups.map(groupId => {
       const groupEvents = list.filter(event => event.categoryGroup === groupId);
@@ -157,6 +185,15 @@
       </section>`;
     }).join("");
     if (!container.innerHTML.trim()) container.innerHTML = '<p class="event-empty">There are no events listed right now.</p>';
+  }
+
+  function renderPastEvents(container) {
+    const list = getEvents({ upcomingOnly: false, pastOnly: true }).reverse();
+    if (!list.length) {
+      container.innerHTML = '<p class="event-empty">No past events are listed.</p>';
+      return;
+    }
+    container.innerHTML = list.map(event => eventCard(event, false, false)).join("");
   }
 
   function addSchema() {
@@ -186,9 +223,10 @@
     document.head.appendChild(script);
   }
 
-  window.STEMEventTools = { events, getEvents, isUpcoming, parseDate, renderList };
+  window.STEMEventTools = { events, getEvents, isUpcoming, isPast, parseDate, renderList };
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-event-page]").forEach(renderEventPage);
+    document.querySelectorAll("[data-past-events]").forEach(renderPastEvents);
     document.querySelectorAll("[data-event-list]").forEach(renderList);
     addSchema();
   });

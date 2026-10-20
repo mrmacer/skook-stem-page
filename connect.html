@@ -209,113 +209,48 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
-    <nav class="navbar" aria-label="Primary navigation">
-      <div class="navbar-inner">
-        <div class="nav-brand">
-          <a href="index.html" class="logo-link"><img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="iu29-logo" width="512" height="321" decoding="async"></a>
-          <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29 Logo" class="site-logo" width="600" height="300" decoding="async">
-        </div>
-        <div class="nav-links">
-          <a href="index.html">Home</a>
-          <a href="students.html">Students</a>
-          <a href="teachers.html">Teachers</a>
-          <a href="living-lab.html">Living Lab</a>
-          <a href="community.html" class="active">Community</a>
-          <a href="events.html">Events</a>
-          <a href="contact.html" class="nav-cta">Contact Us</a>
-        </div>
-        <button class="nav-hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-navigation"><span></span><span></span><span></span></button>
+  <nav class="navbar" aria-label="Primary navigation">
+    <div class="navbar-inner">
+      <a href="index.html" class="nav-brand logo-link" aria-label="STEM@Skook29 home">
+        <img src="assets/optimized/branding/iu29-logo.webp" alt="Schuylkill IU29" class="iu29-logo" width="512" height="321" decoding="async">
+        <img src="assets/optimized/branding/StemAtSkook-logo.webp" alt="STEM@Skook29" class="site-logo" width="600" height="300" decoding="async">
+      </a>
+      <div class="nav-links">
+        <a href="students.html" data-nav-section="students">Student Programs</a>
+        <a href="teachers.html" data-nav-section="educators">Educator Support</a>
+        <a href="classroom-resources.html" data-nav-section="resources">Resources</a>
+        <a href="events.html" data-nav-section="events">Events</a>
+        <a href="connect.html" class="nav-cta" data-nav-section="connect">Connect</a>
       </div>
-    </nav>
-    <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
-      <div class="mobile-nav-quick-links"><a href="index.html">Home</a><a href="events.html">Events</a><a href="contact.html">Contact</a></div>
-      <a href="students.html">Students</a>
-      <a href="teachers.html">Teachers</a>
-      <a href="living-lab.html">Living Lab</a>
-      <a href="community.html" class="active">Community Hub</a>
-      <a href="events.html">Events / Calendar</a>
-    </nav>
-  </header>
+      <button class="nav-hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation">
+    <a href="index.html" data-nav-section="home">Home</a>
+    <a href="students.html" data-nav-section="students">Student Programs</a>
+    <a href="teachers.html" data-nav-section="educators">Educator Support</a>
+    <a href="classroom-resources.html" data-nav-section="resources">Resources</a>
+    <a href="events.html" data-nav-section="events">Events</a>
+    <a href="connect.html" data-nav-section="connect">Connect</a>
+  </nav>
+</header>
 
   <main id="main-content" tabindex="-1">
-    <section class="connect-hero">
-      <div class="container">
-        <div class="connect-hero-content">
-          <span class="connect-eyebrow">Schuylkill STEM Ecosystem</span>
-          <h1>Let's Build What's Next — Together.</h1>
-          <p>STEM@Skook29 connects schools, businesses, higher education, workforce organizations, nonprofits, government, and community partners to create more opportunities for students across Schuylkill County.</p>
-          <p>If Greg sent you this page, it is probably because your organization has something valuable to bring to that conversation.</p>
-          <div class="connect-hero-actions">
-            <a href="#whats-next" class="btn btn-white btn-lg">See What's Happening</a>
-            <a href="#interest" class="btn btn-outline-white btn-lg">I'm Interested</a>
-            <a href="community.html#partner-hub" class="connect-link">Explore the Full Community Hub →</a>
-          </div>
+    <section class="page-hero">
+      <div class="container"><div class="page-hero-content"><div class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Connect</span></div><div class="page-hero-label">Schools &amp; Community Partners</div><h1 class="page-hero-title">Start with a useful conversation.</h1><p class="page-hero-subtitle">Request school or district support, ask about a student program, or offer time, expertise, space, or materials.</p></div></div>
+    </section>
+    <section class="home-section" aria-labelledby="partner-title">
+      <div class="container"><div class="home-section-heading"><span class="home-kicker">Ways to partner</span><h2 id="partner-title">Choose a concrete place to begin.</h2><p>A short note is enough. IU29 can help shape the next step around what is realistic for your organization.</p></div>
+        <div class="home-route-grid">
+          <a class="home-route" href="#interest"><span class="home-kicker">Share your experience</span><h3>Judge or Mentor</h3><p>Support a student competition, project, or career-connected learning experience.</p><span class="home-route-link">Offer to judge or mentor →</span></a>
+          <a class="home-route" href="#interest"><span class="home-kicker">Open a door</span><h3>Host a Workplace Experience</h3><p>Help students and educators see how STEM work happens in the region.</p><span class="home-route-link">Discuss a workplace experience →</span></a>
+          <a class="home-route" href="#interest"><span class="home-kicker">Strengthen an experience</span><h3>Contribute Materials or Expertise</h3><p>Offer equipment, supplies, technical knowledge, or help with a defined student need.</p><span class="home-route-link">Share what you can offer →</span></a>
         </div>
       </div>
     </section>
-
-    <section class="connect-section" aria-labelledby="what-is-this-title">
-      <div class="container">
-        <div class="connect-intro">
-          <span class="section-label">What is this?</span>
-          <h2 class="section-title" id="what-is-this-title">A network for the people shaping STEM in our region.</h2>
-          <p>We are building connections between the people teaching STEM, the people doing STEM, and the organizations creating opportunities around STEM.</p>
-        </div>
-        <div class="connect-three">
-          <article class="connect-card"><span class="connect-card-number">01 / CONNECT</span><h3>Meet the ecosystem.</h3><p>Meet educators, employers, organizations, and community leaders working across Schuylkill County.</p></article>
-          <article class="connect-card"><span class="connect-card-number">02 / COLLABORATE</span><h3>Find the overlap.</h3><p>Identify needs, resources, expertise, and opportunities that make sense to bring together.</p></article>
-          <article class="connect-card"><span class="connect-card-number">03 / BUILD</span><h3>Make something useful.</h3><p>Turn those connections into student experiences, partnerships, projects, programs, and opportunities.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="connect-section connect-section-muted" aria-labelledby="participation-title">
-      <div class="container">
-        <div class="connect-intro">
-          <span class="section-label orange">No single level of commitment</span>
-          <h2 class="section-title" id="participation-title">What participation can look like</h2>
-          <p>You do not have to sign up for another standing committee. Start with what fits your organization right now.</p>
-        </div>
-        <ul class="connect-list" aria-label="Ways to participate">
-          <li>Attend an ecosystem gathering</li>
-          <li>Share expertise or industry insight</li>
-          <li>Host or support a student experience</li>
-          <li>Connect educators with people doing the work</li>
-          <li>Collaborate on a project or challenge</li>
-          <li>Share equipment, facilities, resources, or opportunities</li>
-          <li>Help identify workforce needs</li>
-          <li>Sponsor or support an initiative</li>
-          <li>Come listen and see where your organization fits</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="whats-next" class="connect-section" aria-labelledby="whats-next-title">
-      <div class="container">
-        <div class="connect-calendar-header">
-          <div><span class="connect-next-label">Next event</span><h2 class="section-title" id="whats-next-title">What's Happening Next</h2></div>
-          <a href="events.html" class="btn btn-secondary">See the Full Calendar →</a>
-        </div>
-        <div class="event-list" data-event-list data-limit="4" data-ecosystem-only="true" data-featured-first="true"></div>
-      </div>
-    </section>
-
-    <section class="connect-section connect-section-muted" aria-labelledby="audiences-title">
-      <div class="container">
-        <div class="connect-intro"><span class="section-label">Who belongs here?</span><h2 class="section-title" id="audiences-title">If this sounds like you, you're in the right place.</h2></div>
-        <div class="connect-audiences">
-          <div class="connect-audience">Schools &amp; Educators</div>
-          <div class="connect-audience">Business &amp; Industry</div>
-          <div class="connect-audience">Higher Education</div>
-          <div class="connect-audience">Workforce Development</div>
-          <div class="connect-audience">Nonprofits &amp; Community Organizations</div>
-          <div class="connect-audience">Government &amp; Public Agencies</div>
-          <div class="connect-audience">Environmental &amp; Conservation Organizations</div>
-          <div class="connect-audience">Makers, Entrepreneurs &amp; Technical Experts</div>
-        </div>
-      </div>
-    </section>
-
+    <section id="whats-next" class="home-section home-section-muted" aria-labelledby="whats-next-title"><div class="container"><div class="home-section-heading"><span class="home-kicker">Coming up</span><h2 id="whats-next-title">Community and partnership events</h2><p>Confirmed items below come from the shared Events calendar.</p></div><div class="event-list" data-event-list data-limit="3" data-ecosystem-only="true" data-featured-first="true"></div><div class="home-actions"><a href="events.html#community-events" class="btn btn-secondary">View Community Events</a></div></div></section>
     <section id="interest" class="connect-section" aria-labelledby="interest-title">
       <div class="container connect-form-wrap">
         <div class="connect-form-intro">
@@ -343,15 +278,7 @@
         </form>
       </div>
     </section>
-
-    <section class="connect-section connect-deeper" aria-labelledby="deeper-title">
-      <div class="container">
-        <span class="section-label" style="background: rgba(255,255,255,0.12); color: #fed7aa;">Want the full picture?</span>
-        <h2 class="section-title" id="deeper-title">Keep exploring the Community Hub.</h2>
-        <p>The Community Hub contains deeper ecosystem information, partnership opportunities, organizations, resources, and ongoing work.</p>
-        <div class="connect-deeper-actions"><a href="community.html#partner-hub" class="btn btn-white btn-lg">Explore the Community Hub →</a><a href="community.html" class="connect-link">See the whole Commons</a></div>
-      </div>
-    </section>
+    <section class="home-section home-section-muted" aria-labelledby="community-detail-title"><div class="container home-connect-grid"><div class="home-copy"><span class="home-kicker">Need the deeper regional picture?</span><h2 id="community-detail-title" class="section-title" style="text-align:left;">The Community Hub remains available.</h2><p>Use the full Community page for the ecosystem map, regional context, partner information, and ongoing community work.</p></div><div class="home-actions"><a href="community.html" class="btn btn-secondary">Explore the Community Hub</a><a href="contact.html" class="btn btn-secondary">Use the Detailed Contact Form</a></div></div></section>
   </main>
 
   <footer class="footer">
@@ -360,7 +287,8 @@
         <div class="footer-brand"><img src="assets/optimized/branding/StemAtSkook-logo-white.webp" alt="STEM@Skook29 Logo" class="footer-logo" width="600" height="300" decoding="async" loading="lazy"><img src="assets/optimized/branding/iu29-logo.webp" alt="IU29 Logo" class="footer-iu29-logo" loading="lazy" width="512" height="321" decoding="async"><p>Building the future of STEM learning in Schuylkill County—connecting students, educators, and communities through innovation and opportunity.</p><div class="footer-contact"><a href="mailto:maceg@iu29.org">✉ maceg@iu29.org</a><a href="tel:+15705449131">📞 (570) 544-9131</a></div></div>
         <div class="footer-col"><h4>For You</h4><ul><li><a href="students.html">Students</a></li><li><a href="teachers.html">Teachers</a></li><li><a href="districts.html">Administrators</a></li><li><a href="community.html">Community Partners</a></li></ul></div>
         <div class="footer-col"><h4>Programs</h4><ul><li><a href="programs.html#competitions">Competitions</a></li><li><a href="programs.html#make">Make@Skook29</a></li><li><a href="student-leadership.html">Chief Science Officers</a></li><li><a href="programs.html#steels">STEELS@Skook29</a></li></ul></div>
-        <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="accessibility.html">Accessibility</a></li></ul></div>
+        <div class="footer-col"><h4>Organization</h4><ul><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="accessibility.html">Accessibility</a></li>
+            <li><a href="https://www.iu29.org/" target="_blank" rel="noopener noreferrer">IU29 Website</a></li></ul></div>
       </div>
       <div class="footer-bottom"><p>© 2026 STEM@Skook29 · Schuylkill Intermediate Unit 29</p></div>
     </div>

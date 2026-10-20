@@ -1,3 +1,4 @@
+// Deferred Living Lab source. Restore to api/submit-investigation.js before release.
 // Schuylkill Living Lab -- investigation submission.
 // Same architecture as api/submit-observation.js: server-side insert with
 // the Supabase service-role key, no client-exposed credentials.

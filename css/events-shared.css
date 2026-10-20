@@ -85,6 +85,13 @@
   margin-top: 14px;
 }
 
+.event-registration-note {
+  margin: 10px 0 0;
+  color: var(--gray-600);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
 .event-empty {
   padding: 28px;
   border: 1px dashed var(--gray-300);

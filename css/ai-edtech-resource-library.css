@@ -22,13 +22,13 @@
   padding: 14px 18px;
   border-left: 4px solid var(--orange-500);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.9);
+  background: var(--white);
+  color: var(--gray-700);
   line-height: 1.65;
 }
 
 .ai-library-page .library-disclaimer {
-  border-left-color: rgba(255, 255, 255, 0.7);
+  border-left-color: var(--purple-600);
   font-size: 0.88rem;
 }
 
@@ -39,20 +39,20 @@
   max-width: 900px;
   margin-top: 28px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  border: 1px solid var(--gray-200);
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--gray-200);
 }
 
 .ai-library-page .library-stats div {
   min-height: 86px;
   padding: 16px 12px;
-  background: rgba(30, 10, 15, 0.35);
+  background: var(--white);
   text-align: center;
 }
 
 .ai-library-page .library-stats dt {
-  color: var(--white);
+  color: var(--purple-700);
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2.2vw, 1.8rem);
   font-weight: 800;
@@ -60,7 +60,7 @@
 
 .ai-library-page .library-stats dd {
   margin-top: 5px;
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--gray-600);
   font-size: 0.69rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -98,6 +98,24 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+.ai-library-page .collection-more {
+  margin-top: 18px;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  background: var(--gray-50);
+}
+
+.ai-library-page .collection-more > summary {
+  padding: 16px 20px;
+  color: var(--purple-700);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.ai-library-page .collection-more .collection-grid {
+  padding: 0 18px 18px;
 }
 
 .ai-library-page .collection-button {

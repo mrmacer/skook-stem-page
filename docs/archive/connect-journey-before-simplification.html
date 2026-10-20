@@ -1,0 +1,117 @@
+<!-- Source archive only. Not linked from the public site. -->
+  <main id="main-content" tabindex="-1">
+    <section class="connect-hero">
+      <div class="container">
+        <div class="connect-hero-content">
+          <span class="connect-eyebrow">Schuylkill STEM Ecosystem</span>
+          <h1>Let's Build What's Next — Together.</h1>
+          <p>STEM@Skook29 connects schools, businesses, higher education, workforce organizations, nonprofits, government, and community partners to create more opportunities for students across Schuylkill County.</p>
+          <p>If Greg sent you this page, it is probably because your organization has something valuable to bring to that conversation.</p>
+          <div class="connect-hero-actions">
+            <a href="#whats-next" class="btn btn-white btn-lg">See What's Happening</a>
+            <a href="#interest" class="btn btn-outline-white btn-lg">I'm Interested</a>
+            <a href="community.html#partner-hub" class="connect-link">Explore the Full Community Hub →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="connect-section" aria-labelledby="what-is-this-title">
+      <div class="container">
+        <div class="connect-intro">
+          <span class="section-label">What is this?</span>
+          <h2 class="section-title" id="what-is-this-title">A network for the people shaping STEM in our region.</h2>
+          <p>We are building connections between the people teaching STEM, the people doing STEM, and the organizations creating opportunities around STEM.</p>
+        </div>
+        <div class="connect-three">
+          <article class="connect-card"><span class="connect-card-number">01 / CONNECT</span><h3>Meet the ecosystem.</h3><p>Meet educators, employers, organizations, and community leaders working across Schuylkill County.</p></article>
+          <article class="connect-card"><span class="connect-card-number">02 / COLLABORATE</span><h3>Find the overlap.</h3><p>Identify needs, resources, expertise, and opportunities that make sense to bring together.</p></article>
+          <article class="connect-card"><span class="connect-card-number">03 / BUILD</span><h3>Make something useful.</h3><p>Turn those connections into student experiences, partnerships, projects, programs, and opportunities.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="connect-section connect-section-muted" aria-labelledby="participation-title">
+      <div class="container">
+        <div class="connect-intro">
+          <span class="section-label orange">No single level of commitment</span>
+          <h2 class="section-title" id="participation-title">What participation can look like</h2>
+          <p>You do not have to sign up for another standing committee. Start with what fits your organization right now.</p>
+        </div>
+        <ul class="connect-list" aria-label="Ways to participate">
+          <li>Attend an ecosystem gathering</li>
+          <li>Share expertise or industry insight</li>
+          <li>Host or support a student experience</li>
+          <li>Connect educators with people doing the work</li>
+          <li>Collaborate on a project or challenge</li>
+          <li>Share equipment, facilities, resources, or opportunities</li>
+          <li>Help identify workforce needs</li>
+          <li>Sponsor or support an initiative</li>
+          <li>Come listen and see where your organization fits</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="whats-next" class="connect-section" aria-labelledby="whats-next-title">
+      <div class="container">
+        <div class="connect-calendar-header">
+          <div><span class="connect-next-label">Next event</span><h2 class="section-title" id="whats-next-title">What's Happening Next</h2></div>
+          <a href="events.html" class="btn btn-secondary">See the Full Calendar →</a>
+        </div>
+        <div class="event-list" data-event-list data-limit="4" data-ecosystem-only="true" data-featured-first="true"></div>
+      </div>
+    </section>
+
+    <section class="connect-section connect-section-muted" aria-labelledby="audiences-title">
+      <div class="container">
+        <div class="connect-intro"><span class="section-label">Who belongs here?</span><h2 class="section-title" id="audiences-title">If this sounds like you, you're in the right place.</h2></div>
+        <div class="connect-audiences">
+          <div class="connect-audience">Schools &amp; Educators</div>
+          <div class="connect-audience">Business &amp; Industry</div>
+          <div class="connect-audience">Higher Education</div>
+          <div class="connect-audience">Workforce Development</div>
+          <div class="connect-audience">Nonprofits &amp; Community Organizations</div>
+          <div class="connect-audience">Government &amp; Public Agencies</div>
+          <div class="connect-audience">Environmental &amp; Conservation Organizations</div>
+          <div class="connect-audience">Makers, Entrepreneurs &amp; Technical Experts</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="interest" class="connect-section" aria-labelledby="interest-title">
+      <div class="container connect-form-wrap">
+        <div class="connect-form-intro">
+          <span class="section-label orange">Start with a conversation</span>
+          <h2 class="section-title" id="interest-title">I'm interested.</h2>
+          <p>Tell Greg a little about yourself and what caught your attention. A short note is enough—we can figure out the next step together.</p>
+          <p>No giant organizational profile. No required commitment.</p>
+        </div>
+        <form class="connect-form contact-form" action="/api/contact" method="post">
+          <div class="connect-form-row">
+            <div class="connect-form-group"><label for="first_name">First name <span class="required">*</span></label><input id="first_name" name="first_name" autocomplete="given-name" required></div>
+            <div class="connect-form-group"><label for="last_name">Last name <span class="required">*</span></label><input id="last_name" name="last_name" autocomplete="family-name" required></div>
+          </div>
+          <div class="connect-form-group"><label for="organization">Organization</label><input id="organization" name="organization" autocomplete="organization"></div>
+          <div class="connect-form-row">
+            <div class="connect-form-group"><label for="email">Email <span class="required">*</span></label><input id="email" type="email" name="email" autocomplete="email" required></div>
+            <div class="connect-form-group"><label for="role">Role / title <span class="required">*</span></label><select id="role" name="role" required><option value="">Choose one</option><option value="community">Community partner</option><option value="business">Business / industry</option><option value="teacher">Educator</option><option value="administrator">Administrator</option><option value="other">Other</option></select></div>
+          </div>
+          <div class="connect-form-group"><label for="interest-type">I'm interested in... <span class="required">*</span></label><select id="interest-type" name="interest" required><option value="">Choose one</option><option value="listening-session">Attending a gathering</option><option value="student-experience">Student opportunities</option><option value="partnership">Classroom / educator partnerships</option><option value="community-opportunity">Workforce connections</option><option value="speaker">Sharing expertise</option><option value="materials">Sponsorship / resources</option><option value="general">I'm not sure yet — let's talk</option></select></div>
+          <div class="connect-form-group"><label for="message">Anything you'd like Greg to know? <span class="required">*</span></label><textarea id="message" name="message" placeholder="A sentence or two is plenty." required></textarea></div>
+          <div class="connect-form-honeypot" aria-hidden="true"><label for="website">Leave this field blank</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+          <p class="connect-form-note">Your information is used to respond to your request. Please do not submit student information. Read our <a href="privacy.html">Privacy statement</a>.</p>
+          <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
+          <button type="submit" class="btn btn-primary">Let's Connect →</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="connect-section connect-deeper" aria-labelledby="deeper-title">
+      <div class="container">
+        <span class="section-label" style="background: rgba(255,255,255,0.12); color: #fed7aa;">Want the full picture?</span>
+        <h2 class="section-title" id="deeper-title">Keep exploring the Community Hub.</h2>
+        <p>The Community Hub contains deeper ecosystem information, partnership opportunities, organizations, resources, and ongoing work.</p>
+        <div class="connect-deeper-actions"><a href="community.html#partner-hub" class="btn btn-white btn-lg">Explore the Community Hub →</a><a href="community.html" class="connect-link">See the whole Commons</a></div>
+      </div>
+    </section>
+  </main>

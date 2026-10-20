@@ -26,92 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Desktop/tablet audience dropdown disclosures ---
-  const desktopDropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-
-  const setDesktopDropdownState = (dropdown, open) => {
-    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
-    if (!toggle) return;
-    dropdown.classList.toggle('is-open', open);
-    toggle.setAttribute('aria-expanded', String(open));
-  };
-
-  const closeDesktopDropdowns = (except = null) => {
-    desktopDropdowns.forEach(dropdown => {
-      if (dropdown !== except) setDesktopDropdownState(dropdown, false);
-    });
-  };
-
-  desktopDropdowns.forEach(dropdown => {
-    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
-    if (!toggle) return;
-
-    toggle.addEventListener('click', event => {
-      event.stopPropagation();
-      const willOpen = toggle.getAttribute('aria-expanded') !== 'true';
-      closeDesktopDropdowns(dropdown);
-      setDesktopDropdownState(dropdown, willOpen);
-    });
-
-    dropdown.addEventListener('mouseenter', () => {
-      if (!finePointer.matches) return;
-      closeDesktopDropdowns(dropdown);
-      setDesktopDropdownState(dropdown, true);
-    });
-
-    dropdown.addEventListener('mouseleave', () => {
-      if (!finePointer.matches || dropdown.contains(document.activeElement)) return;
-      setDesktopDropdownState(dropdown, false);
-    });
-
-    dropdown.addEventListener('keydown', event => {
-      if (event.key !== 'Escape' || toggle.getAttribute('aria-expanded') !== 'true') return;
-      event.preventDefault();
-      event.stopPropagation();
-      setDesktopDropdownState(dropdown, false);
-      toggle.focus();
-    });
-  });
-
-  document.addEventListener('click', event => {
-    if (!event.target.closest('.nav-dropdown')) closeDesktopDropdowns();
-  });
-
-  document.addEventListener('focusin', event => {
-    const focusedDropdown = event.target.closest('.nav-dropdown');
-    closeDesktopDropdowns(focusedDropdown);
-  });
-
-  document.addEventListener('keydown', event => {
-    if (event.key !== 'Escape') return;
-    const openDropdown = desktopDropdowns.find(dropdown => dropdown.classList.contains('is-open'));
-    if (!openDropdown) return;
-    const shouldRestoreFocus = openDropdown.contains(document.activeElement);
-    const toggle = openDropdown.querySelector('.nav-dropdown-toggle');
-    closeDesktopDropdowns();
-    if (shouldRestoreFocus && toggle) toggle.focus();
-  });
-
-  // --- Mobile nav and audience accordions ---
+  // --- Mobile navigation ---
   const hamburger = document.querySelector('.nav-hamburger');
   const mobileNav = document.querySelector('.mobile-nav');
-  const mobileGroups = mobileNav ? Array.from(mobileNav.querySelectorAll('[data-mobile-nav-group]')) : [];
-
-  const setMobileGroupState = (group, open) => {
-    const toggle = group.querySelector('.mobile-nav-toggle');
-    const panel = group.querySelector('.mobile-nav-panel');
-    if (!toggle || !panel) return;
-    toggle.setAttribute('aria-expanded', String(open));
-    panel.hidden = !open;
-  };
-
-  const closeMobileGroups = (except = null) => {
-    mobileGroups.forEach(group => {
-      if (group !== except) setMobileGroupState(group, false);
-    });
-  };
-
   if (hamburger && mobileNav) {
     const setMobileNavState = (open) => {
       mobileNav.classList.toggle('open', open);
@@ -127,28 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
           s.style.transform = '';
           s.style.opacity = '';
         });
-        closeMobileGroups();
       }
     };
 
-    mobileGroups.forEach(group => {
-      const toggle = group.querySelector('.mobile-nav-toggle');
-      if (!toggle) return;
-
-      toggle.addEventListener('click', () => {
-        const willOpen = toggle.getAttribute('aria-expanded') !== 'true';
-        closeMobileGroups(group);
-        setMobileGroupState(group, willOpen);
-      });
-
-      group.addEventListener('keydown', event => {
-        if (event.key !== 'Escape' || toggle.getAttribute('aria-expanded') !== 'true') return;
-        event.preventDefault();
-        event.stopPropagation();
-        setMobileGroupState(group, false);
-        toggle.focus();
-      });
-    });
 
     hamburger.addEventListener('click', () => {
       setMobileNavState(!mobileNav.classList.contains('open'));
@@ -178,24 +76,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Active nav link ---
+  // --- Active public journey ---
   const pageKey = path => (path.split('/').pop() || 'index').replace(/\.html$/, '');
   const currentPath = pageKey(window.location.pathname);
-  const currentHash = window.location.hash;
   const navigationLinks = document.querySelectorAll('.nav-links a, .mobile-nav a');
+
+  const navSectionByPage = {
+    index: 'home',
+    students: 'students',
+    programs: 'students',
+    'student-leadership': 'students',
+    'how-action-plans-work': 'students',
+    'leadership-training-institute': 'students',
+    'cso-advisor-center': 'students',
+    'cso-administrator-center': 'students',
+    wscam: 'students',
+    teachers: 'educators',
+    districts: 'educators',
+    'steels-support': 'educators',
+    'edtech-ai': 'educators',
+    'phenomenon-sessions': 'educators',
+    'lesson-hook-generator': 'educators',
+    'classroom-resources': 'resources',
+    'steels-resource-library': 'resources',
+    'ai-edtech-resource-library': 'resources',
+    events: 'events',
+    connect: 'connect',
+    contact: 'connect',
+    community: 'connect'
+  };
+  const activeSection = navSectionByPage[currentPath];
 
   navigationLinks.forEach(link => {
     link.classList.remove('active');
-    const url = new URL(link.getAttribute('href'), window.location.href);
-    const linkPath = pageKey(url.pathname);
-    const samePage = linkPath === currentPath;
-    const sameSection = !url.hash || url.hash === currentHash;
-    if (samePage && sameSection) link.classList.add('active');
+    if (activeSection && link.dataset.navSection === activeSection) {
+      link.classList.add('active');
+      link.setAttribute('aria-current', 'page');
+    } else {
+      link.removeAttribute('aria-current');
+    }
   });
 
-  mobileGroups.forEach(group => {
-    group.classList.toggle('has-active', Boolean(group.querySelector('.active')));
-  });
 
   // --- Intersection observer for fade-in animations ---
   if (reducedMotion) {

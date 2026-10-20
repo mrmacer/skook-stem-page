@@ -19,6 +19,7 @@ window.STEM_EVENTS = [
     categoryGroup: "student-events",
     audiences: ["Students", "Grades 3–5"],
     registrationUrl: "https://resources.finalsite.net/images/v1774360266/iu29org/xpoijmx4ahnubhvjyyeg/2026SummerCampRegistrationForm_1.pdf",
+    registrationStatus: "unverified",
     detailsUrl: "events.html#student-events",
     ecosystemRelevant: false,
     status: "scheduled"
@@ -37,6 +38,7 @@ window.STEM_EVENTS = [
     categoryGroup: "student-events",
     audiences: ["Students", "Grades 3–5"],
     registrationUrl: "https://resources.finalsite.net/images/v1774360266/iu29org/xpoijmx4ahnubhvjyyeg/2026SummerCampRegistrationForm_1.pdf",
+    registrationStatus: "unverified",
     detailsUrl: "events.html#student-events",
     ecosystemRelevant: false,
     status: "scheduled"
@@ -55,6 +57,7 @@ window.STEM_EVENTS = [
     categoryGroup: "student-events",
     audiences: ["Students", "Grades 6–8"],
     registrationUrl: "https://resources.finalsite.net/images/v1774360266/iu29org/xpoijmx4ahnubhvjyyeg/2026SummerCampRegistrationForm_1.pdf",
+    registrationStatus: "unverified",
     detailsUrl: "events.html#student-events",
     ecosystemRelevant: false,
     status: "scheduled"
@@ -73,6 +76,7 @@ window.STEM_EVENTS = [
     categoryGroup: "student-events",
     audiences: ["Students", "Grades 6–8"],
     registrationUrl: "https://resources.finalsite.net/images/v1774360266/iu29org/xpoijmx4ahnubhvjyyeg/2026SummerCampRegistrationForm_1.pdf",
+    registrationStatus: "unverified",
     detailsUrl: "events.html#student-events",
     ecosystemRelevant: false,
     status: "scheduled"
@@ -91,6 +95,7 @@ window.STEM_EVENTS = [
     categoryGroup: "professional-learning",
     audiences: ["Educators"],
     registrationUrl: "https://www.solutionwhere.com/WW/Aspx/Public/Search/ShowSession.aspx?sessionId=41ggekrarevxnhgp25l33ymw3%2f30%2f20263%3a11%3a25+PM243&cId=179&pCId=0",
+    registrationStatus: "unverified",
     detailsUrl: "events.html#professional-learning",
     ecosystemRelevant: false,
     status: "scheduled"
@@ -109,6 +114,7 @@ window.STEM_EVENTS = [
     categoryGroup: "professional-learning",
     audiences: ["Educators"],
     registrationUrl: "https://www.solutionwhere.com/WW/Aspx/Public/Search/ShowSession.aspx?sessionId=41ggekrarevxnhgp25l33ymw3%2f30%2f20263%3a09%3a56+PM793&cId=179&pCId=0",
+    registrationStatus: "unverified",
     detailsUrl: "events.html#professional-learning",
     ecosystemRelevant: false,
     status: "scheduled"
@@ -127,6 +133,7 @@ window.STEM_EVENTS = [
     categoryGroup: "professional-learning",
     audiences: ["Educators"],
     registrationUrl: "https://www.solutionwhere.com/WW/Aspx/Public/Search/ShowCourse.aspx?courseNum=56&cId=179&pCId=0",
+    registrationStatus: "unverified",
     detailsUrl: "events.html#professional-learning",
     ecosystemRelevant: false,
     status: "scheduled"
@@ -145,6 +152,7 @@ window.STEM_EVENTS = [
     categoryGroup: "professional-learning",
     audiences: ["Educators"],
     registrationUrl: "https://www.solutionwhere.com/WW/Aspx/Public/Search/ShowSession.aspx?sessionId=41ggekrarevxnhgp25l33ymw3%2f30%2f20263%3a07%3a56+PM968&cId=179&pCId=0",
+    registrationStatus: "unverified",
     detailsUrl: "events.html#professional-learning",
     ecosystemRelevant: false,
     status: "scheduled"
@@ -179,6 +187,7 @@ window.STEM_EVENTS = [
     detailsUrl: "events.html#professional-learning",
     ecosystemRelevant: false,
     dateStatus: "confirmed",
+    registrationStatus: "unverified",
     status: "scheduled"
   },
   {
@@ -196,6 +205,7 @@ window.STEM_EVENTS = [
     detailsUrl: "events.html#professional-learning",
     ecosystemRelevant: false,
     dateStatus: "confirmed",
+    registrationStatus: "unverified",
     status: "scheduled"
   },
   {

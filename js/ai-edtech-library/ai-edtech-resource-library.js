@@ -241,7 +241,7 @@
   }
 
   function renderCollections() {
-    byId("featuredCollections").innerHTML = aiEdtechCollections.map((collection) => {
+    const collectionButton = (collection) => {
       const count = validCollectionResources(collection).length;
       const audience = asArray(collection.audience).join(", ");
       return `<button type="button" class="collection-button" data-collection="${escapeHtml(collection.id)}" aria-pressed="false">
@@ -250,9 +250,12 @@
         ${audience ? `<span class="collection-audience">For: ${escapeHtml(audience)}</span>` : ""}
         <small>${count} ${count === 1 ? "resource" : "resources"}</small>
       </button>`;
-    }).join("");
+    };
 
-    byId("featuredCollections").addEventListener("click", (event) => {
+    byId("featuredCollections").innerHTML = aiEdtechCollections.slice(0, 3).map(collectionButton).join("");
+    byId("additionalCollections").innerHTML = aiEdtechCollections.slice(3).map(collectionButton).join("");
+
+    byId("collectionsHeading").closest("section").addEventListener("click", (event) => {
       const button = event.target.closest(".collection-button");
       if (!button) return;
       state.collection = state.collection === button.dataset.collection ? null : button.dataset.collection;

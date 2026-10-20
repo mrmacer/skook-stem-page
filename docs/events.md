@@ -9,7 +9,7 @@ Add one object to `window.STEM_EVENTS` with:
 - `id`: unique stable identifier
 - `title`, `description`, `category`, and `categoryGroup`
 - `startDate` and optional `endDate` in ISO format; use a date-only value when no event time is confirmed
-- `dateStatus: "confirmed" | "tbd"`; omit `startDate` when the date is still TBD
+- `dateStatus: "confirmed" | "tbd"`; only explicit `confirmed` dates render as upcoming or past, and `startDate` alone is not treated as verification
 - `startTime` and optional `endTime` for a single time block
 - `sessionBlocks` when one event has separate schedule blocks; do not collapse them into one continuous time
 - `allDay: true` for all-day events
@@ -18,14 +18,18 @@ Add one object to `window.STEM_EVENTS` with:
 - `locationStatus: "tentative"` and `locationNote` when the source calendar is not definitive
 - `audiences` for the small audience line on cards
 - `opportunities: ["judges"]` when judges are explicitly requested
-- `registrationUrl` and/or `detailsUrl` only when a real destination exists
+- `registrationUrl` preserves a known destination but does not by itself prove registration is open
+- `registrationStatus: "confirmed-open" | "unverified" | "closed"`; the renderer only shows a Register button for `confirmed-open`
+- `detailsUrl` only when a real destination exists
 - `ecosystemRelevant: true` when it belongs in partner-facing modules
 - `status: "scheduled"`, or another status when it should not appear as upcoming
 
 Use `datePrecision: "month"` with a `YYYY-MM` `startDate` only for retained legacy events whose verified content gives only a month. Do not guess a day. Month-precision events are sorted by month and remain visible during their listed month. TBD events remain on the full Events page but never enter chronological upcoming modules.
 
+An event beginning today is not treated as open for registration unless its record explicitly uses `registrationStatus: "confirmed-open"`. Unverified registration URLs remain in the source record but are not promoted publicly.
+
 ## Feature, filter, or remove
 
 `ecosystemRelevant` controls the partner-oriented `/connect` and Community modules. The `featured` flag is intentionally not needed by the renderer: the first upcoming event is presented as the next event. To cancel or remove an event, change `status` from `scheduled` or delete the object after confirming it is no longer needed. Past exact-date events are automatically excluded from upcoming modules.
 
-The events page renders the complete source, while the home page shows three upcoming events, Community shows three ecosystem-relevant events, and `/connect` shows the next ecosystem-relevant event followed by the next several ecosystem events. Links and JSON-LD are generated from the same objects.
+The events page separates upcoming items from a past-events archive. Past cards keep their descriptions but suppress expired registration buttons. Date-only events stay current through the end of their listed day (or `endDate`), evaluated in `America/New_York`; exact timestamps use their supplied offsets. The home page shows three upcoming events, Community shows three ecosystem-relevant events, and `/connect` shows up to three ecosystem-relevant events. Links and JSON-LD are generated from the same objects.

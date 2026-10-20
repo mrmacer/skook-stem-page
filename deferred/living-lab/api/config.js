@@ -1,3 +1,4 @@
+// Deferred Living Lab source. Restore to api/config.js before release.
 // Serves the *public* Supabase project URL + anon key to the browser.
 // These two values are safe to expose (the anon key only ever grants what
 // Row Level Security allows -- see supabase/migrations/0001_living_lab_schema.sql)

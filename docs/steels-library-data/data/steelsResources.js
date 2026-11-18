@@ -1,6 +1,6 @@
 // STEELS Resource Library — canonical dataset
 // STEM@Skook29 / Schuylkill Intermediate Unit 29
-// Generated 2026-07-24 — 49 resources. Regenerate via build_dataset.py; do not hand-edit derived files.
+// Generated 2026-11-18 — 51 resources. Individual review dates vary. Regenerate via build_dataset.py; do not hand-edit derived files.
 
 const steelsResources = [
   {
@@ -189,6 +189,51 @@ const steelsResources = [
     "relatedResources": [
       "sas-steels-hub",
       "snap-assessments"
+    ]
+  },
+  {
+    "id": "pa-firefly",
+    "title": "Pennsylvania Firefly Student Progress Indicators",
+    "description": "Pennsylvania's official overview of Firefly benchmark assessments, including Science in grades 5 and 8 and Biology at the course level, with links to administration and assessment-planning guidance.",
+    "publisher": "Pennsylvania Department of Education",
+    "url": "https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/assessment-and-accountability/firefly",
+    "gradeBands": [
+      "3-5",
+      "6-8",
+      "9-12"
+    ],
+    "steelsDomains": [
+      "Assessment",
+      "Cross-domain"
+    ],
+    "disciplinaryCoreIdeas": [],
+    "sciencePractices": [],
+    "crosscuttingConcepts": [],
+    "keywords": [
+      "Firefly",
+      "benchmark assessment",
+      "PSSA",
+      "Keystone",
+      "Science",
+      "Biology",
+      "student progress"
+    ],
+    "resourceType": "Assessment guidance",
+    "access": "Free",
+    "paSpecific": true,
+    "featured": true,
+    "recommendedPathways": [
+      "beginner-teacher",
+      "instructional-coach",
+      "administrator"
+    ],
+    "estimatedTime": "Official reference",
+    "reviewDate": "2026-11-18",
+    "confidence": "High",
+    "notes": "The public guidance page is free. Firefly assessment administration uses school- or district-managed access; this record does not represent Firefly as a downloadable classroom lesson.",
+    "relatedResources": [
+      "steels-assessment-toolkit",
+      "sas-steels-hub"
     ]
   },
   {
@@ -1627,7 +1672,7 @@ const steelsResources = [
   {
     "id": "teachengineering",
     "title": "TeachEngineering",
-    "description": "The largest free K-12 engineering library: 1,650+ NSF-funded, teacher-tested lessons and hands-on activities from 50+ university engineering programs, searchable by grade, cost of materials, and time — no account required.",
+    "description": "A large free K-12 engineering library with NSF-funded lessons and hands-on activities from university engineering programs, searchable by grade, cost of materials, and time — no account required.",
     "publisher": "TeachEngineering (NSF / University of Colorado)",
     "url": "https://www.teachengineering.org/",
     "gradeBands": [
@@ -1674,6 +1719,58 @@ const steelsResources = [
       "smithsonian-makerspaces",
       "exploratorium-tinkering",
       "pblworks"
+    ]
+  },
+  {
+    "id": "birdbrain-hummingbird-learning",
+    "title": "Hummingbird Learning Portal",
+    "description": "Publisher learning resources for Hummingbird robotics, including programming pathways, project ideas, printables, classroom adaptations, and educator support for hands-on engineering and creative robotics.",
+    "publisher": "BirdBrain Technologies",
+    "url": "https://learn.birdbraintechnologies.com/",
+    "gradeBands": [
+      "3-5",
+      "6-8",
+      "9-12"
+    ],
+    "steelsDomains": [
+      "3.5",
+      "CS-CT"
+    ],
+    "disciplinaryCoreIdeas": [
+      "ETS1: Engineering Design",
+      "ETS2: Links Among Engineering, Technology, Science, and Society"
+    ],
+    "sciencePractices": [
+      "Designing Solutions",
+      "Using Mathematics and Computational Thinking"
+    ],
+    "crosscuttingConcepts": [],
+    "keywords": [
+      "Hummingbird",
+      "robotics",
+      "Scratch",
+      "engineering",
+      "maker",
+      "programming"
+    ],
+    "resourceType": "Engineering design curriculum",
+    "access": "Free",
+    "paSpecific": false,
+    "featured": true,
+    "recommendedPathways": [
+      "elementary",
+      "middle",
+      "high",
+      "makerspace"
+    ],
+    "estimatedTime": "Varies by project",
+    "reviewDate": "2026-11-18",
+    "confidence": "High",
+    "notes": "Learning resources are publicly browsable; Hummingbird hardware is required for hardware-based projects. This link goes directly to the publisher's learning portal.",
+    "relatedResources": [
+      "teachengineering",
+      "scratch",
+      "smithsonian-makerspaces"
     ]
   },
   {

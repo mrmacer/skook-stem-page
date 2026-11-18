@@ -1,6 +1,6 @@
 # STATS — STEM@Skook29 EdTech & AI Resource Library
 
-Generated 2026-07-24 by build_dataset.py. Do not hand-edit.
+Generated 2026-11-18 by build_dataset.py. Do not hand-edit.
 
 **Total records: 77**  |  **Collections: 15**  |  **Excluded (documented): 9**
 
@@ -62,9 +62,9 @@ Generated 2026-07-24 by build_dataset.py. Do not hand-edit.
 - Middle School Teacher: 21
 - Data Privacy Officer: 12
 - School Board: 11
+- Elementary Teacher: 10
 - Building Administrator: 9
 - Student: 9
-- Elementary Teacher: 8
 - Special Education Teacher: 8
 - Family / Caregiver: 5
 - Community Partner: 3
@@ -75,9 +75,9 @@ Generated 2026-07-24 by build_dataset.py. Do not hand-edit.
 - District / System Level: 29
 - 9-12: 23
 - 6-8: 21
+- 3-5: 12
 - K-12 Adaptable: 11
-- 3-5: 10
-- K-2: 5
+- K-2: 6
 
 ## Records by access
 
@@ -88,18 +88,18 @@ Generated 2026-07-24 by build_dataset.py. Do not hand-edit.
 
 ## Records by confidence
 
-- high: 48
-- medium: 29
+- high: 49
+- medium: 28
 
 ## Records by verification method
 
-- catalog-review: 63
-- live-check: 14
+- catalog-review: 61
+- live-check: 16
 
 ## Key slices
 
 - Student-facing (student accounts = yes): 13 — cur-codeorg-ai, dc-checkology, tool-magicschool, tool-schoolai, tool-gemini-edu, tool-notebooklm, tool-canva-edu, tool-adobe-express-edu, stu-khanmigo, stu-assistments, ct-ml4kids, ct-scratch, ct-appinventor
-- Teacher-only tools (student accounts = no): 6 — tool-brisk, tool-diffit, tool-chatgpt-teachers, tool-claude-teachers, tool-curipod, tool-eduaide
+- Teacher-only tools (student accounts = no): 7 — cur-aiedu, tool-brisk, tool-diffit, tool-chatgpt-teachers, tool-claude-teachers, tool-curipod, tool-eduaide
 - Requiring district review before student/district use: 19
 - DPA available (vendor-stated): 10 — tool-magicschool, tool-brisk, tool-claude-teachers, tool-gemini-edu, tool-notebooklm, tool-copilot-edu, tool-canva-edu, tool-adobe-express-edu, stu-khanmigo, stu-assistments
 - DPA unclear: 5 — tool-schoolai, tool-diffit, tool-chatgpt-teachers, tool-curipod, tool-eduaide
@@ -108,7 +108,7 @@ Generated 2026-07-24 by build_dataset.py. Do not hand-edit.
 
 ## Re-verification queue (catalog-review records awaiting first live check)
 
-63 records:
+61 records:
 
 - fw-used-ocr-ai
 - fw-ai4k12
@@ -117,11 +117,9 @@ Generated 2026-07-24 by build_dataset.py. Do not hand-edit.
 - fw-nist-ai-rmf
 - fw-digitalpromise-ai-literacy
 - fw-used-2023-report
-- cur-commonsense-ai
 - cur-codeorg-ai
 - cur-dayofai
 - cur-mit-daily
-- cur-aiedu
 - cur-experience-ai
 - dc-commonsense-digcit
 - dc-checkology

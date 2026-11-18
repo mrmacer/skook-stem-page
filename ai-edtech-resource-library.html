@@ -106,11 +106,16 @@
                 <fieldset class="filter-group"><legend>Audience</legend><div id="audienceFilters" class="filter-options"></div></fieldset>
                 <fieldset class="filter-group"><legend>Grade / level</legend><div id="gradeFilters" class="filter-options"></div></fieldset>
                 <fieldset class="filter-group"><legend>Category</legend><div id="categoryFilters" class="filter-options"></div></fieldset>
-                <fieldset class="filter-group"><legend>Record class</legend><div id="recordClassFilters" class="filter-options"></div></fieldset>
                 <fieldset class="filter-group"><legend>Access</legend><div id="accessFilters" class="filter-options"></div></fieldset>
-                <fieldset class="filter-group"><legend>Use status</legend><div id="useFilters" class="filter-options"></div></fieldset>
-                <fieldset class="filter-group"><legend>Verification status</legend><div id="verificationFilters" class="filter-options"></div></fieldset>
               </div>
+              <details class="advanced-catalog-filters">
+                <summary>Advanced catalog filters</summary>
+                <div class="filter-layout">
+                  <fieldset class="filter-group"><legend>Record class</legend><div id="recordClassFilters" class="filter-options"></div></fieldset>
+                  <fieldset class="filter-group"><legend>Use status</legend><div id="useFilters" class="filter-options"></div></fieldset>
+                  <fieldset class="filter-group"><legend>Verification status</legend><div id="verificationFilters" class="filter-options"></div></fieldset>
+                </div>
+              </details>
               <div class="toggle-row">
                 <label class="toggle-filter"><input id="studentFacingFilter" type="checkbox" /> Student-facing only</label>
                 <label class="toggle-filter"><input id="paFilter" type="checkbox" /> Pennsylvania-specific only</label>
@@ -133,7 +138,7 @@
           </div>
           <div id="featuredCollections" class="collection-grid"></div>
           <details class="collection-more">
-            <summary>Show more curated pathways</summary>
+            <summary>Browse All Collections</summary>
             <div id="additionalCollections" class="collection-grid"></div>
           </details>
           <p id="collectionDescription" class="catalog-notice" aria-live="polite" hidden></p>

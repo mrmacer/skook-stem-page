@@ -8,13 +8,14 @@ Emits: steelsResources.json, steelsResources.js, steelsResources.csv,
 import json, csv, io, datetime
 from collections import Counter
 
-TODAY = "2026-07-24"
+BUILD_DATE = "2026-11-18"
+DEFAULT_REVIEW_DATE = "2026-07-24"
 
 def R(id, title, description, publisher, url, gradeBands, steelsDomains,
       resourceType, access, paSpecific=False, featured=False,
       disciplinaryCoreIdeas=None, sciencePractices=None, crosscuttingConcepts=None,
       keywords=None, recommendedPathways=None, estimatedTime="Varies",
-      confidence="High", notes="", relatedResources=None):
+      confidence="High", notes="", relatedResources=None, reviewDate=None):
     return {
         "id": id, "title": title, "description": description,
         "publisher": publisher, "url": url,
@@ -25,7 +26,7 @@ def R(id, title, description, publisher, url, gradeBands, steelsDomains,
         "keywords": keywords or [], "resourceType": resourceType,
         "access": access, "paSpecific": paSpecific, "featured": featured,
         "recommendedPathways": recommendedPathways or [],
-        "estimatedTime": estimatedTime, "reviewDate": TODAY,
+        "estimatedTime": estimatedTime, "reviewDate": reviewDate or DEFAULT_REVIEW_DATE,
         "confidence": confidence, "notes": notes,
         "relatedResources": relatedResources or []
     }
@@ -77,6 +78,18 @@ R("steels-assessment-toolkit", "STEELS Assessment Toolkit",
   estimatedTime="Tasks: 1–3 class periods each",
   notes="Access via STEELS Hub Assessment section. The only STEELS-explicit performance-task bank in existence. Unusually valuable and free.",
   relatedResources=["sas-steels-hub","snap-assessments"]),
+
+R("pa-firefly", "Pennsylvania Firefly Student Progress Indicators",
+  "Pennsylvania's official overview of Firefly benchmark assessments, including Science in grades 5 and 8 and Biology at the course level, with links to administration and assessment-planning guidance.",
+  "Pennsylvania Department of Education", "https://www.pa.gov/agencies/education/programs-and-services/instruction/elementary-and-secondary-education/assessment-and-accountability/firefly",
+  ["3-5","6-8","9-12"], ["Assessment","Cross-domain"],
+  "Assessment guidance", "Free", paSpecific=True, featured=True,
+  keywords=["Firefly","benchmark assessment","PSSA","Keystone","Science","Biology","student progress"],
+  recommendedPathways=["beginner-teacher","instructional-coach","administrator"],
+  estimatedTime="Official reference",
+  notes="The public guidance page is free. Firefly assessment administration uses school- or district-managed access; this record does not represent Firefly as a downloadable classroom lesson.",
+  relatedResources=["steels-assessment-toolkit","sas-steels-hub"],
+  reviewDate="2026-11-18"),
 
 R("steels-safety-guide", "STEELS Safety Guide",
   "PDE's reference for safe classroom, laboratory, and field experiences under STEELS, with an introduction video and PowerPoint for staff training.",
@@ -457,7 +470,7 @@ R("codap", "CODAP (Common Online Data Analysis Platform)",
   relatedResources=["concord-consortium","stroud-wikiwatershed","noaa-data-in-classroom"]),
 
 R("teachengineering", "TeachEngineering",
-  "The largest free K-12 engineering library: 1,650+ NSF-funded, teacher-tested lessons and hands-on activities from 50+ university engineering programs, searchable by grade, cost of materials, and time — no account required.",
+  "A large free K-12 engineering library with NSF-funded lessons and hands-on activities from university engineering programs, searchable by grade, cost of materials, and time — no account required.",
   "TeachEngineering (NSF / University of Colorado)", "https://www.teachengineering.org/",
   ["K-2","3-5","6-8","9-12"], ["3.5"],
   "Engineering design challenge", "Free", featured=True,
@@ -468,6 +481,20 @@ R("teachengineering", "TeachEngineering",
   estimatedTime="Activities: 45 min–1 week",
   notes="The backbone for 3.5 — a domain where PA teachers have the least prior training. Filter by low-cost materials for makerspace-on-a-budget builds.",
   relatedResources=["smithsonian-makerspaces","exploratorium-tinkering","pblworks"]),
+
+R("birdbrain-hummingbird-learning", "Hummingbird Learning Portal",
+  "Publisher learning resources for Hummingbird robotics, including programming pathways, project ideas, printables, classroom adaptations, and educator support for hands-on engineering and creative robotics.",
+  "BirdBrain Technologies", "https://learn.birdbraintechnologies.com/",
+  ["3-5","6-8","9-12"], ["3.5","CS-CT"],
+  "Engineering design curriculum", "Free", featured=True,
+  disciplinaryCoreIdeas=["ETS1: Engineering Design","ETS2: Links Among Engineering, Technology, Science, and Society"],
+  sciencePractices=["Designing Solutions","Using Mathematics and Computational Thinking"],
+  keywords=["Hummingbird","robotics","Scratch","engineering","maker","programming"],
+  recommendedPathways=["elementary","middle","high","makerspace"],
+  estimatedTime="Varies by project",
+  notes="Learning resources are publicly browsable; Hummingbird hardware is required for hardware-based projects. This link goes directly to the publisher's learning portal.",
+  relatedResources=["teachengineering","scratch","smithsonian-makerspaces"],
+  reviewDate="2026-11-18"),
 
 R("nsta", "National Science Teaching Association (NSTA)",
   "The national professional association for science educators: free Daily Do sensemaking lessons, journals, position statements, web seminars, and an extensive resource library — with deeper access via paid membership.",
@@ -628,9 +655,9 @@ COLLECTIONS = [
  {"id":"ready-monday-morning","title":"Ready for Monday Morning","description":"No logins, no prep marathons — vetted resources you can use tomorrow.",
   "resourceIds":["phet","pfbc-education-portal","usgs-water-science-school","wonder-of-science","cs-unplugged","macroinvertebrates-org"]},
  {"id":"engineering","title":"Engineering & Design","description":"Hands-on engineering design challenges for the 3.5 standards — the domain most PA teachers never trained for.",
-  "resourceIds":["teachengineering","smithsonian-makerspaces","exploratorium-tinkering","pblworks"]},
+  "resourceIds":["teachengineering","birdbrain-hummingbird-learning","smithsonian-makerspaces","exploratorium-tinkering","pblworks"]},
  {"id":"assessment","title":"Assessment & Student Evidence","description":"Three-dimensional performance tasks, rubrics, and the tools to build your own.",
-  "resourceIds":["steels-assessment-toolkit","snap-assessments","wonder-of-science","ngss-quality-examples"]},
+  "resourceIds":["pa-firefly","steels-assessment-toolkit","snap-assessments","wonder-of-science","ngss-quality-examples"]},
  {"id":"environmental-literacy","title":"Environmental Literacy (3.4)","description":"Pennsylvania's distinctive fifth domain — watershed, sustainability, and stewardship resources.",
   "resourceIds":["stroud-education-curricula","dcnr-watershed-education","pa-envirothon","stroud-wikiwatershed","epa-students-educators","pa-gateway-to-green"]},
  {"id":"elementary","title":"Elementary (K-5)","description":"Curated for elementary generalists — approachable, materials-light, and phenomena-first.",
@@ -650,7 +677,7 @@ COLLECTIONS = [
  {"id":"computational-thinking","title":"Computational Thinking & CS","description":"CT is the OS — computer science and data practices woven through science.",
   "resourceIds":["code-org","cs-unplugged","scratch","codap","csta-standards"]},
  {"id":"makerspace","title":"MakerSpace Integration","description":"Making with standards attached — challenges and tinkering built for makerspace programs.",
-  "resourceIds":["smithsonian-makerspaces","teachengineering","exploratorium-tinkering","scratch"]},
+  "resourceIds":["birdbrain-hummingbird-learning","smithsonian-makerspaces","teachengineering","exploratorium-tinkering","scratch"]},
  {"id":"schuylkill-county","title":"Schuylkill County Connections","description":"Place-based partners and phenomena in and around IU29's backyard.",
   "resourceIds":["schuylkill-conservation-district","pa-envirothon","hawk-mountain","stroud-education-curricula","stroud-wikiwatershed","macroinvertebrates-org"]},
  {"id":"professional-learning","title":"Professional Learning","description":"PD for every budget: free self-serve briefs to Act 48 workshops and district contracts.",
@@ -688,7 +715,7 @@ with open(f"{base}/data/steelsResources.json","w") as f:
 # JS
 js = "// STEELS Resource Library — canonical dataset\n"
 js += "// STEM@Skook29 / Schuylkill Intermediate Unit 29\n"
-js += f"// Generated {TODAY} — {len(RESOURCES)} resources. Regenerate via build_dataset.py; do not hand-edit derived files.\n\n"
+js += f"// Generated {BUILD_DATE} — {len(RESOURCES)} resources. Individual review dates vary. Regenerate via build_dataset.py; do not hand-edit derived files.\n\n"
 js += "const steelsResources = " + json.dumps(RESOURCES, indent=2, ensure_ascii=False) + ";\n\n"
 js += 'if (typeof module !== "undefined" && module.exports) { module.exports = steelsResources; }\n'
 with open(f"{base}/data/steelsResources.js","w") as f:
@@ -714,7 +741,7 @@ fields = ["id","title","description","publisher","url","gradeBands","steelsDomai
           "resourceType","access","paSpecific","featured","recommendedPathways",
           "estimatedTime","reviewDate","confidence","notes","relatedResources"]
 with open(f"{base}/data/steelsResources.csv","w",newline="") as f:
-    w = csv.DictWriter(f, fieldnames=fields)
+    w = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
     w.writeheader()
     for r in RESOURCES:
         row = dict(r)
@@ -751,7 +778,7 @@ medium_conf = [r["id"] for r in RESOURCES if r["confidence"]=="Medium"]
 
 lines = []
 lines.append("# STEELS Resource Library — Dataset Statistics")
-lines.append(f"\nGenerated: {TODAY}\n")
+lines.append(f"\nGenerated: {BUILD_DATE}\n")
 lines.append(f"**Total resources: {len(RESOURCES)}**  |  PA-specific: {pa_count}  |  Featured: {feat_count}  |  Collections: {len(COLLECTIONS)}\n")
 lines.append("## By Grade Band")
 for k in ["K-2","3-5","6-8","9-12"]:

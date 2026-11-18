@@ -24,7 +24,8 @@ import subprocess
 import sys
 from collections import Counter
 
-TODAY = "2026-07-24"
+BUILD_DATE = "2026-11-18"
+DEFAULT_VERIFIED_DATE = "2026-07-24"
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dist")
 
 EVAL_NA = {
@@ -84,7 +85,7 @@ def R(id, title, organization, url, recordClass, description, categories, audien
         "paSpecific": kw.pop("paSpecific", False),
         "featured": kw.pop("featured", False),
         "verifiedDate": kw.pop("verifiedDate",
-            TODAY if verificationMethod == "live-check" else "pending-first-verification"),
+            DEFAULT_VERIFIED_DATE if verificationMethod == "live-check" else "pending-first-verification"),
         "verificationMethod": verificationMethod,
         "confidence": confidence,
         "curatorNote": kw.pop("curatorNote", ""),
@@ -244,15 +245,16 @@ R("fw-used-2023-report", "Artificial Intelligence and the Future of Teaching and
 RECORDS += [
 R("cur-commonsense-ai", "Common Sense Education AI Literacy Lessons",
   "Common Sense Education",
-  "https://www.commonsense.org/education/collections/ai-literacy-lessons-for-grades-6-12",
+  "https://www.commonsense.org/education/collections/ai-literacy-lessons-for-grades-k-12",
   "curriculum",
-  "Free, classroom-ready AI literacy lessons (chatbots, how generative AI works, bias, deepfakes, responsible use) designed for grades 6-12, with slide decks and teacher guides requiring minimal prep.",
+  "Free K-12 AI literacy lessons covering how AI works, responsible use, bias, chatbots, and synthetic media, with teacher-facing lesson materials organized by grade.",
   ["AI Literacy Foundations", "Digital Citizenship", "Classroom Integration"],
-  ["Classroom Teacher", "Middle School Teacher", "High School Teacher", "Instructional Coach"],
-  ["6-8", "9-12"],
-  "Recommended for teacher use", "high", "catalog-review",
+  ["Classroom Teacher", "Elementary Teacher", "Middle School Teacher", "High School Teacher", "Instructional Coach"],
+  ["K-2", "3-5", "6-8", "9-12"],
+  "Recommended for teacher use", "high", "live-check",
   accountRequired=False,
-  classroomUseCase="Genuine Monday-morning material: a teacher can deliver an AI literacy lesson tomorrow with no student accounts.",
+  classroomUseCase="Teacher-led AI literacy lessons across K-12 with no student accounts required to browse the collection.",
+  verifiedDate="2026-11-18",
   featured=True),
 
 R("cur-codeorg-ai", "Code.org AI Curriculum (How AI Works, AI Foundations, Generative AI lessons)",
@@ -298,14 +300,19 @@ R("cur-mit-daily", "DAILy Curriculum (Developing AI Literacy)",
 
 R("cur-aiedu", "aiEDU: The AI Education Project",
   "aiEDU",
-  "https://www.aiedu.org/",
+  "https://curriculum.aiedu.org/",
   "curriculum",
-  "Nonprofit AI readiness curriculum and teacher resources (foundations courses, project dossiers, discussion activities) targeting equitable access to AI literacy, particularly for under-resourced schools.",
+  "K-12 AI readiness curriculum with elementary explorations, discussion-based snapshots, projects, flexible plans, and multi-day learning journeys that teachers can browse by grade, subject, and time.",
   ["AI Literacy Foundations", "Classroom Integration", "Professional Learning"],
-  ["Classroom Teacher", "High School Teacher", "Middle School Teacher", "Curriculum Director"],
-  ["6-8", "9-12", "Educator / Adult"],
-  "Recommended for teacher use", "medium", "catalog-review",
-  curatorNote="Contributor to the TeachAI toolkit; equity framing aligns with the Skook29 access mission."),
+  ["Classroom Teacher", "Elementary Teacher", "High School Teacher", "Middle School Teacher", "Curriculum Director"],
+  ["3-5", "6-8", "9-12", "Educator / Adult"],
+  "Recommended for teacher use", "high", "live-check",
+  accountRequired=True, studentAccounts="no",
+  pricingSummary="Free account required to download curriculum materials.",
+  freeTierLimits="Resources can be previewed before creating an account; a free account is required for downloads.",
+  classroomUseCase="Browse by grade, subject, time, and resource type; preview materials before creating a free account to download them.",
+  verifiedDate="2026-11-18",
+  curatorNote="Direct curriculum portal verified; the free-account requirement is disclosed in the portal's access steps."),
 
 R("cur-experience-ai", "Experience AI",
   "Raspberry Pi Foundation with Google DeepMind",
@@ -1407,20 +1414,25 @@ R("iu-edtech-concierge", "EdTech Concierge (STEM@Skook29 original — planned)",
 # =====================================================================
 
 COLLECTIONS = [
-{"id": "col-new-to-ai", "title": "New to AI? Start Here",
+{"id": "col-new-to-ai", "title": "Learn AI Basics",
  "description": "The shortest honest path from zero to informed: what AI is, what it is not, and one free course to build footing.",
  "audience": ["Classroom Teacher", "Building Administrator", "Family / Caregiver"],
  "resourceIds": ["fw-ai4k12", "pd-google-genai-educators", "cur-commonsense-ai", "fw-used-2023-report", "res-pew-teens-ai"]},
+
+{"id": "col-monday-morning", "title": "Plan a Lesson",
+ "description": "Free things a teacher can genuinely use tomorrow — no procurement meeting required.",
+ "audience": ["Classroom Teacher"],
+ "resourceIds": ["tool-diffit", "cur-commonsense-ai", "ct-teachable-machine", "dc-rumorguard", "tool-notebooklm", "cur-dayofai"]},
+
+{"id": "col-ai-literacy-lessons", "title": "Teach Students About AI",
+ "description": "Classroom curricula for teaching how AI works, how it shapes media, and how students can use it responsibly.",
+ "audience": ["Classroom Teacher", "Curriculum Director"],
+ "resourceIds": ["cur-commonsense-ai", "cur-codeorg-ai", "cur-dayofai", "cur-mit-daily", "cur-experience-ai", "cur-aiedu"]},
 
 {"id": "col-start-here-teachers", "title": "Start Here for Teachers",
  "description": "The core five-resource stack for a teacher building an AI practice on solid ground.",
  "audience": ["Classroom Teacher", "Instructional Coach"],
  "resourceIds": ["cur-commonsense-ai", "tool-diffit", "fw-teachai-toolkit", "int-aias", "pr-aifored-prompts"]},
-
-{"id": "col-monday-morning", "title": "Ready for Monday Morning",
- "description": "Free things a teacher can genuinely use tomorrow — no procurement meeting required.",
- "audience": ["Classroom Teacher"],
- "resourceIds": ["tool-diffit", "cur-commonsense-ai", "ct-teachable-machine", "dc-rumorguard", "tool-notebooklm", "cur-dayofai"]},
 
 {"id": "col-no-student-accounts", "title": "No Student Accounts Required",
  "description": "Meaningful AI learning with zero student data surface: browser tools, join-by-code sessions, and unplugged-friendly lessons.",
@@ -1451,11 +1463,6 @@ COLLECTIONS = [
  "description": "Teaching students to interrogate what they see — the digital citizenship core of AI literacy.",
  "audience": ["Classroom Teacher", "Middle School Teacher", "High School Teacher"],
  "resourceIds": ["dc-checkology", "dc-cor", "dc-rumorguard", "dc-mediawise", "dc-cai", "dc-commonsense-digcit"]},
-
-{"id": "col-ai-literacy-lessons", "title": "AI Literacy Lesson Collections",
- "description": "Classroom-ready curricula for teaching how AI works and what it means, K-12.",
- "audience": ["Classroom Teacher", "Curriculum Director"],
- "resourceIds": ["cur-commonsense-ai", "cur-codeorg-ai", "cur-dayofai", "cur-mit-daily", "cur-experience-ai", "cur-aiedu"]},
 
 {"id": "col-ct-creation", "title": "Computational Thinking and Building AI",
  "description": "Students as makers of AI, not just users — the makerspace-native collection.",
@@ -1586,7 +1593,7 @@ def to_csv_rows(records):
 def js_wrap(varname, data):
     body = json.dumps(data, indent=2, ensure_ascii=False)
     return (f"// GENERATED by build_dataset.py — do not hand-edit. Regenerate instead.\n"
-            f"// Last generated: {TODAY}\n"
+            f"// Last generated: {BUILD_DATE}\n"
             f"const {varname} = {body};\n")
 
 def build_stats():
@@ -1607,7 +1614,7 @@ def build_stats():
         lines.append("")
         return lines
     lines = ["# STATS — STEM@Skook29 EdTech & AI Resource Library",
-             f"\nGenerated {TODAY} by build_dataset.py. Do not hand-edit.\n",
+             f"\nGenerated {BUILD_DATE} by build_dataset.py. Do not hand-edit.\n",
              f"**Total records: {n}**  |  **Collections: {len(COLLECTIONS)}**  |  **Excluded (documented): {len(EXCLUDED)}**\n"]
     lines += fmt(count(lambda r: r["recordClass"]), "Records by class")
     lines += fmt(count(lambda r: r["categories"]), "Records by category (multi-tag)")
@@ -1670,7 +1677,7 @@ def main():
         f.write(js_wrap("aiEdtechCollections", COLLECTIONS))
     rows = to_csv_rows(RECORDS)
     with open(os.path.join(OUT, "aiEdtechResources.csv"), "w", encoding="utf-8", newline="") as f:
-        csv.writer(f).writerows(rows)
+        csv.writer(f, lineterminator="\n").writerows(rows)
     stats = build_stats()
     with open(os.path.join(os.path.dirname(OUT), "STATS.md"), "w", encoding="utf-8") as f:
         f.write(stats)

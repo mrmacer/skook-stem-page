@@ -1,7 +1,7 @@
 [
   {
     "id": "col-new-to-ai",
-    "title": "New to AI? Start Here",
+    "title": "Learn AI Basics",
     "description": "The shortest honest path from zero to informed: what AI is, what it is not, and one free course to build footing.",
     "audience": [
       "Classroom Teacher",
@@ -14,6 +14,39 @@
       "cur-commonsense-ai",
       "fw-used-2023-report",
       "res-pew-teens-ai"
+    ]
+  },
+  {
+    "id": "col-monday-morning",
+    "title": "Plan a Lesson",
+    "description": "Free things a teacher can genuinely use tomorrow — no procurement meeting required.",
+    "audience": [
+      "Classroom Teacher"
+    ],
+    "resourceIds": [
+      "tool-diffit",
+      "cur-commonsense-ai",
+      "ct-teachable-machine",
+      "dc-rumorguard",
+      "tool-notebooklm",
+      "cur-dayofai"
+    ]
+  },
+  {
+    "id": "col-ai-literacy-lessons",
+    "title": "Teach Students About AI",
+    "description": "Classroom curricula for teaching how AI works, how it shapes media, and how students can use it responsibly.",
+    "audience": [
+      "Classroom Teacher",
+      "Curriculum Director"
+    ],
+    "resourceIds": [
+      "cur-commonsense-ai",
+      "cur-codeorg-ai",
+      "cur-dayofai",
+      "cur-mit-daily",
+      "cur-experience-ai",
+      "cur-aiedu"
     ]
   },
   {
@@ -30,22 +63,6 @@
       "fw-teachai-toolkit",
       "int-aias",
       "pr-aifored-prompts"
-    ]
-  },
-  {
-    "id": "col-monday-morning",
-    "title": "Ready for Monday Morning",
-    "description": "Free things a teacher can genuinely use tomorrow — no procurement meeting required.",
-    "audience": [
-      "Classroom Teacher"
-    ],
-    "resourceIds": [
-      "tool-diffit",
-      "cur-commonsense-ai",
-      "ct-teachable-machine",
-      "dc-rumorguard",
-      "tool-notebooklm",
-      "cur-dayofai"
     ]
   },
   {
@@ -152,23 +169,6 @@
       "dc-mediawise",
       "dc-cai",
       "dc-commonsense-digcit"
-    ]
-  },
-  {
-    "id": "col-ai-literacy-lessons",
-    "title": "AI Literacy Lesson Collections",
-    "description": "Classroom-ready curricula for teaching how AI works and what it means, K-12.",
-    "audience": [
-      "Classroom Teacher",
-      "Curriculum Director"
-    ],
-    "resourceIds": [
-      "cur-commonsense-ai",
-      "cur-codeorg-ai",
-      "cur-dayofai",
-      "cur-mit-daily",
-      "cur-experience-ai",
-      "cur-aiedu"
     ]
   },
   {

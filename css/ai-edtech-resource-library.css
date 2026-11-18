@@ -234,6 +234,22 @@
   padding: 6px 20px 24px;
 }
 
+.ai-library-page .advanced-catalog-filters {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.ai-library-page .advanced-catalog-filters > summary {
+  color: var(--purple-700);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.ai-library-page .advanced-catalog-filters .filter-layout {
+  margin-top: 18px;
+}
+
 .ai-library-page .filter-layout {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

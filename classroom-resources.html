@@ -4,17 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Classroom Resources — STEM@Skook29</title>
-  <meta name="description" content="A growing library of STEELS-aligned lesson plans, lab activities, design challenges, assessment tools, and PBL units for teachers in IU29's 12 public school districts." />
+  <meta name="description" content="Search practical STEELS, science, AI, assessment, engineering, and makerspace resources for Schuylkill County educators." />
   <link rel="icon" type="image/webp" href="assets/optimized/branding/StemAtSkook-logo.webp" />
   <link rel="canonical" href="https://stem.mrmacer.com/classroom-resources" />
   <meta property="og:title" content="STEM Classroom Resources — STEM@Skook29" />
-  <meta property="og:description" content="Find STEELS-aligned lessons, labs, design challenges, assessment tools, and project-based learning resources for Schuylkill County classrooms." />
+  <meta property="og:description" content="Search practical STEELS, science, AI, assessment, engineering, and makerspace resources for Schuylkill County educators." />
   <meta property="og:type" content="website" /><meta property="og:url" content="https://stem.mrmacer.com/classroom-resources" />
   <meta property="og:image" content="https://stem.mrmacer.com/assets/branding/stem-skook29-social.png" /><meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" /><meta property="og:image:alt" content="STEM@Skook29" />
   <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content="STEM Classroom Resources — STEM@Skook29" />
-  <meta name="twitter:description" content="Find STEELS-aligned lessons, labs, design challenges, assessment tools, and project-based learning resources for Schuylkill County classrooms." />
+  <meta name="twitter:description" content="Search practical STEELS, science, AI, assessment, engineering, and makerspace resources for Schuylkill County educators." />
   <meta name="twitter:image" content="https://stem.mrmacer.com/assets/branding/stem-skook29-social.png" /><meta name="twitter:image:alt" content="STEM@Skook29" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/resource-finder.css" />
   <style>
     /* Grade/standard tags — scoped to classroom-resources.html */
     .grade-tags {
@@ -78,43 +79,119 @@
 </header>
 
   <main id="main-content" tabindex="-1">
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <div class="page-hero-bg"></div>
-    <div class="page-hero-orb page-hero-orb-1"></div>
-    <div class="page-hero-orb page-hero-orb-2"></div>
+  <section class="resource-finder-hero" aria-labelledby="resource-finder-title">
+    <div class="container resource-finder-intro">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>›</span><a href="teachers.html">Educator Support</a><span>›</span><span>Resources</span></div>
+      <span class="home-kicker">Teacher Resource Finder</span>
+      <h1 id="resource-finder-title">What do you need today?</h1>
+      <p>Practical classroom resources, lesson ideas, and tools for Schuylkill County educators. Find something useful, open it, and get back to teaching.</p>
+    </div>
+  </section>
+
+  <section id="resource-finder" class="resource-finder-shell" aria-label="Classroom Resource Finder">
     <div class="container">
-      <div class="page-hero-content">
-        <div class="breadcrumb">
-          <a href="index.html">Home</a>
-          <span>›</span>
-          <a href="teachers.html">Teachers</a>
-          <span>›</span>
-          <span>Classroom Resources</span>
+      <div id="finderError" class="finder-error" role="alert" hidden>
+        <h2>We couldn’t load the Resource Finder.</h2>
+        <p id="finderErrorMessage">The source libraries are temporarily unavailable.</p>
+        <p><a href="steels-resource-library.html">Open the STEELS library</a> or <a href="ai-edtech-resource-library.html">open the AI &amp; EdTech library</a>.</p>
+      </div>
+
+      <div id="finderApp" class="resource-finder-panel">
+        <div class="finder-search">
+          <label for="resourceSearch">Search resources</label>
+          <input id="resourceSearch" type="search" autocomplete="off" placeholder="Search by topic, grade, or tool..." />
         </div>
-        <div class="page-hero-label">For Educators</div>
-        <h1 class="page-hero-title">Resources</h1>
-        <p class="page-hero-subtitle">
-          Search curated libraries or ask IU29 about classroom materials and support currently available to your school or district.
-        </p>
-        <div style="display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;">
-          <a href="contact.html" class="btn btn-white btn-lg">Ask About Classroom Materials</a>
-          <a href="#featured-resources" class="btn btn-outline-white btn-lg">Browse Featured Resources</a>
+
+        <div class="finder-topic-grid" aria-label="Resource topics">
+          <button class="finder-topic" type="button" data-topic="steels" aria-pressed="true">STEELS &amp; Science</button>
+          <button class="finder-topic" type="button" data-topic="ai" aria-pressed="false">AI for Teaching</button>
+          <button class="finder-topic" type="button" data-topic="assessment" aria-pressed="false">Firefly &amp; Assessment</button>
+          <button class="finder-topic" type="button" data-topic="making" aria-pressed="false">STEM &amp; Making</button>
+        </div>
+
+        <section id="finderRecommended" aria-labelledby="finderRecommendedTitle">
+          <div class="finder-heading-row">
+            <h2 id="finderRecommendedTitle">Start with STEELS &amp; Science</h2>
+            <p id="finderRecommendedContext" class="finder-context">Three practical starting points from the existing catalogs.</p>
+          </div>
+          <div id="finderRecommendedGrid" class="finder-card-grid"></div>
+        </section>
+
+        <button id="finderBrowse" class="btn btn-secondary finder-browse" type="button">Browse all matching resources</button>
+
+        <div class="finder-filters" aria-labelledby="finderFiltersTitle">
+          <span id="finderFiltersTitle" class="finder-filter-label">Refine by grade band</span>
+          <div class="finder-grade-row" aria-label="Grade band filters">
+            <button class="finder-grade" type="button" data-grade="K-2" aria-pressed="false">K–2</button>
+            <button class="finder-grade" type="button" data-grade="3-5" aria-pressed="false">3–5</button>
+            <button class="finder-grade" type="button" data-grade="6-8" aria-pressed="false">6–8</button>
+            <button class="finder-grade" type="button" data-grade="9-12" aria-pressed="false">9–12</button>
+          </div>
+
+          <details class="finder-advanced">
+            <summary>Advanced filters</summary>
+            <div class="finder-advanced-grid">
+              <label>Source library
+                <select id="finderSource" class="finder-select">
+                  <option value="all">Both libraries</option>
+                  <option value="steels">STEELS Resource Library</option>
+                  <option value="ai">AI &amp; EdTech Resource Library</option>
+                </select>
+              </label>
+              <label>Access
+                <select id="finderAccess" class="finder-select">
+                  <option value="all">All access types</option>
+                  <option value="free">Free public resources</option>
+                  <option value="account-required">Account or registration required</option>
+                  <option value="paid-workshop">Freemium, paid, or workshop</option>
+                </select>
+              </label>
+              <label>Resource type
+                <select id="finderType" class="finder-select">
+                  <option value="all">All resource types</option>
+                </select>
+              </label>
+            </div>
+          </details>
+
+          <div class="finder-active-row">
+            <p id="finderActiveSummary" class="finder-context">Showing STEELS &amp; Science.</p>
+            <button id="finderReset" class="finder-reset" type="button" hidden>Reset filters</button>
+          </div>
+        </div>
+
+        <section id="finderResults" class="finder-results" aria-labelledby="finderResultsTitle" hidden>
+          <div class="finder-results-heading">
+            <h2 id="finderResultsTitle">Matching resources</h2>
+            <p id="finderResultCount" class="finder-count" aria-live="polite"></p>
+          </div>
+          <div id="finderResultGrid" class="finder-card-grid"></div>
+        </section>
+
+        <div id="finderEmpty" class="finder-empty" role="status" hidden>
+          <h2>No resources match those choices.</h2>
+          <p>Try a broader search or clear your filters.</p>
+          <button id="finderEmptyReset" class="btn btn-primary" type="button">Clear filters</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="home-section home-section-muted" aria-labelledby="resource-entrances-title">
+  <section class="resource-catalog-links" aria-labelledby="catalog-links-title">
     <div class="container">
-      <div class="home-section-heading"><span class="home-kicker">Three resource entrances</span><h2 id="resource-entrances-title">Go straight to what you need.</h2><p>The two public catalogs keep their own verified records, metadata, search, and filters. IU29 classroom materials are available by request when noted below.</p></div>
-      <div class="home-route-grid">
-        <a class="home-route" href="steels-resource-library.html#filtersHeading"><span class="home-kicker">49 curated records</span><h3>STEELS Resource Library</h3><p>Search Pennsylvania standards guidance, lessons, investigations, and professional learning resources.</p><span class="home-route-link">Search STEELS resources →</span></a>
-        <a class="home-route" href="ai-edtech-resource-library.html#filterHeading"><span class="home-kicker">Privacy and verification details</span><h3>AI &amp; EdTech Library</h3><p>Search practical guidance and tools with access, privacy, limitation, and verification notes.</p><span class="home-route-link">Search AI and EdTech resources →</span></a>
-        <a class="home-route" href="#featured-resources"><span class="home-kicker">Available by request</span><h3>Classroom Materials</h3><p>Review examples of lesson, planning, and project materials, then contact IU29 about current availability.</p><span class="home-route-link">Browse classroom material examples →</span></a>
+      <div class="home-section-heading"><span class="home-kicker">Need more detail?</span><h2 id="catalog-links-title">Open the full catalogs or ask IU29.</h2></div>
+      <div class="resource-catalog-grid">
+        <div class="resource-catalog-card"><h2>STEELS Resource Library</h2><p>Use advanced standards, domain, access, and collection filters.</p><a href="steels-resource-library.html#filtersHeading">Open the full STEELS catalog →</a></div>
+        <div class="resource-catalog-card"><h2>AI &amp; EdTech Library</h2><p>Review privacy, age, account, limitation, and district-policy details.</p><a href="ai-edtech-resource-library.html#filterHeading">Open the full AI &amp; EdTech catalog →</a></div>
+        <div class="resource-catalog-card"><h2>Request IU29 Support</h2><p>Ask about a material, district need, workshop, or resource that is not listed.</p><a href="contact.html?interest=resources">Request resource support →</a></div>
       </div>
     </div>
   </section>
+
+  <section class="resource-request-wrap">
+    <div class="container">
+      <details class="resource-request-details">
+        <summary>IU29 classroom materials available by request</summary>
 
   <!-- INTRO: WHAT'S IN THE LIBRARY -->
   <section style="padding: var(--section-pad) 0; background: white;">
@@ -122,12 +199,12 @@
       <div class="two-col">
         <div>
           <span class="section-label">Resource Library</span>
-          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Grab-and-Go Materials<br>Built for Real Classrooms</h2>
+          <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">IU29 Materials<br>Available by Request</h2>
           <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 20px;">
-            Every resource in the IU29 library was developed with Schuylkill County classrooms in mind — not repurposed from somewhere else, not a vendor product, not theory. These are materials that teachers have actually used, refined, and taught with.
+            This section preserves examples of lesson, planning, assessment, and project materials associated with IU29 support. It does not represent a public download library.
           </p>
           <p style="font-size: 1.0625rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 32px;">
-            All materials are tagged to Pennsylvania STEELS standards, organized by subject area and grade band, and available at no cost to staff in IU29's 12 public school districts. The library grows every year — and you can contribute to it.
+            Contact IU29 to confirm which materials, supporting documentation, and consultation options are currently available for your school or district.
           </p>
           <div class="tags-row">
             <span class="tag">STEELS Aligned</span>
@@ -163,7 +240,7 @@
       <div class="section-header">
         <span class="section-label">Library Contents</span>
         <h2 class="section-title">What You'll Find</h2>
-        <p class="section-subtitle">Four types of classroom materials — each designed to save you planning time without sacrificing quality or alignment.</p>
+        <p class="section-subtitle">Examples of the material types teachers can ask IU29 about. Current availability varies.</p>
       </div>
       <div class="grid-4" style="gap: 24px;">
 
@@ -171,7 +248,7 @@
           <div class="feature-icon-wrap" style="margin: 0 auto;">📄</div>
           <div class="feature-content">
             <h4>Ready-to-Use Lesson Plans</h4>
-            <p>Complete lesson plans with objectives, materials lists, step-by-step procedures, and STEELS standards documentation — ready the day you download them.</p>
+            <p>Lesson and activity examples may include objectives, materials lists, procedures, and standards documentation. Contact IU29 to confirm availability.</p>
           </div>
         </div>
 
@@ -179,7 +256,7 @@
           <div class="feature-icon-wrap" style="margin: 0 auto;">🔬</div>
           <div class="feature-content">
             <h4>Lab &amp; Design Challenges</h4>
-            <p>Hands-on science investigations and engineering design challenges aligned to 3D STEELS — with student data sheets, teacher guides, and sample work.</p>
+            <p>Ask about hands-on science investigations and engineering design challenges, including available teacher guidance or student materials.</p>
           </div>
         </div>
 
@@ -187,7 +264,7 @@
           <div class="feature-icon-wrap" style="margin: 0 auto;">📊</div>
           <div class="feature-content">
             <h4>Assessment Tools</h4>
-            <p>Formative and summative options — rubrics, checklists, claim-evidence-reasoning prompts, and computational thinking assessments designed for STEELS.</p>
+            <p>Ask about rubrics, checklists, claim-evidence-reasoning prompts, and other assessment-planning supports.</p>
           </div>
         </div>
 
@@ -195,7 +272,7 @@
           <div class="feature-icon-wrap" style="margin: 0 auto;">🏗️</div>
           <div class="feature-content">
             <h4>Project-Based Learning Units</h4>
-            <p>Multi-week PBL units with driving questions, anchor phenomena, and culminating tasks. Built for sustained inquiry — not just surface engagement.</p>
+            <p>Ask about project-planning examples with driving questions, anchor phenomena, investigations, and culminating tasks.</p>
           </div>
         </div>
 
@@ -420,8 +497,8 @@
       </div>
 
       <div style="text-align: center; margin-top: 48px;">
-        <p style="font-size: 1.0625rem; color: var(--gray-500); margin-bottom: 24px;">This is a sample — the full library has significantly more. Contact IU29 to request access.</p>
-        <a href="contact.html" class="btn btn-primary btn-lg">Request Full Library Access →</a>
+        <p style="font-size: 1.0625rem; color: var(--gray-500); margin-bottom: 24px;">These are examples, not guaranteed public downloads. Contact IU29 to confirm current availability.</p>
+        <a href="contact.html?interest=resources" class="btn btn-primary btn-lg">Ask About Current Availability →</a>
       </div>
     </div>
   </section>
@@ -439,7 +516,7 @@
                 The IU29 resource library is built on teacher expertise. If you've developed a lesson, lab, or unit that's working well — and it's aligned to STEELS — we'd love to review it for inclusion.
               </p>
               <p style="font-size: 1rem; color: var(--gray-500); line-height: 1.75; margin-bottom: 28px;">
-                All submissions are reviewed for STEELS alignment and classroom practicality before publishing. We handle the formatting — you just share what you know.
+                Contact IU29 to discuss the current review process and whether a contribution is a fit for regional sharing.
               </p>
               <div class="tags-row" style="margin-bottom: 28px;">
                 <span class="tag">Lesson Plans</span>
@@ -454,21 +531,21 @@
                 <div class="feature-icon-wrap">✅</div>
                 <div class="feature-content">
                   <h4>STEELS Alignment Review</h4>
-                  <p>IU29 staff check every submission against the standards before it goes live.</p>
+                  <p>IU29 can discuss standards alignment as part of the current review process.</p>
                 </div>
               </div>
               <div class="feature-item" style="background: white;">
                 <div class="feature-icon-wrap">🤝</div>
                 <div class="feature-content">
                   <h4>Credit to You</h4>
-                  <p>Your name, school, and district are credited on every resource you contribute.</p>
+                  <p>Ask how contributor credit and permissions would be handled before sharing.</p>
                 </div>
               </div>
               <div class="feature-item" style="background: white;">
                 <div class="feature-icon-wrap">🌍</div>
                 <div class="feature-content">
                   <h4>Shared Across the County</h4>
-                  <p>Accepted resources go into the library shared across IU29's 12 public school districts.</p>
+                  <p>Materials accepted for regional sharing may be made available to participating IU29 districts.</p>
                 </div>
               </div>
             </div>
@@ -478,6 +555,9 @@
     </div>
   </section>
 
+      </details>
+    </div>
+  </section>
 
   <!-- CTA BANNER -->
   <section class="cta-banner">
@@ -546,5 +626,8 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/steels-library/steelsResources.js"></script>
+  <script src="js/ai-edtech-library/aiEdtechResources.js"></script>
+  <script src="js/resource-finder.js"></script>
 </body>
 </html>

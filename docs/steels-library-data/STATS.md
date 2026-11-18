@@ -1,26 +1,26 @@
 # STEELS Resource Library — Dataset Statistics
 
-Generated: 2026-07-24
+Generated: 2026-11-18
 
-**Total resources: 49**  |  PA-specific: 17  |  Featured: 17  |  Collections: 17
+**Total resources: 51**  |  PA-specific: 18  |  Featured: 19  |  Collections: 17
 
 ## By Grade Band
 - K-2: 34
-- 3-5: 42
-- 6-8: 45
-- 9-12: 43
+- 3-5: 44
+- 6-8: 47
+- 9-12: 45
 
 ## By STEELS Domain
 - 3.3: 20
 - 3.4: 20
 - 3.1: 19
 - 3.2: 12
-- Cross-domain: 10
-- 3.5: 9
+- Cross-domain: 11
+- 3.5: 10
+- CS-CT: 9
 - Three-Dimensional Teaching: 9
-- CS-CT: 8
 - Professional Learning: 6
-- Assessment: 3
+- Assessment: 4
 - Project-Based Learning: 1
 
 ## By Resource Type
@@ -35,25 +35,27 @@ Generated: 2026-07-24
 - Assessment tool: 2
 - Engineering design challenge: 2
 - Standards unpacking tool: 1
+- Assessment guidance: 1
 - Watershed & outdoor learning: 1
 - Competition & design challenge: 1
 - Phenomena collection: 1
+- Engineering design curriculum: 1
 - Project-based learning unit: 1
 - MakerSpace integration: 1
 - Lab investigation: 1
 
 ## By Access
-- Free: 34
+- Free: 36
 - Registration: 9
 - Paid: 4
 - Workshop: 2
 
 ## By Confidence
-- High: 41
+- High: 43
 - Medium: 8
 
 ## By Publisher
-- Pennsylvania Department of Education: 6
+- Pennsylvania Department of Education: 7
 - PA Department of Conservation and Natural Resources: 2
 - Stroud Water Research Center: 2
 - NOAA: 2
@@ -79,6 +81,7 @@ Generated: 2026-07-24
 - Stanford Graduate School of Education (SCALE): 1
 - University of Colorado Boulder: 1
 - TeachEngineering (NSF / University of Colorado): 1
+- BirdBrain Technologies: 1
 - NSTA: 1
 - Buck Institute for Education: 1
 - Sustainable Forestry Initiative / PLT: 1
@@ -95,12 +98,13 @@ Generated: 2026-07-24
 
 ## Metadata Gaps (dimension tagging incomplete)
 
-45 of 49 records lack one or more dimension tags (DCIs/SEPs/CCCs). This is honest: portal-type and PD resources span dimensions and were deliberately left untagged rather than falsely tagged. The V2 standards-metadata pass should complete tagging for classroom-facing records:
+47 of 51 records lack one or more dimension tags (DCIs/SEPs/CCCs). This is honest: portal-type and PD resources span dimensions and were deliberately left untagged rather than falsely tagged. The V2 standards-metadata pass should complete tagging for classroom-facing records:
 
 - `sas-steels-hub`: missing disciplinaryCoreIdeas
 - `steels-foundation-boxes`: missing disciplinaryCoreIdeas, sciencePractices, crosscuttingConcepts
 - `steels-curriculum-frameworks`: missing disciplinaryCoreIdeas, sciencePractices, crosscuttingConcepts
 - `steels-assessment-toolkit`: missing disciplinaryCoreIdeas, crosscuttingConcepts
+- `pa-firefly`: missing disciplinaryCoreIdeas, sciencePractices, crosscuttingConcepts
 - `steels-safety-guide`: missing disciplinaryCoreIdeas, sciencePractices, crosscuttingConcepts
 - `pde-science-standards-page`: missing disciplinaryCoreIdeas, sciencePractices, crosscuttingConcepts
 - `pdesas-portal`: missing disciplinaryCoreIdeas, sciencePractices, crosscuttingConcepts
@@ -129,6 +133,7 @@ Generated: 2026-07-24
 - `concord-consortium`: missing disciplinaryCoreIdeas, sciencePractices, crosscuttingConcepts
 - `codap`: missing disciplinaryCoreIdeas
 - `teachengineering`: missing crosscuttingConcepts
+- `birdbrain-hummingbird-learning`: missing crosscuttingConcepts
 - `nsta`: missing disciplinaryCoreIdeas, sciencePractices, crosscuttingConcepts
 - `pblworks`: missing disciplinaryCoreIdeas, sciencePractices, crosscuttingConcepts
 - `project-learning-tree`: missing disciplinaryCoreIdeas, sciencePractices, crosscuttingConcepts

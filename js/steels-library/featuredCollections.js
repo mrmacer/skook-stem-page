@@ -33,6 +33,7 @@ const featuredCollections = [
     "description": "Hands-on engineering design challenges for the 3.5 standards — the domain most PA teachers never trained for.",
     "resourceIds": [
       "teachengineering",
+      "birdbrain-hummingbird-learning",
       "smithsonian-makerspaces",
       "exploratorium-tinkering",
       "pblworks"
@@ -43,6 +44,7 @@ const featuredCollections = [
     "title": "Assessment & Student Evidence",
     "description": "Three-dimensional performance tasks, rubrics, and the tools to build your own.",
     "resourceIds": [
+      "pa-firefly",
       "steels-assessment-toolkit",
       "snap-assessments",
       "wonder-of-science",
@@ -172,6 +174,7 @@ const featuredCollections = [
     "title": "MakerSpace Integration",
     "description": "Making with standards attached — challenges and tinkering built for makerspace programs.",
     "resourceIds": [
+      "birdbrain-hummingbird-learning",
       "smithsonian-makerspaces",
       "teachengineering",
       "exploratorium-tinkering",

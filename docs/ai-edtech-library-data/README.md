@@ -82,9 +82,9 @@ node --check ../../js/ai-edtech-library/featuredCollections.js
 
 The public page loads those two generated files before `js/ai-edtech-library/ai-edtech-resource-library.js`. Generated files carry a warning header and must never be hand-edited.
 
-At the July 24, 2026 generation:
+At the November 18, 2026 generation:
 
-- 14 records were live-verified.
-- 63 records were catalog-review records queued for first live verification.
+- 16 records were live-verified.
+- 61 records were catalog-review records queued for first live verification.
 
 The public page exposes that distinction directly. It labels live checks as “Live verified,” catalog reviews as “Curated — live verification pending,” and states that inclusion is not IU29 or district approval.
